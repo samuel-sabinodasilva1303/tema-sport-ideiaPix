@@ -1,0 +1,39 @@
+.customPage{
+    .default{
+        background: #FFF;
+    }
+    .default-content{
+        span {
+            color: #2C2C2C;
+        }
+    .default-title > span{
+        color: var(--c_general_main);
+    }
+    }
+
+}
+.is-custom-page .default-title {
+    @include title-h1;
+    margin: 2.5rem 0;
+    border-color: var(--c_general_main);
+}
+
+.board_htm.description {
+    color: var(--c_general_tertiary);
+    padding-bottom: 4rem;
+
+    h1{
+        margin: 5px 0;
+    }
+    h2{
+        margin: 10px 0;
+    }
+    h3{
+        margin: 20px 0;
+    }
+
+    ol {
+        margin-left: 1.875rem;
+        margin-bottom: 1.875rem;
+    }
+}

@@ -1,0 +1,25 @@
+{% set is_topbar = settings.topBar_active %}
+
+{% if is_topbar %}
+    {% set text = settings.topbar_text|trim() != '' ? settings.topbar_text|trim()|slice(0,50) %}
+    {% set link = settings.topbar_link|trim() != '' ?  settings.topbar_link|trim() %}
+
+    {% set topbar_content %}
+        {% if text %}
+            <div class="header-topbar__content">
+                {{ link ? '<a class="header-topbar__link" href="{{ link }}">' }}
+                    <span class="header-topbar__text">{{ text }}</span>
+                {{ link ? '</a>' }}
+            </div>
+        {% else %}
+            {% element 'snippets/advantage-rule' { 'is_top': true } %}
+        {% endif %}
+    {% endset %}
+
+    <div class="header-topbar">
+        <div class="header-topbar__container">
+            {{ topbar_content }}
+            {% element 'snippets/header-contact' { 'is_top': true } %}
+        </div>
+    </div>
+{% endif %}

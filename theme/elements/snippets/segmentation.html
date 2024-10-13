@@ -1,0 +1,63 @@
+{% if categories | length > more_quantity %}
+    {% set open_categories = categories | slice(0, more_quantity) %}
+    {% set open_categories = categories | slice(more_quantity) %}
+{% else %}
+    {% set open_categories = categories %}
+    {% set plus_quantity = null %}
+{% endif %}
+
+{% if settings.show_seg %}
+    {% set firstIcone = 1 %}
+{% endif %}
+
+{% if settings.show_seg %}
+    <div class="segmentation-background">
+        <div class="segmentation-main container section showcase" data-slides="segmentation">
+            <div class="segmentation-main-title">
+                <span class="segmentation-title">{{ settings.segmentation_title }}</span>
+                <p class="segmentation-subtitle">{{ settings.segmentation_subtitle }}</p>
+            </div>
+            <div class="segmentation-wrapper">
+                <div class="segmentation-arrows segmentation-arrows--prev slides-buttonPrev--segmentation">
+                    <svg width="25" height="25" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.475 14.4751C8.3375 14.3376 8.2655 14.1626 8.259 13.9501C8.253 13.7376 8.31875 13.5626 8.45625 13.4251L12.1312 9.7501H3.75C3.5375 9.7501 3.35925 9.6781 3.21525 9.5341C3.07175 9.3906 3 9.2126 3 9.0001C3 8.7876 3.07175 8.60935 3.21525 8.46535C3.35925 8.32185 3.5375 8.2501 3.75 8.2501H12.1312L8.45625 4.5751C8.31875 4.4376 8.253 4.2626 8.259 4.0501C8.2655 3.8376 8.3375 3.6626 8.475 3.5251C8.6125 3.3876 8.7875 3.31885 9 3.31885C9.2125 3.31885 9.3875 3.3876 9.525 3.5251L14.475 8.4751C14.55 8.5376 14.6033 8.6156 14.6348 8.7091C14.6658 8.8031 14.6813 8.9001 14.6813 9.0001C14.6813 9.1001 14.6658 9.19385 14.6348 9.28135C14.6033 9.36885 14.55 9.4501 14.475 9.5251L9.525 14.4751C9.3875 14.6126 9.2125 14.6813 9 14.6813C8.7875 14.6813 8.6125 14.6126 8.475 14.4751Z" fill=""/>
+                    </svg>
+                </div>
+                <div class="segmentation-main-icons segmentation swiper">
+                    <div class="swiper-wrapper">
+                        {% for category in open_categories %}
+                        {% set segIcons = attribute(settings, 'imageSegmentation_' ~ firstIcone) %}
+                        {% set segIconsHover = attribute(settings, 'imageSegmentationHover_' ~ firstIcone) %}
+                        {% set segTitle = attribute(settings, 'segmentation_title_' ~ firstIcone) %}
+                        {% set seglink = attribute(settings, 'segmentation_link_' ~ firstIcone) %}
+
+                        {% if segIcons and segIconsHover %}
+                            <div class="swiper-slide">
+                            <a class="segmentation-link" href="{{ seglink }}">
+                                <figure>
+                                {% if segIcons %}
+                                    <img class="segmentation-icon" width="44" height="44" src="{{ asset(segIcons) }}" loading="lazy" alt="{{ segTitle }} icon">
+                                {% endif %}
+                                {% if segIconsHover %}
+                                    <img class="segmentation-icon-hover" width="44" height="44" src="{{ asset(segIconsHover) }}" loading="lazy" alt="{{ segTitle }} icon hover">
+                                {% endif %}
+                                </figure>
+                                <p class="segmentation-category-title">{{ segTitle }}</p>
+                            </a>
+                            </div>
+                        {% endif %}
+
+                        {% set firstIcone = firstIcone + 1 %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="segmentation-arrows segmentation-arrows--next slides-buttonNext--segmentation">
+                    <svg width="25" height="25" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.475 14.4751C8.3375 14.3376 8.2655 14.1626 8.259 13.9501C8.253 13.7376 8.31875 13.5626 8.45625 13.4251L12.1312 9.7501H3.75C3.5375 9.7501 3.35925 9.6781 3.21525 9.5341C3.07175 9.3906 3 9.2126 3 9.0001C3 8.7876 3.07175 8.60935 3.21525 8.46535C3.35925 8.32185 3.5375 8.2501 3.75 8.2501H12.1312L8.45625 4.5751C8.31875 4.4376 8.253 4.2626 8.259 4.0501C8.2655 3.8376 8.3375 3.6626 8.475 3.5251C8.6125 3.3876 8.7875 3.31885 9 3.31885C9.2125 3.31885 9.3875 3.3876 9.525 3.5251L14.475 8.4751C14.55 8.5376 14.6033 8.6156 14.6348 8.7091C14.6658 8.8031 14.6813 8.9001 14.6813 9.0001C14.6813 9.1001 14.6658 9.19385 14.6348 9.28135C14.6033 9.36885 14.55 9.4501 14.475 9.5251L9.525 14.4751C9.3875 14.6126 9.2125 14.6813 9 14.6813C8.7875 14.6813 8.6125 14.6126 8.475 14.4751Z" fill=""/>
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,36 @@
+.header-topbar {
+    background-color: var(--c_topbar_bg);
+    transition: $transit_default;
+
+    &__container {
+        padding-block: 5px;
+        width: calc(100% - 30px);
+        max-width: 1260px;
+        margin-inline: auto;
+        display: flex;
+        align-items: center;
+        gap: 0 20px;
+
+        @include mobile {
+            min-height: 35px;
+        }
+    }
+
+    &__text {
+        color: var(--c_topbar_link);
+        font-size: 14px;
+        line-height: 15px;
+    }
+
+    @include desktop {
+        &[data-scroll='true'] {
+            margin-top: -45px;
+        }
+    }
+
+    @include mobile {
+        &[data-scroll='true'] {
+            margin-top: -35px;
+        }
+    }
+}

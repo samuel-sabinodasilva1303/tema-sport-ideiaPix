@@ -1,0 +1,49 @@
+.product-price {
+    margin-top: 10px;
+
+    > s {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 19px;
+        display: block;
+        color: var(--c_general_tertiary);
+    }
+
+    &__current {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 21px;
+        display: block;
+        color: var(--c_showcase_price_main);
+
+        > em {
+            font-size: 19px;
+        }
+    }
+
+    &,
+    &__installments {
+        padding-inline: 8px;
+    }
+
+    &__installments {
+        margin-top: 10px;
+        font-size: 14px;
+        color: var(--c_general_tertiary);
+        font-weight: 400;
+        line-height: 15px;
+
+        strong {
+            font-weight: 500;
+        }
+
+        .operadora {
+            text-transform: lowercase;
+        }
+
+        > br:first-of-type,
+        .txt-forma-pagamento {
+            display: none;
+        }
+    }
+}

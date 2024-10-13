@@ -1,0 +1,17 @@
+{% if settings.show_instagram %}
+    <div class="instagram-main">
+        <div class="instagram-container container">
+            <div class="instagram-container-title">
+                <h2 class="instagram__title section-title">
+                    <a href="{{ settings.instagram_profile }}" class="instagram__link">{{ settings.instagram_title }}</a>
+                </h2>
+            </div>
+            <div class="instagram-container-script">
+                {{ settings.instagram_posts | replace({ 'iframe src': 'iframe data-src', 'class="' : 'class="lazyload ' }) }}
+            </div>
+            <div class="instagram-container-script-mobile">
+                {{ settings.instagram_posts_mobile | replace({ 'iframe src': 'iframe data-src', 'class="' : 'class="lazyload ' }) }}
+            </div>
+        </div>
+    </div>
+{% endif %}

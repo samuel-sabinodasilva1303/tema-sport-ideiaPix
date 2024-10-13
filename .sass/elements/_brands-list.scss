@@ -1,0 +1,42 @@
+.brands-list {
+    background-color: #f2f5f5;
+    padding-block: 15px;
+    transition: $transit_default;
+
+    &:not(.show) {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__container {
+        max-width: 1260px;
+        width: calc(100% - 30px);
+        margin-inline: auto;
+    }
+
+    &__item {
+        align-self: center;
+        display: grid;
+        place-items: center;
+        aspect-ratio: 177/100;
+        width: 100%;
+        max-height: 100px;
+        max-width: 177px;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__link {
+        display: contents;
+    }
+
+    .swiper {
+        &-wrapper.jcc {
+            justify-content: center;
+        }
+    }
+}

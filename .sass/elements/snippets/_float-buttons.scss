@@ -1,0 +1,119 @@
+.float-buttons {
+    will-change: left, right;
+    position: fixed;
+    bottom: 18%;
+    z-index: 9;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px 0;
+    flex-flow: column;
+    transition: all 111ms ease-in-out;
+
+    &:not([class*='side-']) {
+        opacity: 0;
+        visibility: hidden;
+        left: unset;
+        right: unset;
+    }
+
+    &.side-l,
+    &.side-r {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &.side-l {
+        left: -5%;
+        animation: 1s rtl 600ms forwards;
+    }
+
+    &.side-r {
+        right: -5%;
+        animation: 1s ltr 600ms forwards;
+    }
+
+    &__btn {
+        display: grid;
+        place-items: center;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        box-shadow: 0 6px 8px rgb(0 0 0 / 0.1);
+        transition: all 222ms ease-in-out;
+
+        &--back-top {
+            background-color: #f7f7f7;
+            color: #565c69;
+
+            &[data-show='false'] {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+
+        &--instagram {
+            background-image: radial-gradient(
+                circle at 33% 100%,
+                #fed373 4%,
+                #f15245 30%,
+                #d92e7f 62%,
+                #9b36b7 85%,
+                #515ecf
+            );
+        }
+
+        &--whatsapp {
+            background-color: #25d366;
+            color: #fff;
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                animation: bounce 2s ease infinite;
+            }
+        }
+    }
+}
+
+@keyframes ltr {
+    from {
+        right: -5%;
+    }
+    to {
+        right: 1%;
+    }
+}
+
+@keyframes rtl {
+    from {
+        left: -5%;
+    }
+    to {
+        left: 1%;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0%);
+    }
+    10% {
+        transform: translateY(-15%);
+    }
+    20% {
+        transform: translateY(0%);
+    }
+    25% {
+        transform: translateY(-7%);
+    }
+    27% {
+        transform: translateY(0%);
+    }
+    29% {
+        transform: translateY(-3%);
+    }
+    30% {
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,112 @@
+{% set excludedIDs = [] %}
+
+{% set highlight_show = false %}
+
+{% set limit = 8 %}
+
+{% set depart_position = settings.depart_position ? settings.depart_position : 'left' %}
+
+{% set depart_label = settings.depart_label|trim() != '' ? settings.depart_label|slice(0,25)|trim() : 'Departamentos' %}
+
+{% set depart_icon = settings.depart_icon %}
+
+{% set depart_icon_hover = settings.depart_icon_hover %}
+
+{% set icon_show = settings.show_iconography %}
+
+{% if settings.show_filter_exclude_ids and settings.filter_category_id|split(',')[0] %}
+    {% set excludedIDs = excludedIDs|merge(settings.filter_category_id|split(',')) %}
+{% endif %}
+
+{% if settings.excluded_category|split(',')[0] %}
+    {% set excludedIDs = excludedIDs|merge(settings.excluded_category|split(',')) %}
+{% endif %}
+
+{% if settings.category_highlight_show and settings.category_highlight_id|trim() %}
+    {% set excludedIDs = excludedIDs|merge([settings.category_highlight_id|trim()]) %}
+    {% set highlight_item = Categories({ "id": settings.category_highlight_id }) %}
+    {% set highlight_icon = settings.category_highlight_icon %}
+    {% set highlight_position = depart_position == 'left' ? 'right' : 'left' %}
+    {% set highlight_label = settings.category_highlight_label|trim() != '' ? settings.category_highlight_label|trim()|slice(0,25) : highlight_item.name|slice(0,25) %}
+    {% set highlight_show = highlight_item ? true : false %}
+    {% set limit = highlight_item and icon_show ? 6 : highlight_item and not icon_show ? 7 : 8 %}
+{% endif %}
+
+{% set depart %}
+    <div class="menu__item menu__item--depart {{ depart_position }}">
+        {% if icon_show and (depart_icon or depart_icon_hover) %}
+            <i class="menu__icon{{ depart_icon and depart_icon_hover ? ' menu__icon--hover' }}">
+                {{ depart_icon ? '<img src="'~ asset(depart_icon) ~'" width="23" height="23" alt="icon_depart" loading="true"/>' }}
+                {{ depart_icon_hover ? '<img src="'~ asset(depart_icon_hover) ~'" width="23" height="23" alt="icon_depart" loading="true"/>' }}
+            </i>
+        {% endif %}
+
+        <p class="menu__depart-label">{{ depart_label }}</p>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" fill="none" viewBox="0 0 9 6">
+            <path fill="currentColor" d="M4.24 3.17 7.07.34 8.5 1.76 4.24 6 0 1.76 1.42.34l2.82 2.83Z"/>
+        </svg>
+
+        {% element 'snippets/menu-dropdown' {'type': 'full', 'removeIds': excludedIDs } %}
+
+    </div>
+{% endset %}
+
+{% set category_highlight %}
+    {% if highlight_show %}
+        <div class="menu__item menu__item--highlight {{ highlight_position }}">
+            <a href="{{ highlight_item.link }}" title="{{ highlight_label }}" class="menu__link--highlight">
+                {{ highlight_icon and icon_show ? '<i class="menu__icon"><img src="'~ asset(highlight_icon) ~'" width="23" height="23" alt="icon_highlight" loading="lazy" /></i>' }}
+                <span>{{ highlight_label }}</span>
+            </a>
+        </div>
+    {% endif %}
+{% endset %}
+
+<nav class="menu _desktop" id="menu">
+    <div class="menu__content">
+
+        {% if depart_position == 'left' %}{{ depart }}{% endif %}
+        {% if depart_position == 'right' %}{{ category_highlight }}{% endif %}
+
+        {% for category in categories if category.id not in excludedIDs %}
+            {% if loop.index <= limit %}
+
+                {% set icon = attribute(settings, 'menuIcon_' ~ loop.index ) %}
+                {% set icon_hover = attribute(settings, 'menuIconHover_' ~ loop.index ) %}
+
+                <div class="menu__item">
+
+                    <a href="{{ category.link }}" title="{{ category.name }}" class="menu__link">
+                        {% if icon_show and (icon or icon_hover) %}
+                            <i class="menu__icon{{ icon and icon_hover ? ' menu__icon--hover' }}">
+                                {{ icon ? '<img src="'~ asset(icon) ~'" width="23" height="23" alt="icon_img" loading="lazy" />' }}
+                                {{ icon_hover ? '<img src="'~ asset(icon_hover) ~'" width="23" height="23" alt="icon_img" loading="lazy" />' }}
+                            </i>
+                        {% endif %}
+                        <h2>{{ category.name }}</h2>
+
+                        {% if category.children[0] %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" fill="none" viewBox="0 0 9 6">
+                                <path fill="currentColor" d="M4.24 3.17 7.07.34 8.5 1.76 4.24 6 0 1.76 1.42.34l2.82 2.83Z"/>
+                            </svg>
+                        {% endif %}
+
+                    </a>
+
+                    {% if category.children[0] %}
+                        {% set init_img = category.images[0] %}
+                        {% set init_link = category.link %}
+                        {% element 'snippets/menu-dropdown' {'removeIds': excludedIDs ,'submenu': category.children, 'init_img': init_img , 'init_link': init_link, 'category_id': category.id } %}
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+        {% endfor %}
+
+        {% if depart_position == 'right' %}{{ depart }}{% endif %}
+        {% if depart_position == 'left' %}{{ category_highlight }}{% endif %}
+
+    </div>
+</nav>

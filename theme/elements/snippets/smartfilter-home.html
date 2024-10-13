@@ -1,0 +1,50 @@
+{% if settings.show_filter_home %}
+    {% set first_options = [] %}
+    {% set title = settings.filter_title|trim() != '' ? settings.filter_title|trim() : 'Busque peças pelo modelo do seu veículo' %}
+    {% set placeholder_1 = settings.filter_placeholder_first|trim() != '' ? settings.filter_placeholder_first|trim() : 'Marca' %}
+    {% set placeholder_2 = settings.filter_placeholder_second|trim() != '' ? settings.filter_placeholder_second|trim() : 'Modelo' %}
+    {% set placeholder_3 = settings.filter_placeholder_third|trim() != '' ? settings.filter_placeholder_third|trim() : 'Ano'  %}
+    {% set category_ids = settings.filter_category_id|trim()|split(',') %}
+
+    {% if category_ids|length > 0 %}
+
+        {% for id in category_ids %}
+
+            {% set category = Categories({"id": id }) %}
+
+            {% set first_options = first_options|merge([{'id': id, 'link': category.link, 'name': category.name }]) %}
+
+        {% endfor %}
+
+    {% endif %}
+
+    {% if first_options[0] %}
+
+        <div class="smartfilter-home">
+            <div class="smartfilter-home__container">
+                <h3 class="smartfilter-home__title">{{ title }}</h3>
+                <div class="smartfilter-home__content">
+
+                    <select aria-label="selecione {{ placeholder_1}}" autocomplete="off" class="smartfilter-home__select">
+                        <option value="" selected hidden>{{ placeholder_1 }}</option>
+                        {% for option in first_options %}
+                            <option value="{{ option.id }}" data-url="{{ option.link }}">{{ option.name }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <select aria-label="selecione {{ placeholder_2 }}" autocomplete="off" class="smartfilter-home__select" disabled>
+                        <option value="" selected hidden>{{ placeholder_2 }}</option>
+                    </select>
+
+                    <select aria-label="selecione {{ placeholder_3 }}" autocomplete="off" class="smartfilter-home__select" disabled>
+                        <option value="" selected hidden>{{ placeholder_3 }}</option>
+                    </select>
+
+                    <button class="smartfilter-home__btn" type="button" disabled>Buscar</button>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+
+{% endif %}

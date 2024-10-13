@@ -1,0 +1,55 @@
+.banner-first {
+    $root: &;
+    padding-block: 15px;
+
+    &__container {
+        max-width: 1260px;
+        width: calc(100% - 30px);
+        margin-inline: auto;
+
+        &--mosaic {
+            display: grid;
+            gap: clamp(8px, 1.2vw, 20px);
+            grid-template-areas: 'f s s' 'f t t';
+            place-content: center;
+            place-items: center;
+
+            #{$root}__item {
+                &:nth-child(1) {
+                    grid-area: f;
+                }
+                &:nth-child(2) {
+                    grid-area: s;
+                }
+                &:nth-child(3) {
+                    grid-area: t;
+                }
+            }
+        }
+
+        &:not(&--mosaic) {
+            #{$root}__item:not(:first-child) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &__link {
+        display: contents;
+
+        @media (hover: hover) {
+            &:hover {
+                img {
+                    transform: scale(1.01);
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+
+    &__item {
+        img {
+            transition: $transit_default;
+        }
+    }
+}

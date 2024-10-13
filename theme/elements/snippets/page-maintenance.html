@@ -1,0 +1,94 @@
+
+
+{% if settings.show_page_maintenance %}
+{% set email = Translation('ag_email_1') %}
+{% set whatsApp = Translation('ag_telefone_2') %}
+
+<div class="maintenance-container" >
+    <div class="maintenance-infos">
+        <h1>Oops!</h1>
+        <h2>Nossa loja est&#x00E1; em manuten&#x00E7;&#x00E3;o nesse momento. </h2>
+        <p>Espero ve-l&#x00F4; novamente em breve!</p>
+        <div class="maintenance-contact">
+            {% if email %}
+                <div>
+                    <strong>E-mail: </strong><a href="mailto:{{ email }}">{{ email }}</a>
+                </div>
+            {% endif %}
+            {% if whatsApp %}
+            {% set link = whatsApp | replace({'(': '', ')': '', '-': '', ' ': ''})%}
+                <div>
+                    <strong>Whatsapp: </strong><a href="https://api.whatsapp.com/send?l=pt&phone=55{{ link }}">{{ whatsApp }}</a>
+                </div>
+            {% endif %}
+            {% if settings.instagram_profile %}
+                <div>
+                    <strong>Instagram: </strong><a href="{{ settings.instagram_profile }}">{{ settings.instagram_profile }}</a> 
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="maintenance-image">
+        <img src="{{ asset('/img/manutencao.png') }}"  alt="Site em manutenção"/>
+    </div> 
+</div>
+{% endif %}
+
+<style>
+    .maintenance-container{
+        background-color: var(--c_general_background);
+    }
+    .maintenance-infos{
+        color: var(--c_general_secondary);
+        width: 50%;
+        margin-left: 10em;
+    }
+    .maintenance-infos h1{
+        font-weight: 900;
+        font-size: 100px;
+    }
+    .maintenance-infos h2{
+        font-size: 27px;
+    }
+    .maintenance-infos p{
+        font-size: 27px;
+    }
+    .maintenance-contact{
+        margin-top: 1em;
+        display: grid;
+    }
+    .maintenance-contact a{
+        cursor: pointer;
+        color: var(--c_general_secondary);
+        font-size: 18px;
+    }
+    .maintenance-contact a:hover{
+        color: var(--c_general_main);
+    }
+    .maintenance-contact strong{
+        font-size: 20px;
+    }
+    .maintenance-container{
+        display: flex;
+    } 
+    .maintenance-image img{
+        margin-top: 5em;
+        width: 90%;
+        height: 90%;
+    }
+    @media (max-width: 768px) {
+        .maintenance-image img{
+        width: 90%;
+        height: 90%;
+    } 
+    .maintenance-container{
+        display: block;
+    }
+    .maintenance-infos{
+        margin: 0;
+        width: 100%;
+        padding: 0 15px;
+    }
+}
+   
+</style>

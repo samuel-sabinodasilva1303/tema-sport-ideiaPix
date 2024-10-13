@@ -1,0 +1,122 @@
+.page-search {
+    .button2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-radius: 45px;
+        width: 96%;
+        height: 100%;
+        border: 2px solid var(--c_buy_button_bg);
+        background-color: var(--c_buy_button_bg);
+        color: var(--c_buy_button_text);
+    }
+    .blocoAlerta {
+        text-align: center;
+        background-color: #fef1d6;
+        color: #ff0000;
+    }
+
+    #vitrine-catalogo {
+        .Seguro {
+            display: none;
+        }
+
+        h3 {
+            @extend %subtitle-h3;
+            color: var(--c_general_main);
+            opacity: 1;
+            transition: $transit_default;
+
+            &:hover {
+                opacity: 0.6;
+            }
+
+            + br {
+                display: none;
+            }
+        }
+
+        .board {
+            border-bottom: none;
+            h1 {
+                @include title-h1;
+                border-color: var(--c_general_main);
+                text-align: left;
+            }
+        }
+
+        .container2 {
+            .board {
+                .left,
+                .right {
+                    padding: 0;
+                }
+            }
+        }
+
+        div > .container {
+            display: none;
+        }
+    }
+
+    #Vitrine {
+        form {
+            @include fontInsert(1, 400);
+            background-color: #e0e0e0;
+            color: #7A7A7A;
+            border-radius: 0.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2.5rem;
+
+            fieldset {
+                padding: 0;
+                margin: 0;
+                border: 0;
+
+                br:first-child:not(p *) {
+                    display: none;
+                }
+
+                p {
+                    margin: 30px 0;
+                }
+            }
+
+            @include checkbox-square;
+
+            input {
+                &[type='text'] {
+                    background-color: #ECEFF5;
+                    border-radius: 2px;
+                    margin: 0.5rem 0;
+                    padding: 0.5rem 1rem;
+                    width: calc(100% - 2rem);
+
+                    &:focus {
+                        box-shadow: inset 0 0 4px #7A7A7A;
+                    }
+                }
+
+                &[type='checkbox'].campoform {
+                    margin-left: 1rem;
+
+                    + label {
+                        display: inline-grid;
+                        padding: 0.5rem 0 0.5rem 0.5rem;
+                    }
+                }
+
+                &[type='image'] {
+                    @extend .button2;
+                }
+            }
+
+            select {
+                @extend %select;
+                width: 100%;
+            }
+        }
+    }
+}

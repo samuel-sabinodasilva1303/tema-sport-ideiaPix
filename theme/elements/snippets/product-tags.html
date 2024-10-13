@@ -1,0 +1,38 @@
+{% if settings.show_product_tag_on_listing %}
+    {% set replaceTags = {'src=': 'width="80" height="22" alt="Selo do produto" src='} %}
+    {% set discount = product.price_offer > 0 ? (100 - (product.price_offer / product.price) * 100) : false %}
+
+    <div class="product-tags">
+
+        {{ discount ? '<div class="product-tags__discount">-'~ discount|number_format ~'%</div>' : '' }}
+
+        <ul class="product-tags__list">
+
+            {% if product.new %}
+                <li class="product-tags__tag product-tags__tag--new">
+                    {{ Image('new') ? (Image('new') | replace(replaceTags)) : "<span>Lan&ccedil;amento</span>" }}
+                </li>
+            {% endif %}
+
+            {% if product.featured %}
+                <li class="product-tags__tag product-tags__tag--featured">
+                    {{ Image('featured') ? (Image('featured') | replace(replaceTags)) : "<span>Destaque</span>" }}
+                </li>
+            {% endif %}
+
+            {% if product.additional_button %}
+                <li class="product-tags__tag product-tags__tag--additional">
+                    {{ Image('additional_button') ? (Image('additional_button')| replace(replaceTags)) :  '<span>'~ settings.text_additional|slice(0,15) ~'</span>' }}
+                </li>
+            {% endif %}
+
+            {% if product.free_shipping %}
+                <li class="product-tags__tag product-tags__tag--free-shipping">
+                    {{ Image('free_shipping') ? (Image('free_shipping') | replace(replaceTags)) : "<span>Frete gr&aacute;tis</span>" }}
+                </li>
+            {% endif %}
+
+        </ul>
+    </div>
+
+{% endif %}

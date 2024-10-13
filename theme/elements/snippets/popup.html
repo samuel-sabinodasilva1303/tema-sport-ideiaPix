@@ -1,0 +1,113 @@
+{% if settings.newsletterPopup_active %}
+  {% set newsletterpopup = settings.newsletterPopupBg ? 'url(' ~ asset(settings.newsletterPopupBg) ~ ')' : settings.newsletterBgColor %}
+  {% if settings.newsletter_icon %} 
+    <div class="popup-up-main">
+      {% if settings.newsletter_option == "newsletter_banner_lateral" %}
+        <div class="pop-up-img ">
+      {% elseif settings.newsletter_option == "newsletter_banner_full" %}
+        <div class="pop-up-img imagem_full">
+
+      {% elseif settings.newsletter_option == "newsletter_banner_topo" %}
+        <div class="pop-up-img image_topo">
+      {% endif %}
+
+        <section class="pop-up-section">  
+      
+          <div>
+            <svg data-popup-close class=pop-up__close width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="15.5" cy="15.5" r="15.5" fill="none"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.6066 15.5L10 20.1066L10.8934 21L15.5 16.3934L20.1066 21L21 20.1066L16.3934 15.5L21 10.8934L20.1066 10L15.5 14.6066L10.8934 10L10 10.8934L14.6066 15.5Z" fill="#000"/>
+            </svg>
+          </div> 
+            {% if settings.newsletter_option == "newsletter_banner_lateral" %}
+              <div class="pop-up__text-img">
+                <img src="{{ asset(settings.newsletter_icon) }}" alt="">
+                <form method="POST" action="/mvc/store/newsletter/" name="newsletter" data-tray-tst="newsletter_form" class="text__form">
+                  <div class="textContent">
+                    <strong class="text__title">{{ settings.newsletterPopup_title }}</strong>
+                    <strong class="text__subtitle">{{ settings.newsletterPopup_subtitle }}</strong>
+                  </div> 
+                  <input type="text" name="name" placeholder="Nome" class="text__input" required>
+                  <input type="email" name="email" placeholder="E-mail" data-tray-tst="newsletter_email" class="text__input" required>
+                  <div class="btnSty">
+                    <button type="submit" data-tray-tst="newsletter_cadastrar" class="text__button" >
+                        Enviar            
+                      </button>
+                  </div>
+                </form>
+              </div>
+            {% elseif settings.newsletter_option == "newsletter_banner_full" %}
+              <div class="pop-up__text-img newsletter_banner_full">
+                <img src="{{ asset(settings.newsletter_icon) }}" alt="">
+                <form method="POST" action="/mvc/store/newsletter/" name="newsletter" data-tray-tst="newsletter_form" class="text__form">
+                  <div class="textContent">
+                    <strong class="text__title">{{ settings.newsletterPopup_title }}</strong>
+                    <strong class="text__subtitle">{{ settings.newsletterPopup_subtitle }}</strong>
+                  </div>
+                  <div class="pop-up__text-inputs">
+                    <input type="text" name="name" placeholder="Nome" class="text__input" required>
+                    <input type="email" name="email" placeholder="E-mail" data-tray-tst="newsletter_email" class="text__input" required>
+                    <div class="btnSty">
+                      <button type="submit" data-tray-tst="newsletter_cadastrar" class="text__button" >
+                          Enviar            
+                        </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            {% elseif settings.newsletter_option == "newsletter_banner_topo" %}
+              <div class="pop-up__text-img newsletter_banner_topo">
+                <img src="{{ asset(settings.newsletter_icon) }}" alt="">
+                <form method="POST" action="/mvc/store/newsletter/" name="newsletter" data-tray-tst="newsletter_form" class="text__form">
+                  <div class="textContent">
+                    <strong class="text__title">{{ settings.newsletterPopup_title }}</strong>
+                    <strong class="text__title">{{ settings.newsletterPopup_subtitle }}</strong>
+                  </div>
+                  <div class="pop-up__text-inputs">
+                    <input type="text" name="name" placeholder="Nome" class="text__input" required>
+                    <input type="email" name="email" placeholder="E-mail" data-tray-tst="newsletter_email" class="text__input" required>
+                    <div class="btnSty">
+                      <button type="submit" data-tray-tst="newsletter_cadastrar" class="text__button" >
+                          Enviar            
+                        </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            {% endif %}
+        </section>      
+      </div>
+    </div>        
+  {% else %}
+    <div class="popup-up-main">
+      <div class="pop-up">
+
+        <section class="pop-up-section">
+
+          <div>
+            <svg data-popup-close class=pop-up__close width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="15.5" cy="15.5" r="15.5" fill="none"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.6066 15.5L10 20.1066L10.8934 21L15.5 16.3934L20.1066 21L21 20.1066L16.3934 15.5L21 10.8934L20.1066 10L15.5 14.6066L10.8934 10L10 10.8934L14.6066 15.5Z" fill="#000"/>
+            </svg>
+          </div>
+
+              <div class="pop-up__text">
+                <div class="textContent">
+                  <strong class="text__title">{{ settings.newsletter_title }}</strong>
+                  <strong class="text__subtitle">{{ settings.newsletter_subtitle }}</strong>
+                </div>
+                <form method="POST" action="/mvc/store/newsletter/" name="newsletter" data-tray-tst="newsletter_form" class="text__form">   
+                  <input type="text" name="name" placeholder="Nome" class="text__input" required>
+                  <input type="email" name="email" placeholder="E-mail" data-tray-tst="newsletter_email" class="text__input" required>
+                  <div class="btnSty">
+                    <button type="submit" data-tray-tst="newsletter_cadastrar" class="text__button" >
+                        Enviar            
+                      </button>
+                  </div>
+                </form>
+              </div>
+        </section>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

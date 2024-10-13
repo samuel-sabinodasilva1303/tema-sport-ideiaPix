@@ -1,0 +1,47 @@
+{% set id = product.id %}
+{% set shape = settings.image_shape ? settings.image_shape : 'square' %}
+{% set size = shape == 'portrait' ? ' width="282" height="355" ' :  shape == 'rectangle' ? 'width="282" height="215"' : 'width="282" height="282"'  %}
+{% set images = product.images %}
+{% set name = product.name %}
+{% set link = product.link %}
+{% set available = product.available %}
+{% set stock = product.stock %}
+{% set sale_without_stock = product.without_stock_sale %}
+{% set upon_request = product.upon_request %}
+
+<div class="product" data-product="{{ id }}">
+    <div class="product__frame product__frame--{{ shape }}">
+        <a href="{{ link }}" class="product__link">
+            {% if images %}
+                <img class="product__img lazyload" src="{{ asset('img/empty.png') }}" data-src="{{  images[0].full }}" {{ size }} alt="{{ name }}" >
+                {{ images[1] ? '<img src="'~ images[1].full ~'" '~ size ~'  alt="'~ name ~'" loading="lazy" class="product__img product__img--hover" >' }}
+            {% else %}
+                <svg class="product__img--no-image" xmlns="http://www.w3.org/2000/svg" width="180" height="182" fill="currentColor" viewBox="0 0 465 371"><path d="M186.57 191.88a67.56 67.56 0 1 0-67.56-67.56 67.64 67.64 0 0 0 67.56 67.56zm0-115.17a47.6 47.6 0 1 1 0 95.2 47.6 47.6 0 0 1 0-95.2z"/><path d="M415.1.87H49.9A49.95 49.95 0 0 0 0 50.77V320.2a49.95 49.95 0 0 0 49.9 49.9h365.2a49.95 49.95 0 0 0 49.9-49.9V50.76A49.95 49.95 0 0 0 415.1.86zM49.9 20.83h365.2a29.97 29.97 0 0 1 29.94 29.93v196.75l-59.7-84.6a49.9 49.9 0 0 0-81.02-.7l-67.96 92.78a29.87 29.87 0 0 1-40.8 7.18l-50.81-34a49.8 49.8 0 0 0-55.23-.18l-69.56 46.32V50.76A29.97 29.97 0 0 1 49.9 20.83zm365.2 329.31H49.9a29.97 29.97 0 0 1-29.94-29.94v-21.9l80.57-53.66a29.88 29.88 0 0 1 33.11.12l50.8 34a49.78 49.78 0 0 0 68.01-11.98l67.96-92.79a29.92 29.92 0 0 1 48.61.43l76.01 107.7v38.08a29.97 29.97 0 0 1-29.92 29.94z"/></svg>
+            {% endif %}
+        </a>
+
+        {% element 'snippets/product-tags' { 'product': product } %}
+
+    </div>
+
+    <a href="{{ link }}" class="product__link {{ product.price_offer > 0 ? 'is-offer': '' }}">
+
+        <h3 data-rows="{{ product.price_offer > 0 ? 2 : 3 }}" class="product__name">{{ name }}</h3>
+
+        {% element 'snippets/product-price' {'product': product} %}
+
+    </a>
+
+    {% if available and (stock > 0 or sale_without_stock) and not upon_request %}
+        {% if not no_buttons %}{% element 'snippets/product-actions' { 'product': product } %}{% endif %}
+    {% elseif upon_request %}
+        {% element 'snippets/product-message' {'product_message': 'Produto sob consulta'} %}
+    {% elseif stock <= 0 %}
+        {% element 'snippets/product-message' {'product_message': 'Produto indispon&iacute;vel'} %}
+    {% else %}
+        {% element 'snippets/product-message' {'product_message': 'Produto indispon&iacute;vel, avise-me quando chegar'} %}
+    {% endif %}
+
+    {% element 'snippets/compare' {'product':product} %}
+
+</div>

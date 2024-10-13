@@ -1,0 +1,24 @@
+{% set posi = settings.location_logo %}
+
+<header class="header" data-header="scroll">
+
+    {% element 'snippets/header-topbar' %}
+
+    <div class="header__container{{ posi ? ' center' }}">
+        <button aria-label="abrir menu" data-toggle="closed" data-target="#menu-mobile" class="_mobile header__btn-mobile"><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="24" height="16" viewBox="0 0 24 16"><path fill="#000" d="M.75 15.5V13h22.5v2.5H.75Zm0-6.25v-2.5h22.5v2.5H.75ZM.75 3V.5h22.5V3H.75Z"/></svg></button>
+
+        {% element 'snippets/logo' %}
+        {% element 'snippets/header-search' %}
+
+        <div class="header__right">
+            {% element 'snippets/header-track' %}
+            {% element 'snippets/header-contact' %}
+            {% element 'snippets/header-account' %}
+            {% element 'snippets/minicart-preview' %}
+        </div>
+
+    </div>
+
+    {% element 'snippets/menu' %}
+
+</header>

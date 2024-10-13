@@ -1,0 +1,16 @@
+{% set countdown_show = settings.show_countdown_spot %}
+{% set hasPromotion = product.onPromotion %}
+{% set limitDate = product.end_promotion|date('Y-m-d\TH:i') %}
+{% set currentDate = 'now'|date('Y-m-d\TH:i') %}
+{% set expired  = currentDate > limitDate %}
+
+{% if countdown_show and hasPromotion and not expired %}
+    <a href="{{ product.link }}" data-quick-buy="{{ is_quick_buy ? 'true' : 'false' }}" class="product-countdown" data-endPromo="{{ product.end_promotion }}" data-startPromo="{{ product.start_promotion }}">
+        <div class="product-countdown-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="28" height="29" viewBox="0 0 28 29">
+                <path fill="#fff" fill-rule="evenodd" d="M7.54 1.2c.47.58.37 1.43-.2 1.9L2.37 7.04A1.35 1.35 0 1 1 .69 4.94L5.65.98a1.35 1.35 0 0 1 1.9.22Zm12.74 0a1.35 1.35 0 0 1 1.9-.22l4.95 3.96a1.35 1.35 0 0 1-1.69 2.1L20.5 3.1a1.35 1.35 0 0 1-.21-1.9Zm-6.4 3.44a11.75 11.75 0 0 1 9.4 19.2l1.98 2a1.35 1.35 0 0 1-1.91 1.9l-1.98-1.98a1.43 1.43 0 0 1-.05-.05 11.75 11.75 0 0 1-7.41 2.42c-2.67 0-5.25-.9-7.31-2.55l-.15.18-1.98 1.97a1.35 1.35 0 0 1-1.9-1.9l1.97-1.98c.05-.06.11-.1.17-.15A11.75 11.75 0 0 1 13.9 4.64Zm-.1 20.8a9.05 9.05 0 0 1 .16-18.1 9.05 9.05 0 1 1-.16 18.1Zm.62-14.86c.75 0 1.35.6 1.35 1.35v4.95c0 .45-.22.87-.6 1.12l-2.96 1.98a1.35 1.35 0 0 1-1.5-2.24l2.36-1.58v-4.23c0-.74.6-1.35 1.35-1.35Z" clip-rule="evenodd"/>
+            </svg>
+        </div>
+        <div class="product-countdown-content"></div>
+    </a>
+{% endif %}

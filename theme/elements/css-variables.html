@@ -1,0 +1,149 @@
+<style>
+    html{
+
+        /* Cores Gerais */
+        --c_general_main: {{ settings.c_general_main ? settings.c_general_main : "#6d0fb7" }};
+        --c_general_secondary: {{ settings.c_general_secondary ? settings.c_general_secondary : "#6d0fb7"  }};
+        --c_general_tertiary: {{ settings.c_general_tertiary ? settings.c_general_tertiary : "#eceff5" }};
+        --c_general_background: {{ settings.c_general_background ? settings.c_general_background : "#fff" }};
+
+        --c_product_progressive_bg: {{ settings.c_product_progressive_bg ? settings.c_product_progressive_bg : "#4b4b4b" }};
+        --c_product_progressive_text: {{ settings.c_product_progressive_text ? settings.c_product_progressive_text : "#fff" }};
+        --c_product_fidelity_bg: {{ settings.c_product_fidelity_bg ? settings.c_product_fidelity_bg : "#d9d9d9" }};
+        --c_product_fidelity_text: {{ settings.c_product_fidelity_text ? settings.c_product_fidelity_text : "#000" }};
+        --c_product_buy_together_bg: {{ settings.c_product_buy_together_bg ? settings.c_product_buy_together_bg : "#f2f2f2" }};
+        --c_product_buy_together_text: {{ settings.c_product_buy_together_text ? settings.c_product_buy_together_text : "#595867" }};
+        --c_product_buy_together_text2: {{ settings.c_product_buy_together_text ? settings.c_product_buy_together_text ~ 'CC' : "#595867CC" }};
+
+        /*Aviso de Implantacao*/
+        --c_advice_bg: {{ settings.c_advice_bg ? settings.c_advice_bg : "#6d0fb7" }};
+        --c_advice_text: {{ settings.c_advice_text ? settings.c_advice_text : "#FFFFFF" }};
+        --c_button_close: {{ settings.c_button_close ? settings.c_button_close : "#FFFFFF" }};
+
+        /*Aviso de cookie*/
+        --c_cookie_bg: {{ settings.c_cookie_bg ? settings.c_cookie_bg : "#6d0fb7" }};
+        --c_cookie_text: {{ settings.c_cookie_text ? settings.c_cookie_text : "#FFFFFF" }};
+        --c_cookie_aceitar: {{ settings.c_cookie_aceitar ? settings.c_cookie_aceitar : "#2D9CDB" }};
+        --c_cookie_aceitar_text: {{ settings.c_cookie_aceitar_text ? settings.c_cookie_aceitar_text : "#fff" }};
+
+        /* Cabecalho */
+        --c_topbar_bg: {{ settings.c_topbar_bg ? settings.c_topbar_bg : "#6d0fb7" }};
+        --c_topbar_link: {{ settings.c_topbar_link ? settings.c_topbar_link : "#FFF" }};
+        --c_header_text_hover: {{ settings.c_header_text_hover ? settings.c_header_text_hover : "#5e50ff" }};
+        --c_header_bg: {{ settings.c_header_bg ? settings.c_header_bg : "#6d0fb7" }};
+        --c_header_icon: {{ settings.c_header_icon ? settings.c_header_icon : "#eceff5" }};
+        --c_bg_cart: {{ settings.c_bg_cart ? settings.c_bg_cart : "#000" }};
+        --c_text_cart: {{ settings.c_text_cart ? settings.c_text_cart : "#FFF" }};
+        --c_bg_searchbar: {{ settings.c_bg_searchbar ? settings.c_bg_searchbar : "#ECEFF5" }};
+        --c_header_text: {{ settings.c_header_text ? settings.c_header_text : "#ECEFF5" }};
+        --c_depart_bg: {{ settings.c_depart_bg ? settings.c_depart_bg : "#6d0fb7" }};
+        --c_depart_text: {{ settings.c_depart_text ? settings.c_depart_text : "#ECEFF5" }};
+        --c_depart_bg_hover: {{ settings.c_depart_bg_hover ? settings.c_depart_bg_hover : "#ECEFF5" }};
+        --c_depart_text_hover: {{ settings.c_depart_text_hover ? settings.c_depart_text_hover : "#ECEFF5" }};
+        --c_category_highlight_text: {{ settings.c_category_highlight_text ? settings.c_category_highlight_text : "#ECEFF5" }};
+        --c_category_highlight_bg: {{ settings.c_category_highlight_bg ? settings.c_category_highlight_bg : "#ff6347" }};
+
+
+        /* Menu de categorias */
+        --c_bg_menu: {{ settings.c_bg_menu ? settings.c_bg_menu : "#2C2C2C" }};
+        --c_font_menu: {{ settings.c_font_menu ? settings.c_font_menu : "#ECEFF5" }};
+        --c_font_menu_hover: {{ settings.c_font_menu_hover ? settings.c_font_menu_hover : "#2C2C2C" }};
+        --c_bg_dropdown: {{ settings.c_bg_dropdown ? settings.c_bg_dropdown : "#6d0fb7" }};
+        --c_bg_banner_dropdown: {{ settings.c_bg_banner_dropdown ? settings.c_bg_banner_dropdown : "#4B4B4B" }};
+        --c_firstleel_dropdown: {{ settings.c_firstlevel_dropdown ? settings.c_firstlevel_dropdown : "#FFB1C1" }};
+        --c_secondlevel_dropdown: {{ settings.c_secondlevel_dropdown ? settings.c_secondlevel_dropdown : "#ECEFF5" }};
+        --c_secondlevel_hover: {{ settings.c_secondlevel_hover ? settings.c_secondlevel_hover : "#000" }};
+        --c_bg_submenu: {{ settings.c_bg_submenu ? settings.c_bg_submenu : "#c7c7c7" }};
+
+        /* Regua de Vantagens */
+        --c_advantage_bg: {{ settings.c_advantage_bg ? settings.c_advantage_bg : "#6d0fb7" }};
+        --c_advantage_text_1: {{ settings.c_advantage_text_1 ? settings.c_advantage_text_1 : "#5e50ff" }};
+        --c_advantage_text_2: {{ settings.c_advantage_text_2 ? settings.c_advantage_text_2 : "##595867" }};
+
+        /* Segmentacao */
+        --c_segmentation_bg_name: {{ settings.c_segmentation_bg_name ? settings.c_segmentation_bg_name : "#6d0fb7" }};
+        --c_segmentation_title: {{ settings.c_segmentation_title ? settings.c_segmentation_title : "#4F4F4F" }};
+        --c_segmentation_text_name: {{ settings.c_segmentation_text_name ? settings.c_segmentation_text_name : "#4F4F4F" }};
+        --c_segmentation_arrows: {{ settings.c_segmentation_arrows ? settings.c_segmentation_arrows : "#5d367d" }};
+        --c_segmentation_border_options: {{ settings.c_segmentation_border_options ? settings.c_segmentation_border_options : "#5d367d" }};
+        --c_segmentation_border_options_hover: {{ settings.c_segmentation_border_options_hover ? settings.c_segmentation_border_options_hover : "#ECEFF5" }};
+        --c_segmentation_bottom_options: {{ settings.c_segmentation_bottom_options ? settings.c_segmentation_bottom_options : "#ffffff" }};
+        --c_segmentation_bottom_options_hover: {{ settings.c_segmentation_bottom_options_hover ? settings.c_segmentation_bottom_options_hover : "#ECEFF5" }};
+        --c_segmentation_text_options: {{ settings.c_segmentation_text_options ? settings.c_segmentation_text_options : "#4F4F4F" }};
+        --c_segmentation_text_options_hover: {{ settings.c_segmentation_text_options_hover ? settings.c_segmentation_text_options_hover : "#ECEFF5" }};
+
+         /* Selos */
+        --c_bg_seals: {{ settings.c_bg_seals ? settings.c_bg_seals : "#FFFFFF" }};
+        --c_text_seals: {{ settings.c_text_seals ? settings.c_text_seals : "#595867" }};
+        --c_bg_sealProgressiveDiscount: {{ settings.c_bg_progressiveSealDiscount ? settings.c_bg_progressiveSealDiscount : "#FFFFFF" }};
+        --c_text_sealProgressiveDiscount: {{ settings.c_text_sealProgressiveDiscount ? settings.c_text_sealProgressiveDiscount : "#595867" }};
+
+        /* destaque */
+        --c_bg_highlight: {{ settings.c_bg_highlight ? settings.c_bg_highlight : "#FFFFFF" }};
+        --c_text_highlight: {{ settings.c_text_highlight ? settings.c_text_highlight : "#595867" }};
+
+        /* frete */
+        --c_bg_portage: {{ settings.c_bg_portage ? settings.c_bg_portage : "#6d0fb7" }};
+        --c_text_portage: {{ settings.c_text_portage ? settings.c_text_portage : "#595867" }};
+
+        /* lancamento */
+        --c_bg_release: {{ settings.c_bg_release ? settings.c_bg_release : "#6d0fb7" }};
+        --c_text_release: {{ settings.c_text_release ? settings.c_text_release : "#595867" }};
+
+        /* fonte de selo adicional */
+        --c_bg_additional: {{ settings.c_bg_additional ? settings.c_bg_additional : "#FFFFFF" }};
+        --c_text_additional: {{ settings.c_text_additional ? settings.c_text_additional : "#595867" }};
+
+        /* Botoes padroes */
+        --c_default_button_bg: {{ settings.c_default_button_bg ? settings.c_default_button_bg : "#6d0fb7"}};
+        --c_default_button_text: {{ settings.c_default_button_text ? settings.c_default_button_text : "#fff"}};
+        --c_default_button_bg_hover: {{ settings.c_default_button_bg_hover ? settings.c_default_button_bg_hover : "#83c774"}};
+        --c_default_button_text_hover: {{ settings.c_default_button_text_hover ? settings.c_default_button_text_hover : "##ffffff"}};
+
+        /* Botoes de compra */
+        --c_buy_button_bg: {{ settings.c_buy_button_bg ? settings.c_buy_button_bg : "#000"}};
+        --c_buy_button_text: {{ settings.c_buy_button_text ? settings.c_buy_button_text : "#fff"}};
+        --c_buy_button_bg_hover: {{ settings.c_buy_button_bg_hover ? settings.c_buy_button_bg_hover : "#83c774"}};
+        --c_buy_button_text_hover: {{ settings.c_buy_button_text_hover ? settings.c_buy_button_text_hover : "#ffffff"}};
+        --c_buy_variation_bg: {{ settings.c_general_main ? settings.c_general_main ~ '0F' : "#2c2c2c0F" }};
+
+        /* Vitrines */
+        --c_showcase_product_name: {{ settings.c_showcase_product_name ? settings.c_showcase_product_name : "#2C2C2C" }};
+        --c_showcase_product_name_hover: {{ settings.c_showcase_product_name_hover ? settings.c_showcase_product_name_hover : "#000" }};
+        --c_showcase_price_main: {{ settings.c_showcase_price_main ? settings.c_showcase_price_main : "#000" }};
+        --c_bg_progressiveDiscount: {{ settings.c_bg_progressiveDiscount ? settings.c_bg_progressiveDiscount : "#000" }};
+        --c_bg_progressiveCounter: {{ settings.c_bg_progressiveCounter ? settings.c_bg_progressiveCounter : "#000" }};
+        --c_border_spot: {{ settings.c_border_spot ? settings.c_border_spot : "#000" }};
+
+        /* Newsletter */
+        --c_newsletter_title: {{ settings.c_newsletter_title ? settings.c_newsletter_title: '#2c2c2c' }};
+        --c_newsletter_subtitle: {{ settings.c_newsletter_subtitle ? settings.c_newsletter_subtitle: '#2c2c2c' }};
+        --c_bg_newsletter: {{ settings.c_bg_newsletter ? settings.c_bg_newsletter: '#fff' }};
+
+        /* Rodape */
+        --c_footer_bg: {{ settings.c_footer_bg ? settings.c_footer_bg : "#4B4B4B" }};
+        --c_footer_title: {{ settings.c_footer_title ? settings.c_footer_title : "#FFFFFF" }};
+        --c_footer_icon_attendance: {{ settings.c_footer_icon_attendance ? settings.c_footer_icon_attendance : "#fff" }};
+        --c_footer_link: {{ settings.c_footer_link ? settings.c_footer_link : "#FFFFFF" }};
+        --c_footer_link_hover: {{ settings.c_footer_link_hover ? settings.c_footer_link_hover : "#000" }};
+        --c_footer_text_attendance: {{ settings.c_footer_text_attendance ? settings.c_footer_text_attendance : "#FFFFFF" }};
+        --c_footer_icon_social: {{ settings.c_footer_icon_social ? settings.c_footer_icon_social : "#FFB1C1" }};
+        --c_footer_icon_social_hover: {{ settings.c_footer_icon_social_hover ? settings.c_footer_icon_social_hover : "#000" }};
+        --c_footer_copyright_text: {{ settings.c_footer_copyright_text ? settings.c_footer_copyright_text : "#ECEFF5" }};
+        --c_footer_copyright_fundo: {{ settings.c_footer_copyright_fundo ? settings.c_footer_copyright_fundo : "#ECEFF5" }};
+        --arrow_select: url("data:image/svg+xml,%3Csvg fill='%23{{ settings.text_input|replace({'#': ''}) }}' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 284.929 284.929'%3E%3Cpath d='M282.082,76.511l-14.274-14.273c-1.902-1.906-4.093-2.856-6.57-2.856c-2.471,0-4.661,0.95-6.563,2.856L142.466,174.441 L30.262,62.241c-1.903-1.906-4.093-2.856-6.567-2.856c-2.475,0-4.665,0.95-6.567,2.856L2.856,76.515C0.95,78.417,0,80.607,0,83.082 c0,2.473,0.953,4.663,2.856,6.565l133.043,133.046c1.902,1.903,4.093,2.854,6.567,2.854s4.661-0.951,6.562-2.854L282.082,89.647 c1.902-1.903,2.847-4.093,2.847-6.565C284.929,80.607,283.984,78.417,282.082,76.511z' /%3E%3C/svg%3E%0A");
+
+        /* Filtro Home */
+        --c_filter_button_bg: {{ settings.c_filter_button_bg ? settings.c_filter_button_bg : "#f2f5f5" }};
+        --c_filter_text: {{ settings.c_filter_text ? settings.c_filter_text : "#f2f5f5" }};
+        --c_filter_bg: {{ settings.c_filter_bg ? settings.c_filter_bg : "#f2f5f5" }};
+
+        /*Pop up Retencao*/
+        --c_retencao_text: {{ settings.c_retencao_text ? settings.c_retencao_text: "#595867" }};
+        --c_retencao_background: {{ settings.c_retencao_background ? settings.c_retencao_background: "#6d0fb7" }};
+
+        --font_styles: '{{ settings.font_family|replace({'EncodeSans': 'Encode Sans'}) }}', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+        'Open Sans', 'Helvetica Neue', sans-serif;
+
+    }
+</style>

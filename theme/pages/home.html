@@ -1,0 +1,125 @@
+
+{% element 'snippets/banner-line' { 'banner_id': 'home', 'banner_type': 'slides' } %}
+{% element 'snippets/advantage-rule' %}
+{% element 'snippets/smartfilter-home' %}
+{% element 'snippets/segmentation' %}
+
+<div class="container-home">
+
+    {% element 'home-showcase' {
+        'title': settings.showcase_title_1,
+        'rand' : settings.showcase_rand_products,
+        'categories': settings.showcase_category_1,
+        'type' : settings.showcase_type_1,
+        'quantity' : settings.showcase_quantity_1,
+        'slide': 1,
+        'refShowcase': 'one'
+    } %}
+
+</div>
+
+{% element 'snippets/banner-first' %}
+
+<div class="container-home">
+
+    {% element 'home-showcase' {
+        'title': settings.showcase_title_2,
+        'categories': settings.showcase_category_2,
+        'rand' : settings.showcase_rand_products,
+        'type' : settings.showcase_type_2,
+        'quantity' : settings.showcase_quantity_2,
+        'slide': settings.onCarousel2,
+        'refShowcase': 'two'
+    } %}
+
+    {% set double_banners = [] %}
+    {% set double_banners = banners.extra7 ? double_banners|merge([banners.extra7]) : double_banners %}
+    {% set double_banners = banners.extra8 ? double_banners|merge([banners.extra8]) : double_banners %}
+
+    {% if double_banners|length  %}
+        <section class="banners-double">
+            <div class="banners-double__container">
+                {% for banner in double_banners %}
+                    {% set src = banner.src %}
+                    {% set alt = banner.alt ? banner.alt : 'banner ' ~ loop.index %}
+                    {% set height = banner.height %}
+                    {% set width = banner.width %}
+                    {% set target = banner.target %}
+                    {% set rel = target == '_blank' ? 'rel="noopner noreferrer"'%}
+                    {% set link = banner.link %}
+
+                    {{ link ? '<a class="banners-double__link" href="'~ link ~'" title="'~ alt ~'" target="'~ target ~'" '~ rel ~'>' }}
+                        <img src="{{ src }}" width="{{ width }}" height="{{ height }}" loading="lazy" alt="{{ alt }}">
+                    {{ link ? '</a>' }}
+
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+    {% element 'snippets/banner-line' { 'banner_id': 'bottom', 'banner_type': 'container' } %}
+
+    {% element 'home-showcase' {
+        'title': settings.showcase_title_3,
+        'categories': settings.showcase_category_3,
+        'rand' : settings.showcase_rand_products,
+        'type' : settings.showcase_type_3,
+        'quantity' : settings.showcase_quantity_3,
+        'slide': settings.onCarousel3,
+        'refShowcase': 'three'
+    } %}
+
+    {% element 'snippets/brands-list' %}
+
+    {% element 'home-showcase' {
+        'title': settings.showcase_title_4,
+        'categories': settings.showcase_category_4,
+        'rand' : settings.showcase_rand_products,
+        'type' : settings.showcase_type_4,
+        'quantity' : settings.showcase_quantity_4,
+        'slide': settings.onCarousel4,
+        'refShowcase': 'four'
+    } %}
+
+    {% for page in pages.custom %}
+        {% if page.info == "noticias" %}
+            <section data-noImage="{{ asset('/img/new_imgoff.png') }}" class="section news slide-has-dots"  id="notices" data-slides="notices">
+                <div class="section-header">
+                    <h2 class="section-title"><span>Not&iacute;cias</span></h2>
+                </div>
+                <div class="news-container swiper-container">
+                    <div class="swiper">
+                        <ul class="news-content swiper-wrapper"></ul>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </section>
+        {% endif %}
+    {% endfor %}
+
+    {% element 'snippets/reviews' %}
+
+    <section>
+        {% element 'snippets/home-video' %}
+
+        {% element 'snippets/instagram' %}
+    </section>
+
+
+    {% if tags %}
+        <section class="section tagCloud">
+            <h2 class="section-title">{{ Translation('tags_mais_buscadas') }}</h2>
+            <ul class="tagCloud-list">
+                {% for tag in tags %}
+                    <li class="tagCloud-item">
+                        <a class="tagCloud-word" href="{{ tag.url }}" rel="next" target="_self">{{ tag.word }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% endif %}
+
+    {% element 'snippets/banner-line' { 'banner_id': 'footer', 'banner_type': 'container' } %}
+
+</div>
+

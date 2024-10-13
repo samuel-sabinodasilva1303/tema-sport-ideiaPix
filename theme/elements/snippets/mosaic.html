@@ -1,0 +1,26 @@
+<section class="section showcase">
+
+  <div class="mosaic">
+
+    {% for i in 2..3 %}
+      
+        {% set banner = attribute(banners,'extra' ~ i ) %}
+        
+        <div class="mosaic-item-bottom mosaic-item--extra_{{ i }}">
+
+            {% if banner.link %}<a class="mosaic-link" href="{{ banner.link }}" title="{{ banner.alt }}" aria-label="Banner {{ banner.alt }}" {% if banner.target == '_blank' %}rel="noopener"{% endif %} target="{{ banner.target }}" >{% endif %}
+                
+                <figure class="mosaic-figure">
+                    
+                    <img src="{{ banner.src }}" width="{{ banner.width }}" height="{{ banner.height }}" loading="lazy"  alt="{{ banner.alt }}">
+                
+                </figure>
+            
+            {% if banner.link %}</a>{% endif %}
+    
+        </div>
+        
+    {% endfor %}
+  
+  </div>
+</section>

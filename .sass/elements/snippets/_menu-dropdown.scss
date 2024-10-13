@@ -1,0 +1,125 @@
+.menu-dropdown {
+    position: absolute;
+    left: var(--l,0);
+    top: 100%;
+    transition: all 333ms ease-in-out;
+
+    &__content {
+        display: flex;
+        height: 515px;
+        border-radius: 0 5px 5px 5px;
+        width: fit-content;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+        background-color: var(--c_bg_dropdown);
+    }
+
+    &__list {
+        overflow-y: auto;
+        max-height: 100%;
+        scroll-behavior: smooth;
+        overscroll-behavior: contain;
+        scroll-snap-type: y mandatory;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+        width: 250px;
+        box-shadow: rgba(40, 41, 61, 0.04) 0px 0px 1px, rgba(96, 97, 112, 0.16) 0px 2px 4px;
+
+        &[data-show='false'] {
+            display: none;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        padding: 8px;
+        line-height: 1.1;
+        transition: all 333ms ease-in-out;
+        color: var(--c_secondlevel_dropdown);
+        font-weight: 400;
+
+        &--action {
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        &--scroll-up,
+        &--scroll-down {
+            background-color: #ccc;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            transition: all 333ms ease-in-out;
+        }
+
+        &._hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        &--scroll-up {
+            top: 0;
+        }
+        &--scroll-down {
+            bottom: 0;
+        }
+
+        &--main {
+            font-size: 14px;
+            text-decoration: underline;
+        }
+
+        &:not(&--main) {
+            font-size: 16px;
+        }
+
+        > span {
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        @media (hover: hover) {
+            &.active,
+            &:hover {
+                background-color: var(--c_bg_submenu);
+                color: var(--c_secondlevel_hover);
+            }
+        }
+    }
+
+    &__link {
+        &--frame {
+            display: contents;
+        }
+    }
+
+    &__frame {
+        padding: 15px;
+        aspect-ratio: 72/103;
+        max-width: 360px;
+        height: auto;
+
+        &[data-show='false'] {
+            display: none;
+        }
+    }
+
+    &__img {
+        width: auto;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}

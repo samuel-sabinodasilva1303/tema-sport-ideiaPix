@@ -1,0 +1,141 @@
+.home-showcase {
+    $root: &;
+    max-width: 1260px;
+    width: calc(100% - 30px);
+    margin: 15px auto;
+    transition: $transit_default;
+
+    &[data-slides]:not(.show) {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &[data-slides]:not(:has(&_banner)) {
+        @media screen and (max-width: 1320px) {
+            width: calc(100% - 60px);
+        }
+    }
+
+    &[data-banner='true'] {
+        .home-showcase {
+            &__container {
+                display: flex;
+                gap: 20px 40px;
+
+                @media screen and (min-width: 786.09px) {
+                    .swiper_showcase-btn--prev {
+                        left: 430px;
+                    }
+                }
+
+                @media screen and (max-width: 786px) {
+                    flex-wrap: wrap;
+                    justify-content: center;
+
+                    .swiper_showcase-btn {
+                        top: 590px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__title,
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        margin-block: 1rem;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 2rem;
+        gap: 0 8px;
+        color: var(--c_general_secondary);
+        font-weight: 700;
+
+        @include mobile {
+            font-size: 20px;
+        }
+    }
+
+    &__header {
+        @media screen and (max-width: 786px) {
+            flex-wrap: wrap;
+            margin-inline: -20px;
+        }
+    }
+
+    &__container {
+        &:not(:has(> .swiper)) {
+            display: grid;
+            gap: 20px;
+
+            .product {
+                justify-self: center;
+            }
+
+            #{$root}[data-col='5'] & {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+
+            #{$root}[data-col='4'] & {
+                grid-template-columns: repeat(auto-fill, minmax(237px, 1fr));
+            }
+        }
+
+        &:has(> .swiper) {
+            position: relative;
+
+            .swiper {
+                &-wrapper.jcc {
+                    justify-content: center;
+                }
+
+                &_showcase-btn {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    margin-block: auto;
+                    width: 38px;
+                    height: 38px;
+                    place-items: center;
+                    cursor: pointer;
+                    transition: $transit_default;
+
+                    &--prev {
+                        left: -40px;
+                    }
+                    &--next {
+                        right: -40px;
+                    }
+
+                    &.swiper-button-disabled {
+                        opacity: 0.3;
+                        pointer-events: none;
+                    }
+
+                    &:not(.swiper-button-lock) {
+                        display: grid;
+                    }
+
+                    @media (hover: hover) {
+                        &:hover {
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__banner {
+        max-width: 430px;
+
+        @media screen and (min-width: 786.01px) {
+            flex: 0 0 auto;
+        }
+    }
+}

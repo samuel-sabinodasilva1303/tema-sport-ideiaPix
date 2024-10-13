@@ -1,0 +1,40 @@
+{#
+
+    @ thumb = valor para largura do botão/thumb
+    @ step = valor para o passo ex. 10 em 10 ou 20 em 20
+    @ minSel,maxSel = valores maximo e minimo quando já possuir algum filtro de preço
+    @ min, max = valores maximo e minimo da plataforma no filtro de preço
+
+#}
+
+{% set thumb = '14px' %}
+
+{% set step = 50 %}
+
+{% set pricesSel = filtered_options.price ? filtered_options.price[0]|split(',') %}
+
+{% set minSel = pricesSel ? pricesSel[0]|round(0,'floor') : filter_options.prices.stats.min|round(0,'floor') %}
+
+{% set maxSel = pricesSel ? pricesSel[1]|round(0,'ceil') : filter_options.prices.stats.max|round(0,'ceil') %}
+
+{% set min = filter_options.prices.stats.min|round(0, 'floor') %}
+
+{% set max = filter_options.prices.stats.max|round(0, 'ceil') %}
+
+{% set maxSel = (maxSel - min) % step == 0 ? maxSel : ( min + ((maxSel - min) + (step - (maxSel - min) % step))) %}
+
+{% set max = (max - min) % step == 0 ? max : ( min + ((max - min) + (step - (max - min) % step))) %}
+
+{% if min >= 0 and max %}
+
+    <div data-max="{{ max }}" data-min="{{ min }}" style="--max:100; --min:0%; --thumb: {{ thumb }};" class="input-range">
+
+        <input autocomplete="off" class="input-range__input"  min="{{ min }}" max="{{ max }}" value="{{ minSel }}" type="range" step="{{ step }}" id="">
+
+        <input autocomplete="off" class="input-range__input" min="{{ min }}" max="{{ max }}" value="{{ maxSel }}" type="range" step="{{ step }}" id="">
+        
+        <span class="input-range__track"></span>
+
+    </div>
+
+{% endif %}

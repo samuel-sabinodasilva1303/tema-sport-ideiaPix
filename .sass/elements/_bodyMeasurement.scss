@@ -1,0 +1,85 @@
+.body-measurement {
+    &__link {
+        color: var(--c_general_tertiary);
+        display: inline-flex;
+        gap: 8px; 
+        align-items: center;
+        transition: all 333ms;
+        svg {
+            fill: var(--c_general_main);
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                color: var(--c_general_main);
+            }
+        }
+    }
+    &__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 555ms;
+
+        &[data-show='false'] {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
+
+    &__content {
+        position: relative;
+        max-width: calc(100% - 30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-height: calc(100% - 80px);
+
+        & img.mobile {
+            @media screen and (min-width: 737px) {
+                display: none;
+            }
+        }
+        & img.desktop {
+            @media screen and (max-width: 736px) {
+                display: none;
+            }
+        }
+
+        & img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: -30px;
+        right: 0;
+
+        & svg {
+            transition: all 0.3s;
+        }
+
+        @include mobile {
+            top: -25px;
+            right: -15px;
+        }
+
+        @media (hover: hover) {
+            &:hover svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,166 @@
+.product-actions {
+    margin-top: 10px;
+    padding-inline: 8px;
+    position: relative;
+
+    &__wrapper {
+        display: flex;
+        align-items: stretch;
+        height: 42px;
+        width: 100%;
+        gap: 0 8px;
+
+        > button {
+            flex: 1;
+        }
+    }
+
+    &__qty {
+        border-radius: 5px;
+        border: 1px solid #333;
+        background-color: #f6f6f6;
+        flex: 0 0 100px;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+
+        &--btn {
+            display: grid;
+            place-items: center;
+            flex: 1;
+
+            @media (hover: hover) {
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+
+        &--input {
+            max-width: 36px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 400;
+            color: #222;
+            margin-inline: -5px;
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            &[type='number'] {
+                -moz-appearance: textfield;
+            }
+        }
+    }
+
+    &__btn {
+        display: flex;
+        place-items: center;
+        justify-content: center;
+        height: 42px;
+        border-radius: 5px;
+        line-height: 1;
+        gap: 0 8px;
+
+        &--wp {
+            background-color: #d8f8e4;
+            font-weight: 700;
+            font-size: 14px;
+            color: #25d366;
+            border: 1px solid #25d366;
+            margin-top: 10px;
+
+            > i {
+                display: block;
+                line-height: 0;
+                font-style: normal;
+                flex: 0 0 auto;
+            }
+        }
+
+        &--buy {
+            background-color: var(--c_buy_button_bg);
+            color: var(--c_buy_button_text);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        &--offer {
+            height: 30px;
+            color: var(--c_buy_button_text);
+            background-color: var(--c_bg_progressiveDiscount);
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        &--login {
+            margin-top: 10px;
+            margin-inline: auto;
+            background-color: var(--c_bg_additional);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+            max-width: calc(100% - 16px);
+        }
+
+        @media (hover: hover) {
+            &--buy:hover {
+                background-color: var(--c_buy_button_bg_hover);
+                color: var(--c_buy_button_text_hover);
+            }
+
+            &--wp:hover,
+            &--login:hover,
+            &--offer:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &__message {
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1;
+        background-color: #fef1d6;
+        color: #966503;
+        border-radius: 5px;
+        padding:10px;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    &__qty--btn,
+    &__btn {
+        transition: $transit_default;
+    }
+
+    @include mobile {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 8px;
+
+        &__btn {
+            flex: 100%;
+            // &--buy {
+            //     flex: 1 auto;
+            // }
+            &--offer,
+            &--wp {
+                margin-top: 0;
+                // flex: 1 auto;
+                // max-width: 42px;
+
+                // > span {
+                //     display: none;
+                // }
+            }
+        }
+    }
+}

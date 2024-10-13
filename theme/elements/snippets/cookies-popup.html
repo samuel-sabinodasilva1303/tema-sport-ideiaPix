@@ -1,0 +1,133 @@
+
+<div class="cookies-container">
+    <div class="cookies-container__popup">
+        <div class="text-wrapper">
+            <h3>Cookies e Privacidade</h3>
+            <p>Atrav&#233;s dos cookies, podemos recomendar produtos e servi&#x00E7;os personalizados de acordo com seu interesse. Consulte e aceite os termos de nossa <a href="/privacidade">Pol&#x00ED;tica de Privacidade.</a></p>
+        </div>
+        <button class="button-popup">Continuar e fechar</button>
+    </div>
+</div>
+
+
+<style>
+    /*Inicio Cookies*/
+
+.cookies-container{
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  display: none;
+  z-index: 10000001;
+}
+ 
+.text-powered{
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: end;
+  width: fit-content;
+}
+.text-powered h4{
+  color: var(--c_cookie_text);
+  width: fit-content;
+  font-size: 8px;
+}
+.text-powered svg{
+  width: 23px;
+}
+
+.cookies-container__popup {
+  background: var(--c_cookie_bg);
+  box-shadow: 0 2px 40px #00000020;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 1em; 
+}
+  
+
+  .text-wrapper{
+    padding: 0;
+    max-width: 900px;
+  }
+  .text-wrapper a{
+    color: var(--c_cookie_aceitar);
+    text-decoration: underline;
+  }
+   
+  .text-wrapper h3 {
+    font-weight: 700;
+    color: var(--c_cookie_aceitar);
+    font-size: 1rem;
+  }
+  .text-wrapper p {
+    color: var(--c_cookie_text);
+    width: 100%;
+    font-size: 0.875rem;
+  }
+  .button-popup__termo{ 
+    background: rgb(80, 80, 80);
+    color: var(--c_cookie_text);
+    text-transform: uppercase;
+    border-radius: 3px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border: 1px solid #ffff;
+    cursor: pointer;
+    transition: 0.2s;
+    min-width: 180px;
+  }
+  .button-popup__termo:hover{
+    background: rgb(128, 128, 128);
+  }
+
+  .button-popup{
+    background: var(--c_cookie_aceitar);
+    text-transform: uppercase;
+    color: var(--c_cookie_aceitar_text);
+    font-size: 0.875rem;
+    border-radius: 3px;
+    font-weight: 700;
+    padding: 1rem 0.5rem;
+    border: 1px solid var(--c_cookie_aceitar);
+    cursor: pointer;
+    transition: 0.2s;
+    width: 200px;
+  }
+  .button-popup:hover{
+    opacity: .6;
+  }
+  @media (max-width: 768px) {
+    .cookies-container__popup{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .button-popup__termo {
+      padding: 0;
+      min-width: 0;
+      width: 50%;
+      margin: 1em 0;
+      height: 51px;
+    }
+    .button-popup {
+      margin-left: 6px;
+    }
+
+  }
+  
+  @media (min-width: 998px) {
+    .cookies-container__popup{
+      padding-left: 6rem;
+    }
+  }
+
+ /*Fim cookies*/
+</style>

@@ -1,0 +1,132 @@
+{% set quick_buy = settings.show_purchase_fast %}
+{% set is_kit = product.is_kit %}
+{% set has_variation = product.has_variation %}
+{% set sell_without_stock = settings.without_stock_sale ? true : false %}
+
+{% if quick_buy and has_variation and not is_kit %}
+    {% set options = [] %}
+    {% set variations = { 'var_1': {}, 'var_2': {} } %}
+    {% set aux = [] %}
+    {% set types = [] %}
+
+    {% for option in product.variants %}
+
+        {% set price_current = option.price_offer > 0 ? settings.currency ~ ' ' ~ option.price_offer|currency : settings.currency ~ ' ' ~ option.price|currency %}
+        {% set price_old = option.price_offer > 0 ? settings.currency ~ ' ' ~ option.price|currency : null %}
+
+        {% set prices = { 'old': price_old, 'current': price_current, 'payments': option.payment_option_html } %}
+        {% set isDouble = false %}
+
+        {% set mainVar = "" %}
+
+        {% if option.Sku|length > 1 %}
+            {% set isDouble = true %}
+        {% endif %}
+
+        {% for key, variation in option.Sku %}
+            {% if isDouble %}
+                {% if key == 0 %}
+                    {% set mainVar = variation.value %}
+                    {% set mainUrl = variation.image_secure %}
+                {% else %}
+                    {% if mainUrl != '' %}
+                        {% set options = options|merge([{ 'name': [mainVar|convert_encoding('UTF-8', 'iso-8859-1'), variation.value|convert_encoding('UTF-8', 'iso-8859-1')], 'id': option.id, 'stock': option.stock, 'url': mainUrl, 'prices': prices, 'sell_without_stock': sell_without_stock }]) %}
+                    {% else %}
+                        {% set options = options|merge([{ 'name': [mainVar|convert_encoding('UTF-8', 'iso-8859-1'), variation.value|convert_encoding('UTF-8', 'iso-8859-1')], 'id': option.id, 'stock': option.stock, 'url': variation.image_secure, 'prices': prices, 'sell_without_stock': sell_without_stock }]) %}
+                    {% endif %}
+                {% endif %}
+
+                {% if variation.type not in types %}
+                    {% set types = types|merge([variation.type]) %}
+                {% endif %}
+
+                {% if variation.value not in aux %}
+                    {% set aux = aux|merge([variation.value]) %}
+
+                    {% if variation.type == types[0] %}
+                        {% set variations = variations|merge({ 'var_1': variations.var_1|merge([{ 'name': variation.value, 'url': variation.image_secure, 'stock': option.stock }]) }) %}
+                    {% else %}
+                        {% set variations = variations|merge({ 'var_2': variations.var_2|merge([{ 'name': variation.value, 'url': variation.image_secure, 'stock': option.stock }]) }) %}
+                    {% endif %}
+                {% endif %}
+            {% else %}
+                {% set variations = variations|merge({ 'var_1': variations.var_1|merge([{ 'name': variation.value, 'url': variation.image_secure, 'id': option.id, 'stock': option.stock }]) }) %}
+
+                {% set options = options|merge([{ 'name': [variation.value|convert_encoding('UTF-8', 'iso-8859-1')] , 'id': option.id, 'stock': option.stock, 'url': variation.image_secure, 'prices': prices, 'sell_without_stock': sell_without_stock }]) %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+    {% set btn_swiper_next %}
+        <div class="swiper_color-next">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="12" height="12" viewBox="0 0 12 12">
+                <path fill="#1d1d1d" d="M5.47 11.16a.75.75 0 0 1-.21-.53c0-.21.06-.39.2-.52l3.67-3.68H.75a.73.73 0 0 1-.53-.21.73.73 0 0 1-.22-.54c0-.21.07-.39.22-.53a.73.73 0 0 1 .53-.22h8.38L5.46 1.26a.68.68 0 0 1-.2-.53A.71.71 0 0 1 6 0c.21 0 .39.07.53.2l4.94 4.96c.08.06.13.14.16.23a.92.92 0 0 1 0 .57.66.66 0 0 1-.16.25l-4.95 4.95a.71.71 0 0 1-.52.2.71.71 0 0 1-.53-.2Z"/>
+            </svg>
+        </div>
+    {% endset %}
+
+    {% set btn_swiper_prev %}
+        <div class="swiper_color-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="12" height="12" viewBox="0 0 12 12">
+                <path fill="#1d1d1d" d="M6.2.2c.14.14.22.32.22.53 0 .21-.06.39-.2.53L2.55 4.93h8.38c.21 0 .4.07.54.22.14.14.21.32.21.53a.73.73 0 0 1-.75.75H2.55l3.67 3.68c.14.13.2.3.2.52 0 .21-.08.39-.21.53a.71.71 0 0 1-.53.2.71.71 0 0 1-.52-.2L.2 6.2a.51.51 0 0 1-.16-.24.92.92 0 0 1 0-.57.66.66 0 0 1 .16-.24L5.16.2c.13-.14.3-.2.52-.2.21 0 .39.06.53.2Z"/>
+            </svg>
+        </div>
+    {% endset %}
+
+
+    <div class="product-variations">
+
+
+        <script data-options type="application/json">{{ options|json_encode }}</script>
+
+        {% set first_var_name = '' %}
+
+        {% for variation in variations %}
+            {% set check_stock = false %}
+
+            {% if loop.first %}
+                {% set first_var_name = variation[0].name|trim() %}
+            {% endif %}
+
+            {% set last_loop = loop.last ? true : false %}
+
+            {% if not variations.var_2 %}
+                {% set check_stock = true %}
+            {% else %}
+                {% if last_loop %}{% set check_stock = true %}{% endif %}
+            {% endif %}
+
+
+            {% if variation[0].url != '' %}
+
+                {% set active_slider = variation|length > 4 ? true : false %}
+
+                <div {{ active_slider ? 'data-swiper="true"' : '' }} class="product-variations__color{{ loop.last ? ' disabled' : '' }}" {{ loop.last ? 'title="Selecione a primeira variação"' : '' }}>
+
+                    {{ active_slider ? btn_swiper_prev ~ '<div class="swiper"><div class="swiper-wrapper">' : '' }}
+
+                    {% for color in variation %}
+                        {{ active_slider ? '<div class="swiper-slide">' : '' }}
+                        <span data-value="{{ last_loop ? first_var_name ~','~ color.name|trim() : color.name|trim() }}" class="product-variations__color-item{{ not sell_without_stock and color.stock <= 0 and check_stock ? ' no-stock' : '' }}">
+                            <img src="{{ color.url }}" width="30" height="30" alt="Cor {{ color.name }}">
+                        </span>
+                        {{ active_slider ? '</div>' : '' }}
+                    {% endfor %}
+
+                    {{ active_slider ? '</div></div>' ~ btn_swiper_next : '' }}
+
+                </div>
+
+            {% elseif variation[0].name %}
+
+                <select aria-label="selecione uma das variações" autocomplete="off" class="product-variations__select" {{ loop.last ? 'disabled title="Selecione a primeira variação"' : '' }}>
+                    <option value="" selected hidden>Selecione uma opção</option>
+                    {% for item in variation %}
+                        <option {{ not sell_without_stock and item.stock <= 0 and check_stock ? 'disabled' : '' }} value="{{ last_loop ? first_var_name ~','~ item.name|trim() : item.name|trim() }}">{{ item.name }}</option>
+                    {% endfor %}
+                </select>
+            {% endif %}
+
+        {% endfor %}
+    </div>
+{% endif %}

@@ -1,0 +1,38 @@
+{% set desktop_banners = [] %}
+{% set mobile_banners = [] %}
+
+{% for i in 1..6 %}
+    {% set banner = attribute(banners,'extra'~ i ) %}
+    {% if banner %}
+        {% if i <= 3 %}
+            {% set desktop_banners = desktop_banners|merge([banner]) %}
+        {% else %}
+            {% set mobile_banners = mobile_banners|merge([banner]) %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% set banners = utils.is_mobile ? mobile_banners : desktop_banners|length == 3  ? desktop_banners : [] %}
+
+{% if banners|length > 0 %}
+    <section class="banner-first">
+        <div class="banner-first__container{{ not utils.is_mobile ? ' banner-first__container--mosaic' }}">
+            {% for banner in banners %}
+                {% set src = banner.src %}
+                {% set alt = banner.alt ? banner.alt : 'banner ' ~ loop.index %}
+                {% set height = banner.height %}
+                {% set width = banner.width %}
+                {% set target = banner.target %}
+                {% set rel = target == '_blank' ? 'rel="noopner noreferrer"'%}
+                {% set link = banner.link %}
+
+                <div class="banner-first__item">
+                    {{ link ? '<a class="banner-first__link" href="'~ link ~'" title="'~ alt ~'" target="'~ target ~'" '~ rel ~'>' }}
+                        <img src="{{ src }}" width="{{ width }}" height="{{ height }}" loading="lazy" alt="{{ alt }}">
+                    {{ link ? '</a>' }}
+                </div>
+            {% endfor %}
+
+        </div>
+    </section>
+{% endif %}

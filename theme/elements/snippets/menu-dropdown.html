@@ -1,0 +1,158 @@
+{% set limit = 14 %}
+
+{% set menu = [] %}
+
+{% set removeIds = removeIds[0] ? removeIds : [] %}
+
+{% if type == 'full' %}
+
+    {% set menu = categories %}
+
+{% else %}
+
+    {% set menu = submenu %}
+
+    {% set isSubmenu = true %}
+
+{% endif %}
+
+{% set buttons_up_down %}
+    <button class="menu-dropdown__btn menu-dropdown__btn--scroll-up _hide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" fill="none" viewBox="0 0 9 6">
+            <path fill="#000" d="M4.25 2.83 1.42 5.66 0 4.24 4.25 0l4.24 4.24-1.42 1.42-2.82-2.83Z"/>
+        </svg>
+    </button>
+    <button class="menu-dropdown__btn menu-dropdown__btn--scroll-down">
+        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" fill="none" viewBox="0 0 9 6">
+            <path fill="#000" d="M4.24 3.17 7.07.34 8.5 1.76 4.24 6 0 1.76 1.42.34l2.82 2.83Z"/>
+        </svg>
+    </button>
+{% endset %}
+
+<div class="menu-dropdown">
+    <div class="menu-dropdown__content">
+        {% if not isSubmenu %}
+            {% set init_img = menu[0].images[0] %}
+            {% set init_link = menu[0].link %}
+        {% endif %}
+
+        <div class="menu-dropdown__wrapper">
+            <div class="menu-dropdown__list">
+                {% set menu_index = 0 %}
+                {% set menu_has_btns = false %}
+
+                {% for item in menu if item.id not in removeIds %}
+                    {% set menu_index = menu_index + 1 %}
+
+                    {% set hasSubmenu = item.children[0] ? true : false %}
+                    {% set dataImg = item.images[0]  %}
+                    {% set dataUrl = item.link %}
+
+                    {% if hasSubmenu and not isSubmenu %}
+                        <button data-id="{{ item.id }}" class="menu-dropdown__btn{{ hasSubmenu? ' menu-dropdown__btn--action' : '' }}" {{ dataImg ? 'data-img="'~ dataImg ~'" data-url="'~ dataUrl ~'"' : '' }} title="{{ item.name }}">
+                            <span><h3 class="_seo">{{ item.name }}</h3></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="6" height="9" viewBox="0 0 6 9"><path fill="currentColor" d="M2.83 4.24 0 1.42 1.41 0l4.25 4.24L1.4 8.5 0 7.07l2.83-2.83Z"/></svg>
+                        </button>
+                    {% else %}
+                        <a href="{{ item.link }}" class="menu-dropdown__btn" {{ dataImg ? 'data-img="'~ dataImg ~'" data-url="'~ dataUrl ~'"' : '' }} title="{{ item.name }}"><span><h2 class="_seo">{{ item.name }}</h2></span></a>
+                    {% endif %}
+
+                    {% if menu_index > limit and not menu_has_btn %}
+                        {% set menu_has_btns = true %}
+                        {{ buttons_up_down }}
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if not isSubmenu  %}
+
+            {% for item in menu if item.id not in removeIds %}
+                {% if item.children[0] %}
+                    <div data-show="false" data-menu-id="{{ item.id }}" class="menu-dropdown__wrapper">
+                        <div class="menu-dropdown__list">
+                            <a href="{{ item.link }}" class="menu-dropdown__btn menu-dropdown__btn--main" title="{{ item.name }}"><span>Ver tudo de {{ item.name }}</span></a>
+
+                            {% set menu_index = 0 %}
+                            {% set menu_has_btns = false %}
+
+                            {% for nv2 in item.children if nv2.id not in removeIds %}
+                                {% set menu_index = menu_index + 1 %}
+
+                                {% set hasSubmenu = nv2.children[0] ? true : false %}
+                                {% if hasSubmenu %}
+                                    <button data-id="{{ item.id}}_{{ nv2.id }}" class="menu-dropdown__btn{{ hasSubmenu ? ' menu-dropdown__btn--action' : ''}}" {{ nv2.images[0] ? 'data-img="'~ nv2.images[0] ~'" data-url="'~ nv2.link ~'"' : '' }} title="{{ nv2.name }}">
+                                        <span><h3 class="_seo">{{ nv2.name }}</h3></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="6" height="9" viewBox="0 0 6 9"><path fill="currentColor" d="M2.83 4.24 0 1.42 1.41 0l4.25 4.24L1.4 8.5 0 7.07l2.83-2.83Z"/></svg>
+                                    </button>
+                                {% else %}
+                                    <a href="{{ nv2.link }}" class="menu-dropdown__btn" {{ nv2.images[0] ? 'data-img="'~ nv2.images[0] ~'" data-url="'~ nv2.link ~'"' : '' }} title="{{ nv2.name }}"><span><h3 class="_seo">{{ nv2.name }}</h3></span></a>
+                                {% endif %}
+
+                                {% if menu_index > limit and not menu_has_btn %}
+                                    {% set menu_has_btns = true %}
+                                    {{ buttons_up_down }}
+                                {% endif %}
+
+                            {% endfor  %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            {% for item in menu if item.id not in removeIds %}
+                {% if item.children[0] %}
+                    {% for nv2 in item.children if nv2.id not in removeIds %}
+                        {% if nv2.children[0] %}
+                            <div data-show="false" data-menu-id="{{ item.id }}_{{ nv2.id }}" class="menu-dropdown__wrapper">
+                                <div class="menu-dropdown__list">
+                                    <a href="{{ nv2.link }}" class="menu-dropdown__btn menu-dropdown__btn--main" title="{{ nv2.name }}"><span>Ver tudo de {{ nv2.name }}</span></a>
+
+                                    {% set menu_index = 0 %}
+                                    {% set menu_has_btns = false %}
+
+                                    {% for nv3 in nv2.children if nv3.id not in removeIds %}
+                                        {% set menu_index = menu_index + 1 %}
+
+                                        <a href="{{ nv3.link }}" class="menu-dropdown__btn" title="{{ nv3.name }}"><span><h3 class="_seo">{{ nv3.name }}</h3></span></a>
+
+                                        {% if menu_index > limit and not menu_has_btn %}
+                                            {% set menu_has_btns = true %}
+                                            {{ buttons_up_down }}
+                                        {% endif %}
+
+                                    {% endfor  %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+
+        {% endif %}
+
+        {% if settings.menu_product_show %}
+
+            {% element 'snippets/menu-product' { 'category_id': category_id } %}
+
+        {% else %}
+
+            {% if init_img %}
+                <div data-show="true" class="menu-dropdown__frame">
+                    <a href="{{ init_link }}" class="menu-dropdown__link--frame">
+                        <img class="menu-dropdown__img" src="{{ init_img }}" alt="category_img" loading="lazy">
+                    </a>
+                </div>
+            {% else %}
+                <div data-show="true" class="menu-dropdown__frame empty">
+                    <a href="" class="menu-dropdown__link--frame">
+                        <img class="menu-dropdown__img" src="" alt="category_img" loading="lazy">
+                    </a>
+                </div>
+            {% endif %}
+
+        {% endif %}
+
+    </div>
+</div>

@@ -1,0 +1,56 @@
+.smartfilter-home {
+    background-color: var(--c_filter_bg);
+    padding-block: 30px;
+
+    &__container {
+        width: calc(100% - 30px);
+        max-width: 1260px;
+        margin-inline: auto;
+    }
+
+    &__title {
+        color: var(--c_filter_text);
+        text-align: center;
+        font-size: 31px;
+        line-height: 40px; //130%
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    &__content {
+        display: flex;
+        gap: 1em;
+
+        @include mobile {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__select,
+    &__btn {
+        outline: none;
+        flex: 1;
+        height: 42px;
+        border-radius: 5px;
+        font-weight: 700;
+        font-size: 16px;
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        @include mobile {
+            flex: 100%;
+        }
+    }
+
+    &__select {
+        padding-inline: 16px;
+    }
+
+    &__btn {
+        background-color: var(--c_filter_button_bg);
+        color: #fff;
+    }
+}

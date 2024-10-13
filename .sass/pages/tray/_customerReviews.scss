@@ -1,0 +1,274 @@
+.page-depoimentos {
+    .container3 .board .left{
+        padding: 0;
+    }
+    .review-button{
+        color: var(--c_default_button_text);
+        background-color: var(--c_default_button_bg);
+        transition: 0.3s all;
+        &:hover{
+            color: var(--c_default_button_bg_hover);
+            background-color: var(--c_default_button_text_hover);
+        }
+    }
+    .container2 > .board{
+        border: none;
+    }
+    .board {
+        border-color: #7A7A7A;
+        h1 {
+            @include title-h1;
+            border: none;
+            margin-bottom: 0;
+            border-color: var(--c_general_main);
+        }
+
+        .editDep {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            h3 {
+                color: #7a7a7a;
+                @extend %subtitle-h3;
+                padding-bottom: 0.5rem;
+
+                img {
+                    position: absolute;
+                    top: 16px;
+                    left: 20px;
+                    bottom: 0;
+                    z-index: -1;
+                    opacity: 0.7;
+                }
+            }
+
+            > li {
+                @extend %paragraph-text;
+                border-radius: 0.25rem;
+                color: #7a7a7a;
+                border: 1px solid #7a7a7a;
+                background-color: #f6f6f6;
+                padding: 2.5rem;
+                text-align: left;
+                z-index: 0;
+                width: 100%;
+                margin-bottom: 1.25rem;
+
+                ul li {
+                    &:first-child {
+                        font-weight: 600;
+                        padding-bottom: 0.4rem;
+                    }
+
+                    &:nth-child(2) {
+                        padding-bottom: 1rem;
+
+                        strong {
+                            font-weight: 400;
+                        }
+                    }
+
+                    &:last-child {
+                        strong {
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+
+            strong {
+                font-weight: 600;
+            }
+        }
+    }
+    .container {
+        @extend %flex-colun;
+        position: relative;
+
+        .container3 {
+            &:nth-child(5) {
+                order: 1;
+            }
+
+            &:first-child .container2 {
+                .board {
+                    .left {
+                        color: var(--c_general_tertiary);
+                        margin: 0 auto;
+                        border-color: var(--c_general_secondary);
+                    }
+
+                    .right {
+                        display: none;
+                    }
+                }
+            }
+
+            &:last-child {
+                .board {
+                    .right {
+                        margin-top: 2rem;
+                        @include small {
+                            margin-bottom: 5rem;
+                        }
+
+                        @include medium {
+                            margin-bottom: 5rem;
+                        }
+
+                        @include large {
+                            margin-bottom: 7.5rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .container2 {
+            hr {
+                display: none;
+            }
+        }
+
+        h2.color {
+            display: none;
+        }
+
+        /// Form Review
+        #comentario_cliente {
+            position: relative;
+            background-color: #f6f6f6;
+            border: 1px solid #7A7A7A;
+            max-width: 1000px;
+            margin-inline: auto;
+            margin-block: 40px;
+            border-radius: 8px;
+            padding: 2.5rem;
+
+            .board {
+                display: none;
+            }
+
+            &.u-show {
+                .board {
+                    display: block;
+                }
+
+                .review-form {
+                    margin-bottom: 2.5rem;
+
+                    .icon-arrow-simple {
+                        display: none;
+                    }
+                }
+            }
+
+            .review-form {
+                @extend %flex-betw-center;
+                @extend %title-h2;
+                color: #7A7A7A;
+                border: unset;
+                order: 1;
+                transition: $transit_default;
+                opacity: 1;
+                text-align: left;
+                width: 100%;
+
+                @include small {
+                    font-size: 1.5rem;
+                }
+
+                .icon-arrow-simple {
+                    margin-left: 1rem;
+                    transform: rotate(90deg);
+                    transition: $transit_default;
+                }
+
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+
+            .form_depto {
+                #btn_submit{
+                    overflow: hidden;
+                    width: fit-content;
+                    margin-inline: auto 0;
+                    white-space: nowrap;
+                    color: var(--c_default_button_text);
+                    background-color: var(--c_default_button_bg);
+
+                    &:hover{
+                        color: var(--c_default_button_text_hover);
+                        background-color: var(--c_default_button_bg_hover);
+                    }
+                }
+                #aviso_depoimento {
+                    color: #98bf11;
+                }
+
+                label {
+                    @extend %paragraph-bold-text;
+                    color: #7A7A7A;
+                    @include checkbox-circle;
+
+                    input:not(.radio) {
+                        background-color: #ECEFF5;
+                        border-radius: 2px;
+                        margin-top: 0.5rem;
+                        padding: 0 1.5rem;
+                        height: 3rem;
+                        width: calc(100% - 3rem);
+                    }
+
+                    h3 {
+                        margin-bottom: 0.5rem;
+                    }
+
+                    h5 {
+                        @extend %paragraph-text;
+                        overflow: hidden;
+                        padding-top: 0.5rem;
+                        text-indent: -0.5rem;
+                    }
+                }
+
+                .textarea {
+                    background-color: #F2F2F2;
+                    border: unset;
+                    border-radius: 2px;
+                    padding: 1.3rem;
+                    outline: unset;
+
+                    &:focus {
+                        box-shadow: inset 0 0 4px #7A7A7A;
+                    }
+                }
+
+                .review-button {
+                    width: 13.4375rem;
+                    margin-bottom: 10px;
+
+                    .image {
+                        display: none;
+                    }
+                }
+            }
+
+            .nota_dep {
+                @extend %paragraph-bold-text;
+
+                label {
+                    display: inline-flex;
+                    margin-right: 1rem;
+                    margin-top: 0.95rem;
+
+                    .radio {
+                        margin: 0 0.5rem 0 0;
+                    }
+                }
+            }
+        }
+    }
+}

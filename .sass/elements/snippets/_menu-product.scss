@@ -1,0 +1,137 @@
+.menu-product {
+    padding: 15px;
+    aspect-ratio: 72/103;
+    max-width: 360px;
+    height: auto;
+    margin-bottom: -15px;
+
+    &[data-show='false'] {
+        display: none;
+    }
+
+    &__content {
+        padding-bottom: 25px;
+    }
+
+    &__link {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px 0;
+
+        @media (hover: hover) {
+            &:hover {
+                .menu-product {
+                    &__name {
+                        color: var(--c_showcase_product_name_hover);
+                    }
+
+                    &__figure img:not(.hover) {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+
+                    &__figure img.hover {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+
+    &__name {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--c_showcase_product_name);
+        line-height: 1;
+        text-align: center;
+    }
+
+    &__price {
+        > s {
+            font-size: 14px;
+            line-height: 14px;
+            font-weight: 400;
+            color: #7a7a7a;
+            font-style: italic;
+        }
+
+        > span {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--c_showcase_price_main);
+            display: block;
+            line-height: 1;
+        }
+    }
+
+    &__payments {
+        font-size: 15px;
+        line-height: 15px;
+        font-weight: 500;
+        color: #7a7a7a;
+    }
+
+    &__figure {
+        position: relative;
+        overflow: hidden;
+        height: auto;
+        max-width: 330px;
+
+        &--portrait {
+            aspect-ratio: 330/ 415;
+            max-height: 453px;
+        }
+
+        &--rectangle {
+            aspect-ratio: 330/ 252;
+            max-height: 274px;
+        }
+
+        &--square {
+            aspect-ratio: 1/ 1;
+            max-height: 330px;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: $transit_default;
+
+            &.hover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                visibility: hidden;
+                z-index: 1;
+            }
+        }
+    }
+
+    &__dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: unset;
+        bottom: 7px !important;
+
+        > .icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 0;
+
+            &:not(&-empty) {
+                border: none !important;
+            }
+
+            &-empty:before {
+                line-height: 1;
+            }
+        }
+    }
+}

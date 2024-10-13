@@ -1,0 +1,27 @@
+{% if products_related|length and settings.enable_related_products  %}
+    {% set title = settings.related_products_title|trim() != '' ? settings.related_products_title|trim()|slice(0,25) : 'Talvez você goste' %}
+    <section class="product-related" data-slides="product-related">
+        <h2 class="product-related__title">{{ title }}</h2>
+        <div class="product-related__showcase">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    {% for item in products_related %}
+                        <div class="swiper-slide">
+                            {% element 'snippets/product' {'product' : item } %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="swiper_showcase-btn swiper_showcase-btn--next">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="#1d1d1d" d="M5.47 11.16a.75.75 0 0 1-.21-.53c0-.21.06-.39.2-.52l3.67-3.68H.75a.73.73 0 0 1-.53-.21.73.73 0 0 1-.22-.54c0-.21.07-.39.22-.53a.73.73 0 0 1 .53-.22h8.38L5.46 1.26a.68.68 0 0 1-.2-.53A.71.71 0 0 1 6 0c.21 0 .39.07.53.2l4.94 4.96c.08.06.13.14.16.23a.92.92 0 0 1 0 .57.66.66 0 0 1-.16.25l-4.95 4.95a.71.71 0 0 1-.52.2.71.71 0 0 1-.53-.2Z"/>
+                </svg>
+            </div>
+            <div class="swiper_showcase-btn swiper_showcase-btn--prev">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="#1d1d1d" d="M6.2.2c.14.14.22.32.22.53 0 .21-.06.39-.2.53L2.55 4.93h8.38c.21 0 .4.07.54.22.14.14.21.32.21.53a.73.73 0 0 1-.75.75H2.55l3.67 3.68c.14.13.2.3.2.52 0 .21-.08.39-.21.53a.71.71 0 0 1-.53.2.71.71 0 0 1-.52-.2L.2 6.2a.51.51 0 0 1-.16-.24.92.92 0 0 1 0-.57.66.66 0 0 1 .16-.24L5.16.2c.13-.14.3-.2.52-.2.21 0 .39.06.53.2Z"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+{% endif %}

@@ -1,0 +1,115 @@
+.image-gallery {
+    $root: &;
+    flex: 0 1 60%;
+    min-width: 0;
+
+    &--square {
+        #{$root} {
+            &__main,
+            &__iframe {
+                aspect-ratio: 1/1;
+            }
+            &__main {
+                max-height: 1000px;
+            }
+            &__icon,
+            &__thumbs img {
+                aspect-ratio: 1/1;
+            }
+        }
+    }
+
+    &--portrait {
+        #{$root} {
+            &__main,
+            &__iframe {
+                aspect-ratio: 1000/1259;
+            }
+            &__main {
+                max-height: 1259px;
+            }
+            &__icon,
+            &__thumbs img {
+                aspect-ratio: 140/176;
+            }
+        }
+    }
+
+    &--rectangle {
+        #{$root} {
+            &__main,
+            &__iframe {
+                aspect-ratio: 1311/1000;
+            }
+            &__main {
+                max-height: 1000px;
+            }
+            &__icon,
+            &__thumbs img {
+                aspect-ratio: 140/107;
+            }
+        }
+    }
+
+    &__main {
+        max-width: 100%;
+
+        &[data-zoom='true'] {
+            cursor: zoom-in;
+            background-size: 175%;
+
+            @media (hover: hover) {
+                &,
+                & img {
+                    transition: $transit_default;
+                }
+
+                &:hover img {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    &__thumbs {
+        transition: $transit_default;
+        margin-top: 20px;
+
+        &:not(.show) {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .swiper {
+            &-wrapper.jcc {
+                justify-content: center;
+            }
+
+            &-slide {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__iframe {
+        max-height: 100%;
+    }
+
+    &__icon {
+        max-width: 140px;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        font-style: normal;
+
+        @media screen and (max-width: 768px) {
+            & > svg {
+                max-width: 70%;
+            }
+        }
+    }
+
+    img {
+        object-fit: cover;
+    }
+}

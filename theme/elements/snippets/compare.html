@@ -1,0 +1,28 @@
+{% if pages.current == 'catalog' and settings.compare %}
+
+    {% set hide = 'compare-hidden' %}
+
+    <div class="compare">
+
+        <a class="compare__link {{ not product.compare ? hide }}" data-compare="remove" href="{{ links.compare_delete ~ product.id }}">
+
+            <label>
+
+                <input name="compare[]" checked type="checkbox" class="compare__input">
+                <span class="compare__label">Remover produto</span>
+            </label>
+
+        </a>
+
+        <a class="compare__link {{ product.compare ? hide }}" data-compare="add" href="{{ links.compare_add ~ product.id }}">
+
+            <label>
+                <input name="compare[]" type="checkbox" class="compare__input">
+                <span class="compare__label">Comparar produto</span>
+            </label>
+
+        </a>
+
+    </div>
+
+{% endif %}

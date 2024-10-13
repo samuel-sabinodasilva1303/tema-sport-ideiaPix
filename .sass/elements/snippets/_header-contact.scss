@@ -1,0 +1,123 @@
+.header-contact {
+    $root: &;
+    position: relative;
+
+    &--top {
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-inline: auto 0;
+        min-width: 0;
+        flex: 0 auto;
+    }
+
+    &--top & {
+        &__title {
+            color: var(--c_topbar_link);
+
+            svg {
+                fill: var(--c_topbar_link);
+            }
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 0 6px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16px;
+        color: var(--c_header_text);
+
+        svg {
+            flex: 0 auto;
+            fill: var(--c_header_icon);
+
+            &:last-of-type {
+                transition: $transit_default;
+            }
+        }
+    }
+
+    &__dropdown {
+        padding: 15px;
+        transition: $transit_default;
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: auto;
+        margin-inline: auto;
+        background-color: var(--c_general_background);
+        box-shadow: 2px 2px 4px -1px var(--c_general_main);
+        border-radius: 5px;
+        z-index: 2;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0 8px;
+        color: var(--c_general_tertiary);
+        font-size: 16px;
+        line-height: 22px;
+        padding-block: 8px;
+        transition: $transit_default;
+
+        &,
+        svg {
+            transition: $transit_default;
+        }
+
+        svg {
+            fill: var(--c_general_tertiary);
+        }
+    }
+
+    &:before {
+        content: '';
+        width: 0;
+        height: 3px;
+        background-color: var(--c_general_secondary);
+        transition: $transit_default;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            #{$root} {
+                &__dropdown {
+                    opacity: 1;
+                    visibility: visible;
+                    pointer-events: auto;
+                }
+                &__title svg:last-of-type {
+                    transform: rotate3d(1, 0, 0, 180deg);
+                }
+            }
+
+            &:before {
+                width: 100%;
+            }
+        }
+
+        &__link:hover {
+            color: var(--c_general_main);
+
+            & svg {
+                fill: var(--c_general_main);
+            }
+        }
+    }
+
+    @include mobile {
+        display: none;
+    }
+}

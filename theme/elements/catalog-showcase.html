@@ -1,0 +1,9 @@
+<div class="catalog-showcase">
+    <div class="showcase-listProduct">
+        {% for item in products %}
+            <div class="catalog-list listProduct-item">
+                {% element 'snippets/product' { 'product' : item } %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

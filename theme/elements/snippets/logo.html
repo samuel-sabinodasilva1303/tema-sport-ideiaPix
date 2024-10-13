@@ -1,0 +1,7 @@
+{% set seo_h1 = 'home' in pages.current ? '<h1 style="font-size:0;line-height:0">'~ store.name ~'</h1>' %}
+{% set logo_img = utils.is_mobile ? Image('mobile_logo')|replace({'src' : ' fetchpriority="high" alt="logo '~ store.name ~'" src'}) : Image('logo')|replace({ 'src': ' fetchpriority="high" src', 'alt=\'' : 'alt=\'Logo ' })  %}
+
+<a href="/" aria-label="página inicial" class="logo">
+    {{ logo_img }}
+    {{ seo_h1 }}
+</a>

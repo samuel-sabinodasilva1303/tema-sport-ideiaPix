@@ -1,0 +1,234 @@
+.page-noticia {
+    .breadcrumb {
+        margin: 2rem 0 2.8rem 0;
+    }
+
+    .container2 {
+        > .container {
+            #ProdAbas {
+                .aberta{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    gap: 6px;
+                    &:before, &:after{
+                        display: block;
+                        font-weight: 400;
+                        color: var(--c_general_tertiary);
+                        font-family: $font_name;
+                        font-size: 24px;
+                        line-height: 150%;
+                        text-align: left;
+                        width: fit-content;
+                    }
+                    &::before{
+                        content: "Talvez você";
+                    }
+                    &::after{
+                        content: "goste";
+                        font-weight: 700;
+                    }
+                    a{
+                        display: none;
+                    }
+                } 
+                margin: 92px 0 50px 0;
+                a {
+                    @include fontInsert(1.8, 600, var(--c_general_tertiary));
+                    line-height: 38px;
+                    display: block;
+                    text-align: center;
+                }
+            }
+
+            #produto_imagem {
+                order: 1;
+                img {
+                    width: 155px;
+                    height: 155px;
+                    object-fit: contain;
+                }
+            }
+
+            #produto_dados {
+                h3{
+                    width: fit-content;
+                    a{
+                        font-size: 16px;
+                        font-weight: 400;
+                        font-family: $font_name;
+                        color: var(--c_general_tertiary); 
+                        line-height: 20px;
+                    }
+                } 
+                p {
+                    display: none;
+                }
+                order: 2;
+                color: var(--c_general_tertiary);
+
+            }
+
+            #produto_comprar {
+                color: var(--c_general_tertiary);
+                display: flex;
+                font-size: 0;
+                order: 3;
+                gap: 20px;
+
+                @include mobile {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                .precoAvista {
+                    @include fontInsert(2, 700, );
+                    @extend %flex-center-center;
+                    line-height: 2rem;
+                    color: var(--c_general_primary);
+                    gap: 3px;
+                    text-align: center;
+                    width: 200px;
+                }
+
+                a {
+                    &:after {
+                        @include fontInsert(1, 700, var(--c_buy_button_text));
+                        @extend %flex-center-center;
+
+                        content: 'COMPRAR';
+                        background: var(--c_buy_button_bg);
+                        border-radius: $border_radius;
+                        line-height: 24px;
+                        width: 188px;
+                        height: 46px;
+                        text-align: center;
+                        letter-spacing: -0.002em;   
+                    }
+                    &:hover{
+                        opacity: 0.8;
+                    }
+                }
+
+                img {
+                    display: none;
+                }
+            }
+
+            #listaNoticiaProdutos {
+                display: flex;
+                flex-direction: column;
+
+                li {
+                    display: flex;
+                    gap: 45px;
+                    padding: 22.5px 0;
+                    border-top: 1px solid rgba(51, 51, 51, 0.10);
+                    align-items: center;
+                    justify-content: space-between;
+
+                    &:last-child{
+                        border-bottom: 1px solid rgba(51, 51, 51, 0.10);
+                    }
+                    #produto_comprar{
+                        margin-left: auto;
+                    }
+
+                    @include mobile {
+                        flex-wrap: wrap;
+                        max-width: 100%;
+                        justify-content: center;
+                        gap: 45px 0;
+                    }
+                }
+            }
+
+            h3 {
+                @include desktop {
+                    width: 500px;
+                    max-width: 100%;
+                }
+                a {
+                   font-size: 1.2rem;
+                   font-weight: bold;
+                    color: var(--c_general_main);
+                    line-height: 106.7%;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    @include mobile {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    h1 {
+        @include fontInsert(2, 700, var(--c_general_tertiary));
+        line-height: 40px;
+        font-family: $font_name;
+    }
+    h2{
+        @include fontInsert(2, 700, var(--c_general_tertiary));
+        line-height: 40px;
+        font-family: $font_name;
+        margin-top: 2rem;
+    }
+    h3,h4,h5,h6{ 
+        color: var(--c_general_tertiary);
+        font-family: $font_name;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%; 
+        margin-top: 2rem;
+    }
+
+    .board {
+        @include fontInsert(1, 400, var(--c_general_tertiary));
+        line-height: 32px;
+
+        .dataNoticia {
+            display: none;
+        }
+
+        img {
+            max-width: 100%;
+
+            @include small {
+                display: block;
+                float: unset;
+                margin: 0 auto 2.5rem;
+            }
+            @include medium {
+                float: left;
+                margin-bottom: 1rem;
+                margin-right: 1.5rem;
+            }
+            @include large {
+                float: left;
+                margin-bottom: 1rem;
+                margin-right: 2.5rem;
+            }
+        }
+
+        p {
+            margin-top: 2rem;
+        }
+
+        .right {
+            display: none;
+            justify-content: flex-start;
+            margin-top: 1rem;
+
+            .addthis_inline_share_toolbox.addthis_sharing_toolbox::before {
+                @include fontInsert(0.875, 600);
+                content: 'Compartilhar por:';
+            }
+
+            .at-share-tbx-element {
+                margin-top: 0.5rem;
+            }
+        }
+    }
+}

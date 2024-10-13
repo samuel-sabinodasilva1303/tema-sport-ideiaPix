@@ -1,0 +1,91 @@
+{% set  menu_products = [] %}
+
+{% set quantity = 4 %}
+
+{% set shape = settings.image_shape ? settings.image_shape : 'square' %}
+
+{% set size = shape == 'portrait' ? ' width="330" height="415" ' :  shape == 'rectangle' ? 'width="330" height="252"' : 'width="330" height="330"'  %}
+
+{% set product_filter = settings.menu_product_filter|split('_') %}
+
+{% set filter = [product_filter[0], 'available'] %}
+
+{% set order = product_filter[1] ? product_filter[1] : {'id': 'desc'} %}
+
+{% set categories = category_id ? [category_id] : [] %}
+
+{% set group_products = Products({
+    'filter': filter,
+    'limit': quantity,
+    'order': order,
+    'categories': categories
+}) %}
+
+{% for item in group_products if item.upon_request == false and item.stock > 0 %}
+    {% set menu_products = menu_products|merge([item]) %}
+{% endfor %}
+
+{% if menu_products|length < quantity %}
+    {% set ids = [] %}
+    {% set fallback_products = Products({'filter': ['available'],'limit': quantity * 3,'order': 'rand', 'categories': categories }) %}
+    {% for item in menu_products %}{% set ids = ids|merge([item.id]) %}{% endfor %}
+
+    {% for item in fallback_products if item.id not in ids and item.upon_request == false and item.stock > 0 %}
+
+        {% if menu_products|length < quantity %}
+            {% set menu_products = menu_products|merge([item]) %}
+        {% endif %}
+
+    {% endfor %}
+
+{% endif %}
+
+{% if menu_products|length > 0 %}
+    <div data-show="true" class="menu-product">
+        <div class="menu-product__content swiper">
+            <div class="swiper-wrapper">
+                {% for menu_product in menu_products %}
+                    {% set link = menu_product.link %}
+                    {% set name = menu_product.name %}
+                    {% set images = menu_product.images %}
+                    {% set price_to = menu_product.price_offer > 0 ? settings.currency ~' '~ menu_product.price_offer|currency : settings.currency ~' '~ menu_product.price|currency %}
+                    {% set price_from = menu_product.price_offer > 0 ? settings.currency ~' '~ menu_product.price|currency : false %}
+                    {% set payments = menu_product.payment_option_details %}
+
+                    <a href="{{ link }}" class="menu-product__link swiper-slide">
+
+                        <figure class="menu-product__figure menu-product__figure--{{ shape }} lazyload">
+
+                            {% if images %}
+                                <img src="{{  images[0].full }}" {{ size }} alt="{{ name }}" >
+                                {{ images[1] ? '<img src="'~ images[1].full ~'" '~ size ~'  alt="'~ name ~'" class="hover" >' : ''}}
+                            {% else %}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" class="button1"><path fill="#C3BDFF" d="M7.5 25a2.406 2.406 0 0 1-1.765-.734A2.408 2.408 0 0 1 5 22.5c0-.688.245-1.276.735-1.766A2.407 2.407 0 0 1 7.5 20c.688 0 1.276.245 1.765.734.49.49.735 1.078.735 1.766s-.245 1.276-.735 1.766S8.187 25 7.5 25ZM20 25a2.406 2.406 0 0 1-1.765-.734A2.408 2.408 0 0 1 17.5 22.5c0-.688.245-1.276.735-1.766A2.407 2.407 0 0 1 20 20a2.41 2.41 0 0 1 1.766.734c.49.49.734 1.078.734 1.766a2.41 2.41 0 0 1-.734 1.766A2.41 2.41 0 0 1 20 25ZM7.5 18.75c-.938 0-1.646-.412-2.125-1.235-.48-.823-.5-1.64-.063-2.453L7 12 2.5 2.5H1.219c-.354 0-.646-.12-.875-.36A1.236 1.236 0 0 1 0 1.25C0 .896.12.599.36.359S.896 0 1.25 0h2.031c.23 0 .448.063.656.188.209.124.365.302.47.53L5.25 2.5h18.438c.562 0 .947.208 1.156.625.208.417.198.854-.032 1.313l-4.437 8c-.23.416-.531.74-.906.968-.375.23-.802.344-1.282.344H8.876L7.5 16.25h13.781c.354 0 .646.12.875.359.23.24.344.537.344.891s-.12.65-.36.89-.536.36-.89.36H7.5Z"/></svg>
+                            {% endif %}
+
+                        </figure>
+
+                        <p class="menu-product__name">{{ name }}</p>
+
+                        <p class="menu-product__price">
+                            {{ price_from ? '<s>'~ price_from ~'</s>' : '' }}
+                            <span>{{ price_to }}</span>
+                        </p>
+
+                        {% for payment in payments %}
+                            {% set times = payment.plots ~ 'x' %}
+                            {% set price = settings.currency ~ ' ' ~ payment.value|currency %}
+                            {% set tax = payment.tax > 0 ? ' com juros' : ' sem juros' %}
+
+                            <p class="menu-product__payments">{{ 'ou ' ~ times ~ ' de '~ price ~ tax }}</p>
+
+                        {% endfor %}
+
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="menu-product__dots swiper-pagination"></div>
+        </div>
+    </div>
+
+{% endif %}

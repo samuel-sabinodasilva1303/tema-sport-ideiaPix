@@ -1,0 +1,47 @@
+{% set reviews = [] %}
+{% for i in 1..9 %}
+    {% set position = attribute(settings, 'reviews_position_'~ i) %}
+    {% set name = attribute(settings, 'reviews_name_' ~ i ) %}
+    {% set review = attribute(settings, 'reviews_review_' ~ i ) %}
+    {% set photo = attribute(settings, 'reviews_image_' ~i ) %}
+
+    {% if name|trim() != '' and review|trim() != '' %}
+        {% set reviews = reviews|merge([{ "pos": position, "name": name|slice(0,20), "review": review|slice(0,130), "photo": photo }]) %}
+    {% endif %}
+{% endfor %}
+
+{% if settings.show_reviews and reviews[2] %}
+    <section class="reviews">
+        <div class="reviews__content">
+            <h3 class="reviews__title">Depoimentos</h3>
+            <div class="reviews__list swiper">
+                <div class="swiper-wrapper">
+                    {% for i in 1..9 %}
+                        {% set loopParent = loop.index %}
+                        {% for review in reviews %}
+                            {% if review.pos == loopParent %}
+                                <div class="swiper-slide">
+                                    <div class="reviews__item">
+                                        {% if review.photo %}
+                                            <img class="reviews__photo" src="{{ asset(review.photo) }}" width="60" height="60" alt="foto do cliente {{ review.name }}" loading="lazy">
+                                        {% endif %}
+                                        <p class="reviews__review">{{ review.review }}</p>
+                                        <p class="reviews__name">
+                                            <b>{{ review.name }}</b>
+                                            <i>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="92" height="16" viewBox="0 0 92 16">
+                                                    <path fill="#FECF03" d="m8.31 0 1.87 5.74h6.04L11.33 9.3l1.87 5.75-4.89-3.55-4.88 3.55 1.86-5.75L.41 5.74h6.04L8.3 0ZM27.16 0l1.86 5.74h6.04L30.18 9.3l1.86 5.75-4.88-3.55-4.89 3.55 1.87-5.75-4.89-3.55h6.04L27.16 0ZM46 0l1.87 5.74h6.04L49.02 9.3l1.87 5.75L46 11.49l-4.89 3.55 1.87-5.75-4.89-3.55h6.04L46 0ZM64.84 0l1.87 5.74h6.04L67.86 9.3l1.87 5.75-4.89-3.55-4.88 3.55 1.86-5.75-4.88-3.55h6.04L64.84 0ZM83.69 0l1.86 5.74h6.04L86.71 9.3l1.86 5.75-4.88-3.55-4.89 3.55 1.87-5.75-4.89-3.55h6.04L83.7 0Z"/>
+                                                </svg>
+                                            </i>
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+{% endif %}

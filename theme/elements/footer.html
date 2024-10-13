@@ -1,0 +1,200 @@
+{% set email = Translation('ag_email_1') %}
+{% set whatsappNumber = Translation('ag_telefone_3') %}
+{% set phone = Translation('ag_telefone_1') %}
+{% set phone2 = Translation('ag_telefone_2') %}
+{% set horariosAtendimento = Translation('ag_atendimento') %}
+
+<footer class="footer">
+
+    {% if settings.newsletter_active %}
+        <div class="footer-newsletter-main">
+            <div class="footer-newsletter">
+                <div class="newsletter-text">
+                    <div class="newsletter-itens">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="63" height="52" fill="none" viewBox="0 0 63 53">
+                            <path fill="" d="M32.75 33.7l7.83 7.86-7.85 7.86 3.1 3.08 10.94-10.94-10.94-10.94-3.08 3.09zM48.06 33.7l7.83 7.86-7.85 7.86 3.1 3.08 10.94-10.94-10.93-10.94-3.09 3.09z"/>
+                            <path fill="" d="M27.08 39.38H5.21V6.37l25 17.3a2.19 2.19 0 002.5 0l25-17.3v19.88h4.37V4.37A4.37 4.37 0 0057.71 0H5.2A4.37 4.37 0 00.83 4.38v35a4.38 4.38 0 004.38 4.37h21.87v-4.38zm25.82-35L31.46 19.2 10.02 4.37H52.9z"/>
+                        </svg>
+                        <div class="text">
+                            <p class="text-emphasis">
+                                {{ settings.newsletter_title }}
+                            </p>
+                            <p class="text-paragraph">
+                                {{ settings.newsletter_subtitle }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="newsletter-email" action="/mvc/store/newsletter/" method="post">
+                    <input type="hidden" name="loja" value="{{ store.id }}" />
+
+                    <input type="text" name="name" placeholder="Seu nome" class="name-field" required>
+
+                    <input
+                        class="email-field"
+                        type="email"
+                        name="email"
+                        placeholder="{{ settings.newsletter_placeholder ? settings.newsletter_placeholder : 'Seu e-mail' }}"
+                        required
+                        spellcheck="false"
+                        autocomplete="off"
+                    />
+                    <button type="submit" class="newsletter-button button1" >
+                        ENVIAR
+                    </button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+
+    {% set mobileSvg = utils.is_mobile %}
+
+    <div class="footer-info">
+        <div class="info-pages">
+            <div class="info-title">
+                Institucional
+                {% if mobileSvg %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                        <path d="M6.33963 6.00941C6.34004 6.20933 6.26636 6.40308 6.13137 6.55702L1.60387 11.6909C1.45017 11.8656 1.22931 11.9755 0.98987 11.9964C0.750432 12.0172 0.512031 11.9474 0.327113 11.8021C0.142195 11.6569 0.0259074 11.4482 0.0038316 11.2219C-0.0182442 10.9957 0.0557001 10.7704 0.209398 10.5957L4.26604 6.00941L0.354278 1.42315C0.279062 1.33563 0.222893 1.23492 0.188998 1.12682C0.155104 1.01872 0.144153 0.905356 0.156775 0.793242C0.169397 0.681128 0.205342 0.572476 0.262546 0.473533C0.31975 0.374588 0.397084 0.287303 0.490103 0.216692C0.583208 0.138332 0.692435 0.0789861 0.810941 0.0423708C0.929447 0.00575539 1.05468 -0.00733857 1.17879 0.00390715C1.3029 0.0151529 1.42322 0.050496 1.5322 0.107724C1.64118 0.164953 1.73648 0.242833 1.81213 0.336484L6.18569 5.47035C6.29935 5.62872 6.35355 5.81852 6.33963 6.00941Z" fill="#5D367D"/>
+                    </svg>
+                {% endif %}
+            </div>
+            <ul class="info-list">
+                {% for key, custom in pages.custom %}
+                    {% if key < 15 %}
+                        <li>
+                            <a class="info-link" href="{{ custom.url }}" title="{{ custom.name }}">{{ custom.name }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                <li>
+                    <a class="info-link" href="{{ links.contact }}" title="Fale Conosco">Fale Conosco</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="info-contact">
+            <div class="info-title">
+                Fale Conosco
+                {% if mobileSvg %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                        <path d="M6.33963 6.00941C6.34004 6.20933 6.26636 6.40308 6.13137 6.55702L1.60387 11.6909C1.45017 11.8656 1.22931 11.9755 0.98987 11.9964C0.750432 12.0172 0.512031 11.9474 0.327113 11.8021C0.142195 11.6569 0.0259074 11.4482 0.0038316 11.2219C-0.0182442 10.9957 0.0557001 10.7704 0.209398 10.5957L4.26604 6.00941L0.354278 1.42315C0.279062 1.33563 0.222893 1.23492 0.188998 1.12682C0.155104 1.01872 0.144153 0.905356 0.156775 0.793242C0.169397 0.681128 0.205342 0.572476 0.262546 0.473533C0.31975 0.374588 0.397084 0.287303 0.490103 0.216692C0.583208 0.138332 0.692435 0.0789861 0.810941 0.0423708C0.929447 0.00575539 1.05468 -0.00733857 1.17879 0.00390715C1.3029 0.0151529 1.42322 0.050496 1.5322 0.107724C1.64118 0.164953 1.73648 0.242833 1.81213 0.336484L6.18569 5.47035C6.29935 5.62872 6.35355 5.81852 6.33963 6.00941Z" fill="#5D367D"/>
+                    </svg>
+                {% endif %}
+            </div>
+            <ul class="info-list">
+                {% if phone %}
+                    {% set link = phone | replace({'(': '', ')': '', '-': '', ' ': ''}) %}
+                    <li>
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-item"
+                            href="tel:{{ link }}"
+                            title="Telefone: {{ phone }}"
+                        >
+                            <span class="icon-phone" aria-hidden="true"></span>
+                            <p>{{ phone }}</p>
+                        </a>
+                    </li>
+                {% endif %}
+                    <li>
+                        <a
+                            tray-wp
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-item"
+                            href="https://api.whatsapp.com/send?l=pt&phone=55"
+                            title="Fale conosco no WhatsApp"
+                        >
+                            <span class="icon-whatsapp" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                {% if whatsappNumber %}
+                    <li>{% element 'snippets/whatsapp' { 'number': whatsappNumber, 'include_text' : false } %}</li>
+                {% endif %}
+                {% if email %}
+                    <li>
+                        <a class="contact-item email" href="mailto:{{ email }}" title="Email: {{ email }}">
+                            <span class="icon-email" aria-hidden="true"></span>
+                            <p class="contact-item-email">{{ email }}</p>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+
+            {% if horariosAtendimento %}
+                <p class="info-time">{{horariosAtendimento}}</p>
+            {% endif %}
+                <p class="info-address">{{ settings.address_footer}}</p>
+        </div>
+        <div class="info-payment">
+            {% if paymentMethods.order or paymentMethods.credit %}
+                <div class="info-title">
+                    Pagamento
+                    {% if mobileSvg %}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                            <path d="M6.33963 6.00941C6.34004 6.20933 6.26636 6.40308 6.13137 6.55702L1.60387 11.6909C1.45017 11.8656 1.22931 11.9755 0.98987 11.9964C0.750432 12.0172 0.512031 11.9474 0.327113 11.8021C0.142195 11.6569 0.0259074 11.4482 0.0038316 11.2219C-0.0182442 10.9957 0.0557001 10.7704 0.209398 10.5957L4.26604 6.00941L0.354278 1.42315C0.279062 1.33563 0.222893 1.23492 0.188998 1.12682C0.155104 1.01872 0.144153 0.905356 0.156775 0.793242C0.169397 0.681128 0.205342 0.572476 0.262546 0.473533C0.31975 0.374588 0.397084 0.287303 0.490103 0.216692C0.583208 0.138332 0.692435 0.0789861 0.810941 0.0423708C0.929447 0.00575539 1.05468 -0.00733857 1.17879 0.00390715C1.3029 0.0151529 1.42322 0.050496 1.5322 0.107724C1.64118 0.164953 1.73648 0.242833 1.81213 0.336484L6.18569 5.47035C6.29935 5.62872 6.35355 5.81852 6.33963 6.00941Z" fill="#5D367D"/>
+                        </svg>
+                    {% endif %}
+                </div>
+                {% element 'snippets/payment-list' %}
+            {% endif %}
+        </div>
+
+        <div class="info-security">
+            <div class="info-title">
+                Compre com Seguran&ccedil;a
+                {% if mobileSvg %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                        <path d="M6.33963 6.00941C6.34004 6.20933 6.26636 6.40308 6.13137 6.55702L1.60387 11.6909C1.45017 11.8656 1.22931 11.9755 0.98987 11.9964C0.750432 12.0172 0.512031 11.9474 0.327113 11.8021C0.142195 11.6569 0.0259074 11.4482 0.0038316 11.2219C-0.0182442 10.9957 0.0557001 10.7704 0.209398 10.5957L4.26604 6.00941L0.354278 1.42315C0.279062 1.33563 0.222893 1.23492 0.188998 1.12682C0.155104 1.01872 0.144153 0.905356 0.156775 0.793242C0.169397 0.681128 0.205342 0.572476 0.262546 0.473533C0.31975 0.374588 0.397084 0.287303 0.490103 0.216692C0.583208 0.138332 0.692435 0.0789861 0.810941 0.0423708C0.929447 0.00575539 1.05468 -0.00733857 1.17879 0.00390715C1.3029 0.0151529 1.42322 0.050496 1.5322 0.107724C1.64118 0.164953 1.73648 0.242833 1.81213 0.336484L6.18569 5.47035C6.29935 5.62872 6.35355 5.81852 6.33963 6.00941Z" fill="#5D367D"/>
+                    </svg>
+                {% endif %}
+            </div>
+            <ul class="info-list">
+                <li class="google-seal">
+                    <a
+                        href="https://transparencyreport.google.com/safe-browsing/search?url={{ store.url }}"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        title="Google Safe Browsing"
+                    >
+                        <span class="icon icon-shield"></span>
+                        <span class="icon icon-google"></span>
+                    </a>
+                </li>
+                {% if seals.ebit %}
+                    <li class="ebit-seal">{{ seals.ebit }}</li>
+                {% endif %}
+                {% if seals.hackersafe %}
+                    <li class="loja-protegida-seal">{{ seals.hackersafe }}</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-credits">
+        <div class="credits">
+            <div class="credits-text">{{ Translation('ag_mensagem_rodape') }}</div>
+        </div>
+
+        <div class="info-media">{% element 'snippets/media-icons' %}</div>
+    </div>
+    <div class="credits-development">
+        <div class="credits-development-content">
+            <div class="credits-development-text">
+                <span>Desenvolvido por:</span>
+            </div>
+            <div class="credits-development-links">
+                <a href="https://www..com.br" title="" target="_blank">
+                    <img class="dev-logo" width="74px" height="20px" alt="" src="{{ asset('/img/log') }}" loading="lazy">
+                </a>
+                <a href="https://www.tray.com.br/" title="Tray" target="_blank">
+                    <img class="dev-logo" width="56px" height="28px" alt="tray logo" src="{{ asset('/img/logo-tray.png') }}" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+

@@ -1,0 +1,43 @@
+{% if settings.brands_active %}
+    {% set brands = [] %}
+    {% set is_auto = settings.brands_rotation %}
+
+    {% for i in 1..12 %}
+        {% set position = attribute(settings, 'brand_position_'~i~'') %}
+        {% set link = attribute(settings, 'brand_url_'~i~'') %}
+        {% set img = attribute(settings, 'brand_image_'~i~'') %}
+
+        {% if img %}
+
+            {% set brands = brands|merge([{ "position": position, "img": img, "link": link }]) %}
+
+        {% endif %}
+
+    {% endfor %}
+
+    {% if brands|length %}
+        <section class="brands-list" data-slides="brands" data-auto="{{ is_auto ? '1' : '0' }}">
+            <div class="brands-list__container">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        {% for i in 1..12 %}
+                            {% set loopParent = loop.index %}
+
+                            {% for brand in brands if brand.position == loopParent %}
+                                <div class="swiper-slide">
+                                    <div class="brands-list__item">
+                                        {{ brand.link ? '<a href="'~ brand.link ~'" class="brands-list__link" target="_blank" aria-label="link para marca">' }}
+                                        <img src="{{ asset(brand.img) }}" width="177" height="100" alt="brand_img" loading="lazy">
+                                        {{ brand.link ? '</a>' }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+{% endif %}

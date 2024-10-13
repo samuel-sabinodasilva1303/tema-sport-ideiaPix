@@ -1,0 +1,65 @@
+{% set shape = settings.image_shape ? settings.image_shape : 'square' %}
+{% set size_main = shape == 'portrait' ? ' width="1000" height="1259" ' :  shape == 'rectangle' ? 'width="1311" height="1000"' : 'width="1000" height="1000"'  %}
+{% set size_thumb = shape == 'portrait' ? ' width="140" height="176" ' :  shape == 'rectangle' ? 'width="140" height="107"' : 'width="140" height="140"'  %}
+{% set alt = product_name %}
+{% set images = product_images %}
+{% set video_url = product_video|trim() %}
+{% set auto_play_video = settings.show_auto_play ? video_url matches '/.*\?/' ? '&autoplay=1&mute=1&enablejsapi=1;' : '?autoplay=1&mute=1&enablejsapi=1;' : '' %}
+{% set has_zoom = settings.show_zoom %}
+{% set has_video = video_url and video_url != '' %}
+
+{% set iframe_element %}
+    {% if has_video %}
+        <div class="swiper-slide">
+            <iframe class="image-gallery__iframe" {{ size_main }} src="{{ video_url }}{{ auto_play_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+        </div>
+    {% endif %}
+{% endset %}
+
+{% set video_thumb_element %}
+    {% if has_video %}
+        <div class="swiper-slide">
+            <i class="image-gallery__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="79" height="55" fill="none" viewBox="0 0 79 55">
+                    <path fill="red" d="M76.5 8.58a9.83 9.83 0 0 0-6.93-6.92C63.5 0 39.07 0 39.07 0S14.64.05 8.57 1.7a9.83 9.83 0 0 0-6.92 6.93C-.2 19.4-.9 35.85 1.7 46.2a9.83 9.83 0 0 0 6.92 6.93c6.07 1.65 30.5 1.65 30.5 1.65s24.43 0 30.5-1.65a9.83 9.83 0 0 0 6.92-6.93c1.94-10.8 2.54-27.22-.05-37.62Z"/>
+                    <path fill="#fff" d="m31.3 39.13 20.26-11.74L31.3 15.65v23.48Z"/>
+                </svg>
+            </i>
+        </div>
+    {% endif %}
+{% endset %}
+
+<div class="image-gallery image-gallery--{{ shape }}">
+    <div class="image-gallery__main" data-slides="gallery-main" data-zoom="{{ has_zoom ? 'true' : 'false' }}">
+
+        <div class="swiper">
+            <div class="swiper-wrapper">
+
+                {{ iframe_element  }}
+
+                {% for image in images %}
+                    <div class="swiper-slide">
+                        <img src="{{ image.full }}" {{ size_main }} alt="{{ alt }}">
+                    </div>
+                {% endfor  %}
+            </div>
+        </div>
+
+    </div>
+    <div class="image-gallery__thumbs" data-slides="gallery-thumbs">
+
+        <div class="swiper">
+            <div class="swiper-wrapper">
+
+                {{ video_thumb_element }}
+
+                {% for image in images %}
+                    <div class="swiper-slide">
+                        <img src="{{ image.medium }}" {{ size_thumb }} alt="{{ alt }}">
+                    </div>
+                {% endfor  %}
+            </div>
+        </div>
+
+    </div>
+</div>

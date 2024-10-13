@@ -1,0 +1,91 @@
+@keyframes boxAlert{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.box-alerts {
+    @include fontInsert(1, 700, var(--c_advice_text));
+    padding: 5px;
+    position: fixed;
+    bottom: 4%;
+    width: 290px;
+    right: 5px;
+    left: unset;
+    font-size: 14px;
+    font-weight: 400;
+    z-index: 10;
+    padding: 14px;
+    text-align: start;
+    border-radius: 5px;
+    background: var(--c_advice_bg);
+    animation: boxAlert .8s linear;
+
+    .infobox > span:first-child {
+        font-weight: 700;
+    }
+
+    &:empty {
+        display: none;
+    }
+
+    .danger {
+        line-height: 1.2;
+
+    }
+}
+
+#alert-show {
+    display: none;
+
+    &:checked ~ .box-alerts {
+        display: none;
+    }
+
+    + .infobox.danger,
+    + .box-alerts {
+        display: none;
+    }
+}
+
+.close-info {
+    display: block;
+    cursor: pointer;
+    top: 4px;
+    position: absolute;
+    transform: rotate(45deg);
+    margin: 7px;
+    right: 7px;
+    width: 10px;
+    height: 10px;
+    transition: 0.3s all;
+
+    &:hover{
+        &:before, &:after{
+            opacity: 0.6;
+        }
+    }
+
+    &:first-child {
+        display: none;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        height: 14px;
+        width: 2px;
+        background: var(--c_button_close);
+        position: absolute;
+        left: 6px;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 2px;
+        background: var(--c_button_close);
+        position: absolute;
+        top: 6px;
+    }
+}

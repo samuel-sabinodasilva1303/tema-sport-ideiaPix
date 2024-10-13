@@ -1,0 +1,44 @@
+.breadcrumb {
+    @extend %flex-start-center;
+    flex-wrap: wrap;
+    margin: 1.688rem 0 1.688rem;
+    width: 100%;
+
+    &-item {
+        color: var(--c_general_tertiary);
+        display: contents;
+
+        &:not(:first-child)::before {
+            @extend .icon-arrow-simple;
+            @extend .icon-config;
+            color: var(--c_general_tertiary);
+            font-size: 0.75rem;
+            padding: 0 0.5rem;
+        }
+        > span{
+            color: var(--c_general_main);
+            text-decoration: underline;
+        }
+    }
+    &-name{
+        &-product{
+            text-decoration: underline;
+            color: var(--c_general_main);
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 12.5px;
+            display: inline-block;
+        
+        }
+    }
+
+    &-link,
+    &-item {
+        @include fontInsert(0.875, 400, var(--c_general_tertiary));
+        transition: $transit_default;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

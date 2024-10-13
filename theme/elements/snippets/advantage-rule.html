@@ -1,0 +1,42 @@
+{% if settings.show_regua %}
+    {% set rules = [] %}
+
+    {% for i in 1..8 %}
+        {% set icon = attribute(settings, 'regua_icon_' ~ i) %}
+        {% set title = attribute(settings, 'regua_title_' ~ i) %}
+        {% set desc = attribute(settings, 'regua_desc_' ~ i) %}
+
+        {% if title|trim() != '' and desc|trim() != '' %}
+            {% set rules = rules|merge([{ "icon": (icon ? icon : null), "title": title|trim(), "desc": desc|trim() }]) %}
+        {% endif %}
+
+    {% endfor %}
+
+
+    {% if rules|length > 0 %}
+        <section class="advantage-rule{{ is_top ? ' advantage-rule--top'}}" data-slides="advantage{{ is_top ? '-top' }}">
+            <div class="advantage-rule__container">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        {% for rule in rules %}
+                            <div class="swiper-slide">
+                                <div class="advantage-rule__rule">
+                                    {% if rule.icon and not is_top %}<img src="{{ asset(rule.icon) }}" width="40" height="40" alt="icone regua de vantagem" loading="lazy" />{% endif %}
+                                    <div class="advantage-rule__text">
+                                        {% if is_top %}
+                                            <p class="advantage-rule__title-desc">{{ rule.title }} - {{ rule.desc }}</p>
+                                        {% else %}
+                                            <p class="advantage-rule__title">{{ rule.title }}</p>
+                                            <p class="advantage-rule__desc">{{ rule.desc }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+{% endif %}

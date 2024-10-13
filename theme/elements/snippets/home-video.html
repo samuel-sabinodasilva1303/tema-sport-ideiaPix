@@ -1,0 +1,5 @@
+{% if settings.show_home_video %}
+    <div class="container video-home-main">
+        <iframe id="videoIframe" title="video home" class="lazyload" width="1250" height="500" data-url="{{ settings.video_url }}" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+{% endif %}

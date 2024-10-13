@@ -1,0 +1,173 @@
+.page-login {
+    .banner-full{
+        background-color: #FFF;
+    }
+    .default-main{
+        background-color: #fff;
+    }
+    .default-content > .container > .container3{
+        display: none;
+    }
+    .default{
+        background: #FFF !important;
+    }
+    .titulo-login {
+        display: none;
+    }
+
+    .carrinho-heading {
+        display: none;
+    }
+
+    .default-content {
+        .container {
+            .container3 + .container {
+                padding: 0;
+            }
+        }
+
+        .board {
+            @extend %flex;
+            box-shadow: 0px 10px 30px rgb(0 0 0 / 13%);
+            border-radius: 5px;
+            max-width: 90%;
+            margin: 3rem auto;
+
+            @include desktop {
+                padding: 80px 40px;
+            }
+
+            @include mobile {
+                flex-direction: column;
+                padding: 30px;
+            }
+        }
+    }
+
+    .caixa-login,
+    .caixa-cadastro {
+        width: 100%;
+
+        @include small {
+            max-width: 100%;
+        }
+
+        h3 {
+            @include fontInsert(2, 600, #595867);
+            line-height: 28px;
+
+            @include small {
+                text-align: center;
+            }
+        }
+
+        fieldset {
+            @include fontInsert(1, 400, #7A7A7A);
+            border: 0;
+            padding: 0;
+
+            @include small {
+                font-size: 0.9rem;
+                text-align: center;
+                margin-top: 0.5rem;
+            }
+
+            @include medium {
+                margin-top: 1.3rem;
+            }
+            @include large {
+                margin-top: 1.3rem;
+            }
+
+            .botao-commerce {
+                width: 182px !important;
+                border-radius: 5px;
+                color: var(--c_default_button_text);
+                background-color: var(--c_default_button_bg);
+                text-transform: initial;
+                opacity: 1;
+                transition: $transit_default;
+                @extend .button2;
+
+                &:hover{
+                    background-color: var(--c_default_button_bg_hover);
+                    color: var(--c_default_button_text_hover);
+                }
+
+                @include small {
+                    width: 100%;
+                }
+                @include medium {
+                    width: unset;
+                }
+                @include large {
+                    width: unset;
+                }
+
+                &:focus,
+                &:active {
+                    opacity: 0.6;
+                }
+            }
+
+            label {
+                @include fontInsert(0.875, 400, #595867);
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 28px;
+            }
+        }
+    }
+
+    .caixa-login {
+        @include mobile {
+            border-bottom: 1px solid #7A7A7A;
+            padding-bottom: 4rem;
+        }
+
+        @include desktop {
+            border-right: 1px solid #7A7A7A;
+            padding: 0 4.5rem 0 0;
+        }
+    }
+
+    .caixa-cadastro {
+        @include small {
+            padding-top: 4rem;
+        }
+        @include medium {
+            padding: 0 2rem 0 4.5rem;
+        }
+        @include large {
+            padding: 0 0 0 4.5rem;
+        }
+
+        p:first-child {
+            display: block;
+            width: 100%;
+        }
+
+        fieldset {
+            label {
+                font-size: 0;
+            }
+
+            input {
+                @include fontInsert(0.875, 400, var(--c_general_main));
+                background: #F6F6F6;
+                border: 1px solid #F6F6F6;
+                border-radius: 2px;
+                display: block;
+                line-height: 1.4;
+                padding: 0 1.25rem;
+                text-align: left;
+                height: 52px;
+                width: calc(100% - 2.5rem);
+            }
+
+            .botao-novo-cadastro {
+                margin-top: 1.875rem;
+            }
+        }
+    }
+}

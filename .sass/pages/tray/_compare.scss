@@ -1,0 +1,434 @@
+.page-comparador {
+    h1.color {
+        @include title-h1;
+    }
+
+    .comparatorTabs {
+        @extend %style-scroll-big;
+        overflow-x: auto;
+        padding-top: 1rem;
+
+        ul {
+            @extend %flex;
+            border-bottom: $v_border_pages;
+            min-width: 100%;
+            width: fit-content;
+
+            li {
+                @extend %flex-center-center;
+                @include fontInsert(0.875, 600, var(--c_general_main));
+                background-color: #f6f6f6;
+                border-radius: 2px 2px 0 0;
+                cursor: pointer;
+                opacity: 1;
+                text-transform: uppercase;
+                transition: ease-in-out 0.3s;
+
+                @include small {
+                    font-size: 0.7rem;
+                    min-width: 6rem;
+                    padding: 0.5rem 1rem;
+                    margin-right: 1rem;
+
+                    &:first-child {
+                        margin-left: 1rem;
+                    }
+                }
+
+                @include medium {
+                    min-width: 6rem;
+                    padding: 0.5rem 1rem;
+                    margin-right: 1rem;
+
+                    &:first-child {
+                        margin-left: 1rem;
+                    }
+                }
+                @include large {
+                    min-width: 10rem;
+                    padding: 1rem 2rem;
+                    margin-right: 2.5rem;
+
+                    &:first-child {
+                        margin-left: 1.3rem;
+                    }
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    opacity: 0.6;
+                }
+
+                .closeCat {
+                    font-size: 0;
+                    padding-left: 0.6rem;
+                    @extend .icon-exit;
+                    @extend .icon-config;
+
+                    &::before {
+                        color: var(--c_general_main);
+                        font-size: 0.96rem;
+                    }
+                }
+            }
+
+            .aberta {
+                @extend .button2;
+
+                a {
+                    color: inherit;
+
+                    &::before {
+                        color: #fff;
+                    }
+                }
+            }
+
+            li.aberta {
+                @extend %flex-center-center;
+            }
+        }
+    }
+
+    .comparator {
+        overflow-x: auto;
+        @extend %style-scroll-big;
+        > ul > li {
+            flex: 1;
+            min-width: 0;
+        }
+        ul {
+            .Labels {
+                display: none;
+            }
+            @extend %flex-center-center;
+            margin-top: 30px;
+            li {
+                &:nth-child(n + 2) ul li.comparsionInfoPreco {
+                    display: block;
+                }
+
+                ul {
+                    @extend %flex-center-colun;
+
+                    &:first-child {
+                        > li:first-child {
+                            font-size: 0;
+                        }
+                    }
+
+                    li {
+                        background-color: var(--c_general_background);
+
+                        &.displayRate,
+                        &.displayDescricao {
+                            display: none;
+                        }
+
+                        &:not(.comparsionFoto) {
+                            @extend %flex-start-center;
+                            border: $v_border_sections;
+                            min-height: 5.13rem;
+                            padding: 1.5rem 1rem;
+                            color: var(--c_general_tertiary);
+                            @include v-width-compare;
+                        }
+                    }
+
+                    .comparsionFoto {
+                        @extend %flex-colun-betw;
+                        padding: 1.5rem 1.5rem;
+                        position: relative;
+                        height: 29rem;
+                        width: 17rem;
+                        @include v-width-compare;
+
+                        &:not(:first-child) {
+                            @include v-width-compare;
+                        }
+
+                        > a {
+                            @extend %flex-center-colun;
+                            @extend %text-general;
+                            text-align: center;
+
+                            @include small {
+                                min-height: 15.5rem;
+                            }
+
+                            &:first-child {
+                                flex: 1;
+                            }
+
+                            // img:first-child {
+                            //     margin: 2rem 0 auto;
+                            //     height: 100%;
+                            //     width: auto;
+                            //     max-height: 90px;
+                            // }
+
+                            ._title {
+                                display: -webkit-box;
+                                text-overflow: ellipsis;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                height: 44px;
+                                -webkit-line-clamp: 2;
+
+                            }
+
+                            .square,
+                            .portrait,
+                            .rectangle {
+                                max-width: 282px;
+                                height: auto;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+                            .portrait {
+                                aspect-ratio: 282/355;
+                                max-height: 355px;
+                            }
+                            .square {
+                                aspect-ratio: 1/1;
+                                max-height: 282px;
+                            }
+                            .rectangle {
+                                aspect-ratio: 282/215;
+                                max-height: 215px;
+                            }
+                        }
+                        div {
+                            @extend %flex-center-center;
+
+                            a[alt='Comprar'],
+                            a[title='Escolher'] {
+                                @extend .button1;
+                                display: block;
+                                margin: 1rem auto 0 auto;
+                                border-radius: $border_radius;
+                                text-align: center;
+                                width: 80%;
+                                background-color: var(--c_buy_button_bg);
+                                color: var(--c_buy_button_text);
+
+                                @include small {
+                                    font-size: 0.7rem;
+                                    min-width: 5rem;
+                                    padding: 0.7rem 1rem;
+                                }
+                                @include medium {
+                                    font-size: 0.7rem;
+                                    min-width: 5rem;
+                                    padding: 0.7rem 1rem;
+                                }
+                                @include large {
+                                    min-width: 9.75rem;
+                                }
+
+                                &::before {
+                                    content: 'VER PRODUTO';
+                                }
+
+                                img {
+                                    display: none;
+                                }
+                                &:hover {
+                                    opacity: 1;
+                                    background-color: var(--c_buy_button_bg_hover);
+                                    color: var(--c_buy_button_text_hover);
+                                }
+                            }
+
+                            h4 {
+                                @extend .button3;
+                                font-size: 1rem;
+                                display: block;
+                                margin-top: 1rem;
+                                min-width: 9.75rem;
+                                text-align: center;
+                                width: 80%;
+                                border-radius: 5px;
+
+                                @include small {
+                                    font-size: 0.7rem;
+                                    min-width: 5rem;
+                                    padding: 0.7rem 1rem;
+                                }
+                                @include medium {
+                                    font-size: 0.7rem;
+                                    min-width: 5rem;
+                                    padding: 0.7rem 1rem;
+                                }
+                                @include large {
+                                    min-width: 9.75rem;
+                                }
+                            }
+                        }
+
+                        a.closeComp {
+                            font-size: 0;
+                            @extend .icon-exit;
+                            @extend .icon-config;
+
+                            &::before {
+                                background-color: #f6f6f6;
+                                border-radius: 50%;
+                                color: var(--c_general_main);
+                                font-size: 0.9rem;
+                                padding: 0.4rem;
+                                position: absolute;
+                                top: 12%;
+                                right: 25%;
+                            }
+                        }
+                    }
+
+                    .comparsionRate {
+                        font-size: 0;
+                        position: relative;
+                    }
+
+                    .comparsionInfoPreco {
+                        height: 10rem;
+                        flex-wrap: wrap;
+
+                        br + br {
+                            display: none;
+                        }
+
+                        .precoAvista {
+                            font-weight: 600;
+                            width: 80%;
+                        }
+                    }
+
+                    .displayDescricao {
+                        height: 13rem;
+                    }
+
+                    .displayModelo {
+                        min-height: 6rem;
+                    }
+
+                    .displayMarca,
+                    .displayGarantia,
+                    .displayDisponibilidade {
+                        height: 8rem;
+                    }
+                }
+            }
+
+            li:not(.Labels) ul li.comparsionRate {
+                &::before {
+                    background: url(../img/all-stars.svg) no-repeat;
+                    content: '';
+                    background-size: 100%;
+                    display: block;
+                    height: 1.5rem;
+                    width: 8rem;
+                }
+
+                .rating span {
+                    background-color: #fbb832;
+                    display: block;
+                    height: 1.28rem;
+                    left: 1rem;
+                    top: 1.82rem;
+                    position: absolute;
+                    z-index: -1;
+
+                    @for $i from 1 through 5 {
+                        &[title='#{$i}'] {
+                            width: calc((7.9rem / 5) * #{$i});
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// All pages pagination
+.container3 {
+    .board {
+        @include fontInsert(0.95, 600, var(--c_general_main));
+
+        .left {
+            padding: 1.5rem 0;
+
+            @include small {
+                text-align: center;
+                font-size: 0.85rem;
+            }
+        }
+
+        .right {
+            @extend %flex-center-center;
+        }
+
+        .btns-paginator {
+            @extend %button-pagination;
+            background-color: #f6f6f6;
+            margin: 0 0.5rem;
+            transition: $transit_default;
+            opacity: 1;
+
+            &:hover {
+                opacity: 0.6;
+            }
+
+            &.selectedPg {
+                @include fontInsert(0.95, 600, #fff);
+                background-color: var(--c_general_secondary);
+
+                b {
+                    @include fontInsert(0.95, 600, #fff);
+                }
+            }
+
+            &.btn-primeira-pagina,
+            &.btn-ultima-pagina {
+                width: 6rem;
+                text-transform: uppercase;
+
+                img {
+                    display: none;
+                }
+
+                @include small {
+                    display: none;
+                }
+            }
+
+            &.btn-pagina-anterior,
+            &.btn-proxima-pagina {
+                font-size: 0;
+
+                img {
+                    display: none;
+                }
+
+                &::before {
+                    @extend .icon-arrow-simple;
+                    color: var(--c_general_secondary);
+                    display: inline-block;
+                    font-size: 0.9rem;
+                }
+            }
+
+            &.btn-pagina-anterior {
+                transform: rotate(180deg);
+            }
+        }
+
+        .separador-paginas {
+            display: none;
+        }
+    }
+}

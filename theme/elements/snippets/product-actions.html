@@ -1,0 +1,79 @@
+{% set hide_price = settings.hide_price ? 'data-hide-price="true"' : '' %}
+{% set quick_buy = settings.show_purchase_fast %}
+{% set wp_show = settings.product_wp_show %}
+{% set wp_text = settings.product_wp_label|trim() != '' ? settings.product_wp_label|trim()|slice(0,25) : 'DÚVIDAS?' %}
+{% set phone_num = Translation('ag_telefone_2')|trim() != '' ? Translation('ag_telefone_2')|trim()|replace({'(': '', ')': '', ' ':'', '-': ''}) : false  %}
+{% set id = product.id %}
+{% set name = product.name %}
+{% set link = product.link %}
+{% set price = product.price %}
+{% set stock = product.stock %}
+{% set var_id = product.has_variation ? '' : 0 %}
+{% set buy_btn_text = settings.buy_btn_label|trim() != '' ? settings.buy_btn_label|trim()|slice(0,20) : 'COMPRAR' %}
+{% set price_offer = product.price_offer > 0 ? product.price_offer : false %}
+{% set save_value = price_offer ? settings.currency ~' '~ (price - price_offer)|currency : false %}
+{% set min_max = settings.without_stock_sale ? 'min="1"' : 'min="1" max="'~ stock ~'"' %}
+{% set is_kit = product.is_kit %}
+{% set quick_buy_btn = is_kit ? 'onclick="window.location.href=\''~ link ~'\';return false;"' : 'data-id="'~ id ~'" data-var-id="'~ var_id ~'"' %}
+
+{% set btn_quantity_buy %}
+    {% if quick_buy %}
+        <div class="product-actions__wrapper">
+            {% if not is_kit %}
+                <div class="product-actions__qty">
+                    <button aria-label="diminuir a quantidade" onclick="window.handleQuantity(this, -1);" type="button" class="product-actions__qty--btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="9" height="4" viewBox="0 0 9 4"><path fill="#000" fill-rule="evenodd" d="M0 0h9v4H0V0Z" clip-rule="evenodd"/></svg>
+                    </button>
+                    <input aria-label="quantidade" type="number" class="product-actions__qty--input" {{ min_max }} value="1" readonly>
+                    <button aria-label="aumentar a quantidade" onclick="window.handleQuantity(this,1);" type="button" class="product-actions__qty--btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="13" height="14" viewBox="0 0 13 14"><path fill="#000" fill-rule="evenodd" d="M4.62.63h3.77v4.4h4.4v3.62h-4.4v4.52H4.62V8.65H.22V5.02h4.4V.63Z" clip-rule="evenodd"/></svg>
+                    </button>
+                </div>
+            {% endif %}
+            <button {{ quick_buy_btn }} type="button" class="product-actions__btn product-actions__btn--buy">{{ buy_btn_text }}</button>
+        </div>
+    {% endif %}
+{% endset %}
+
+{% set btn_wp %}
+    {% if wp_show and phone_num %}
+        <a href="https://api.whatsapp.com/send?l=pt&phone=55{{ phone_num }}&text=Oi, tudo bem? Gostaria de mais informa%C3%A7%C3%A3o sobre o Produto: {{ name }}, Link: {{ link }} e Valor: R$ {{ price|currency }}" class="product-actions__btn product-actions__btn--wp">
+            <i>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="20" viewBox="0 0 360 362">
+                    <path fill="#25D366" fill-rule="evenodd" d="M307.55 52.57A178.05 178.05 0 0 0 180.75 0C81.96 0 1.55 80.4 1.5 179.24a178.86 178.86 0 0 0 23.93 89.6L0 361.74l95.02-24.93a179.01 179.01 0 0 0 85.66 21.81h.08c98.78 0 179.2-80.4 179.24-179.24.02-47.9-18.6-92.93-52.45-126.8v-.01Zm-126.8 275.78h-.05a148.8 148.8 0 0 1-75.83-20.76l-5.45-3.23-56.39 14.79 15.05-54.98-3.54-5.64a148.6 148.6 0 0 1-22.77-79.29C31.8 97.1 98.63 30.27 180.82 30.27c39.79.02 77.2 15.53 105.32 43.7a148.06 148.06 0 0 1 43.6 105.4c-.04 82.14-66.87 148.98-148.98 148.98Zm81.73-111.57c-4.48-2.25-26.5-13.08-30.61-14.57-4.1-1.5-7.1-2.24-10.07 2.24-2.99 4.49-11.57 14.58-14.19 17.56-2.6 3-5.22 3.36-9.7 1.12-4.48-2.25-18.9-6.97-36.02-22.23-13.31-11.88-22.3-26.54-24.91-31.03-2.62-4.48-.28-6.9 1.95-9.13 2.01-2.01 4.48-5.24 6.72-7.85 2.25-2.61 2.99-4.48 4.48-7.47 1.5-2.99.75-5.6-.37-7.84-1.11-2.25-10.07-24.3-13.8-33.26-3.64-8.73-7.34-7.54-10.08-7.69-2.61-.13-5.6-.15-8.59-.15s-7.84 1.11-11.94 5.6c-4.11 4.49-15.68 15.32-15.68 37.36s16.05 43.34 18.29 46.34c2.24 2.99 31.58 48.22 76.5 67.63a256.9 256.9 0 0 0 25.54 9.44c10.73 3.4 20.5 2.93 28.21 1.77 8.6-1.29 26.5-10.83 30.23-21.3 3.73-10.45 3.73-19.43 2.61-21.3-1.11-1.86-4.1-2.98-8.58-5.23v-.01Z" clip-rule="evenodd"/>
+                </svg>
+            </i>
+            {{ wp_text ? '<span>'~ wp_text ~'</span>' : '' }}
+        </a>
+    {% endif %}
+{% endset %}
+
+{% set btn_buy %}
+    {% if not quick_buy %}<a href="{{ link }}" class="product-actions__btn product-actions__btn--buy">{{ buy_btn_text }}</a>{% endif %}
+{% endset %}
+
+{% set btn_offer %}
+    {% if price_offer %}<a href="{{ links.search_offer }}" class="product-actions__btn product-actions__btn--offer">Compre e Economize: {{ save_value }}</a>{% endif %}
+{% endset %}
+
+{% set btn_login %}
+    {% if hide_price %}<a href="/my-account/login" class="product-actions__btn product-actions__btn--login" data-hide-price="false">Login para ver os preços</a>{% endif %}
+{% endset %}
+
+<div class="product-actions{{ quick_buy ? ' product-actions--quick-buy' : ''}}" {{ hide_price }} >
+
+    {% element 'snippets/product-variations' {'product': product } %}
+
+    {{ btn_quantity_buy }}
+
+    {% element 'snippets/product-countdown' {'product': product, 'is_quick_buy': quick_buy } %}
+
+    {{ btn_buy }}
+
+    {{ btn_wp }}
+
+    {{ btn_offer }}
+
+</div>
+
+{{ btn_login }}
