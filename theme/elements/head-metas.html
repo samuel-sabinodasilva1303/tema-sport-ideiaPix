@@ -23,10 +23,8 @@
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="{{ page_details.title }}" />
         <meta property="og:description" content="{{ page_details.description }}" />
-        <meta property="og:image" content="{{ asset(settings.social_media_imagem) ? asset(settings.social_media_imagem) : Image('mobile_logo') }}" />
 
         {% if settings.social_cover %}
-            <meta property="og:image" content="{{ asset(settings.social_media_imagem) ? asset(settings.social_media_imagem) : Image('mobile_logo') }}" />
             <meta property="og:image:width" content="1200"/>
             <meta property="og:image:height" content="1200"/>
         {% endif %}
@@ -46,7 +44,6 @@
 
             {% if 'property="og:' in meta %}
                 {% if 'property="og:image"' in meta %}
-                    {% set ogtags = ogtags | merge([('<meta property="og:image" content="'~ settings.social_media_imagem ?  settings.social_media_imagem  : Image('mobile_logo') ~'"/>')]) %}
                     {% set ogtags = ogtags | merge([('<meta property="og:image:width" content="1200"/>')]) %}
                     {% set ogtags = ogtags | merge([('<meta property="og:image:height" content="1200"/>')]) %}
                 {% else %}

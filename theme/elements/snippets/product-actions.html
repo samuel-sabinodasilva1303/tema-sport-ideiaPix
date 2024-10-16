@@ -52,10 +52,6 @@
     {% if not quick_buy %}<a href="{{ link }}" class="product-actions__btn product-actions__btn--buy">{{ buy_btn_text }}</a>{% endif %}
 {% endset %}
 
-{% set btn_offer %}
-    {% if price_offer %}<a href="{{ links.search_offer }}" class="product-actions__btn product-actions__btn--offer">Compre e Economize: {{ save_value }}</a>{% endif %}
-{% endset %}
-
 {% set btn_login %}
     {% if hide_price %}<a href="/my-account/login" class="product-actions__btn product-actions__btn--login" data-hide-price="false">Login para ver os preços</a>{% endif %}
 {% endset %}

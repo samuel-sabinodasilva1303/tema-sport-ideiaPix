@@ -16,7 +16,7 @@
     }
 
     &__qty {
-        border-radius: 5px;
+        border-radius: 1px;
         border: 1px solid #333;
         background-color: #f6f6f6;
         flex: 0 0 100px;
@@ -61,7 +61,7 @@
         place-items: center;
         justify-content: center;
         height: 42px;
-        border-radius: 5px;
+        border-radius: 1px;
         line-height: 1;
         gap: 0 8px;
 
@@ -130,7 +130,7 @@
         z-index: 1;
         background-color: #fef1d6;
         color: #966503;
-        border-radius: 5px;
+        border-radius: 1px;
         padding:10px;
         text-align: center;
         font-weight: 700;

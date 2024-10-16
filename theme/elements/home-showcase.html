@@ -37,21 +37,6 @@
     </div>
 {% endset %}
 
-{% set banner_showcase %}
-    {% if banner.showcase %}
-        {% set banner = attribute(banners, 'showcase') %}
-        {% set banner_title = banner.title ? 'title="'~ banner.title ~'"' : '' %}
-        {% set banner_rel = banner.target == '_blank' ? 'rel="noopener noreferrer"' : '' %}
-
-        <div class="home-showcase__banner">
-            {{ banner.link ? '<a href="'~ banner.link ~'" '~ banner_title ~' target="'~ banner.target ~'" '~ banner_rel ~' >' : '' }}
-                <img src="{{ banner.src }}" alt="{{ banner.alt ? banner.alt : 'banner_img' }}" width="{{ banner.width }}" height="{{ banner.height }}" loading="lazy">
-            {{ banner.link ? '</a>' : '' }}
-        </div>
-
-    {% endif %}
-{% endset %}
-
 {% if products|length > 0 %}
 
     {% set is_special = refShowcase == 'one' ? true : false %}
@@ -60,7 +45,7 @@
 
     {% set title = title|trim() != '' ? title|trim() : 'Nossa Vitrine de Produtos' %}
 
-    <section {{ is_special and banners.showcase ? 'data-banner="true"' : '' }} data-col="{{ columns }}" class="home-showcase" {{ slide ? 'data-slides="product"' : '' }}>
+    <section data-col="{{ columns }}" class="home-showcase" {{ slide ? 'data-slides="product"' : '' }}>
 
         <div class="home-showcase__header">
 

@@ -34,7 +34,7 @@
             &:before {
                 content: '';
                 height: 2px;
-                border-radius: 5px;
+                border-radius: 1px;
                 width: 100%;
                 background: #f2f2f2;
                 position: absolute;
@@ -74,7 +74,7 @@
                 &::-webkit-slider-runnable-track {
                     height: 2px;
                     background-color: #C5C5C5;
-                    border-radius: 5px;
+                    border-radius: 1px;
                 }
 
                 &::-webkit-slider-thumb {
@@ -560,7 +560,7 @@
             align-items: center;
             line-height: 21px;
             border: 1px solid #e7ecef;
-            border-radius: 5px;
+            border-radius: 1px;
             padding: 6.5px 10px;
             gap: 15px;
             cursor: pointer;

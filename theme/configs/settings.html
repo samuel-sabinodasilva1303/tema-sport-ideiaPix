@@ -94,7 +94,7 @@ $(".col-left > ul li").on("click", function(){
         font-size: 18px;
         border: solid 1px #f1f1f1;
         display: block;
-        border-radius: 5px;
+        border-radius: 1px;
         width: 100%;
         padding: 15px;
     }
@@ -233,10 +233,13 @@ $(".col-left > ul li").on("click", function(){
     }
 
     .tray-dashboard .header-fixed .tray-logo{
-        display: block;
-        width: 94px;
-        height: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: #1046B4;
+    }
+    .tray-dashboard .header-fixed .tray-logo img{
+        width: 48%;
     }
 
     #form-content {
@@ -893,15 +896,6 @@ $(".col-left > ul li").on("click", function(){
         font-size: 0;
     }
 
-    .header-fixed .ls-btn-primary::before{
-        content: '';
-        display: inline-block;
-        vertical-align: -3px;
-        width: 14px;
-        height: 14px;
-        margin-right: 5px;
-        background-image: url("data:image/svg+xml,%3Csvg fill='#fff' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 442.533 442.533'%3E%3Cpath d='M434.539,98.499l-38.828-38.828c-5.324-5.328-11.799-7.993-19.41-7.993c-7.618,0-14.093,2.665-19.417,7.993L169.59,247.248 l-83.939-84.225c-5.33-5.33-11.801-7.992-19.412-7.992c-7.616,0-14.087,2.662-19.417,7.992L7.994,201.852 C2.664,207.181,0,213.654,0,221.269c0,7.609,2.664,14.088,7.994,19.416l103.351,103.349l38.831,38.828 c5.327,5.332,11.8,7.994,19.414,7.994c7.611,0,14.084-2.669,19.414-7.994l38.83-38.828L434.539,137.33 c5.325-5.33,7.994-11.802,7.994-19.417C442.537,110.302,439.864,103.829,434.539,98.499z'/%3E%3C/svg%3E");
-    }
 
     .header-fixed .ls-btn-primary::after{
         content: 'publicar tema';
@@ -2915,9 +2909,11 @@ $(".col-left > ul li").on("click", function(){
         color: #1046B4;
     }
 
+
     .tray-dashboard .tray-top-info{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        text-align: center;
         margin: 30px 0;
     }
 
@@ -3165,8 +3161,8 @@ $(".col-left > ul li").on("click", function(){
     <div class="header-fixed">
         <div class="tray-container">
 
-            <a class="tray-logo" href="https://www..com.br" aria-label="Link " title="" rel="noopener" target="_blank">
-                <img src="https://" title="logo-u 1" alt="logo-u 1">
+            <a class="tray-logo" href="https://ideapix.com.br/" aria-label="Link " title="" rel="noopener" target="_blank">
+                <img src="https://ideapix.com.br/assets/site/images/logo_dog.svg" title="logo-u 1" alt="logo-u 1">
             </a>
 
             <div class="theme-version">
@@ -3174,7 +3170,8 @@ $(".col-left > ul li").on("click", function(){
                 <span class="value">1.0.0</span>
             </div>
 
-            <a id="doc-link" href="https://manuais" target="_blank" class="item-action" rel="noreferrer noopener">
+
+            <a id="doc-link" href="https://manuais.ideapix.com.br/ideasports" target="_blank" class="item-action" rel="noreferrer noopener">
                 <svg class="icon icon-doc">
                     <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" fill="none" viewBox="0 0 41 41">
                         <g fill="#1046B4" clip-path="url(#a)">
@@ -3213,57 +3210,13 @@ $(".col-left > ul li").on("click", function(){
                 <div class="title-col">Atenção!</div>
                 <div class="msg">Os nomes dos arquivos para serem enviados ao painel não podem conter espaços ou caracteres especiais.</div>
             </div>
-
-            <div class="alert-tray theme-info">
-                <div class="title-col">Sobre meu tema</div>
-                <ul>
-                    <li class="theme-name">
-                        <span class="text">Nome:</span>
-                        <span class="value"> Sport</span>
-                    </li>
-                    <li class="theme-version">
-                        <span class="text">Versão:</span>
-                        <span class="value">1.0.0</span>
-                    </li>
-                    <li class="theme-collection">
-                        <span class="text">Coleção:</span>
-                        <span class="value">Sport</span>
-                    </li>
-                </ul>
-            </div>
             </div>
         </div>
             <div class="tray-container list-edit-tabs flex justify-between">
                 <div class="box flex align-center active">
                     <div class="box-icon">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path fill="#ebebeb" d="M35.31 158.897h441.379v300.138H35.31z"></path>
-                            <path fill="#e0e0e0" d="M111.316 459.034H476.69V158.897h-45.021z"></path>
-                            <g fill="#d1d1d1">
-                                <path d="M0 459.034h512v35.31H0zM35.31 52.966V17.655h441.38v35.311"></path>
-                            </g>
-                            <g fill="#4398d1">
-                                <path d="M70.621 264.828h247.172v141.241H70.621zM353.103 264.828h88.276v194.207h-88.276z"></path>
-                            </g>
-                            <g fill="#87ced9">
-                                <path d="M165.156 306.377l-35.33 35.33-12.483-12.485 35.33-35.33zM226.986 297.54l-79.46 79.459-12.483-12.484 79.46-79.46zM244.675 341.622l-35.33 35.33-12.483-12.484 35.33-35.33z"></path>
-                            </g>
-                            <path d="M220.69 158.897v17.655c0 19.5 15.81 35.31 35.31 35.31s35.31-15.81 35.31-35.31v-17.655h-70.62z" fill="#ffa83d"></path>
-                            <path d="M150.069 158.897v17.655c0 19.5 15.81 35.31 35.31 35.31s35.31-15.81 35.31-35.31v-17.655h-70.62z" fill="#c74436"></path>
-                            <path d="M79.448 158.897v17.655c0 19.5 15.81 35.31 35.31 35.31s35.31-15.81 35.31-35.31v-17.655h-70.62z" fill="#ffa83d"></path>
-                            <g fill="#c74436">
-                                <path d="M8.828 158.897v17.655c0 19.5 15.81 35.31 35.31 35.31s35.31-15.81 35.31-35.31v-17.655H8.828zM432.552 158.897v17.655c0 19.5 15.81 35.31 35.31 35.31s35.31-15.81 35.31-35.31v-17.655h-70.62z"></path>
-                            </g>
-                            <path d="M361.931 158.897v17.655c0 19.5 15.81 35.31 35.31 35.31s35.31-15.81 35.31-35.31v-17.655h-70.62z" fill="#ffa83d"></path>
-                            <path d="M291.31 158.897v17.655c0 19.5 15.81 35.31 35.31 35.31s35.31-15.81 35.31-35.31v-17.655h-70.62z" fill="#c74436"></path>
-                            <path fill="#fdb62f" d="M97.103 52.966L79.448 158.897h70.621l8.828-105.931z"></path>
-                            <g fill="#de4c3c">
-                                <path d="M35.31 52.966L8.828 158.897h70.62L97.103 52.966zM158.897 52.966l-8.828 105.931h70.621V52.966zM476.69 52.966h-61.793l17.655 105.931h70.62z"></path>
-                            </g>
-                            <g fill="#fdb62f">
-                                <path d="M220.69 52.966h70.621v105.931H220.69zM353.103 52.966l8.828 105.931h70.621L414.897 52.966z"></path>
-                            </g>
-                            <path fill="#de4c3c" d="M291.31 52.966v105.931h70.621l-8.828-105.931z"></path>
+                        <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M35.3124 5.60419H4.68761V9.43228H35.3124V5.60419ZM37.2264 24.7447V20.9166L35.3124 11.3463H4.68761L2.77356 20.9166V24.7447H4.68761V36.229H23.8281V24.7447H31.4843V36.229H35.3124V24.7447H37.2264ZM20 32.4009H8.51571V24.7447H20V32.4009Z" fill="#1046B4"></path>
                         </svg>
                     </div>
                     <div class="text-right">
@@ -3275,14 +3228,10 @@ $(".col-left > ul li").on("click", function(){
                 <div class="box flex align-center">
                     <div class="box-icon">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <g fill="#53bce9">
-                                <path d="M468.01 0H512v43.99h-43.99zM468.01 468.01H512V512h-43.99zM0 0h43.99v43.99H0zM0 468.01h43.99V512H0z"></path>
-                            </g>
-                            <path d="M436.939 449.179H75.061c-6.76 0-12.24-5.48-12.24-12.24V75.061c0-6.76 5.48-12.24 12.24-12.24h361.877c6.76 0 12.24 5.48 12.24 12.24v361.877c.001 6.761-5.479 12.241-12.239 12.241z" fill="#e5e9ea"></path>
-                            <path fill="#566368" d="M403.107 108.893v-.001H108.892v60.574h.001v34.614h60.573v-34.614h56.247v173.068h-37.408v60.574h135.39v-60.574h-37.409V169.466h56.248v34.614h60.574v-95.187z"></path>
-                            <g fill="#d1d1d1">
-                                <path d="M490.008 444.629a7.837 7.837 0 01-7.837-7.837V410.67a7.837 7.837 0 0115.674 0v26.122a7.837 7.837 0 01-7.837 7.837zM490.008 374.315a7.837 7.837 0 01-7.837-7.837v-44.192a7.837 7.837 0 0115.674 0v44.192a7.837 7.837 0 01-7.837 7.837zm0-88.384a7.837 7.837 0 01-7.837-7.837v-44.192a7.837 7.837 0 0115.674 0v44.192a7.837 7.837 0 01-7.837 7.837zm0-88.384a7.837 7.837 0 01-7.837-7.837v-44.19a7.837 7.837 0 0115.674 0v44.191a7.836 7.836 0 01-7.837 7.836zM490.008 109.165a7.837 7.837 0 01-7.837-7.837V75.205a7.837 7.837 0 0115.674 0v26.122a7.838 7.838 0 01-7.837 7.838zM21.995 444.629a7.837 7.837 0 01-7.837-7.837V410.67a7.837 7.837 0 0115.674 0v26.122a7.837 7.837 0 01-7.837 7.837zM21.995 374.315a7.837 7.837 0 01-7.837-7.837v-44.192a7.837 7.837 0 0115.674 0v44.192a7.837 7.837 0 01-7.837 7.837zm0-88.384a7.837 7.837 0 01-7.837-7.837v-44.192a7.837 7.837 0 0115.674 0v44.192a7.837 7.837 0 01-7.837 7.837zm0-88.384a7.837 7.837 0 01-7.837-7.837v-44.19a7.837 7.837 0 0115.674 0v44.191a7.836 7.836 0 01-7.837 7.836zM21.995 109.165a7.837 7.837 0 01-7.837-7.837V75.205a7.837 7.837 0 0115.674 0v26.122a7.838 7.838 0 01-7.837 7.838zM101.331 497.843H75.209a7.837 7.837 0 010-15.674h26.122a7.837 7.837 0 010 15.674zM366.481 497.843H322.29a7.837 7.837 0 010-15.674h44.191a7.837 7.837 0 010 15.674zm-88.383 0h-44.192a7.837 7.837 0 010-15.674h44.192a7.837 7.837 0 010 15.674zm-88.383 0h-44.192a7.837 7.837 0 010-15.674h44.192a7.837 7.837 0 010 15.674zM436.796 497.843h-26.122a7.837 7.837 0 010-15.674h26.122a7.837 7.837 0 010 15.674zM101.331 29.829H75.209a7.837 7.837 0 010-15.674h26.122a7.837 7.837 0 010 15.674zM366.481 29.829H322.29a7.837 7.837 0 010-15.674h44.191a7.837 7.837 0 010 15.674zm-88.383 0h-44.192a7.837 7.837 0 010-15.674h44.192a7.837 7.837 0 010 15.674zm-88.383 0h-44.192a7.837 7.837 0 010-15.674h44.192a7.837 7.837 0 010 15.674zM436.796 29.829h-26.122a7.837 7.837 0 010-15.674h26.122a7.837 7.837 0 010 15.674z"></path>
-                            </g>
+                            
+                            <path d="M436.939 449.179H75.061c-6.76 0-12.24-5.48-12.24-12.24V75.061c0-6.76 5.48-12.24 12.24-12.24h361.877c6.76 0 12.24 5.48 12.24 12.24v361.877c.001 6.761-5.479 12.241-12.239 12.241z" fill="#fff"></path>
+                            <path fill="#1046B4" d="M403.107 108.893v-.001H108.892v60.574h.001v34.614h60.573v-34.614h56.247v173.068h-37.408v60.574h135.39v-60.574h-37.409V169.466h56.248v34.614h60.574v-95.187z"></path>
+                            
                         </svg>
                     </div>
                     <div class="text-right">
@@ -3293,19 +3242,8 @@ $(".col-left > ul li").on("click", function(){
 
                 <div class="box flex align-center">
                     <div class="box-icon">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.883 511.883">
-                            <path d="M10.654 383.913C4.765 383.913 0 388.693 0 394.582v106.647c0 5.89 4.765 10.654 10.654 10.654h490.543c5.904 0 10.686-4.765 10.686-10.654V394.582c0-5.889-4.781-10.669-10.686-10.669H10.654z" fill="#ac92eb"></path>
-                            <path d="M498.198 326.16l-40.834-98.524c-2.249-5.437-8.498-8.03-13.934-5.765L.001 405.547v55.487l21.058 50.848h56.612L492.42 340.093c5.435-2.248 8.028-8.481 5.778-13.933z" fill="#5d9cec"></path>
-                            <path d="M.001 473.547l38.335 38.335h51.488l328.675-328.659c4.154-4.171 4.154-10.919 0-15.09l-75.421-75.405c-4.155-4.171-10.903-4.171-15.074 0L.001 420.747v52.8z" fill="#4fc2e9"></path>
-                            <path d="M.001 490.654l51.238 21.229h55.487L290.403 68.438c2.265-5.436-.312-11.685-5.765-13.934l-98.524-40.803c-5.436-2.265-11.685.328-13.934 5.765L.001 435.181v55.473z" fill="#48cfad"></path>
-                            <path d="M.001 501.228c0 5.89 4.765 10.654 10.654 10.654h106.632c5.905 0 10.685-4.765 10.685-10.654V10.67c0-5.89-4.78-10.67-10.685-10.67H10.654C4.765.001 0 4.781 0 10.67v490.558h.001z" fill="#a0d468"></path>
-                            <path d="M.001 383.927v117.301c0 5.89 4.765 10.654 10.654 10.654h106.632c5.905 0 10.685-4.765 10.685-10.654V383.927H.001z" fill="#e6e9ed"></path>
-                            <path d="M63.986 437.243c-5.905 0-10.685 4.765-10.685 10.654s4.78 10.669 10.685 10.669c5.874 0 10.654-4.779 10.654-10.669s-4.781-10.654-10.654-10.654z"></path>
-                            <path d="M68.047 458.161c-5.437 2.249-11.669-.328-13.935-5.78-2.25-5.437.344-11.669 5.78-13.935 5.436-2.249 11.685.344 13.934 5.78s-.342 11.685-5.779 13.935z"></path>
-                            <path d="M71.609 454.693c-4.155 4.155-10.904 4.155-15.075 0a10.663 10.663 0 010-15.09c4.171-4.155 10.919-4.155 15.075 0a10.663 10.663 0 010 15.09z"></path>
-                            <path d="M73.827 451.991c-2.25 5.437-8.498 8.014-13.934 5.765-5.437-2.25-8.03-8.498-5.78-13.935 2.265-5.437 8.498-8.029 13.935-5.765 5.451 2.25 8.029 8.482 5.779 13.935z"></path>
-                            <path d="M53.301 447.897c0 5.89 4.78 10.669 10.685 10.669 5.874 0 10.654-4.779 10.654-10.669s-4.78-10.654-10.654-10.654c-5.905 0-10.685 4.765-10.685 10.654z"></path>
-                            <path d="M53.301 447.897c0 5.89 4.78 10.669 10.685 10.669 5.874 0 10.654-4.779 10.654-10.669s-4.78-10.654-10.654-10.654c-5.905 0-10.685 4.765-10.685 10.654z" fill="#434a54"></path>
+                        <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.7735 8.01665V31.6666C15.2569 31.6666 10.7735 27.2833 10.7735 21.8833C10.7735 19.2833 11.8069 16.8333 13.6902 14.9833L20.7735 8.01665ZM11.3569 12.6C8.94019 14.9833 7.44019 18.2666 7.44019 21.8833C7.44019 29.1333 13.4069 35 20.7735 35C28.1402 35 34.1069 29.1333 34.1069 21.8833C34.1069 18.2666 32.6069 14.9833 30.1902 12.6L20.7735 3.33331L11.3569 12.6Z" fill="#1046B4"></path>
                         </svg>
                     </div>
                     <div class="text-right">
@@ -3315,47 +3253,16 @@ $(".col-left > ul li").on("click", function(){
                 </div>
 
                 <div class="box flex align-center">
-                    <div class="box-icon">
-                        <svg class="icon" viewBox="0 0 511.875 511.875" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M255.938 478.26c-80.507 0-162.146-3.9-242.654-11.59a1678.212 1678.212 0 010-421.463c80.505-7.691 162.146-11.59 242.654-11.59s162.149 3.9 242.654 11.59a1678.212 1678.212 0 010 421.463c-80.508 7.69-162.148 11.59-242.654 11.59z" fill="#f1f1f4"></path>
-                            <path d="M255.938 417.053c-68.182 0-109.639-10.39-178.055-16.008-6.369-60.033-36.953-92.831-36.656-153.162.27-54.961 3.307-109.91 9.109-164.599 68.415-5.618 137.42-8.461 205.602-8.461 68.181 0 137.185 2.843 205.602 8.461a1637.127 1637.127 0 018.109 230.442c-1.354 38.359-29.368 63.795-33.42 101.985-68.417 5.618-112.11 1.342-180.291 1.342z" fill="#90d8f9"></path>
-                            <path d="M469.494 317.925a1630.212 1630.212 0 01-7.953 110.662c-68.414 5.625-137.416 8.468-205.604 8.468-68.177 0-137.179-2.843-205.593-8.468-.165-1.597-.34-3.204-.494-4.801a1634.012 1634.012 0 01-8.612-175.914c56.722-31.585 122.839-43.062 184.341-23.045 24.724 8.046 48.707 21.181 71.031 40.146 53.786 45.709 105.666 77.779 172.875 52.951h.009z" fill="#93d3a2"></path>
-                            <path d="M49.85 423.786a1634.012 1634.012 0 01-8.612-175.914c56.722-31.585 122.839-43.062 184.341-23.045-54.6-12.795-107.953 87.421-48.449 119.769 62.748 34.12 132.904-2.812 158.411 46.235 15.791 30.37-154.044 34.336-285.691 32.955z" fill="#6ec17d"></path>
-                            <path d="M464.211 401.044c-.814 9.189-1.71 18.368-2.678 27.547-68.414 5.625-137.416 8.468-205.604 8.468-68.177 0-137.179-2.843-205.593-8.468a1625.019 1625.019 0 01-6.727-83.991c123.89 123.89 243.597-48.366 420.602 56.444z" fill="#5ea570"></path>
-                            <circle cx="349.512" cy="172.376" fill="#f9ef63" r="55.588"></circle>
-                            <path d="M365.615 225.574a55.108 55.108 0 01-16.112 2.38c-30.699 0-55.578-24.879-55.578-55.578 0-30.71 24.879-55.589 55.578-55.589 5.604 0 11.013.824 16.112 2.38-22.839 6.892-39.477 28.103-39.477 53.209 0 25.095 16.638 46.307 39.477 53.198z" fill="#f1d333"></path>
-                        </svg>
-                    </div>
-                    <div class="text-right">
-                        <div class="first">Banners</div>
-                        <div class="last">Desktop e Mobile</div>
-                    </div>
-                </div>
-                <div class="box flex align-center">
                     <div class="box-icon layout">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438.94 373.266">
-                            <path d="M418.94 373.266H20a15 15 0 01-15-15V44.003a15 15 0 0115-15h398.94a15 15 0 0115 15v314.263a15 15 0 01-15 15z" fill="#2626bc" opacity=".1"></path>
-                            <path d="M433.94 20.003v314.26a15 15 0 01-15 15H20a15 15 0 01-15-15V20.003a15 15 0 0115-15h398.94a15 15 0 0115 15z" fill="#fff"></path>
-                            <path d="M433.94 123.733v210.53a15 15 0 01-15 15H42.61c16.25-26.78 50.57-64.05 115.32-62.96 100.8 1.69 55.75-134.02 145.85-124.45 86.97 9.25 71.09-54.45 130.16-38.12z" fill="#8399fe"></path>
-                            <path d="M371 184.263a47.06 47.06 0 11-88.89-21.57 67.464 67.464 0 0121.67-.84c26.79 2.85 43.82-1.22 56.29-7.75a46.916 46.916 0 0110.93 30.16z" fill="#6583fe"></path>
-                            <path d="M138.98 349.266H42.342V262.76a5 5 0 015-5h86.638a5 5 0 015 5zm128.809 0h-96.638V262.76a5 5 0 015-5h86.638a5 5 0 015 5zm128.809 0H299.96V262.76a5 5 0 015-5h86.638a5 5 0 015 5z" fill="#d2deff"></path>
-                            <path d="M433.94 74.313v-54.31a15 15 0 00-15-15H20a15 15 0 00-15 15v54.31z" fill="#01eca5"></path>
-                            <path d="M418.94 354.266H20a20.023 20.023 0 01-20-20V20.003a20.023 20.023 0 0120-20h398.94a20.023 20.023 0 0120 20v314.263a20.023 20.023 0 01-20 20zM20 10.003a10.011 10.011 0 00-10 10v314.263a10.011 10.011 0 0010 10h398.94a10.011 10.011 0 0010-10V20.003a10.011 10.011 0 00-10-10z" fill="#2626bc"></path>
-                            <path d="M49.092 31a10.9 10.9 0 11-10.9 10.9 10.9 10.9 0 0110.9-10.9z" fill="#ff5ba8"></path>
-                            <path d="M83.893 31a10.9 10.9 0 11-10.9 10.9 10.9 10.9 0 0110.9-10.9z" fill="#fff"></path>
-                            <path d="M118.693 31a10.9 10.9 0 11-10.9 10.9 10.9 10.9 0 0110.9-10.9z" fill="#97ffd2"></path>
-                            <path d="M395.747 54.148H259.589V29.653h136.159a5 5 0 015 5v14.5a5 5 0 01-5 5z" fill="#dcfdee"></path>
-                            <path d="M260.259 29.964a13.557 13.557 0 10-4.22 22.025l4.348 4.348a5 5 0 107.072-7.072l-4.349-4.347a13.57 13.57 0 00-2.851-14.954zm-12.1 7.071a3.557 3.557 0 110 5.031 3.562 3.562 0 01-.002-5.031zM90.661 277.989a11.262 11.262 0 11-11.262 11.262 11.262 11.262 0 0111.262-11.262z" fill="#fff"></path>
-                            <path d="M110.001 314.529H71.32a5 5 0 000 10h38.681a5 5 0 000-10z" fill="#8399fe"></path>
-                            <path d="M219.47 277.989a11.262 11.262 0 11-11.262 11.262 11.262 11.262 0 0111.262-11.262z" fill="#fff"></path>
-                            <path d="M238.81 314.529h-38.68a5 5 0 100 10h38.681a5 5 0 000-10z" fill="#8399fe"></path>
-                            <path d="M348.279 277.989a11.262 11.262 0 11-11.262 11.262 11.262 11.262 0 0111.262-11.262z" fill="#fff"></path>
-                            <path d="M367.619 314.529h-38.681a5 5 0 000 10h38.681a5 5 0 000-10z" fill="#8399fe"></path>
-                            <path d="M200.322 234.154H63.211a10 10 0 01-10-10v-5.81a10 10 0 0110-10h137.11a10 10 0 0110 10v5.81a10 10 0 01-9.999 10z" fill="#ff7eb8"></path>
-                            <path d="M162.892 174.26H58.211a5 5 0 000 10h104.681a5 5 0 000-10zm-24-19.427H58.211a5 5 0 000 10h80.681a5 5 0 000-10z" fill="#8399fe"></path>
-                            <path d="M69.892 131.487H58.211a5 5 0 000 10h11.681a5 5 0 100-10z" fill="#ff7eb8"></path>
-                            <path d="M129.892 97.403H58.211a5 5 0 000 10h71.681a5 5 0 000-10zM323.939 118.915a47.058 47.058 0 11-47.058 47.058 47.058 47.058 0 0147.058-47.058z" fill="#02ffb3"></path>
-                            <path d="M337.17 191.033a5 5 0 11-5 5 5 5 0 015-5zM360.258 191.033a5 5 0 11-5 5 5 5 0 015-5zM383.345 191.033a5 5 0 11-5 5 5 5 0 015-5zM348.714 172.45a5 5 0 11-5 5 5 5 0 015-5zM371.802 172.45a5 5 0 11-5 5 5 5 0 015-5zM348.714 209.616a5 5 0 11-5 5 5 5 0 015-5zM371.802 209.616a5 5 0 11-5 5 5 5 0 015-5z" fill="#fff"></path>
+                        <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_507_2864)">
+                            <path d="M15.4078 16.6667V35H8.74117C7.90021 35.0003 7.09023 34.6827 6.47359 34.1108C5.85695 33.539 5.47924 32.7553 5.41617 31.9167L5.40784 31.6667V16.6667H15.4078ZM35.4078 16.6667V31.6667C35.4081 32.5076 35.0905 33.3176 34.5187 33.9342C33.9469 34.5509 33.1631 34.9286 32.3245 34.9917L32.0745 35H18.7412V16.6667H35.4078ZM32.0745 5C32.9586 5 33.8064 5.35119 34.4315 5.97631C35.0566 6.60143 35.4078 7.44928 35.4078 8.33333V13.3333H5.40784V8.33333C5.40784 7.44928 5.75903 6.60143 6.38415 5.97631C7.00927 5.35119 7.85712 5 8.74117 5H32.0745Z" fill="#1046B4"></path>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_507_2864">
+                            <rect width="40" height="40" fill="white" transform="translate(0.407837)"></rect>
+                            </clipPath>
+                            </defs>
                         </svg>
                     </div>
                     <div class="text-right">
@@ -3404,28 +3311,6 @@ $(".col-left > ul li").on("click", function(){
                                             </span>
                                             <div class="logo-width">
                                                 <span class="msg">O cadastro da logo foi movido para a lista de <a target="_blank" data-url-images href="/admin/#/adm/cores/cores.php?aba=imagens">imagens padr&otilde;es</a> da loja.</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="text-color social-media">
-                                            <span>Imagem redes sociais</span>
-                                            <div class="logo-width">
-                                                <span class="icon-color">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="15" height="15" viewBox="0 0 496.16 496.16"><path fill="#1046B4" d="M496.16 248.09C496.16 111.06 385.09 0 248.08 0 111.07 0 0 111.06 0 248.1c0 137 111.07 248.06 248.08 248.06 137 0 248.08-111.06 248.08-248.06z"/><path fill="#fff" d="M315.25 359.56a5 5 0 0 0-6.27-1.7c-24.58 11.63-52.48 23.93-57.96 25a4.83 4.83 0 0 1-.64-.73c-.74-1-1.1-2.32-1.1-4.01 0-13.9 10.49-56.2 31.19-125.72 17.45-58.4 19.46-70.5 19.46-74.52 0-6.2-2.37-11.43-6.86-15.14-4.27-3.52-10.23-5.3-17.72-5.3-12.46 0-26.9 4.72-44.15 14.46-16.7 9.43-35.35 25.4-55.4 47.48a5 5 0 0 0 5.6 8c7.04-2.88 42.4-17.36 47.56-20.6 4.22-2.65 7.87-4 10.86-4l.27.02c.04.2.07.5.07.93 0 3.05-.62 6.66-1.85 10.7-30.14 97.65-44.79 157.5-44.79 183 0 9 2.5 16.24 7.43 21.53 5.03 5.39 11.8 8.12 20.15 8.12 8.9 0 19.71-3.71 33.08-11.35 12.94-7.4 32.68-23.65 60.36-49.72a5 5 0 0 0 .7-6.45zm-.97-282.89c-4.92-5.04-11.22-7.6-18.73-7.6-9.34 0-17.47 3.7-24.17 10.98-6.6 7.16-9.94 15.94-9.94 26.1 0 8.04 2.46 14.7 7.32 19.8 4.92 5.17 11.14 7.79 18.48 7.79 8.95 0 17.04-3.9 24.04-11.59 6.88-7.55 10.37-16.43 10.37-26.4 0-7.64-2.48-14.07-7.37-19.08z"/></svg>
-                                                </span>
-                                                <span class="info-color social-text">Imagem utilizada quando alguém compartilhar sua loja nas redes sociais. Nas páginas de produto a imagem do produto será a escolhida. Tamanho exato: 1200x1200 pixels.</span>
-                                            </div>
-                                        </div>
-                                        <div class="box-upload social_media">
-                                            <div class="box-file">
-                                                <div class="input-group file">
-                                                    <div class="area-file">
-                                                        <input type="file" class="form-control" accept="image/*" name="social_media_imagem">
-                                                        <div class="show-upload"></div>
-                                                    </div>
-                                                    <a class="remove-img"></a>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -3695,8 +3580,6 @@ $(".col-left > ul li").on("click", function(){
                                 <li>Cabe&ccedil;alho</li>
                                 <li>Menu de Categorias</li>
                                 <li>R&eacute;gua de vantagens</li>
-                                <li>Filtro Home</li>
-                                <li>Segmenta&ccedil;&atilde;o</li>
                                 <li>Vitrines</li>
                                 <li>Selos</li>
                                 <li>Newsletter</li>
@@ -4432,7 +4315,7 @@ $(".col-left > ul li").on("click", function(){
                                 </div>
                             </div>
 
-                            <!--Filtro Home-->
+                            <!--Filtro Home
                             <div class="tab-show">
 
                                 <div class="tab-header">
@@ -4494,8 +4377,8 @@ $(".col-left > ul li").on("click", function(){
                                 </div>
 
                             </div>
-
-                            <!-- Segmenta&ccedil;&atilde;o -->
+                            -->
+                            <!-- Segmenta&ccedil;&atilde;o
                             <div class="tab-show">
                                 <div class="tab-header">
                                     <div class="title-col">Segmenta&ccedil;&atilde;o</div>
@@ -4660,6 +4543,7 @@ $(".col-left > ul li").on("click", function(){
                                     </div>
                                 </div>
                             </div>
+                             -->
                             <!-- Showcases-->
                             <div class="tab-show">
                                 <div class="tab-header">
@@ -5335,56 +5219,6 @@ $(".col-left > ul li").on("click", function(){
                         </div>
                     </div>
 
-                <!-- Banners -->
-                <div class="tab-option">
-
-                    <div class="flex flex-column">
-                        <div class="title-tab">Banners</div>
-                        <div class="description-tab">Configure como o slide principal de banner se comportar&aacute;.</div>
-                    </div>
-
-                    <div class="page-nav">
-                        <div class="col-left">
-                            <ul>
-                                <li class="active">Configura&ccedil;&otilde;es do slide</li>
-                            </ul>
-                        </div>
-                        <div class="col-right">
-                            <div class="tab-show active">
-
-                                <div class="tab-header">
-                                    <div class="title-col">Configura&ccedil;&otilde;es do slide</div>
-                                    <div class="msg">O cadastro dos banners &eacute; feito pelo o painel da plataforma. As configura&ccedil;&otilde;es de efeitos no cadastro do banner n&atilde;o ser&aacute; refletidas no tema.</div><br>
-                                    <div class="msg">Configure os efeitos e tempo de transi&ccedil;&atilde;o do slide que aparece na p&aacute;gina inicial do tema.</div>
-
-                                </div>
-                                <div class="tab-content">
-
-                                    <div class="box-section">
-                                        <div class="title flex justify-between align-center">
-                                            <span>Deseja pausar o slide ao passar o mouse sobre ?</span>
-                                            <label class="check-drag">
-                                                <input type="checkbox" name="banner_home_stop_hover" value="1">
-                                                <span class="icon"></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="box-section">
-                                        <div class="title flex justify-between align-center">
-                                            <span>Tempo de exibi&ccedil;&atilde;o de cada slide</span>
-                                        </div>
-                                        <span class="msg">
-                                            O tempo de exibi&ccedil;&atilde;o de cada slide &eacute; de 10 segundos. Esse valor n&atilde;o pode ser alterado.
-                                        </span>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Store layout -->
                 <div class="tab-option">
 
@@ -5399,13 +5233,8 @@ $(".col-left > ul li").on("click", function(){
                                 <li class="active">Topo / Cabeçalho</li>
                                 <li>Iconografia</li>
                                 <li>R&eacute;gua de vantagens</li>
-                                <li>Filtro na Home</li>
-                                <li>Segmenta&ccedil;&atilde;o</li>
                                 <li>Vitrine de produtos</li>
-                                <li>Instafeed</li>
-                                <li>Depoimentos</li>
                                 <li>Slide de marcas</li>
-                                <li>Video Home</li>
                                 <li>Newsletter</li>
                                 <li>Categorias e busca</li>
                                 <li>P&aacute;gina do produto</li>
@@ -5621,7 +5450,7 @@ $(".col-left > ul li").on("click", function(){
                                             </label>
                                             <label class="input-area">
                                                 <span class="name">Preencha com a URL da sua transportadora</span>
-                                                <input type="text" placeholder=" https://www.vaichegar.com.br" name="tracking_transport">
+                                                <input type="text" placeholder=" https://www.transport.com.br" name="tracking_transport">
                                             </label>
                                         </div>
                                     </div>
@@ -5668,7 +5497,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2" >
-                                                        <span>Categoria 01</span>
+                                                        <span>Primeira Categoria</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5687,7 +5516,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 02</span>
+                                                        <span>Segunda Categoria</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5705,7 +5534,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 03</span>
+                                                        <span>Terceira Categoria</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5723,7 +5552,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 04</span>
+                                                        <span>Quarta Categoria</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5741,7 +5570,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2" >
-                                                        <span>Categoria 05</span>
+                                                        <span>Quinta Categoria</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5759,7 +5588,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 06</span>
+                                                        <span>Sexta Categoria</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5777,7 +5606,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 07</span>
+                                                        <span>Sétima Categoria</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5795,7 +5624,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 08</span>
+                                                        <span>Oitava Categoria</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5859,7 +5688,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2" >
-                                                        <span>Categoria 01 - Hover</span>
+                                                        <span>Primeira Categoria - Hover</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5877,7 +5706,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 02 - Hover</span>
+                                                        <span>Segunda Categoria - Hover</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5895,7 +5724,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 03 - Hover</span>
+                                                        <span>Terceira Categoria - Hover</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5913,7 +5742,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 04 - Hover</span>
+                                                        <span>Quarta Categoria - Hover</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5931,7 +5760,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2" >
-                                                        <span>Categoria 05 - Hover</span>
+                                                        <span>Quinta Categoria - Hover</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5949,7 +5778,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 06 - Hover</span>
+                                                        <span>Sexta Categoria - Hover</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5967,7 +5796,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 07 - Hover</span>
+                                                        <span>Sétima Categoria - Hover</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -5985,7 +5814,7 @@ $(".col-left > ul li").on("click", function(){
                                             <div class="title flex flex-column align-start">
                                                 <div class="flex">
                                                     <div class="title-view2">
-                                                        <span>Categoria 08 - Hover</span>
+                                                        <span>Oitava Categoria - Hover</span>
                                                     </div>
                                                 </div>
                                                 <div class="box-upload">
@@ -6204,7 +6033,7 @@ $(".col-left > ul li").on("click", function(){
                                 </div>
                             </div>
 
-                            <!--Filtro na home-->
+                            <!--Filtro na home
                             <div class="tab-show">
 
                             <div class="tab-header">
@@ -6260,8 +6089,8 @@ $(".col-left > ul li").on("click", function(){
                                     </label>
                                 </div>
                             </div>
-
-                            <!-- Segmentacao -->
+                            -->
+                            <!-- Segmentacao 
                             <div class="tab-show">
                                 <div class="tab-header">
                                     <div class="title-col">Segmenta&ccedil;&atilde;o</div>
@@ -6560,7 +6389,7 @@ $(".col-left > ul li").on("click", function(){
                                             </div>
                                         </div>
 
-                                        <!--Hover-->
+                                        Hover
                                         <div class="content-section hover">
                                             <div class="box-section">
                                                 <div class="title flex flex-column align-start">
@@ -6784,7 +6613,7 @@ $(".col-left > ul li").on("click", function(){
                                     </div>
                                 </div>
                             </div>
-
+                            -->
                             <!-- Products showcase -->
                             <div class="tab-show">
 
@@ -6831,7 +6660,7 @@ $(".col-left > ul li").on("click", function(){
                                             </label>
                                         </div>
                                     </div>
-
+                                    <!--
                                     <div class="tab-content">
                                         <div class="box-section">
                                             <div class="title flex justify-between align-center">
@@ -6859,7 +6688,7 @@ $(".col-left > ul li").on("click", function(){
                                             </label>
                                         </div>
                                     </div>
-
+                                    -->
                                     <div class="box-section">
                                         <div class="title flex justify-between align-center">
                                             <span>Ativar a Compra Rápida na vitrine</span>
@@ -6869,7 +6698,7 @@ $(".col-left > ul li").on("click", function(){
                                             </label>
                                         </div>
                                     </div>
-
+                                    
                                     <div class="box-section">
                                         <div class="title flex justify-between align-center">
                                             <span>Texto do botão comprar</span>
@@ -7203,7 +7032,8 @@ $(".col-left > ul li").on("click", function(){
 
                                 </div>
                             </div>
-                            <!--Instagram-->
+
+                            <!--Instagram
                             <div class="tab-show">
                                 <div class="tab-header">
                                     <div class="title-col">Instafeed</div>
@@ -7235,8 +7065,8 @@ $(".col-left > ul li").on("click", function(){
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Depoimentos -->
+                            -->
+                            <!-- Depoimentos 
                             <div class="tab-show">
 
                                 <div class="tab-header">
@@ -7512,7 +7342,7 @@ $(".col-left > ul li").on("click", function(){
                                 </div>
 
                             </div>
-
+-->
                             <!--slide marcas-->
                             <div class="tab-show">
                                 <div class="title-col">Slide de marcas</div>
@@ -7813,7 +7643,7 @@ $(".col-left > ul li").on("click", function(){
 
                             </div>
 
-                            <!--Vídeo Home-->
+                            <!--Vídeo Home
                             <div class="tab-show">
                                 <div class="tab-header">
                                     <div class="title-col">Video</div>
@@ -7836,7 +7666,7 @@ $(".col-left > ul li").on("click", function(){
                                     </div>
                                 </div>
                             </div>
-
+                                -->
                             <!-- Newsletter -->
                             <div class="tab-show">
 

@@ -222,7 +222,7 @@
     //                 margin: 0 auto;
     //                 gap: 16px;
     //                 font-size: 14px;
-    //                 border-radius: 5px;
+    //                 border-radius: 1px;
     //                 padding: 18px;
     //                 background: var(--c_general_background);
     //                 box-shadow: 2px 2px 4px -1px var(--c_general_main);
@@ -440,7 +440,7 @@
                 @include fontInsert($fs_header, 600, var(--c_header_text));
                 display: block;
                 padding: 0 48px;
-                border-radius: 5px; //45px
+                border-radius: 1px; //45px
                 background: var(--c_bg_searchbar);
                 width: 100%;
                 height: 48px;
@@ -493,7 +493,7 @@
             padding: 0 56px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
             background-color: var(--c_header_bg);
-            border-radius: 5px;
+            border-radius: 1px;
             overflow: auto;
             scrollbar-color: #eceff5 #fff;
             z-index: 100;

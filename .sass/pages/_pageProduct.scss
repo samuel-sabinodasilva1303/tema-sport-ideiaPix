@@ -11,7 +11,7 @@
         background: #d8f8e4;
         padding: 6px;
         border: 1px solid #25d366;
-        border-radius: 5px;
+        border-radius: 1px;
         @include mobile{
             display: none;
         }
@@ -604,7 +604,7 @@
                 align-items: center;
                 justify-content: center;
                 border: 1px solid var(var(--c_text_additional));
-                border-radius: 5px;
+                border-radius: 1px;
                 padding: 10px;
                 font-family: $font_name;
                 width: 25%;
@@ -617,7 +617,7 @@
                 overflow: hidden;
             }
             >img{
-                border-radius: 5px;
+                border-radius: 1px;
                 height: 32px;
                 width: 25%;
                 min-width: 110px;
@@ -820,7 +820,7 @@
         margin-bottom: 15px;
         padding: 15px;
         text-align: center;
-        border-radius: 5px;
+        border-radius: 1px;
 
         .progressiveDiscount {
             &-text {
@@ -1177,7 +1177,7 @@
         .botao-nao_indisponivel {
             font-size: 0;
             border: 1px solid var(--c_general_main);
-            border-radius: 5px;
+            border-radius: 1px;
             background-color: var(--c_product_progressive_bg);
             text-align: center;
             padding: 15px;
@@ -1199,7 +1199,7 @@
 
         #nao_disp:first-child {
             background: #E0E0E0;
-            border-radius: 5px;
+            border-radius: 1px;
             justify-content: center;
             padding: 0.5rem;
         }
@@ -1294,7 +1294,7 @@
     select.select {
         background-color: #FFF;
         outline: none;
-        border-radius: 5px;
+        border-radius: 1px;
         color: #212529;
         width: 100%;
         cursor: pointer;
@@ -1527,7 +1527,7 @@
             &[name^='infoAdicional'] {
                 width: 450px;
                 background-color: #F6F6F6;
-                border-radius: 5px;
+                border-radius: 1px;
                 border-style: none;
                 padding: 0.98rem 1.1rem;
                 text-align: left;
@@ -1579,7 +1579,7 @@
                 > .ddTitle {
                     background-color: #FFF;
                     outline: none;
-                    border-radius: 5px;
+                    border-radius: 1px;
                     color: #212529;
                     width: 100%;
                     cursor: pointer;
@@ -1811,7 +1811,7 @@
             }
             #preco{
                 padding: 20px 20px;
-                border-radius: 5px;
+                border-radius: 1px;
             }
 
             .color {
@@ -1896,7 +1896,7 @@
         .brinde_produto {
             padding: 5px 25px 15px;
             border: 1px solid #bdbdbd;
-            border-radius: 5px;
+            border-radius: 1px;
             > #nomeBrinde {
                 @include fontInsert(1.125, 400, var(--c_general_tertiary));
                 line-height: 150%;

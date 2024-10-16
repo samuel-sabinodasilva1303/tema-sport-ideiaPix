@@ -291,7 +291,7 @@
     //             gap: 8px;
     //             width: 96%;
     //             height: 100%;
-    //             border-radius: 5px;
+    //             border-radius: 1px;
     //             border: 1px solid #25d366;
     //             background: #d8f8e4;
     //             backdrop-filter: blur(10px);
@@ -448,7 +448,7 @@
     //     width: 91.3%;
     //     font-weight: 700;
     //     font-size: 14px;
-    //     border-radius: 5px;
+    //     border-radius: 1px;
     //     margin-top: 5px;
     //     opacity: 1;
     //     position: absolute;
@@ -573,7 +573,7 @@
     //         p > .btnProductLogin {
     //             padding: 0.5em 1em;
     //             background: var(--c_bg_additional);
-    //             border-radius: 5px;
+    //             border-radius: 1px;
     //             color: #fff;
     //             @include mobile {
     //                 padding: 11px 6px;
@@ -609,7 +609,7 @@
     //             border: none;
     //             background: var(--c_bg_progressiveDiscount);
     //             height: 30px;
-    //             border-radius: 5px;
+    //             border-radius: 1px;
     //             display: flex;
     //             width: 94%;
     //             justify-content: center;
@@ -638,7 +638,7 @@
     //     border: 1px solid var(--c_bg_progressiveCounter);
     //     height: 40px;
     //     outline: none !important;
-    //     border-radius: 5px;
+    //     border-radius: 1px;
     //     display: flex;
     //     width: 94%;
     //     margin-bottom: 14px;
@@ -672,7 +672,7 @@
     //     &-icon {
     //         flex: 40%;
     //         max-width: 30%;
-    //         border-radius: 5px 0 0 5px;
+    //         border-radius: 1px 0 0 5px;
     //         display: flex;
     //         align-items: center;
     //         justify-content: center;
@@ -871,7 +871,7 @@
 
     // /// Product-Message
     // &-message {
-    //     border-radius: 5px;
+    //     border-radius: 1px;
     //     @include fontInsert(1, 600, var(--c_general_main));
     //     background-color: #f6f6f6;
     //     line-height: 1.1;
@@ -910,7 +910,7 @@
     //     .tag {
     //         max-width: 80px;
     //         max-height: 22px;
-    //         border-radius: 5px;
+    //         border-radius: 1px;
     //         white-space: nowrap;
     //         text-overflow: ellipsis;
     //         overflow: hidden;
@@ -919,7 +919,7 @@
     //             @include fontInsert(0.6, 700, var(--c_text_additional));
     //             border: 1px solid var(--c_text_additional);
     //             background-color: var(--c_bg_additional);
-    //             border-radius: 5px;
+    //             border-radius: 1px;
     //             height: 22px;
     //             width: 80px;
     //             line-height: 11px;
@@ -1020,7 +1020,7 @@
     //             align-items: center;
     //             justify-content: center;
     //             gap: 8px;
-    //             border-radius: 5px;
+    //             border-radius: 1px;
     //             width: 96%;
     //             height: 40px;
     //             border: 2px solid var(--c_buy_button_bg);

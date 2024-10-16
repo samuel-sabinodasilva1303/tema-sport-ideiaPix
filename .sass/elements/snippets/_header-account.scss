@@ -34,7 +34,7 @@
         margin-inline: auto;
         background-color: var(--c_general_background);
         box-shadow: 2px 2px 4px -1px var(--c_general_main);
-        border-radius: 5px;
+        border-radius: 1px;
         z-index: 2;
     }
 
@@ -45,7 +45,7 @@
 
         &--btn > a {
             height: 32px;
-            border-radius: 5px;
+            border-radius: 1px;
             display: flex;
             align-items: center;
             justify-content: center;

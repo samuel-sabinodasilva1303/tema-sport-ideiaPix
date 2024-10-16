@@ -17,14 +17,12 @@
                 gap: 2em;
 
                 > span {
-                    border: 1px solid var(--c_general_main);
-                    outline: none !important;
                     width: 25px;
                     height: 25px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    border-radius: 50%;
+                    border-radius: 1%;
                 }
             }
         }

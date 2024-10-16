@@ -26,7 +26,7 @@
         }
 
         span {
-            border-radius: 5px;
+            border-radius: 1px;
             padding-block: 5px;
             border: 1px solid var(--c_general_main);
             transition: all 0.3s ease-in-out;
@@ -264,7 +264,7 @@
             select,
             input[type='text'] {
                 background-color: #EEEEEE;
-                border-radius: 5px;
+                border-radius: 1px;
                 margin: 4px 0 0;
                 padding: 0 1rem;
                 transition: ease-in-out 0.3s;
@@ -337,7 +337,7 @@
 
             &#PessoaFisica {
                 a {
-                    border-radius: 5px 0px 0px 5px;
+                    border-radius: 1px 0px 0px 5px;
                 }
             }
 

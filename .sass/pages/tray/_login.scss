@@ -29,7 +29,7 @@
         .board {
             @extend %flex;
             box-shadow: 0px 10px 30px rgb(0 0 0 / 13%);
-            border-radius: 5px;
+            border-radius: 1px;
             max-width: 90%;
             margin: 3rem auto;
 
@@ -81,7 +81,7 @@
 
             .botao-commerce {
                 width: 182px !important;
-                border-radius: 5px;
+                border-radius: 1px;
                 color: var(--c_default_button_text);
                 background-color: var(--c_default_button_bg);
                 text-transform: initial;
