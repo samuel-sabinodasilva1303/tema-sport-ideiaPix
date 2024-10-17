@@ -43,6 +43,10 @@
     &__title-desc {
         color: var(--c_topbar_link);
         font-weight: 600;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 150%;
+        letter-spacing: .02em;
     }
 
     &__title,
@@ -58,8 +62,9 @@
     &__title {
         color: var(--c_advantage_text_1);
         font-size: 18px;
-        font-weight: 700;
-        line-height: 24px;
+        font-weight: 400;
+        line-height: 120%;
+        margin-bottom: 8px;
     }
 
     &__desc {

@@ -31,20 +31,22 @@
     &.side-r {
         right: -5%;
         animation: 1s ltr 600ms forwards;
+        width: 100%;
+        bottom: 0;
     }
 
     &__btn {
         display: grid;
         place-items: center;
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        border-radius: 1%;
         box-shadow: 0 6px 8px rgb(0 0 0 / 0.1);
         transition: all 222ms ease-in-out;
 
         &--back-top {
-            background-color: #f7f7f7;
-            color: #565c69;
+            background-color: #292929;
+            color: #fff;
 
             &[data-show='false'] {
                 visibility: hidden;

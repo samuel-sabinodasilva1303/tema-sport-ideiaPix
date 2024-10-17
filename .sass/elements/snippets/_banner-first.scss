@@ -10,7 +10,7 @@
         &--mosaic {
             display: grid;
             gap: clamp(8px, 1.2vw, 20px);
-            grid-template-areas: 'f s s' 'f t t';
+            grid-template-areas: "f s" "f t" "f t";
             place-content: center;
             place-items: center;
 

@@ -1,6 +1,7 @@
 
 {% element 'snippets/banner-line' { 'banner_id': 'home', 'banner_type': 'slides' } %}
 {% element 'snippets/advantage-rule' %}
+{% element 'snippets/banner-first' %}
 
 <div class="container-home">
 
@@ -16,7 +17,6 @@
 
 </div>
 
-{% element 'snippets/banner-first' %}
 
 <div class="container-home">
 
@@ -30,30 +30,6 @@
         'refShowcase': 'two'
     } %}
 
-    {% set double_banners = [] %}
-    {% set double_banners = banners.extra7 ? double_banners|merge([banners.extra7]) : double_banners %}
-    {% set double_banners = banners.extra8 ? double_banners|merge([banners.extra8]) : double_banners %}
-
-    {% if double_banners|length  %}
-        <section class="banners-double">
-            <div class="banners-double__container">
-                {% for banner in double_banners %}
-                    {% set src = banner.src %}
-                    {% set alt = banner.alt ? banner.alt : 'banner ' ~ loop.index %}
-                    {% set height = banner.height %}
-                    {% set width = banner.width %}
-                    {% set target = banner.target %}
-                    {% set rel = target == '_blank' ? 'rel="noopner noreferrer"'%}
-                    {% set link = banner.link %}
-
-                    {{ link ? '<a class="banners-double__link" href="'~ link ~'" title="'~ alt ~'" target="'~ target ~'" '~ rel ~'>' }}
-                        <img src="{{ src }}" width="{{ width }}" height="{{ height }}" loading="lazy" alt="{{ alt }}">
-                    {{ link ? '</a>' }}
-
-                {% endfor %}
-            </div>
-        </section>
-    {% endif %}
 
     {% element 'snippets/banner-line' { 'banner_id': 'bottom', 'banner_type': 'container' } %}
 
@@ -67,7 +43,6 @@
         'refShowcase': 'three'
     } %}
 
-    {% element 'snippets/brands-list' %}
 
     {% element 'home-showcase' {
         'title': settings.showcase_title_4,
@@ -96,8 +71,32 @@
     {% endfor %}
 
 
+    {% set double_banners = [] %}
+    {% set double_banners = banners.extra7 ? double_banners|merge([banners.extra7]) : double_banners %}
+    {% set double_banners = banners.extra8 ? double_banners|merge([banners.extra8]) : double_banners %}
 
+    {% if double_banners|length  %}
+        <section class="banners-double">
+            <div class="banners-double__container">
+                {% for banner in double_banners %}
+                    {% set src = banner.src %}
+                    {% set alt = banner.alt ? banner.alt : 'banner ' ~ loop.index %}
+                    {% set height = banner.height %}
+                    {% set width = banner.width %}
+                    {% set target = banner.target %}
+                    {% set rel = target == '_blank' ? 'rel="noopner noreferrer"'%}
+                    {% set link = banner.link %}
 
+                    {{ link ? '<a class="banners-double__link" href="'~ link ~'" title="'~ alt ~'" target="'~ target ~'" '~ rel ~'>' }}
+                        <img src="{{ src }}" width="600" height="{{ height }}" loading="lazy" alt="{{ alt }}">
+                    {{ link ? '</a>' }}
+
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+    {% element 'snippets/brands-list' %}
     {% if tags %}
         <section class="section tagCloud">
             <h2 class="section-title">{{ Translation('tags_mais_buscadas') }}</h2>
@@ -111,7 +110,6 @@
         </section>
     {% endif %}
 
-    {% element 'snippets/banner-line' { 'banner_id': 'footer', 'banner_type': 'container' } %}
 
 </div>
 

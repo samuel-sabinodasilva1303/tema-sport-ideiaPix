@@ -2443,7 +2443,7 @@ div.Seguro {
 
 @media (min-width: 992px) {
   :root:has(.header-topbar) .default-main {
-    --pt: 166px;
+    --pt: 165px;
   }
 
   ._mobile {
@@ -4110,6 +4110,7 @@ div.Seguro {
 }
 
 .default-main {
+  background: #D9D9D9;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -16561,7 +16562,7 @@ button.minicart__close--footer > svg {
 }
 .menu-dropdown__content {
   display: flex;
-  height: 515px;
+  height: 420px;
   border-radius: 0 5px 5px 5px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -16805,19 +16806,21 @@ button.minicart__close--footer > svg {
   right: -5%;
   -webkit-animation: 1s ltr 600ms forwards;
           animation: 1s ltr 600ms forwards;
+  width: 100%;
+  bottom: 0;
 }
 .float-buttons__btn {
   display: grid;
   place-items: center;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border-radius: 1%;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
   transition: all 222ms ease-in-out;
 }
 .float-buttons__btn--back-top {
-  background-color: #f7f7f7;
-  color: #565c69;
+  background-color: #292929;
+  color: #fff;
 }
 .float-buttons__btn--back-top[data-show=false] {
   visibility: hidden;
@@ -16968,9 +16971,10 @@ button.minicart__close--footer > svg {
 }
 
 .product {
-  max-width: 282px;
   width: 100%;
   min-width: 0;
+  padding: 8px;
+  background: var(--c_general_background);
 }
 .product__link {
   display: contents;
@@ -17757,6 +17761,10 @@ button.minicart__close--footer > svg {
 .advantage-rule__title-desc {
   color: var(--c_topbar_link);
   font-weight: 600;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
 }
 .advantage-rule__title, .advantage-rule__desc, .advantage-rule__title-desc {
   display: -webkit-box;
@@ -17768,8 +17776,9 @@ button.minicart__close--footer > svg {
 .advantage-rule__title {
   color: var(--c_advantage_text_1);
   font-size: 18px;
-  font-weight: 700;
-  line-height: 24px;
+  font-weight: 400;
+  line-height: 120%;
+  margin-bottom: 8px;
 }
 .advantage-rule__desc {
   color: var(--c_advantage_text_2);
@@ -17880,7 +17889,7 @@ button.minicart__close--footer > svg {
 .banner-first__container--mosaic {
   display: grid;
   gap: clamp(8px, 1.2vw, 20px);
-  grid-template-areas: "f s s" "f t t";
+  grid-template-areas: "f s" "f t" "f t";
   place-content: center;
   place-items: center;
 }
