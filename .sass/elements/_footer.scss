@@ -246,7 +246,7 @@
             }
 
             @include large {
-                padding: 0px 0px 12px 0px;
+                padding: 48px 0 0;
                 grid-template-areas: 'contact pages payment security';
                 grid-template-rows: auto;
                 display: flex;
@@ -260,23 +260,36 @@
                     &-pages {
                         .info-title {
                             padding-block: 18px 18px;
+                            font-size: 23px;
+                            font-weight: 400;
+                            line-height: 120%;
+                    
                         }
                     }
                     &-contact {
                         .info-title {
                             padding-block: 18px 18px;
+                            font-size: 23px;
+                            font-weight: 400;
+                            line-height: 120%;
                         }
                     }
                     &-payment {
                         grid-area: payment;
                         .info-title {
                             padding-block: 18px 18px;
+                            font-size: 23px;
+                            font-weight: 400;
+                            line-height: 120%;
                         }
                     }
                     &-security {
                         grid-area: security;
                         .info-title {
                             padding-block: 18px 18px;
+                            font-size: 23px;
+                            font-weight: 400;
+                            line-height: 120%;
                         }
                     }
                 }

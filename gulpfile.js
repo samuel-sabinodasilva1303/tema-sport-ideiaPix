@@ -60,8 +60,8 @@ function updateVersionThemePanel() {
 function updateVersionThemeReadme() {
     const anchor = /<b>\d{1,2}\.\d{1,2}\.\d{1,2}/g;
     return gulp
-        .src(`./readme.md`)
-        .pipe(replace(anchor, `<b>${version}`))
+    .src(`./readme.md`, { allowEmpty: true })  // Permitir arquivos vazios
+    .pipe(replace(anchor, `<b>${version}`))
         .pipe(gulp.dest('./'));
 }
 

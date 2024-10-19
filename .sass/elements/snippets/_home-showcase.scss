@@ -106,10 +106,12 @@
                     transition: $transit_default;
 
                     &--prev {
-                        left: -40px;
+                        left: -20px;
+                        z-index: 1;
                     }
                     &--next {
-                        right: -40px;
+                        right: -20px;
+                        z-index: 1;
                     }
 
                     &.swiper-button-disabled {
@@ -119,6 +121,7 @@
 
                     &:not(.swiper-button-lock) {
                         display: grid;
+                        background: var(--c_general_secondary);
                     }
 
                     @media (hover: hover) {

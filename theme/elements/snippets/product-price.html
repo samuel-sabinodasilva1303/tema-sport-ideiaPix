@@ -4,8 +4,8 @@
     {% set price_current = product.price_offer > 0 ? settings.currency ~ ' ' ~  product.price_offer|currency : settings.currency ~ ' ' ~  product.price|currency %}
 
     <p class="product-price" {{ hide_price }}>
-        {{ price_old ? '<s>de: '~ price_old ~'</s>' : '' }}
-        <span class="product-price__current">Por: <em>{{ price_current }}</em></span>
+        {{ price_old ? '<s>'~ price_old ~'</s>' : '' }}
+        <span class="product-price__current"><em>{{ price_current }}</em></span>
     </p>
 
     {{ product.payment ? '<p class="product-price__installments" '~ hide_price ~'>' ~ product.payment ~ '</p>' : '' }}
