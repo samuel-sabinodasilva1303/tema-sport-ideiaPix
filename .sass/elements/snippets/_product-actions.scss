@@ -84,8 +84,11 @@
         &--buy {
             background-color: var(--c_buy_button_bg);
             color: var(--c_buy_button_text);
-            font-weight: 700;
-            font-size: 14px;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%; /* 27px */
+            
         }
 
         &--offer {
@@ -148,18 +151,9 @@
 
         &__btn {
             flex: 100%;
-            // &--buy {
-            //     flex: 1 auto;
-            // }
             &--offer,
             &--wp {
                 margin-top: 0;
-                // flex: 1 auto;
-                // max-width: 42px;
-
-                // > span {
-                //     display: none;
-                // }
             }
         }
     }

@@ -1006,12 +1006,8 @@
                     freeMode: false,
                     loop: true,
                     lazy: true,
-                    spaceBetween: 10,
+                    spaceBetween: 90,
                     allowTouchMove: false,
-                    autoplay: {
-                        delay: 4000,
-                        disableOnInteraction: false,
-                    },
 
                     breakpoints: {
                         540: {

@@ -42,35 +42,31 @@
 
     &__title-desc {
         color: var(--c_topbar_link);
-        font-weight: 600;
-        font-weight: 400;
         font-size: 13px;
-        line-height: 150%;
-        letter-spacing: .02em;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%; /* 19.5px */
+        letter-spacing: 0.26px;
     }
 
-    &__title,
-    &__desc,
-    &__title-desc {
-        display: -webkit-box;
-        text-overflow: ellipsis;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-        overflow: hidden;
-    }
 
     &__title {
         color: var(--c_advantage_text_1);
         font-size: 18px;
+        font-style: normal;
         font-weight: 400;
         line-height: 120%;
-        margin-bottom: 8px;
+        letter-spacing: 0.54px;
+        padding-block: 8px;
+    
     }
 
     &__desc {
         color: var(--c_advantage_text_2);
         font-size: 14px;
+        font-style: normal;
         font-weight: 400;
-        line-height: 16px;
+        line-height: 150%;
+        letter-spacing: 0.028px;
     }
 }

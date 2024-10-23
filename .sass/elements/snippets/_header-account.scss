@@ -6,9 +6,10 @@
         display: flex;
         align-items: center;
         gap: 0 6px;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%; /* 19.5px */
+        letter-spacing: 0.26px;
         color: var(--c_header_text);
 
         svg {
@@ -106,17 +107,6 @@
                 stroke: var(--c_general_tertiary);
             }
         }
-    }
-
-    &:before {
-        content: '';
-        width: 0;
-        height: 3px;
-        background-color: var(--c_general_secondary);
-        transition: $transit_default;
-        position: absolute;
-        bottom: 0;
-        left: 0;
     }
 
     @media (hover: hover) {

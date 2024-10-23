@@ -2,17 +2,21 @@
     margin-top: 10px;
 
     > s {
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 19px;
         display: block;
         color: var(--c_general_tertiary);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 0.03px;
     }
 
     &__current {
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 21px;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%; /* 27px */
+        letter-spacing: 0.36px;
         display: block;
         color: var(--c_showcase_price_main);
 
@@ -28,10 +32,11 @@
 
     &__installments {
         margin-top: 10px;
-        font-size: 14px;
         color: var(--c_general_tertiary);
+        font-size: 13px;
+        font-style: normal;
         font-weight: 400;
-        line-height: 15px;
+        line-height: 130%; /* 16.9px */
 
         strong {
             font-weight: 500;

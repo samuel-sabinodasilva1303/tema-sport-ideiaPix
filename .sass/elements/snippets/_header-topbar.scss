@@ -1,5 +1,5 @@
 .header-topbar {
-    background-color: var(--c_topbar_bg);
+    background: var(--c_topbar_bg);
     transition: $transit_default;
 
     &__container {

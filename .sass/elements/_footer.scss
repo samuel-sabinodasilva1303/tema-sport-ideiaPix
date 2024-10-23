@@ -51,12 +51,12 @@
             margin: 0 auto;
             padding: 17px 0;
             @extend %flex-center-center;
-            background-color: var(--c_bg_newsletter);
+            background: var(--c_bg_newsletter);
             display: flex;
             gap: 2em;
             align-items: center;
             &-main {
-                background-color: var(--c_bg_newsletter);
+                background: var(--c_bg_newsletter);
             }
 
             .newsletter {
@@ -141,8 +141,7 @@
                         font-size: 12px;
                         height: 32px;
                         padding: 4px 3px;
-                        border: none;
-                        border-bottom: 1px solid var(--c_newsletter_subtitle);
+                        border: 1px solid var(--c_newsletter_subtitle);
                         background: rgba(0, 0, 0, 0);
                         color: var(--c_newsletter_subtitle);
                         display: inline-block;
