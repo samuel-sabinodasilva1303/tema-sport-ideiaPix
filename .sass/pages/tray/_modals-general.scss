@@ -37,7 +37,7 @@
 
         &-content {
             color: var(--color_font_medium);
-            background-color: var(--c_general_background);
+            background: var(--c_general_background);
             background-clip: padding-box;
             border: 1px solid var(--color_gray_medium);
             border-radius: 0.5rem;
@@ -89,7 +89,7 @@
                     }
 
                     input {
-                        background-color: #F6F6F6;
+                        background: #F6F6F6;
                         border-radius: 0.2rem;
                         height: 2.3rem;
                         line-height: 1.2;
@@ -103,7 +103,7 @@
                     }
 
                     textarea {
-                        background-color: #F6F6F6;
+                        background: #F6F6F6;
                         border: none;
                         border-radius: 0.2rem;
                         padding: 1.5rem;
@@ -231,7 +231,7 @@
         bottom: 0;
         left: 0;
         z-index: 1040;
-        background-color: #000;
+        background: #000;
 
         &.fade {
             filter: alpha(opacity=0);
@@ -283,7 +283,7 @@
                 margin-top: 1rem; 
 
                 select {
-                    background-color: #F6F6F6;
+                    background: #F6F6F6;
                     border-radius: 2px;
                     border-style: none;
                     color: #7A7A7A;
@@ -303,7 +303,7 @@
         .botao {
             @extend .button1;
             cursor: pointer;
-            background-color: var(--c_general_main);
+            background: var(--c_general_main);
             text-align: center;
             font-family: $font_name;
             font-weight: bold;
@@ -391,7 +391,7 @@
 
         .cart-preview-quantity-tag-box {
             @include fontInsert(1, 600, #FFF);
-            background-color: var(--c_general_main);
+            background: var(--c_general_main);
             border-radius: 2rem;
             padding: 0.2rem 0.4rem;
             position: absolute;
@@ -430,7 +430,7 @@
 
     .cart-preview-item-error {
         @include fontInsert(0.75, 400, #966503);
-        background-color: #fef1d6;
+        background: #fef1d6;
         border-radius: 0.25rem;
         margin-top: 0.25rem;
         padding: 0.5rem;
@@ -497,7 +497,7 @@
         .botao-commerce-img {
             @extend .button2;
             &:hover{
-                background-color: var(--c_default_button_bg_hover);
+                background: var(--c_default_button_bg_hover);
                 color: var(--c_default_button_text_hover);
             }
         }
@@ -512,12 +512,12 @@
 
         .botao-commerce-img {
             @extend .button1;
-            background-color: var(--c_buy_button_bg);
+            background: var(--c_buy_button_bg);
             color: var(--c_buy_button_text);
             display: block;
 
             &:hover{
-                background-color:  var(--c_buy_button_bg_hover);
+                background:  var(--c_buy_button_bg_hover);
                 color: var(--c_buy_button_text_hover);
                 opacity: 1;
             }

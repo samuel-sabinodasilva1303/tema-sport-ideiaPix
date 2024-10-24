@@ -5,11 +5,11 @@
         align-items: center;
         margin: 8px 0;
         .swiper-pagination-bullet {
-            background-color: var(--c_general_main);
+            background: var(--c_general_main);
             opacity: 1;
             &-active {
                 border: 1px solid var(--c_general_main);
-                background-color: #fff;
+                background: #fff;
                 height: 13px;
                 width: 13px;
             }

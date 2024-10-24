@@ -8,7 +8,7 @@
     &__discount {
         display: flex;
         place-items: center;
-        background-color: var(--c_bg_seals);
+        background: var(--c_bg_seals);
         color: var(--c_text_seals);
         border-radius: 12px;
         height: 24px;
@@ -60,23 +60,23 @@
 
         &--new {
             color: var(--c_text_release);
-            background-color: var(--c_bg_release);
+            background: var(--c_bg_release);
             border-color: var(--c_text_release);
         }
         &--featured {
             color: var(--c_text_highlight);
-            background-color: var(--c_bg_highlight);
+            background: var(--c_bg_highlight);
             border-color: var(--c_text_highlight);
         }
         &--additional {
             display: none;
             color: var(--c_text_additional);
-            background-color: var(--c_bg_additional);
+            background: var(--c_bg_additional);
             border-color: var(--c_text_additional);
         }
         &--free-shipping {
             color: var(--c_text_portage);
-            background-color: var(--c_bg_portage);
+            background: var(--c_bg_portage);
             border-color: var(--c_text_portage);
         }
     }

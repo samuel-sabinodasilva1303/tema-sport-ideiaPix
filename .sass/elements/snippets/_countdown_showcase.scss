@@ -1,10 +1,31 @@
 .countdownShowcase {
+
     display: flex;
+    gap: 10px;
+    background: #FF6500;
     align-items: center;
-    gap: 0;
-    padding: 12px;
-    width: 100%;
+    height: 103px;
+    padding: 50px 40px;
     max-width: 600px;
+    width: 100%;
+    .home-showcase__title--countdown{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        color: #fff;
+    }
+    .home-showcase__header{
+        > a{
+            > img{
+                height: 140px;
+                width: 100%;
+            }
+        }
+    }
 
     &__item {
         display: flex;
@@ -18,33 +39,36 @@
             justify-content: center;
         }
         > span {
-            font-size: 12px;
-            font-weight: 400;
-            line-height: 15px;
+            font-size: 27px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--c_general_tertiary);
+            color: #fff;
             display: inline-block;
-            margin-top: 13px;
         }
     }
 
     &__timer {
         position: relative;
         line-height: 0;
+        > span{
+            color: #fff;
+            font-size: 27px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
 
         &:before {
             content: var(--content-value);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
             margin: auto;
-            color: var(--c_general_tertiary);
-            font-size: 24px;
-            line-height: 31px;
-            font-weight: 700;
+            color: #fff;
+            font-size: 27px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
             width: fit-content;
             height: fit-content;
         }

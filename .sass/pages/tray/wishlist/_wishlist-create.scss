@@ -21,7 +21,7 @@
 
     #lista_criar {
         @extend %flex-colun;
-        background-color: var(--c_general_background);
+        background: var(--c_general_background);
         border-radius: 0.5rem;
 
         @include small {
@@ -105,7 +105,7 @@
                 select,
                 input[type='text'] {
                     @include fontInsert(0.875, 400, #7A7A7A);
-                    background-color: #ECEFF5;
+                    background: #ECEFF5;
                     border: none;
                     border-radius: 2px;
                     margin: 4px 0 0;

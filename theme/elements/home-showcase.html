@@ -49,15 +49,24 @@
 
     <section data-col="{{ columns }}" class="home-showcase" {{ slide ? 'data-slides="product"' : '' }}>
 
-        <div class="home-showcase__header">
-
-            <h2 class="home-showcase__title">{{ title }}</h2>
-
-            {% if is_special %}{% element 'snippets/countdown_showcase' %}{% endif %}
+        <div class="home-showcase__header {{is_special ? 'yes' : 'no'}}">
+            {% if is_special %}
+                {% if banners.extra12 %}      
+                        <a href="{{ banners.extra12.link }}" target="{{ banners.extra12.target }}">                     
+                            <img src="{{ banners.extra12.src }}" alt="{{ banners.extra12.img_alt }}">                    
+                        </a>            
+                {% endif %} 
+            {% endif %}
+            {% if not is_special %}
+                <h2 class="home-showcase__title">{{ title }}</h2>
+            {% endif %}
+            {% if is_special %}
+                {% element 'snippets/countdown_showcase' %}
+            {% endif %}
 
         </div>
 
-        <div class="home-showcase__container">
+        <div class="home-showcase__container {{is_special ? 'yes' : 'no'}}">
 
             {{ is_special ? banner_showcase : '' }}
 

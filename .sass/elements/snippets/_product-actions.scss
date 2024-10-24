@@ -18,7 +18,7 @@
     &__qty {
         border-radius: 1px;
         border: 1px solid #333;
-        background-color: #f6f6f6;
+        background: #f6f6f6;
         flex: 0 0 100px;
         display: flex;
         align-items: stretch;
@@ -66,7 +66,7 @@
         gap: 0 8px;
 
         &--wp {
-            background-color: #d8f8e4;
+            background: #d8f8e4;
             font-weight: 700;
             font-size: 14px;
             color: #25d366;
@@ -82,7 +82,7 @@
         }
 
         &--buy {
-            background-color: var(--c_buy_button_bg);
+            background: var(--c_buy_button_bg);
             color: var(--c_buy_button_text);
             font-size: 18px;
             font-style: normal;
@@ -94,7 +94,7 @@
         &--offer {
             height: 30px;
             color: var(--c_buy_button_text);
-            background-color: var(--c_bg_progressiveDiscount);
+            background: var(--c_bg_progressiveDiscount);
             font-size: 13px;
             font-weight: 700;
             margin-top: 10px;
@@ -103,7 +103,7 @@
         &--login {
             margin-top: 10px;
             margin-inline: auto;
-            background-color: var(--c_bg_additional);
+            background: var(--c_bg_additional);
             color: #fff;
             font-size: 16px;
             font-weight: 400;
@@ -112,7 +112,7 @@
 
         @media (hover: hover) {
             &--buy:hover {
-                background-color: var(--c_buy_button_bg_hover);
+                background: var(--c_buy_button_bg_hover);
                 color: var(--c_buy_button_text_hover);
             }
 
@@ -131,7 +131,7 @@
         right: 0;
         width: 100%;
         z-index: 1;
-        background-color: #fef1d6;
+        background: #fef1d6;
         color: #966503;
         border-radius: 1px;
         padding:10px;

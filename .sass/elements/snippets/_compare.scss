@@ -20,7 +20,7 @@
 
         &:after {
             content: '';
-            background-color: var(--c_general_main);
+            background: var(--c_general_main);
             position: absolute;
             width: 0;
             height: 0;

@@ -1,5 +1,5 @@
 .header {
-    background-color: var(--c_header_bg);
+    background: var(--c_header_bg);
     position: fixed;
     width: 100%;
     z-index: 10;
@@ -82,7 +82,7 @@
                 justify-content: center;
                 right: 0;
                 height: 48px;
-                width: 48px;
+                width: 0;
                 &:hover {
                     opacity: 0.6;
                 }
@@ -119,10 +119,10 @@
                 width: 48px;
                 height: 100%;
                 top: 0;
-                left: 0;
+                right: 0;
                 font-size: 20px;
                 color: #eceff5;
-                background-color: transparent;
+                background: transparent;
                 opacity: 1;
                 transition: 0.3s ease-out;
 
@@ -147,7 +147,7 @@
             width: 100%;
             padding: 0 56px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
-            background-color: var(--c_header_bg);
+            background: var(--c_header_bg);
             border-radius: 1px;
             overflow: auto;
             scrollbar-color: #eceff5 #fff;
@@ -200,12 +200,12 @@
                     margin: 0;
                     padding: 0;
                     line-height: 1.4;
-                    background-color: transparent;
+                    background: transparent;
                     transition: ease-out 0.2s;
 
                     &:hover {
                         color: var(--c_general_main);
-                        background-color: transparent;
+                        background: transparent;
                     }
                 }
 
@@ -313,7 +313,7 @@
 // menu mobile
 .menuMobile {
     width: 100%;
-    background-color: var(--c_bg_dropdown);
+    background: var(--c_bg_dropdown);
     @extend %flex-center-colun;
     @extend %modal-mobile-menus;
     padding: 0 0 2rem 0;
@@ -402,7 +402,7 @@
             .account-access {
                 margin-top: 4px;
                 .account-link {
-                    background-color: unset;
+                    background: unset;
                     @include fontInsert(1, 400, var(--c_general_tertiary));
                     padding: 0;
                     margin: 4px auto;
@@ -563,7 +563,7 @@
         .button-line {
             width: 100%;
             height: 2px;
-            background-color: var(--c_general_main);
+            background: var(--c_general_main);
             transition: 0.3s ease-out;
             cursor: pointer;
         }

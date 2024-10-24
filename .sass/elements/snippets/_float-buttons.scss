@@ -45,7 +45,7 @@
         transition: all 222ms ease-in-out;
 
         &--back-top {
-            background-color: #292929;
+            background: #292929;
             color: #fff;
 
             &[data-show='false'] {
@@ -66,7 +66,7 @@
         }
 
         &--whatsapp {
-            background-color: #25d366;
+            background: #25d366;
             color: #fff;
         }
 

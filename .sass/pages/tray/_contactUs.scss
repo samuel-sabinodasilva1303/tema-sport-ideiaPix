@@ -39,7 +39,7 @@
 
             &:before {
                 @extend %flex-center-center;
-                background-color: var(--c_general_main);
+                background: var(--c_general_main);
                 border-radius: 50%;
                 color: #FFF;
                 position: absolute;
@@ -115,7 +115,7 @@
                 display: none;
             }
             &.blocoSucesso{
-                background-color: #EDFFED;
+                background: #EDFFED;
                 color: #54AC2D;
                 text-align: center;
                 padding-block: 7px;
@@ -139,11 +139,11 @@
             border-radius: $border_radius;
             width: fit-content ;
             color: var(--c_default_button_text);
-            background-color: var(--c_default_button_bg);
+            background: var(--c_default_button_bg);
             transition: 0.3s all;
             &:hover{
                 color: var(--c_default_button_text_hover);
-                background-color: var(--c_default_button_bg_hover);
+                background: var(--c_default_button_bg_hover);
             }
         }
     }
@@ -185,7 +185,7 @@
 
         .container2 {
             .board {
-                background-color: #f6f6f6;
+                background: #f6f6f6;
                 border-radius: 0.5rem;
                 margin-bottom: 5rem;
                 padding: 2.5rem;
@@ -205,7 +205,7 @@
 
     .formulario-contato {
         input {
-            background-color: #ECEFF5;
+            background: #ECEFF5;
             font-weight: 400;
             height: 3rem;
             line-height: 1.2;

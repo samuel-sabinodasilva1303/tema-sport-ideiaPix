@@ -1911,7 +1911,7 @@
             if ($('#produto_preco .color').length > 0) {
                 $('.pageProduct-outOfStock .produto-preco #preco').css({
                     border: ' 1px solid var(--c_general_main)',
-                    'background-color': 'var(--c_product_progressive_bg)',
+                    'background': 'var(--c_product_progressive_bg)',
                 });
             }
 

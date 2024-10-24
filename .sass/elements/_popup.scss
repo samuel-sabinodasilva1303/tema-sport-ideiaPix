@@ -86,7 +86,7 @@
                     button {
                         flex-shrink: 0;
                         color: var(--c_default_button_text);
-                        background-color: var(--c_default_button_bg);
+                        background: var(--c_default_button_bg);
                         border: 1px solid #7a7a7a;
                         transition: all 233ms;
                         opacity: 1;
@@ -123,7 +123,7 @@ html._popup-lig {
     background: transparent;
     position: fixed;
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.675);
+    background: rgba(0, 0, 0, 0.675);
     -webkit-backdrop-filter: saturate(180%) blur(6px);
     backdrop-filter: saturate(180%) blur(6px);
 
@@ -321,7 +321,7 @@ html._popup-lig {
                     button {
                         flex-shrink: 0;
                         color: var(--c_default_button_text);
-                        background-color: var(--c_default_button_bg);
+                        background: var(--c_default_button_bg);
                         border: 1px solid #7a7a7a;
                         transition: all 233ms;
                         opacity: 1;

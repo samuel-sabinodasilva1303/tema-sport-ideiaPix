@@ -1,9 +1,9 @@
 .page-login {
     .banner-full{
-        background-color: #FFF;
+        background: #FFF;
     }
     .default-main{
-        background-color: #fff;
+        background: #fff;
     }
     .default-content > .container > .container3{
         display: none;
@@ -83,14 +83,14 @@
                 width: 182px !important;
                 border-radius: 1px;
                 color: var(--c_default_button_text);
-                background-color: var(--c_default_button_bg);
+                background: var(--c_default_button_bg);
                 text-transform: initial;
                 opacity: 1;
                 transition: $transit_default;
                 @extend .button2;
 
                 &:hover{
-                    background-color: var(--c_default_button_bg_hover);
+                    background: var(--c_default_button_bg_hover);
                     color: var(--c_default_button_text_hover);
                 }
 

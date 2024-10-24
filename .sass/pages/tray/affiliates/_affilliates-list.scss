@@ -42,7 +42,7 @@
             #data_fim,
             input[name='cliente'] {
                 @include fontInsert(0.875, 600, #7A7A7A);
-                background-color: #ECEFF5;
+                background: #ECEFF5;
                 height: 2.75rem;
                 line-height: 1.2;
                 margin-left: 1rem;
@@ -69,7 +69,7 @@
                         @extend .icon-config;
                         @extend .icon-Calendar;
                         @extend %flex-center-center;
-                        background-color: var(--c_general_main);
+                        background: var(--c_general_main);
                         position: absolute;
                         height: 2.75rem;
                         width: 2.56rem;
@@ -181,7 +181,7 @@
                 }
 
                 tr {
-                    background-color: unset !important;
+                    background: unset !important;
 
                     &:first-child {
                         td {
@@ -197,11 +197,11 @@
                             }
 
                             &:nth-child(odd) {
-                                background-color: var(--c_general_background) !important;
+                                background: var(--c_general_background) !important;
                             }
 
                             &:nth-child(even) {
-                                background-color: #F6F6F6 !important;
+                                background: #F6F6F6 !important;
                             }
                         }
                     }

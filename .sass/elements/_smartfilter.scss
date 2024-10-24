@@ -62,7 +62,7 @@
                 appearance: none;
                 width: 100%;
                 height: 2px;
-                background-color: transparent;
+                background: transparent;
                 pointer-events: none;
                 position: absolute;
                 top: 0;
@@ -73,14 +73,14 @@
 
                 &::-webkit-slider-runnable-track {
                     height: 2px;
-                    background-color: #C5C5C5;
+                    background: #C5C5C5;
                     border-radius: 1px;
                 }
 
                 &::-webkit-slider-thumb {
                     -webkit-appearance: none;
                     appearance: none;
-                    background-color: var(--c_general_tertiary);
+                    background: var(--c_general_tertiary);
                     height: 10px;
                     width: 10px;
                     border-radius: 7px;
@@ -94,7 +94,7 @@
                 &::-moz-range-track {
                     height: 2px;
                     width: 100%;
-                    background-color: transparent;
+                    background: transparent;
                 }
 
                 &::-moz-range-thumb {
@@ -103,7 +103,7 @@
                     width: #{$tmb};
                     pointer-events: auto;
                     border-radius: 7px;
-                    background-color: var(--c_general_tertiary);
+                    background: var(--c_general_tertiary);
                     cursor: pointer;
                     position: relative;
                     z-index: 2;
@@ -148,7 +148,7 @@
                     width: fit-content;
                     margin-right: 10px;
                     position: absolute;
-                    background-color: white;
+                    background: white;
                     height: fit-content;
                     grid-template-columns: auto auto auto auto;
                     gap: 8px;
@@ -241,7 +241,7 @@
 
     @include small {
         @at-root #category-filter {
-            background-color: var(--c_general_background);
+            background: var(--c_general_background);
 
             .filter-header {
                 color: var(--c_general_main);
@@ -385,7 +385,7 @@
 
                 .select {
                     @include fontInsert(0.95, 400, #7A7A7A);
-                    background-color: transparent;
+                    background: transparent;
                     border: 1px solid #7a7a7a;
                     border-radius: $border_radius;
                     padding: 6px 10px;
@@ -554,7 +554,7 @@
 
         &--value {
             @include fontInsert(0.875, 400, #74797c);
-            background-color: #ffffff;
+            background: #ffffff;
             display: flex;
             text-transform: uppercase;
             align-items: center;

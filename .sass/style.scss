@@ -246,7 +246,7 @@ $transit_slow: 0.5s ease-out;
 
 %select {
     @include fontInsert(0.875, 600, #7a7a7a);
-    background-color: #eceff5;
+    background: #eceff5;
     border: $v_border_select;
     border-radius: 0.15rem;
     cursor: pointer;
@@ -341,7 +341,7 @@ $transit_slow: 0.5s ease-out;
 }
 
 %modal-mobile-menus {
-    background-color: #2c2c2c;
+    background: #2c2c2c;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
     border-radius: 0 0 0.5rem 0.5rem;
     display: block;
@@ -390,14 +390,14 @@ $transit_slow: 0.5s ease-out;
 }
 
 %internalStyle-checkboxSquare {
-    background-color: var(--c_general_main);
+    background: var(--c_general_main);
     height: 16px;
     width: 16px;
     border-radius: 3px;
 }
 
 @mixin externStyle-checkboxCircle($color-border: #00000057) {
-    background-color: #fff;
+    background: #fff;
     border: 0.15em solid $color-border;
     border-radius: 50%;
     color: currentColor;
@@ -406,7 +406,7 @@ $transit_slow: 0.5s ease-out;
 }
 
 %internalStyle-checkboxCircle {
-    background-color: var(--c_general_main);
+    background: var(--c_general_main);
     border-radius: 50%;
     height: 0.7rem;
     width: 0.7rem;
@@ -587,7 +587,7 @@ body {
     font-size: 16px;
     line-height: 1.4;
     color: var(--c_general_main);
-    background-color: var(--c_general_background);
+    background: var(--c_general_background);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -694,7 +694,7 @@ body.overflowed {
     z-index: 19;
     opacity: 0;
     visibility: hidden;
-    background-color: #000;
+    background: #000;
     transition: ease-out 0.3s;
 
     &.u-show {
@@ -732,7 +732,7 @@ body.overflowed {
 /// components default
 .button1 {
     @include fontInsert($fs_button, 600, #fff, uppercase);
-    background-color: var(--c_general_tertiary);
+    background: var(--c_general_tertiary);
     border-radius: 2px;
     padding: 1rem 2rem;
     opacity: 1;
@@ -741,7 +741,7 @@ body.overflowed {
 
 .button2 {
     @include fontInsert(1, 700, var(--c_default_button_text), uppercase);
-    background-color: var(--c_default_button_bg);
+    background: var(--c_default_button_bg);
     border-radius: $border_radius;
     display: block;
     padding: 0.68rem 2rem;
@@ -754,7 +754,7 @@ body.overflowed {
 
 .button3 {
     @include fontInsert($fs_button, 600, var(--c_general_main));
-    background-color: #f6f6f6;
+    background: #f6f6f6;
     display: block;
     padding: 1rem 2rem;
     opacity: 1;
@@ -769,7 +769,7 @@ body.overflowed {
 
 .button4 {
     @include fontInsert($fs_button, 700, var(--c_general_main), uppercase);
-    background-color: transparent;
+    background: transparent;
     border: 0.125rem solid var(--c_general_main);
     border-radius: 0.15rem;
     padding: 1rem 2rem;
@@ -781,7 +781,7 @@ body.overflowed {
     &:active {
         opacity: 0.6;
         color: #fff;
-        background-color: var(--c_general_main);
+        background: var(--c_general_main);
     }
 }
 
@@ -794,7 +794,7 @@ span.error-block {
 
 p.error-block {
     @include fontInsert(0.9, 600, #966503);
-    background-color: #fef1d6;
+    background: #fef1d6;
     border-radius: 2px;
     margin-top: 0.5rem;
     padding: 0.5rem;

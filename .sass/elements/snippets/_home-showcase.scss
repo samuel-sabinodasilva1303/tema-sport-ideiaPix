@@ -62,6 +62,9 @@
     }
 
     &__header {
+        &.yes{
+            margin-bottom: 10px;
+        }
         @media screen and (max-width: 786px) {
             flex-wrap: wrap;
             margin-inline: -20px;
@@ -69,6 +72,18 @@
     }
 
     &__container {
+
+        &.yes{
+            .swiper-wrapper{
+                .swiper-slide{
+                    .product{
+                        border: 2px solid #FF5520;
+
+                    }
+                }
+            }
+        }
+
         &:not(:has(> .swiper)) {
             display: grid;
             gap: 20px;

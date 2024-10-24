@@ -9,46 +9,42 @@
     {% if settings.newsletter_active %}
         <div class="footer-newsletter-main">
             <div class="footer-newsletter">
-                <div class="newsletter-text">
-                    <div class="newsletter-itens">
-                        <div class="text">
-                            <p class="text-emphasis">
-                                {{ settings.newsletter_title ? settings.newsletter_title : "Cadastre-se em nossa Newsletter"}} 
-                            </p>
-                            <p class="text-paragraph">
-                                {{ settings.newsletter_subtitle ? settings.newsletter_subtitle : "Receba as novidades e promoções da ideaSports" }}
-                            </p>
+                <div>
+                    <div class="newsletter-text">
+                        <div class="newsletter-itens">
+                            <div class="text">
+                                <p class="text-emphasis">
+                                    {{ settings.newsletter_title ? settings.newsletter_title : "Cadastre-se em nossa Newsletter"}} 
+                                </p>
+                                <p class="text-paragraph">
+                                    {{ settings.newsletter_subtitle ? settings.newsletter_subtitle : "Receba as novidades e promoções da ideaSports" }}
+                                </p>
+                            </div>
                         </div>
                     </div>
+
+                    <form class="newsletter-email" action="/mvc/store/newsletter/" method="post">
+                        <input type="hidden" name="loja" value="{{ store.id }}" />
+
+                        <input type="text" name="name" placeholder="Seu nome" class="name-field" required>
+
+                        <button type="submit" class="newsletter-button button1" >
+                            ENVIAR
+                        </button>
+                    </form>
                 </div>
 
-                <form class="newsletter-email" action="/mvc/store/newsletter/" method="post">
-                    <input type="hidden" name="loja" value="{{ store.id }}" />
+                <div class="footer-media--social">
 
-                    <input type="text" name="name" placeholder="Seu nome" class="name-field" required>
-
-                    <input
-                        class="email-field"
-                        type="email"
-                        name="email"
-                        placeholder="{{ settings.newsletter_placeholder ? settings.newsletter_placeholder : 'Seu e-mail' }}"
-                        required
-                        spellcheck="false"
-                        autocomplete="off"
-                    />
-                    <button type="submit" class="newsletter-button button1" >
-                        ENVIAR
-                    </button>
-                </form>
-            </div>
-            <div class="footer-media--social">
-
-                <div class="footer-media--logo">
-                    {% element 'snippets/logo' %}
+                    <div class="footer-media--logo">
+                        {% element 'snippets/logo' %}
+                    </div>
+                    <div class="footer-media--main">
+                        {% element 'snippets/media-icons' %}
+    
+                    </div>
+    
                 </div>
-                <div class="footer-media--main">
-                </div>
-
             </div>
         </div>
     {% endif %}

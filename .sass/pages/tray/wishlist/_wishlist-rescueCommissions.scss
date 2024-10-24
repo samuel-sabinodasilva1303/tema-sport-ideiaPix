@@ -6,7 +6,7 @@
     .form_resgatar_bonus {
         @extend %flex-end;
         @include fontInsert(1, 600, var(--c_general_main));
-        background-color: #F6F6F6;
+        background: #F6F6F6;
         border-radius: 0.5rem;
         margin-top: 1.5rem;
         padding: 1rem 1.5rem;
@@ -18,7 +18,7 @@
 
         #bonus_resgatar {
             @include fontInsert(0.875, 400, #7A7A7A);
-            background-color: #ECEFF5;
+            background: #ECEFF5;
             border: none;
             border-radius: 2px;
             padding: 0 1rem;

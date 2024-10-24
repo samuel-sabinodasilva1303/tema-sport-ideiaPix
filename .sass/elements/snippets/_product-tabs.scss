@@ -60,7 +60,7 @@
                     }
 
                     &:nth-child(odd) {
-                        background-color: #f5f5f5;
+                        background: #f5f5f5;
                     }
                 }
             }
@@ -86,7 +86,7 @@
                         display: block;
                         width: 8px;
                         height: 5px;
-                        background-color: currentColor;
+                        background: currentColor;
                         mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 8 5'%3E%3Cpath fill='%23d1d1d1' fill-rule='evenodd' d='M.47.47c.3-.3.77-.3 1.06 0L4 2.94 6.47.47a.75.75 0 0 1 1.06 1.06l-3 3c-.3.3-.77.3-1.06 0l-3-3a.75.75 0 0 1 0-1.06Z' clip-rule='evenodd'/%3E%3C/svg%3E");
                         mask-repeat: no-repeat;
                     }

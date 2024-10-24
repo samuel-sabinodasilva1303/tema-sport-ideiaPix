@@ -10,7 +10,7 @@
         border-radius: 0 5px 5px 5px;
         width: fit-content;
         box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
-        background-color: var(--c_bg_dropdown);
+        background: var(--c_bg_dropdown);
     }
 
     &__list {
@@ -51,7 +51,7 @@
 
         &--scroll-up,
         &--scroll-down {
-            background-color: #ccc;
+            background: #ccc;
             position: absolute;
             left: 0;
             width: 100%;
@@ -93,7 +93,7 @@
         @media (hover: hover) {
             &.active,
             &:hover {
-                background-color: var(--c_bg_submenu);
+                background: var(--c_bg_submenu);
                 color: var(--c_secondlevel_hover);
             }
         }

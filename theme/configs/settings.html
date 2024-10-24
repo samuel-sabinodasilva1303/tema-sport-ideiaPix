@@ -37,7 +37,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     body{
-        background-color: #f9f9f9;
+        background: #f9f9f9;
     }
     .fonts-preview .fonts .font.active{
         display: block;
@@ -106,7 +106,7 @@ $(".col-left > ul li").on("click", function(){
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #fff;
+        background: #fff;
         z-index: 20;
         display: flex;
         justify-content: center;
@@ -221,7 +221,7 @@ $(".col-left > ul li").on("click", function(){
         width: 100%;
         position: sticky;
         top: 0;
-        background-color: #fff;
+        background: #fff;
         z-index: 10;
         box-shadow: 0px 0px 88px rgba(120, 118, 148, 0.1);
     }
@@ -815,6 +815,21 @@ $(".col-left > ul li").on("click", function(){
         text-decoration: none;
         color: inherit;
     }
+    .colors-itens{
+        display: flex;
+        gap: 2em;
+        justify-content: center;
+        align-items: center;
+    }
+    .color-gradient input{
+        width: 261px;
+        border: 1px solid #f1f1f1;
+        border-radius: 6px;
+        box-shadow: none;
+        padding: 0 20px;
+        height: 50px;
+        margin-right: 10px;
+    }
 
     a:hover,
     a:focus{
@@ -835,7 +850,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     body{
-        background-color: #f9f9f9;
+        background: #f9f9f9;
         height: auto;
         min-height: 100%;
     }
@@ -924,7 +939,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     #btn-cancel:hover {
-        background-color: #E9EAEC;
+        background: #E9EAEC;
     }
 
     #btn-customize-preview{
@@ -936,7 +951,7 @@ $(".col-left > ul li").on("click", function(){
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: #fff;
+        background: #fff;
         box-shadow: 0px 0px 88px rgba(120, 118, 148, 0.1);
 
     }
@@ -1018,7 +1033,7 @@ $(".col-left > ul li").on("click", function(){
         margin: auto;
         width: 1px;
         height: 40px;
-        background-color: #F2F6F7;
+        background: #F2F6F7;
     }
 
     .item-action .icon{
@@ -1087,7 +1102,7 @@ $(".col-left > ul li").on("click", function(){
     .list-edit-tabs .box{
         width: 23%;
         color: #5F6368;
-        background-color: #FFFBFE;
+        background: #FFFBFE;
         cursor: pointer;
         padding: 12px 20px;
         position: relative;
@@ -1139,7 +1154,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     .tray-dashboard .tab-option{
-        background-color: #fff;
+        background: #fff;
         padding: 40px;
         box-shadow: 40px 40px 88px rgba(120, 118, 148, 0.1);
         border-radius: 8px;
@@ -1238,7 +1253,15 @@ $(".col-left > ul li").on("click", function(){
         width: auto;
         height: auto;
         line-height: 0;
-        display: block;
+        display: none;
+    }
+    .color-gradient{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .info-color, .icon-color{
+        display: none;
     }
 
     .info-color-big{
@@ -1553,7 +1576,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     input:checked + .bar-name{
-        background-color: #f8f8f8;
+        background: #f8f8f8;
         border-color: rgba(220, 220, 220, 0.44);
         border-radius: 8px 8px 0 0;
     }
@@ -1701,7 +1724,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     .box-file .area-file > div:not([class]){
-        background-color: #f5f8f9;
+        background: #f5f8f9;
         margin: 18px;
         margin: -2px;
         width: calc(100% + 4px);
@@ -1854,7 +1877,7 @@ $(".col-left > ul li").on("click", function(){
 
     .page-nav .col-left li{
         border-radius: 4px;
-        background-color: #f5f8f9;
+        background: #f5f8f9;
         font-size: 14px;
         font-weight: 600;
         margin-bottom: 10px;
@@ -1865,7 +1888,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     .page-nav .col-left li:hover{
-        background-color: #eef2f3;
+        background: #eef2f3;
     }
 
     .page-nav .col-left li.active{
@@ -1880,7 +1903,7 @@ $(".col-left > ul li").on("click", function(){
     .page-nav .col-right .tab-show{
         border-radius: 6px;
         border: solid 1px #f1f1f1;
-        background-color: #ffffff;
+        background: #ffffff;
         transform: scale(.8);
         transition: .0s;
         overflow: hidden;
@@ -1984,7 +2007,7 @@ $(".col-left > ul li").on("click", function(){
         margin-top: 7px;
         padding: 5px;
         border-radius: 4px;
-        background-color: #fff;
+        background: #fff;
         width: 100%;
         text-align: center;
         border: solid 2px #B1DC1A;
@@ -2074,7 +2097,7 @@ $(".col-left > ul li").on("click", function(){
 
     .input-area .icon{
         border: solid 1px #f1f1f1;
-        background-color: #f5f8f9;
+        background: #f5f8f9;
         width: 50px;
         display: flex;
         align-items: center;
@@ -2108,7 +2131,7 @@ $(".col-left > ul li").on("click", function(){
         -webkit-appearance: none;
         box-shadow: none;
         padding: 0 2.5rem 0 1.25rem;
-        background-color: #fff;
+        background: #fff;
         background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292.362 292.362"%3E%3Cpath d="M286.935 69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952 0-9.233 1.807-12.85 5.424C1.807 72.998 0 77.279 0 82.228c0 4.948 1.807 9.229 5.424 12.847l127.907 127.907c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428L286.935 95.074c3.613-3.617 5.427-7.898 5.427-12.847 0-4.948-1.814-9.229-5.427-12.85z"/%3E%3C/svg%3E%0A');
         background-repeat: no-repeat;
         background-size: 10px;
@@ -2121,7 +2144,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     .input-area select option.level-0{
-        background-color: #f5f8f9;
+        background: #f5f8f9;
         color: #113966;
     }
 
@@ -2192,8 +2215,8 @@ $(".col-left > ul li").on("click", function(){
         border-radius: 14px;
         height: 23px;
         cursor: pointer;
-        background-color: #f1f1f1;
-        transition: background-color ease-in-out .2s;
+        background: #f1f1f1;
+        transition: background ease-in-out .2s;
         width: 48px;
     }
 
@@ -2207,7 +2230,7 @@ $(".col-left > ul li").on("click", function(){
         width: 19px;
         height: 19px;
         border-radius: 50%;
-        background-color: #fff;
+        background: #fff;
         transition: transform ease-in-out .2s;
         box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.26);
     }
@@ -2252,7 +2275,7 @@ $(".col-left > ul li").on("click", function(){
         border: 1px solid #f1f1f1;
         border-radius: 6px 0 0 6px;
         overflow: hidden;
-        background-color: #fff;
+        background: #fff;
     }
 
     .list-colors .colorpicker-theme .input-group-addon i{
@@ -2302,8 +2325,8 @@ $(".col-left > ul li").on("click", function(){
     }
 
     .list-position .drag-list li{
-        background-color: #fff;
-        transition: background-color ease-in-out .2s;
+        background: #fff;
+        transition: background ease-in-out .2s;
         padding: 0 0px 0 20px;
         position: relative;
     }
@@ -2419,7 +2442,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     .banner .content-append{
-        background-color: #fcfcfc;
+        background: #fcfcfc;
         padding: 20px 30px 30px;
         overflow: hidden;
     }
@@ -2685,7 +2708,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     .modal-tray .append .process-action:hover{
-        background-color: #4f9016;
+        background: #4f9016;
     }
 
     .modal-tray .append .button-cancel{
@@ -2703,7 +2726,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     .modal-tray .append .button-cancel:hover{
-        background-color: #828282;
+        background: #828282;
         color: #fff;
     }
 
@@ -2772,7 +2795,7 @@ $(".col-left > ul li").on("click", function(){
     }
 
     .modal-tray .content-info .button-exit:hover{
-        background-color: #1d5fac;
+        background: #1d5fac;
     }
 
     .block-colors{
@@ -2811,7 +2834,7 @@ $(".col-left > ul li").on("click", function(){
         display: block;
         width: 26px;
         height: 26px;
-        background-color: inherit;
+        background: inherit;
     }
 
     .radio-colors .colors-list span:nth-child(1){
@@ -2989,8 +3012,8 @@ $(".col-left > ul li").on("click", function(){
     }
 
     .list-position .drag-list li{
-        background-color: #fff;
-        transition: background-color ease-in-out .2s;
+        background: #fff;
+        transition: background ease-in-out .2s;
         padding: 0 0px 0 20px;
         position: relative;
     }
@@ -3017,7 +3040,7 @@ $(".col-left > ul li").on("click", function(){
 
     .list-reviews li {
         position: relative;
-        background-color: #fff;
+        background: #fff;
     }
     .item-reviews {
         display: grid;
@@ -3172,11 +3195,8 @@ $(".col-left > ul li").on("click", function(){
 
             <a id="doc-link" href="https://manuais.ideapix.com.br/ideasports" target="_blank" class="item-action" rel="noreferrer noopener">
                 <svg class="icon icon-doc">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" fill="none" viewBox="0 0 41 41">
-                        <g fill="#1046B4" clip-path="url(#a)">
-                          <path d="M37.74 22.17c0-4.63-3.08-8.54-7.29-9.81V6.02A15.33 15.33 0 0 0 23.1 4.2c-4.5 0-7.87 1.8-7.87 1.8s-3.38-1.8-7.88-1.8c-2.26 0-4.8.45-7.35 1.82v22.92s3.34-1.81 7.86-1.81c2.25 0 4.8.45 7.37 1.8 1.2-.63 2.4-1.06 3.58-1.35a10.24 10.24 0 0 0 14.38 3.1l5.45 5.57 1.8-1.77-5.34-5.47a10.2 10.2 0 0 0 2.64-6.84Zm-16.13 4.99a7.71 7.71 0 0 1 5.88-12.72c.15 0 .3.02.44.03a7.67 7.67 0 0 1 7.28 7.7 7.73 7.73 0 0 1-13.6 4.99Z"/>
-                          <path d="m21.1 19.51 2.06 3.47 3.47 2.06H21.1v-5.53Zm9.55 5.63-.05-4.04-1.98-3.52 4.79 2.77-2.76 4.79ZM29 26.84l-2.05-3.47-3.47-2.06h5.53v5.53Z"/>
-                        </g>
+                    <svg width="41" height="41" viewBox="0 0 41 41" fill="#none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M31.7195 29.5927H31.1555V33.6481H31.7195C32.1682 33.6481 32.5985 33.8312 32.9158 34.1571C33.2331 34.4831 33.4114 34.9252 33.4114 35.3861C33.4114 35.8471 33.2331 36.2891 32.9158 36.6151C32.5985 36.941 32.1682 37.1241 31.7195 37.1241H12.8268C11.4058 37.1241 10.0431 36.5443 9.03833 35.5121C8.03358 34.48 7.46912 33.0801 7.46912 31.6204V9.89528C7.46912 8.51243 8.00387 7.18622 8.95574 6.2084C9.90761 5.23058 11.1986 4.68124 12.5448 4.68124L28.3357 4.68124C29.6818 4.68124 30.9729 5.23058 31.9247 6.2084C32.8766 7.18622 33.4114 8.51243 33.4114 9.89528V27.8547C33.4114 28.3157 33.2331 28.7577 32.9158 29.0837C32.5985 29.4096 32.1682 29.5927 31.7195 29.5927ZM12.8268 29.5927H27.7717V33.6481H12.8268C12.3032 33.6481 11.8012 33.4345 11.431 33.0542C11.0608 32.6739 10.8529 32.1582 10.8529 31.6204C10.8529 31.0826 11.0608 30.5669 11.431 30.1866C11.8012 29.8064 12.3032 29.5927 12.8268 29.5927ZM20.826 11.237C20.5397 11.1784 20.2444 11.1858 19.9612 11.2585C19.678 11.3313 19.4141 11.4677 19.1884 11.6579C18.9627 11.848 18.7809 12.0873 18.656 12.3583C18.5312 12.6293 18.4664 12.9255 18.4664 13.2253C18.4664 13.6094 18.3178 13.9778 18.0534 14.2494C17.789 14.5211 17.4304 14.6736 17.0565 14.6736C16.6825 14.6736 16.3239 14.5211 16.0595 14.2494C15.7951 13.9778 15.6466 13.6094 15.6466 13.2253C15.6466 12.3139 15.8928 11.4203 16.3578 10.6441C16.8229 9.86794 17.4885 9.23956 18.2806 8.82895C19.0727 8.41834 19.9602 8.24162 20.8443 8.31845C21.7284 8.39528 22.5744 8.72265 23.2881 9.26412C24.0018 9.80559 24.5552 10.5399 24.8867 11.3853C25.2182 12.2307 25.3148 13.1541 25.1658 14.0526C25.0167 14.951 24.6279 15.7894 24.0425 16.4743C23.4571 17.1592 22.6981 17.6638 21.8501 17.9318C21.8409 18.316 21.6834 18.6806 21.4125 18.9455C21.1415 19.2103 20.7792 19.3538 20.4053 19.3443C20.0313 19.3347 19.6764 19.173 19.4186 18.8947C19.1607 18.6163 19.0211 18.2441 19.0303 17.86V16.7013C19.0303 15.9018 19.662 15.253 20.4402 15.253C20.9297 15.252 21.4014 15.0643 21.7638 14.7262C22.1261 14.3881 22.3532 13.9237 22.401 13.4233C22.4488 12.9228 22.3138 12.422 22.0224 12.018C21.7309 11.614 21.306 11.3357 20.826 11.237ZM20.4402 25.2686C19.9167 25.2686 19.4147 25.0549 19.0445 24.6747C18.6743 24.2944 18.4664 23.7787 18.4664 23.2409C18.4664 22.7031 18.6743 22.1874 19.0445 21.8071C19.4147 21.4268 19.9167 21.2132 20.4402 21.2132C20.9637 21.2132 21.4658 21.4268 21.836 21.8071C22.2061 22.1874 22.4141 22.7031 22.4141 23.2409C22.4141 23.7787 22.2061 24.2944 21.836 24.6747C21.4658 25.0549 20.9637 25.2686 20.4402 25.2686Z" fill="#1046B4"></path>
                     </svg>
                 </svg>
                 <span class="text">Manual do tema</span>
@@ -3184,11 +3204,11 @@ $(".col-left > ul li").on("click", function(){
 
             <a href="https://www." target="_blank" class="item-action" rel="noreferrer noopener">
                 <svg class="icon icon-support">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" fill="none" viewBox="0 0 41 41">
-                        <path fill="#1046B4" fill-rule="evenodd" d="M20.29 29.1c-2.76 0-5.57-1.64-7.2-3.8C5.24 25.3 5 36.5 5 36.5h30.57s.62-11.26-8.21-11.26c-1.63 2.2-4.31 3.85-7.07 3.85Zm6.57-13.44c0 3.23-2.94 9.4-6.58 9.4-3.63 0-6.58-6.18-6.58-9.4 0-3.23 2.95-5.84 6.58-5.84 3.64 0 6.58 2.62 6.58 5.84Z" clip-rule="evenodd"/>
-                        <path fill="#1046B4" fill-rule="evenodd" d="M29.8 12.87c0-.6-.84-1.09-1.89-1.1v-1.24c0-.18.07-4.53-7.6-4.53-7.68 0-7.6 4.35-7.6 4.53v1.3l-.06-.01c-1.04 0-1.88.48-1.88 1.07v5.27c0 .6.84 1.08 1.88 1.08s1.88-.49 1.88-1.08V12.9c0-.08-.05-.16-.08-.23v-1.44c0-.13-.55-3.41 5.85-3.41 6.41 0 5.75 3.28 5.75 3.41v1.51c-.01.05-.05.1-.05.14v5.4c0 .6.85 1.1 1.9 1.1l.06-.01v1.96h-1.88v1.86h3.74l-.02-10.3Z" clip-rule="evenodd"/>
+                    <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M31.6402 24.6C32.2236 23.1833 32.5402 21.6667 32.5402 20C32.5402 18.8 32.3569 17.65 32.0402 16.5833C30.9569 16.8333 29.8236 16.9667 28.6402 16.9667C26.2168 16.9693 23.8284 16.3892 21.6761 15.2754C19.5239 14.1616 17.6709 12.5466 16.2736 10.5667C14.7802 14.1846 11.9598 17.0944 8.39023 18.7C8.32356 19.1167 8.32356 19.5667 8.32356 20C8.32356 21.5912 8.63697 23.1668 9.24589 24.6369C9.8548 26.1069 10.7473 27.4427 11.8724 28.5678C14.1448 30.8401 17.2267 32.1167 20.4402 32.1167C22.1902 32.1167 23.8736 31.7333 25.3902 31.05C26.3402 32.8667 26.7736 33.7667 26.7402 33.7667C24.0069 34.6833 21.8902 35.1333 20.4402 35.1333C16.4069 35.1333 12.5569 33.55 9.72356 30.7C7.99864 28.9832 6.71734 26.8725 5.99023 24.55H3.77356V16.9667H5.59023C6.14063 14.2875 7.40605 11.8074 9.25221 9.78933C11.0984 7.7713 13.4564 6.29069 16.0761 5.50461C18.6958 4.71853 21.4795 4.6563 24.1317 5.32452C26.7839 5.99275 29.2057 7.3665 31.1402 9.30001C33.2399 11.3926 34.6724 14.0605 35.2569 16.9667H37.1069V24.55H37.0069L31.0736 30L22.2402 29V26.2167H30.2902L31.6402 24.6ZM15.8902 19.6167C16.3902 19.6167 16.8736 19.8167 17.2236 20.1833C17.5753 20.538 17.7727 21.0172 17.7727 21.5167C17.7727 22.0162 17.5753 22.4954 17.2236 22.85C16.8736 23.2 16.3902 23.4 15.8902 23.4C14.8402 23.4 13.9902 22.5667 13.9902 21.5167C13.9902 20.4667 14.8402 19.6167 15.8902 19.6167ZM24.9736 19.6167C26.0236 19.6167 26.8569 20.4667 26.8569 21.5167C26.8569 22.5667 26.0236 23.4 24.9736 23.4C23.9236 23.4 23.0736 22.5667 23.0736 21.5167C23.0736 21.0128 23.2737 20.5295 23.6301 20.1732C23.9864 19.8169 24.4696 19.6167 24.9736 19.6167Z" fill="#1046B4"></path>
                     </svg>
                 </svg>
+                
                 <span class="text">Suporte</span>
             </a>
 
@@ -3280,7 +3300,6 @@ $(".col-left > ul li").on("click", function(){
 
                     <div class="flex flex-column">
                         <div class="title-tab">Minha loja</div>
-                        <div class="description-tab">Edite as informa&ccedil;&otilde;es de contato da sua loja.</div>
                     </div>
 
                     <div class="page-nav">
@@ -3288,7 +3307,6 @@ $(".col-left > ul li").on("click", function(){
                             <ul>
                                 <li class="active">Logo</li>
                                 <li>Redes sociais</li>
-                                <li>Endereço da Loja</li>
 
                             </ul>
                         </div>
@@ -3299,17 +3317,15 @@ $(".col-left > ul li").on("click", function(){
                                 <div class="tab-content">
 
                                     <div class="tab-header">
-                                        <div class="title-col">Logo e capa das redes sociais</div>
-                                        <span class="msg">Faça o upload da logo da sua empresa para exibição no tema e de uma imagem para divulgação nas redes sociais. Recomendamos o uso do formato .png para a sua logo e .jpg para a imagem da rede social.</span>
+                                        <div class="title-col">Logo</div>
                                     </div>
 
                                     <div class="item">
                                         <div class="text-color logo">
                                             <span>Logo
-                                                <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="15" height="15" viewBox="0 0 496.16 496.16"><path fill="#1046B4" d="M496.16 248.09C496.16 111.06 385.09 0 248.08 0 111.07 0 0 111.06 0 248.1c0 137 111.07 248.06 248.08 248.06 137 0 248.08-111.06 248.08-248.06z"/><path fill="#fff" d="M315.25 359.56a5 5 0 0 0-6.27-1.7c-24.58 11.63-52.48 23.93-57.96 25a4.83 4.83 0 0 1-.64-.73c-.74-1-1.1-2.32-1.1-4.01 0-13.9 10.49-56.2 31.19-125.72 17.45-58.4 19.46-70.5 19.46-74.52 0-6.2-2.37-11.43-6.86-15.14-4.27-3.52-10.23-5.3-17.72-5.3-12.46 0-26.9 4.72-44.15 14.46-16.7 9.43-35.35 25.4-55.4 47.48a5 5 0 0 0 5.6 8c7.04-2.88 42.4-17.36 47.56-20.6 4.22-2.65 7.87-4 10.86-4l.27.02c.04.2.07.5.07.93 0 3.05-.62 6.66-1.85 10.7-30.14 97.65-44.79 157.5-44.79 183 0 9 2.5 16.24 7.43 21.53 5.03 5.39 11.8 8.12 20.15 8.12 8.9 0 19.71-3.71 33.08-11.35 12.94-7.4 32.68-23.65 60.36-49.72a5 5 0 0 0 .7-6.45zm-.97-282.89c-4.92-5.04-11.22-7.6-18.73-7.6-9.34 0-17.47 3.7-24.17 10.98-6.6 7.16-9.94 15.94-9.94 26.1 0 8.04 2.46 14.7 7.32 19.8 4.92 5.17 11.14 7.79 18.48 7.79 8.95 0 17.04-3.9 24.04-11.59 6.88-7.55 10.37-16.43 10.37-26.4 0-7.64-2.48-14.07-7.37-19.08z"/></svg>
                                             </span>
                                             <div class="logo-width">
-                                                <span class="msg">O cadastro da logo foi movido para a lista de <a target="_blank" data-url-images href="/admin/#/adm/cores/cores.php?aba=imagens">imagens padr&otilde;es</a> da loja.</span>
+                                                <span class="msg">O cadastro da logo deve realizado em <a target="_blank" data-url-images href="/admin/#/adm/cores/cores.php?aba=imagens">imagens padr&otilde;es</a> da loja.</span>
                                             </div>
                                         </div>
                                     </div>
@@ -3322,7 +3338,7 @@ $(".col-left > ul li").on("click", function(){
 
                                 <div class="tab-header">
                                     <div class="title-col">Redes sociais</div>
-                                    <div class="msg">Informe suas Redes sociais para poder interagir com os seu clientes. Lembre de colocar o link completo</div>
+                                    <div class="msg">Adicione o link completo das suas redes sociais.</div>
                                 </div>
                                 <div class="tab-content">
                                     <label class="input-area max">
@@ -3407,7 +3423,7 @@ $(".col-left > ul li").on("click", function(){
                                 </div>
                             </div>
 
-                            <!-- Endereço -->
+                            <!-- Endereço 
                             <div class="tab-show">
 
                                 <div class="tab-header">
@@ -3416,10 +3432,11 @@ $(".col-left > ul li").on("click", function(){
                                 </div>
                                 <div class="tab-content">
                                     <label class="input-area max">
-                                        <input type="text" placeholder="Calçada das Margaridas - 13522, Villa Rica, Barueri - SP, CEP: 06453038" name="address_footer">
+                                        <input type="text" placeholder="Rua principal - 699, Centro, Marilia - SP, CEP: 17586000" name="address_footer">
                                     </label>
                                 </div>
                             </div>
+-->
                         </div>
                     </div>
                 </div>
@@ -3429,7 +3446,6 @@ $(".col-left > ul li").on("click", function(){
 
                     <div class="flex flex-column">
                         <div class="title-tab">Tipografia</div>
-                        <div class="description-tab">Personalize a família de fonte que o seu tema utiliza.</div>
                     </div>
 
                     <div class="page-nav">
@@ -3447,7 +3463,7 @@ $(".col-left > ul li").on("click", function(){
 
                                     <div class="title-col">Fonte</div>
                                     <div class="msg">
-                                        Escolha abaixo qual família de fontes deseja utilizar no seu tema. As opções disponibilizadas são as que se encaixam melhor no seu tema.
+                                        Escolha fonte deseja utilizar em sua loja virtual, dentre as disponíveis no tema.
                                         As fontes serão carregadas diretamente do Google Fonts.
                                     </div>
 
@@ -3565,11 +3581,6 @@ $(".col-left > ul li").on("click", function(){
 
                     <div class="flex flex-column">
                         <div class="title-tab">Editor de cores</div>
-                        <div class="description-tab">
-                            Personalize as cores utilizadas no seu tema de acordo com a sua prefer&ecirc;ncia. Defina nas se&ccedil;&otilde;es abaixo as cores do seu tema e dos elementos da p&aacute;gina.
-                            Clique no quadro de campo de cor para abrir o disco de sele&ccedil;&atilde;o de cores ou informe o c&oacute;digo hexadecimal da cor desejada. Saiba mais sobre c&oacute;digo hexadecimal
-                            <a class="link" href="https://html-color-codes.info/Codigos-de-Cores-HTML/" target="_blank" rel="noopener noreferrer">aqui</a>.
-                        </div>
                     </div>
 
                     <div class="page-nav">
@@ -3596,8 +3607,6 @@ $(".col-left > ul li").on("click", function(){
                                     <div class="title-col">Cores gerais do tema</div>
                                 </div>
 
-                                <div class="msg">Cores aplicadas nos textos da loja</div>
-
                                 <div class="tab-content">
 
                                     <div class="list-colors">
@@ -3610,6 +3619,7 @@ $(".col-left > ul li").on("click", function(){
                                                     <div class="colorpicker-theme">
                                                         <span class="input-group-addon"><i style="background: #ffffff;"></i></span>
                                                         <input name="c_general_main" placeholder="#" type="text" data-linked-color="c_general_main">
+                                                        
                                                     </div>
 
                                                     <div class="text-color">Cor principal</div>
@@ -3651,18 +3661,19 @@ $(".col-left > ul li").on("click", function(){
 
 
                                                 <div class="item">
-                                                    <div class="colorpicker-theme">
-                                                        <span class="input-group-addon"><i style="background: #ffffff;"></i></span>
-                                                        <input name="c_general_background" placeholder="#" type="text">
+                                                    <div class="colors-itens">
+                                                        <div class="colorpicker-theme">
+                                                            <span class="input-group-addon"><i style="background: #ffffff;"></i></span>
+                                                            <input name="c_general_background" placeholder="#" type="text">
+                                                            <div class="text-color">Cor de fundo(hexadecimal)</div>
+                                                        </div>
+
+                                                        <div class="color-gradient">
+                                                            <input id="color-gradient" name="c_general_background_gradient" placeholder="linear-gradient()" type="text" >
+                                                            <div class="text-color">Cor de fundo(linear-gradient)</div>
+
+                                                        </div>
                                                     </div>
-
-                                                    <div class="text-color">Cor de fundo</div>
-
-                                                    <span class="icon-color">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="15" height="15" viewBox="0 0 496.16 496.16"><path fill="#1046B4" d="M496.16 248.09C496.16 111.06 385.09 0 248.08 0 111.07 0 0 111.06 0 248.1c0 137 111.07 248.06 248.08 248.06 137 0 248.08-111.06 248.08-248.06z"/><path fill="#fff" d="M315.25 359.56a5 5 0 0 0-6.27-1.7c-24.58 11.63-52.48 23.93-57.96 25a4.83 4.83 0 0 1-.64-.73c-.74-1-1.1-2.32-1.1-4.01 0-13.9 10.49-56.2 31.19-125.72 17.45-58.4 19.46-70.5 19.46-74.52 0-6.2-2.37-11.43-6.86-15.14-4.27-3.52-10.23-5.3-17.72-5.3-12.46 0-26.9 4.72-44.15 14.46-16.7 9.43-35.35 25.4-55.4 47.48a5 5 0 0 0 5.6 8c7.04-2.88 42.4-17.36 47.56-20.6 4.22-2.65 7.87-4 10.86-4l.27.02c.04.2.07.5.07.93 0 3.05-.62 6.66-1.85 10.7-30.14 97.65-44.79 157.5-44.79 183 0 9 2.5 16.24 7.43 21.53 5.03 5.39 11.8 8.12 20.15 8.12 8.9 0 19.71-3.71 33.08-11.35 12.94-7.4 32.68-23.65 60.36-49.72a5 5 0 0 0 .7-6.45zm-.97-282.89c-4.92-5.04-11.22-7.6-18.73-7.6-9.34 0-17.47 3.7-24.17 10.98-6.6 7.16-9.94 15.94-9.94 26.1 0 8.04 2.46 14.7 7.32 19.8 4.92 5.17 11.14 7.79 18.48 7.79 8.95 0 17.04-3.9 24.04-11.59 6.88-7.55 10.37-16.43 10.37-26.4 0-7.64-2.48-14.07-7.37-19.08z"/></svg>
-                                                    </span>
-
-                                                    <span class="info-color">Aplica a cor no background da loja.</span>
                                                 </div>
 
                                                 <div class="tab-header">
@@ -5223,7 +5234,6 @@ $(".col-left > ul li").on("click", function(){
 
                     <div class="flex flex-column">
                         <div class="title-tab">Layout da loja</div>
-                        <div class="description-tab">Controle como os elementos do tema ser&atilde;o exibidos aos seus clientes.</div>
                     </div>
 
                     <div class="page-nav">

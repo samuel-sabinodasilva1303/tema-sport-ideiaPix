@@ -2,9 +2,16 @@
 {% set limitDate = settings.countdown_time|date('Y-m-d\TH:i') %}
 {% set currentDate = 'now'|date('Y-m-d\TH:i') %}
 {% set split_date = settings.countdown_time|split('T') %}
+{% set title = title|trim() != '' ? title|trim() : 'Nossa Vitrine de Produtos' %}
 
 {% if limitDate > currentDate %}
     <div class="countdownShowcase" data-date="{{ split_date[0] }}" data-time="{{ split_date[1] }}">
+        <h2 class="home-showcase__title--countdown">TERMINA EM:
+            <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
+                <path d="M20.3486 34.0828C17.2544 34.0828 14.2869 32.8537 12.099 30.6657C9.91105 28.4778 8.68188 25.5103 8.68188 22.4162C8.68188 19.322 9.91105 16.3545 12.099 14.1666C14.2869 11.9787 17.2544 10.7495 20.3486 10.7495C23.4427 10.7495 26.4102 11.9787 28.5981 14.1666C30.7861 16.3545 32.0152 19.322 32.0152 22.4162C32.0152 25.5103 30.7861 28.4778 28.5981 30.6657C26.4102 32.8537 23.4427 34.0828 20.3486 34.0828ZM20.3486 7.41615C16.3703 7.41615 12.555 8.99651 9.74195 11.8096C6.9289 14.6226 5.34855 18.4379 5.34855 22.4162C5.34855 26.3944 6.9289 30.2097 9.74195 33.0228C12.555 35.8358 16.3703 37.4162 20.3486 37.4162C24.3268 37.4162 28.1421 35.8358 30.9552 33.0228C33.7682 30.2097 35.3486 26.3944 35.3486 22.4162C35.3486 18.4379 33.7682 14.6226 30.9552 11.8096C28.1421 8.99651 24.3268 7.41615 20.3486 7.41615ZM21.1819 14.0828H18.6819V24.0828L26.5986 28.8328L27.8486 26.7828L21.1819 22.8328V14.0828ZM13.4819 6.39949L11.3486 3.84949L3.68188 10.2662L5.83188 12.8162L13.4819 6.39949ZM37.0152 10.2828L29.3486 3.84949L27.1986 6.39949L34.8652 12.8328L37.0152 10.2828Z" fill="white"/>
+                </svg>
+        </h2>
+
         <div class="countdownShowcase__content">
             <ul class="countdownShowcase__counter">
                 <li class="countdownShowcase__item countdownShowcase__item--days">
@@ -13,34 +20,33 @@
             
                     </div>
 
-                    <span>D</span>
+                    <span>D:</span>
                 </li>
 
                 <li class="countdownShowcase__item countdownShowcase__item--hours">
 
                     <div data-limiter="24" data-count="0" class="countdownShowcase__timer">
-                
+                        <span>:</span>
+
                     </div>
 
-                    <span>H</span>
                 </li>
 
                 <li class="countdownShowcase__item countdownShowcase__item--minutes">
 
                     <div data-limiter="60" data-count="0" class="countdownShowcase__timer">
-                   
+                        <span>:</span>
+
                     </div>
 
-                    <span>M</span>
                 </li>
 
                 <li class="countdownShowcase__item countdownShowcase__item--seconds">
 
                     <div data-limiter="60" data-count="0" class="countdownShowcase__timer">
-       
+                        
                     </div>
 
-                    <span>S</span>
                 </li>
             </ul>
         </div>

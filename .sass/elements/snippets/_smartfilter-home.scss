@@ -1,5 +1,5 @@
 .smartfilter-home {
-    background-color: var(--c_filter_bg);
+    background: var(--c_filter_bg);
     padding-block: 30px;
 
     &__container {
@@ -50,7 +50,7 @@
     }
 
     &__btn {
-        background-color: var(--c_filter_button_bg);
+        background: var(--c_filter_button_bg);
         color: #fff;
     }
 }

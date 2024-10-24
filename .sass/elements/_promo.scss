@@ -23,7 +23,7 @@ html._popup-ret {
     background: transparent;
     position: fixed;
     z-index: 11;
-    background-color: rgba(0, 0, 0, 0.675);
+    background: rgba(0, 0, 0, 0.675);
     backdrop-filter: saturate(180%) blur(6px);
 
     .showcase[data-ref='one'] .section-showcase-top {

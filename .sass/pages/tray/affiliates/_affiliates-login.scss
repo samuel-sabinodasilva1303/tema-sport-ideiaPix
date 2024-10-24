@@ -19,7 +19,7 @@
         }
 
         form {
-            background-color: var(--c_general_background);
+            background: var(--c_general_background);
             border-radius: 0.5rem;
             margin: 0 auto;
             max-width: 719px;
@@ -60,7 +60,7 @@
 
             input[name='parceiro'],
             input[name='senha'] {
-                background-color: #ECEFF5;
+                background: #ECEFF5;
                 font-weight: 400;
                 height: 3rem;
                 line-height: 1.2;

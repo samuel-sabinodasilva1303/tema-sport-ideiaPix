@@ -3,7 +3,7 @@
     transition: $transit_default;
 
     &:not(&--top) {
-        background-color: var(--c_advantage_bg);
+        background: var(--c_advantage_bg);
         padding-block: 29px;
 
         #{$root}__container {

@@ -25,7 +25,7 @@
 
             .icoFilho {
                 @extend %flex-center-colun;
-                background-color: var(--c_general_main);
+                background: var(--c_general_main);
                 border-radius: 0.5rem;
                 text-align: center;
 
@@ -73,7 +73,7 @@
 
                 a {
                     @extend .icon-config;
-                    background-color: #FFF;
+                    background: #FFF;
                     border-radius: 50%;
                     display: block;
                     margin-bottom: 1rem;

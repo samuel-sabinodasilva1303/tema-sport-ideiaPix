@@ -172,7 +172,7 @@
             &_dados {
                 @include fontInsert(0.95, 400, #7a7a7a);
                 @extend %flex-center-colun;
-                background-color: #f2f2f2;
+                background: #f2f2f2;
                 border-radius: 0.5rem;
                 flex-grow: 1;
                 text-align: left;
@@ -270,7 +270,7 @@
             }
             strong {
                 color: #f2f2f2;
-                background-color: #595867;
+                background: #595867;
                 vertical-align: middle;
                 padding: 0 6px;
                 font-size: 20px;
@@ -342,7 +342,7 @@
 //     margin-block: 0;
 //     width: 1920px;
 //     max-width: 100%;
-//     background-color: var(--c_advantage_bg);
+//     background: var(--c_advantage_bg);
 //     @include mobile {
 //         width: 100%;
 //     }
@@ -697,7 +697,7 @@
         font-size: 18px;
         width: 200px;
         color: var(--c_segmentation_text_name);
-        background-color: var(--c_segmentation_bg_name);
+        background: var(--c_segmentation_bg_name);
     }
 
     &-item {
@@ -1009,7 +1009,7 @@
         @media (hover: hover) {
             &:hover {
                 color: var(--c_default_button_text_hover);
-                background-color: var(--c_default_button_bg_hover);
+                background: var(--c_default_button_bg_hover);
                 border: 1px solid var(--c_default_button_bg_hover);
                 > svg {
                     stroke: var(--c_default_button_text_hover);
@@ -1072,7 +1072,7 @@
 
                 .tagCloud-word {
                     color: var(--c_general_main);
-                    background-color: transparent;
+                    background: transparent;
                 }
             }
         }
@@ -1081,7 +1081,7 @@
     &-word {
         @include fontInsert(1, 600, #fff);
         border-radius: 1.5rem;
-        background-color: var(--c_general_main);
+        background: var(--c_general_main);
         padding: 0.5rem 1.3rem;
         text-transform: capitalize;
         transition: $transit_slow;

@@ -52,7 +52,7 @@
         }
 
         .ListaPedidoProdutos {
-            background-color: var(--c_general_background);
+            background: var(--c_general_background);
 
             > .Pedidos {
                 border: $v_border_table;
@@ -102,7 +102,7 @@
 
                 a {
                     @include fontInsert(0.95, 600, var(--c_general_main));
-                    background-color: #F6F6F6;
+                    background: #F6F6F6;
 
                     &:hover {
                         opacity: 0.6;
@@ -111,7 +111,7 @@
 
                 &.current {
                     @include fontInsert(0.95, 600, #FFF);
-                    background-color: var(--c_general_secondary);
+                    background: var(--c_general_secondary);
                 }
             }
 

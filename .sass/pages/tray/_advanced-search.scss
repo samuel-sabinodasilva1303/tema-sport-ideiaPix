@@ -8,12 +8,12 @@
         width: 96%;
         height: 100%;
         border: 2px solid var(--c_buy_button_bg);
-        background-color: var(--c_buy_button_bg);
+        background: var(--c_buy_button_bg);
         color: var(--c_buy_button_text);
     }
     .blocoAlerta {
         text-align: center;
-        background-color: #fef1d6;
+        background: #fef1d6;
         color: #ff0000;
     }
 
@@ -63,7 +63,7 @@
     #Vitrine {
         form {
             @include fontInsert(1, 400);
-            background-color: #e0e0e0;
+            background: #e0e0e0;
             color: #7A7A7A;
             border-radius: 0.5rem;
             max-width: 800px;
@@ -88,7 +88,7 @@
 
             input {
                 &[type='text'] {
-                    background-color: #ECEFF5;
+                    background: #ECEFF5;
                     border-radius: 2px;
                     margin: 0.5rem 0;
                     padding: 0.5rem 1rem;

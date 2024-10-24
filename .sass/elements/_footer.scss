@@ -8,7 +8,7 @@
 
     .credits-development {
         position: relative;
-        background-color: #f2f2f2;
+        background: #f2f2f2;
 
         &-content {
             display: flex;
@@ -45,6 +45,20 @@
     }
 
     .footer {
+        &-media{
+            &--social{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+            &--main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 7px;
+            }
+        }
         &-newsletter {
             position: relative;
             max-width: 1210px;
@@ -55,13 +69,13 @@
             display: flex;
             gap: 2em;
             align-items: center;
+            justify-content: space-between;
             &-main {
                 background: var(--c_bg_newsletter);
             }
 
             .newsletter {
                 &-text {
-                    @extend %flex-center-center;
                     > svg {
                         fill: #fff;
                     }
@@ -70,20 +84,21 @@
                         justify-content: center;
                         flex-direction: column;
                         &-emphasis {
-                            max-width: 90%;
-                            font-size: 32px;
-                            line-height: 48px;
-                            font-weight: 700;
                             color: var(--c_newsletter_title);
+                            font-size: 17px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 150%;
+                            letter-spacing: 0.034px;
                         }
 
                         &-paragraph {
-                            font-size: 14px;
-                            width: 80%;
-                            line-height: 15.4px;
-                            font-weight: 400;
                             color: var(--c_newsletter_subtitle);
-                            min-height: 21px;
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 150%;
+                            letter-spacing: 0.028px;
                             @include mobile {
                                 width: 95%;
                             }
@@ -95,6 +110,7 @@
                     display: flex;
                     align-items: center;
                     gap: 1em;
+                    margin-bottom: 10px;
                     @include mobile {
                         margin-top: 2em;
                         gap: 0;
@@ -117,7 +133,7 @@
                     @extend %flex-center-center;
                     position: relative;
                     gap: 4em;
-                    padding: 2.25em 0 1em 1em;
+                    border: 1px solid var(--c_newsletter_subtitle);
 
                     @include small {
                         width: 375px;
@@ -140,12 +156,11 @@
                         font-weight: 400;
                         font-size: 12px;
                         height: 32px;
-                        padding: 4px 3px;
-                        border: 1px solid var(--c_newsletter_subtitle);
                         background: rgba(0, 0, 0, 0);
                         color: var(--c_newsletter_subtitle);
                         display: inline-block;
-                        width: 268px;
+                        width: 150px;
+                        margin-left: 10px;
                         line-height: 18px;
 
                         &::placeholder {
@@ -168,9 +183,9 @@
                     .newsletter-button {
                         flex-shrink: 0;
                         color: var(--c_default_button_text);
-                        background-color: var(--c_default_button_bg);
+                        background: #6d0fb700;
                         height: 42px;
-                        width: 172px;
+                        width: 120px;
                         padding: 9px 50px 9px 48px;
                         justify-content: center;
                         align-items: center;
@@ -430,7 +445,7 @@
         padding: 20px 0;
         color: #eceff5;
         border-top: solid 0.1rem #c5c5c5;
-        background-color: var(--c_footer_copyright_fundo);
+        background: var(--c_footer_copyright_fundo);
 
         @include small {
             flex-direction: column;
