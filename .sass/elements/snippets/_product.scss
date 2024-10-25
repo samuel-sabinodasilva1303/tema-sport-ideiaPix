@@ -2,7 +2,11 @@
     width: 100%;
     min-width: 0;
     padding: 8px;
+    height: 600px;
     background: var(--c_general_background);
+    @include mobile{
+        height: 530px;
+    }
     &__link {
         display: contents;
 

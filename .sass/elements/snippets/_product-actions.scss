@@ -1,7 +1,10 @@
 .product-actions {
     margin-top: 10px;
     padding-inline: 8px;
-    position: relative;
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 0;
 
     &__wrapper {
         display: flex;

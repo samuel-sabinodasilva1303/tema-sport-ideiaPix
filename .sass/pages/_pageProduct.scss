@@ -7,11 +7,13 @@
     &-product__doubts{
         width: 84%;
         display: flex;
+        width: 411px;
+        height: 48.38px;
+        padding: 7px 16px 7px 34px;
         justify-content: center;
-        background: #d8f8e4;
-        padding: 6px;
-        border: 1px solid #25d366;
-        border-radius: 1px;
+        align-items: center;
+        gap: 10px;
+        background: #25D366;
         @include mobile{
             display: none;
         }
@@ -20,15 +22,21 @@
             cursor: pointer;
         }
         a {
+            color: #fff;
+            font-family: Kanit;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: .54px;
             display: flex;
+            justify-content: center;
             align-items: center;
             gap: 1em;
-            width: 100%;
-            justify-content: center;
 
         }
         span {
-            color: #25d366;
+            color: #FFF;
             font-family: var(--font_styles);
             font-size: 1rem;
             font-style: normal;
@@ -196,6 +204,7 @@
     &-main {
         @extend %flex;
         gap: 20px;
+        margin-top: 10px;
 
         @include small {
             flex-direction: column;
@@ -954,8 +963,7 @@
             background: var(--c_buy_button_bg);
             color: var(--c_buy_button_text);
             border: none;
-            border-radius: $border_radius;
-            width: 240px;
+            width: 411px;
 
             &:hover{
                 background: var(--c_buy_button_bg_hover);
@@ -1752,7 +1760,7 @@
 
                 div {
                     border: 2px solid var(--c_general_tertiary);
-                    border-radius: 50%;
+                    border-radius: 1%;
                     width: 40px;
                     height: 40px;
                     color: var(--c_general_tertiary);

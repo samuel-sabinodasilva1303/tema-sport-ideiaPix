@@ -8,6 +8,13 @@
     padding: 50px 40px;
     max-width: 600px;
     width: 100%;
+    @include mobile{
+    padding: 8px 40px;
+    height: auto;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    }
     .home-showcase__title--countdown{
         display: flex;
         align-items: center;

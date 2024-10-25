@@ -62,8 +62,11 @@ $fontIcons-name: 'partners';
 }
 
 .icon-circle::before {
-    content: '\e900';
-    color: #c5c5c5;
+    content: "\e900";
+    color: #ffffff;
+    background: #ffffff;
+    width: 16px;
+    height: 16px;
 }
 .icon-circle-empty::before {
     content: '\e901';

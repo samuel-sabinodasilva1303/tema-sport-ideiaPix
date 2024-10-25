@@ -5,7 +5,32 @@
     height: auto;
     margin: 0 auto;
     width: 100%;
+    .partners{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1794px;
+        margin: 0 auto;
+        padding: 10px 30px 10px;
 
+        &__link{
+            display: flex;
+            color: var(--c_footer_link);
+        }
+
+        &__outter{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &__container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+        }
+    }
     .credits-development {
         position: relative;
         background: #f2f2f2;
@@ -51,6 +76,11 @@
                 justify-content: center;
                 align-items: center;
                 gap: 10px;
+                @include mobile{
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
             &--main{
                 display: flex;
@@ -125,7 +155,10 @@
                         }
                     }
                     @include mobile {
-                        padding: 0 45px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
                     }
                 }
 
@@ -134,14 +167,6 @@
                     position: relative;
                     gap: 4em;
                     border: 1px solid var(--c_newsletter_subtitle);
-
-                    @include small {
-                        width: 375px;
-                        flex-wrap: wrap;
-                        gap: 1em;
-                        padding: 0;
-                        padding-bottom: 2em;
-                    }
 
                     @include medium {
                         width: 60%;
@@ -207,8 +232,16 @@
             }
             @include mobile {
                 flex-wrap: wrap;
-                padding: 0;
+                padding: 0 15px;
                 gap: 0;
+                width: 100%;
+                justify-content: center;
+            }
+            > div{
+                @include mobile{
+                    width: 100%;
+                    margin-bottom: 18px;
+                }
             }
         }
 

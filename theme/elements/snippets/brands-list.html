@@ -15,7 +15,7 @@
 
     {% endfor %}
 
-    {% if brands|length %}
+    {% if brands|length %} 
         <section class="brands-list" data-slides="brands" data-auto="{{ is_auto ? '1' : '0' }}">
             <div class="brands-list__container">
                 <div class="swiper">
@@ -35,6 +35,8 @@
 
                         {% endfor %}
                     </div>
+                    <div class="swiper-pagination"></div>
+
                 </div>
             </div>
         </section>

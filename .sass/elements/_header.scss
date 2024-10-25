@@ -94,7 +94,7 @@
                 border: 1px solid var(--c_header_text);
                 @include fontInsert($fs_header, 600, var(--c_header_text));
                 display: block;
-                padding: 0 48px;
+                padding: 0px 43px 0 10px;
                 border-radius: 1px; //45px
                 background: var(--c_bg_searchbar);
                 width: 100%;
@@ -280,7 +280,7 @@
             &[searchHidden='false'] {
                 opacity: 1;
                 transition: opacity 0.3s linear;
-                top: unset;
+                top: -9px;
             }
 
             &[searchHidden='true'] {
@@ -317,7 +317,7 @@
     @extend %flex-center-colun;
     @extend %modal-mobile-menus;
     padding: 0 0 2rem 0;
-    top: 42px;
+    top: 0;
     transform: translateX(calc(-100% - 10px));
     transition: ease-out 0.3s;
     height: 600px;

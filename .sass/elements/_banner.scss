@@ -1,6 +1,10 @@
 .banner {
     margin: 0 auto;
-
+    &-item{
+        @include mobile{
+            display: block !important;
+        }
+    }
     &-home {
         .slides {
             &-buttonPrev,
@@ -14,15 +18,11 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 2em;
 
                 > span {
-                    width: 25px;
-                    height: 25px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    border-radius: 1%;
                 }
             }
         }

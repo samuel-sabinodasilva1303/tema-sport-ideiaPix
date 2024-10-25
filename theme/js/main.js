@@ -864,7 +864,7 @@
                 } else {
                     new Swiper($showcase, {
                         loop: false,
-                        slidesPerView: 1.4,
+                        slidesPerView: 2,
                         spaceBetween: 10,
                         lazy: {
                             loadPrevNext: true,
@@ -1007,7 +1007,7 @@
                     loop: true,
                     lazy: true,
                     spaceBetween: 90,
-                    allowTouchMove: false,
+                    allowTouchMove: true,
 
                     breakpoints: {
                         540: {
@@ -1343,6 +1343,10 @@
                     1135: {
                         slidesPerView: 6,
                     },
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
                 },
                 on: {
                     init: function (swiper) {
@@ -2880,7 +2884,7 @@
                     'display',
                     'block'
                 );
-                $('.pageProduct-lastSeen .lastSeen-list #produtos li').css('display', 'flex');
+                $('.pageProduct-lastSeen .lastSeen-list #produtos li').css({"display": "flex"," flex-direction": "column",  "justify-content": "center" , "align-items": "center", "width": "43%"});
             }, 2000);
             $('.product-visitade-main .ValoresLista .precode').remove();
             setTimeout(function () {
@@ -3234,34 +3238,6 @@
                     }
                 }
             });
-
-            // ! Old version
-            //other options for remove buttons
-            // if ($('.btnRowProduct').length !== 0 || jQuery('[data-hide-price]').length !== 0) {
-            //     setTimeout(function () {
-            //         $('.tray-hide').each(function () {
-            //             $(this).find('.product-price').remove();
-            //         });
-            //     }, 2000);
-            // } else {
-            //     $('.tray-hide.loginconfirmed').removeClass();
-            // }
-
-            // $(document).ajaxComplete(function () {
-            //     const buttonExist = $('.btnRowProduct');
-
-            //     if (buttonExist.length > 0) {
-            //         $('.compare-button').remove();
-            //         $('.product-compare').remove();
-            //         $('.precosCompreJunto').remove();
-            //         $('.pageProduct-buy.serverTray-content').remove();
-            //         $('.pageProduct-shipping').remove();
-            //         $('.ValoresLista').each(function () {
-            //             $(this).remove();
-            //             $('.pageProduct-lastSeen .lastSeen-list #produtos li').css('align-items', 'center');
-            //         });
-            //     }
-            // });
         },
 
         productSpotQuickBuy: function () {

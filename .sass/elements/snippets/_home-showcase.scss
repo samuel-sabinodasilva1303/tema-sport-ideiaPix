@@ -79,6 +79,10 @@
                     .product{
                         border: 2px solid #FF5520;
 
+                        @include mobile{
+                            height: 530px;
+                        }
+
                     }
                 }
             }
@@ -119,6 +123,10 @@
                     place-items: center;
                     cursor: pointer;
                     transition: $transit_default;
+
+                    @include mobile{
+                        top: -134px;
+                    }
 
                     &--prev {
                         left: -20px;

@@ -6,6 +6,11 @@
         max-width: 1260px;
         width: calc(100% - 30px);
         margin-inline: auto;
+        @include mobile{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
 
         &--mosaic {
             display: grid;

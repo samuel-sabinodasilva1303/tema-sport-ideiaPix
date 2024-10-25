@@ -2,6 +2,7 @@
     $root: &;
     flex: 0 1 60%;
     min-width: 0;
+    display: flex;
 
     &--square {
         #{$root} {
@@ -73,7 +74,6 @@
 
     &__thumbs {
         transition: $transit_default;
-        margin-top: 20px;
 
         &:not(.show) {
             visibility: hidden;
@@ -82,11 +82,16 @@
 
         .swiper {
             &-wrapper.jcc {
-                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
             }
 
             &-slide {
                 cursor: pointer;
+                margin: 0 !important;
+                width: 240px !important;
+                height: 122px;
             }
         }
     }
