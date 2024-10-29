@@ -1,6 +1,6 @@
 .home-showcase {
     $root: &;
-    max-width: 1260px;
+    max-width: 1390px;
     width: calc(100% - 30px);
     margin: 15px auto;
     transition: $transit_default;
@@ -48,10 +48,10 @@
     }
 
     &__title {
-        margin-block: 1rem;
+        margin-block: 40px;
         font-size: 30px;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 20px;
         gap: 0 8px;
         color: var(--c_general_secondary);
         font-weight: 700;
@@ -64,6 +64,13 @@
     &__header {
         &.yes{
             margin-bottom: 10px;
+            margin-top: -32px;
+
+            > a{
+                width: 50%;
+                height: 103px;
+                overflow: hidden;
+            }
         }
         @media screen and (max-width: 786px) {
             flex-wrap: wrap;

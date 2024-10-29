@@ -45,6 +45,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                gap: 1em;
             }
             .text__title {
                 font-weight: 700;
@@ -83,10 +84,17 @@
                     width: 100%;
                     display: flex;
                     justify-content: center;
+                    align-items: center;
+                    border: 1px solid var(--c_default_button_text);
                     button {
                         flex-shrink: 0;
-                        color: var(--c_default_button_text);
-                        background: var(--c_default_button_bg);
+                        color: #FF5520;
+                        text-align: right;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 150%; /* 21px */
+                        letter-spacing: 0.028px;
                         border: 1px solid #7a7a7a;
                         transition: all 233ms;
                         opacity: 1;
@@ -144,8 +152,7 @@ html._popup-lig {
     opacity: 1;
     box-shadow: 0px 3px 6px #00000029;
     background: white;
-    width: 860px;
-    height: 321px;
+    width: 60%;
     border-radius: 6px;
 
     &.image_topo,
@@ -237,7 +244,7 @@ html._popup-lig {
                     .textContent {
                         flex-direction: initial;
                         justify-content: center;
-                        gap: 7px;
+                        gap: 1em;
                         margin-bottom: 12px;
                         .text__title {
                             width: auto;
@@ -266,39 +273,43 @@ html._popup-lig {
             justify-content: right;
             display: flex;
             flex-direction: row;
-            background: var(--c_bg_newsletter);
+            background: #fff;
             width: 100%;
+            gap: 1em;
             align-items: center;
             img {
-                width: 350px;
-                height: 350px;
-                position: absolute;
+                width: 100%;
+                height: 100%;
                 left: 0px;
             }
             .text__title {
-                font-weight: 700;
                 color: var(--c_newsletter_title);
-                width: 100%;
-                height: 50px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                font-size: 30px;
+                color: #292929;
+                font-size: 38px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 120%;
+                letter-spacing: 0.76px;
             }
             .text__subtitle {
                 color: var(--c_newsletter_subtitle);
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 150%; /* 27px */
+                letter-spacing: 0.036px;
             }
             form {
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
-                width: 420px;
+                width: 100%;
                 margin-right: 32px;
                 .textContent {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    gap: 1em;
                 }
                 input {
                     font-weight: 400;
@@ -306,8 +317,6 @@ html._popup-lig {
                     font-size: 0.875rem;
                     width: 95%;
                     height: 50px;
-                    border: none;
-                    border-bottom: 1px solid var(--c_newsletter_subtitle);
                     background: rgba(0, 0, 0, 0);
                 }
                 input::placeholder {
@@ -318,18 +327,24 @@ html._popup-lig {
                     width: 100%;
                     display: flex;
                     justify-content: center;
+                    align-items: center;
+                    border: 1px solid #7a7a7a;
                     button {
                         flex-shrink: 0;
-                        color: var(--c_default_button_text);
-                        background: var(--c_default_button_bg);
-                        border: 1px solid #7a7a7a;
+                        color: #FF5520;
+                        text-align: right;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 150%; /* 21px */
+                        letter-spacing: 0.028px;
                         transition: all 233ms;
                         opacity: 1;
                         width: 200px;
                         height: 44px;
-                        text-transform: uppercase;
                         border-radius: 1px;
                         padding: 2px 30px;
+            
                         &:hover {
                             opacity: 0.8;
                         }

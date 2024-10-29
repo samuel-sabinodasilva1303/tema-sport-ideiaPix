@@ -36,6 +36,53 @@
 
             <div class="pageProduct-nameAndInformation {{ batch_promotion ? 'u-width' : '' }}">
 
+                {% if product.featured or product.free_shipping or product.new or extra_tag or discount %}
+
+                <div class="pageProduct-tags">
+                    {% set replaceTags = {'src=': 'height="26px" alt="Selo" src='} %}
+                    {% if product.featured %}
+                        <div class="tag-featured tag">
+                            {% if Image('featured') %}
+                                {{ Image('featured') | replace(replaceTags) }}
+                            {% else %}
+                                <div>
+                                    Destaque
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    {% if product.free_shipping %}
+                        <div class="tag-freeShipping tag">
+                            {% if Image('free_shipping') %}
+                                {{ Image('free_shipping') | replace(replaceTags) }}
+                            {% else %}
+                                <div>
+                                    Frete gr&aacute;tis
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    {% if product.new %}
+                        <div class="tag-new tag">
+                            {% if Image('new') %}
+                                {{ Image('new') | replace(replaceTags) }}
+                            {% else %}
+                                <div>
+                                    Lan&ccedil;amento
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    {% if Image('additional_button') %}
+                        <div class="tag-extra tag">{{ Image('additional_button') | replace(replaceTags) }}</div>
+                    {% endif %}
+
+                </div>
+            {% endif %}
+
                 <div class="pageProduct-containerTitle">
                     <h1 class="pageProduct-name">{{ product.name }}</h1>
                     {% if not product.upon_request and product.available and productHelper.wishlist() %}
@@ -90,52 +137,7 @@
 
                 {% set lastProgressiveDiscount = ProgressiveDiscounts | last %}
 
-                {% if product.featured or product.free_shipping or product.new or extra_tag or discount %}
 
-                    <div class="pageProduct-tags">
-                        {% set replaceTags = {'src=': 'height="26px" alt="Selo" src='} %}
-                        {% if product.featured %}
-                            <div class="tag-featured tag">
-                                {% if Image('featured') %}
-                                    {{ Image('featured') | replace(replaceTags) }}
-                                {% else %}
-                                    <div>
-                                        Destaque
-                                    </div>
-                                {% endif %}
-                            </div>
-                        {% endif %}
-
-                        {% if product.free_shipping %}
-                            <div class="tag-freeShipping tag">
-                                {% if Image('free_shipping') %}
-                                    {{ Image('free_shipping') | replace(replaceTags) }}
-                                {% else %}
-                                    <div>
-                                        Frete gr&aacute;tis
-                                    </div>
-                                {% endif %}
-                            </div>
-                        {% endif %}
-
-                        {% if product.new %}
-                            <div class="tag-new tag">
-                                {% if Image('new') %}
-                                    {{ Image('new') | replace(replaceTags) }}
-                                {% else %}
-                                    <div>
-                                        Lan&ccedil;amento
-                                    </div>
-                                {% endif %}
-                            </div>
-                        {% endif %}
-
-                        {% if Image('additional_button') %}
-                            <div class="tag-extra tag">{{ Image('additional_button') | replace(replaceTags) }}</div>
-                        {% endif %}
-
-                    </div>
-                {% endif %}
 
                 </div>
 
@@ -266,9 +268,10 @@
                             <form class="shipping-form" data-shipping="form">
                                 <label for="cep" class="shipping-label">CEP</label>
                                 <input class="shipping-input mask-cep" id="cep" name="calcule o frete" type="text" minlength="9" maxlength="9" placeholder="Informe seu CEP" required />
-                                <button type="submit" class="shipping-submit button2">Consultar</button>
-                                <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" rel="noopner" target="_blank" class="shipping-help">N&atilde;o sei meu CEP</a>
+                                <button type="submit" class="shipping-submit button2">Calcular</button>
                             </form>
+                            <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" rel="noopner" target="_blank" class="shipping-help">N&atilde;o sei meu CEP</a>
+
                             <div class="shipping-result loaded" data-shipping="result">
                                 <p class="shipping-loading">Carregando fretes...</p>
                             </div>

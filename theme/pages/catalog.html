@@ -110,21 +110,6 @@
                 </p>
             {% endif %}
         </section>
-        {% if settings.show_filters_sidebar %}
-            {% if  settings.location_filter == "2" %}
-                <aside id="category-filter" class="catalog-filter">
-                    <div class="filter-header u-mobile">
-                        Filtros
-                        <button class="filter-close" data-toggle="close" aria-label="Fechar" title="Fechar">
-                            <span class="icon-exit" aria-hidden="true"></span>Fechar
-                        </button>
-                    </div>
-                    {% if products | length > 0 %} 
-                        {% element 'smartfilter' %} 
-                    {% endif %}
-                </aside>
-            {% endif %}
-        {% endif %}
     </div>
 {% else %}
 

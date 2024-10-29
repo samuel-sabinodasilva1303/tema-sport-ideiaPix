@@ -609,12 +609,16 @@
                 }
             }
             >div{
+
                 display: flex;
-                align-items: center;
+                width: 98px;
+                height: 24px;
+                padding: 4px 8px;
                 justify-content: center;
-                border: 1px solid var(var(--c_text_additional));
-                border-radius: 1px;
-                padding: 10px;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0;
+                border-radius: 12px;
                 font-family: $font_name;
                 width: 25%;
                 min-width: 110px;
@@ -718,11 +722,12 @@
     }
 
     &-name {
-        font-size: 24px;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 36px */
         font-family: $font_name;
-        font-weight: 700;
         color: var(--c_showcase_product_name);
-        line-height: 1.2;
         margin: 0 0 0.7rem 0;
         max-width: 90%;
 
@@ -890,8 +895,11 @@
 
         .precode {
             text-transform: lowercase;
-            font-size: 20px;
-            line-height: 30px;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 22.5px */
+            letter-spacing: 0.3px;
             color: var(--c_general_tertiary);
             text-decoration: line-through;
 
@@ -905,7 +913,12 @@
         }
 
         .PrecoPrincipal {
-            @include fontInsert(1.5, 600, var(--c_showcase_price_main));
+            color: var(--c_showcase_price_main);
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 150%; /* 31.5px */
+            letter-spacing: 0.42px;
 
             #variacaoPreco::after {
                 content: ' \e1' ' vista';
@@ -1047,11 +1060,16 @@
                 gap: 14px;
                 flex-wrap: wrap;
                 max-width: 350px;
+                border: 1px solid #959595;
+                background: #FFF;
             }
 
             &-text {
                 @include fontInsert(0.875, 400, var(--c_general_tertiary));
                 margin-bottom: 12px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
             }
 
             &-label {
@@ -1060,18 +1078,21 @@
             }
 
             &-input {
-                background: #F6F6F6;
                 padding-inline: 15px;
                 height: 42px;
-                border-radius: $border_radius;
                 flex: 1;
                 min-width: 158px;
-                border: 1px solid #bdbdbd;
             }
 
             &-submit {
-                color: #fff;
-                background: #878787;
+                background: transparent;
+                color: #4B4B4B;
+                text-align: right;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%; /* 22.5px */
+                letter-spacing: 0.03px;
                 flex: 1;
                 min-width: 0;
                 text-transform: unset;
@@ -1705,6 +1726,7 @@
             @extend %flex-start-center;
             flex-wrap: wrap;
             gap: 10px;
+            width: 411px;
 
             li {
                 width: 40px;

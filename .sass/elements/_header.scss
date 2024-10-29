@@ -60,13 +60,13 @@
 
     &-search {
         @extend %flex-center-center;
-        position: relative;
         margin: 0 20px;
         align-items: center;
         transition: width 0.3s ease-out;
-        max-width: 400px;
+        max-width: 0px;
         width: 100%;
         max-height: 48px;
+        transform: translate(-110%);
 
         @include mobile {
             order: 1 !important;

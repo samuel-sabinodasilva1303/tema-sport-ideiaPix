@@ -124,27 +124,38 @@ html._popup-ret {
             .body-exit-sales {
                 padding: 12px 20px;
             }
+            .rentecao__imagem{
+                width: 100%;
+            }
             .head-exit-sales {
                 background: var(--c_retencao_background);
-                height: 76px;
+                display: flex;
+                flex-direction: row-reverse;
                 .text {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    height: 100%;
                     padding: 20px;
                     cursor: default;
+                    width: 100%;
                     .first {
                         color: var(--c_retencao_text);
-                        font-weight: 700;
+                        font-size: 38px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 120%; /* 45.6px */
+                        letter-spacing: 0.76px;
                     }
                     .last-cupom {
                         color: var(--c_retencao_text);
                         display: flex;
-                        gap: 5px;
-                        font-weight: 500;
-                        text-align: center;
-                        align-items: center;
+                        gap: 45px;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 150%;
+                        letter-spacing: 0.036px;
+                        flex-direction: column;
                     }
                     .cupom-code {
                         border: 2px dashed;
