@@ -58,6 +58,7 @@
 
             &:not(.swiper-button-lock) {
                 display: grid;
+                background: var(--c_general_secondary);
             }
 
             @media (hover: hover) {

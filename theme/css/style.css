@@ -1698,10 +1698,17 @@ template {
   font-size: 1.6rem;
 }
 
-.icon-search::before {
+.search-button .icon-search::before {
   content: "\e90e";
   color: #000;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
+  font-weight: 100;
+}
+
+.search-cancel .icon-search::before {
+  content: "\e90e";
+  color: #FFF;
+  font-size: 1.8rem;
   font-weight: 100;
 }
 
@@ -1734,7 +1741,7 @@ template {
 
 .icon-exit::before, .pageProduct-lastSeen .lastSeen-list .clearVisiteds::before, .page-comparador .comparator ul li ul .comparsionFoto a.closeComp::before, .page-comparador .comparatorTabs ul li .closeCat::before, .modal .close::before {
   content: "\e918";
-  color: var(--c_general_main);
+  color: #000;
   font-size: 1rem;
 }
 
@@ -1770,7 +1777,7 @@ html {
 }
 
 body {
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.1;
@@ -1922,7 +1929,7 @@ body {
 .page-print_lista .blocoAlerta + .container3 .container2 div.board .filtros .select,
 .page-print_lista #atualizaLista + .container3 .container2 div.board .filtros .select, .page-search #Vitrine form select {
   color: #7a7a7a;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -1936,7 +1943,7 @@ body {
 
 .page-listas_index h2, .page-depoimentos .container #comentario_cliente .review-form, .pageProduct .tabs-reviews h2, .section-title {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.85rem;
   font-weight: 700;
   font-variant: normal;
@@ -1945,7 +1952,7 @@ body {
 
 .page-listas_busca .titCatalogo, .page-listas_evento h2, .page-print_lista .container3:nth-child(4) .container2 > .board h2, .page-listas_criar #lista_criar .titulo-box h2, .page-central_listas .container3:not(.central-conteudo) .container2 h2 {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   font-variant: normal;
@@ -1954,7 +1961,7 @@ body {
 
 .page-listas_busca .container3 .container3 + .board li h3, .page-listas_busca h3, .page-listas_index h3, .page-search #vitrine-catalogo h3, .page-depoimentos .board .editDep h3, .pageProduct-buyTogether .buyTogether .compreJunto .fotosCompreJunto {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   font-variant: normal;
@@ -1963,7 +1970,7 @@ body {
 
 .menuMobile-title {
   color: #eceff5;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.7rem;
   font-weight: 700;
   font-variant: normal;
@@ -1976,7 +1983,7 @@ body {
 .page-contact .contactUs-whats a, .page-contact .contactUs-email span,
 .page-contact .contactUs-email a, .page-contact .contactUs-description, .page-depoimentos .container #comentario_cliente .form_depto label h5, .page-depoimentos .board .editDep > li, .pageProduct-information, .catalog-description {
   color: #7a7a7a;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.97rem;
   font-weight: 400;
   font-variant: normal;
@@ -1985,7 +1992,7 @@ body {
 
 .page-depoimentos .container #comentario_cliente .nota_dep, .page-depoimentos .container #comentario_cliente .form_depto label {
   color: #7a7a7a;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.97rem;
   font-weight: 600;
   font-variant: normal;
@@ -1994,7 +2001,7 @@ body {
 
 .page-extra .container .style4 {
   color: #7a7a7a;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -2003,7 +2010,7 @@ body {
 
 .page-extra .container form table:not(form[name=form1] *) td, .page-extra .container form b {
   color: #7a7a7a;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -2012,7 +2019,7 @@ body {
 
 .page-comparador .comparator ul li ul .comparsionFoto > a, .filter-list {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.97rem;
   font-weight: 400;
   font-variant: normal;
@@ -2142,10 +2149,26 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1803921569);
 }
 
+.rating-short__container {
+  display: flex;
+  padding-left: 8px;
+  gap: 3px;
+}
+
+.rating-short__votes {
+  color: #4B4B4B;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 21px */
+  letter-spacing: 0.28px;
+}
+
 body {
   height: 100vh;
   width: 100%;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1.4;
   color: var(--c_general_main);
@@ -2156,7 +2179,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1390px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 @media (max-width: 768px) {
@@ -2178,11 +2201,11 @@ body {
   width: 100%;
 }
 .container-home .section {
-  max-width: 1390px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 .container-home .section.five-listProduct {
-  max-width: 1360px;
+  max-width: 1400px;
 }
 .container-home .section section:nth-of-type(2) > .showcase-listProduct .swiper-wrapper .listProduct-item {
   padding: 0;
@@ -2287,7 +2310,7 @@ body.overflowed {
 .page-print_lista .lista-produtos form .lista-produto-comprar > input[type=image] + .lista-produto-check::before, .pageProduct-buyTogether .buyTogether .botao-compre-junto:not(.botao-sob-consulta), .pageProduct-outOfStock .produto-preco .botao_tire_duvidas, .pageProduct-buy #button-buy, .page-comparador .comparator ul li ul .comparsionFoto div a[alt=Comprar],
 .page-comparador .comparator ul li ul .comparsionFoto div a[title=Escolher], .modal .botao-prosseguir-compra .botao-commerce-img, .modal .detalhesBrinde .botao {
   color: #fff;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.92rem;
   font-weight: 600;
   font-variant: normal;
@@ -2308,7 +2331,7 @@ body.overflowed {
 .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before, .page-central_comissoes .form_resgatar_bonus label:last-of-type::before, .page-central_comissoes_extrato .saldo_pontos + div form::after, .page-listas_criar #lista_criar .container3 .container2 div[style="text-align:right;"]::before, .page-search #Vitrine form input[type=image], .pageProduct .tabs-reviews #comentario_cliente a[data-logged-user]:not(.tray-hide), .pageProduct #produto_nao_disp #nao_disp #letMeKnow::before, .page-comparador .comparatorTabs ul .aberta, .page-login .caixa-login fieldset .botao-commerce,
 .page-login .caixa-cadastro fieldset .botao-commerce, .modal .botao-continuar-comprando .botao-commerce-img, .modal #concorda-termo #acceptTerm, .modal #send_link button.perguntasProdutoBTimg, .modal .modal-content #div_atualiza form .advancedSearchFormBTimg {
   color: var(--c_default_button_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   font-variant: normal;
@@ -2336,7 +2359,7 @@ body.overflowed {
 .button3, .page-extra .container > table:not(form *) tr:only-child td:only-child a:nth-last-child(2), .page-listas_evento .container3:last-of-type .board a[href^=central_listas]:before, .page-lista .lista-produtos .lista-produto-adquirido:nth-last-child(3)::before,
 .page-print_lista .lista-produtos .lista-produto-adquirido:nth-last-child(3)::before, .page-comparador .comparator ul li ul .comparsionFoto div h4 {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.92rem;
   font-weight: 600;
   font-variant: normal;
@@ -2363,7 +2386,7 @@ body.overflowed {
 .page-print_lista .lista-produtos .lista-produto-comprar .refresh_exclusao,
 .page-print_lista .lista-produtos .lista-produto-comprar .refresh {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
   font-variant: normal;
@@ -2411,7 +2434,7 @@ span.error-block {
 
 p.error-block {
   color: #966503;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   font-variant: normal;
@@ -2456,7 +2479,7 @@ div.Seguro {
 }
 @media (max-width: 991px) {
   :root:has(.header-topbar) .default-main {
-    --pt: 163px;
+    --pt: 176px;
   }
 }
 .header {
@@ -2519,7 +2542,7 @@ div.Seguro {
   max-width: 0px;
   width: 100%;
   max-height: 48px;
-  transform: translate(-110%);
+  transform: translate(0%);
 }
 @media (max-width: 991px) {
   .header-search {
@@ -2533,9 +2556,10 @@ div.Seguro {
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 0;
+  right: -14px;
+  top: 1px;
   height: 48px;
-  width: 0;
+  width: 48px;
 }
 .header-search .search-cancel:hover {
   opacity: 0.6;
@@ -2544,9 +2568,9 @@ div.Seguro {
   cursor: pointer;
 }
 .header-search .search-input {
-  border: 1px solid var(--c_header_text);
-  color: var(--c_header_text);
-  font-family: var(--font_styles);
+  border: none;
+  color: #000;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   font-variant: normal;
@@ -2554,12 +2578,13 @@ div.Seguro {
   display: block;
   padding: 0px 43px 0 10px;
   border-radius: 1px;
-  background: var(--c_bg_searchbar);
+  background: transparent;
   width: 100%;
   height: 48px;
 }
 @media (max-width: 991px) {
   .header-search .search-input {
+    background: #eceff5;
     font-size: 0.8rem;
   }
 }
@@ -2587,10 +2612,13 @@ div.Seguro {
 .header-search .search-button {
   border-radius: 6px;
   position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  right: -5px;
+  top: 3px;
+  height: 48px;
   width: 48px;
-  height: 100%;
-  top: 0;
-  right: 0;
   font-size: 20px;
   color: #eceff5;
   background: transparent;
@@ -2608,10 +2636,10 @@ div.Seguro {
   position: absolute;
   top: 100%;
   left: 0;
-  max-width: unset;
+  max-width: 500px;
   max-height: 450px;
   min-width: unset;
-  width: 100%;
+  width: 500px;
   padding: 0 56px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
   background: var(--c_header_bg);
@@ -2623,6 +2651,10 @@ div.Seguro {
 @media (max-width: 991px) {
   .header-search .suggestion {
     padding: 0 25px;
+    max-width: unset;
+    max-height: 450px;
+    min-width: unset;
+    width: 100%;
   }
 }
 .header-search .suggestion::-webkit-scrollbar {
@@ -2709,7 +2741,7 @@ div.Seguro {
 .header-search .suggestion-products .suggestion-product .suggestion-desc .titlep {
   margin-top: 10px;
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
   font-variant: normal;
@@ -2727,7 +2759,7 @@ div.Seguro {
 .header-search .suggestion-title {
   display: block;
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -2741,6 +2773,8 @@ div.Seguro {
     opacity: 1;
     transition: opacity 0.3s linear;
     top: -9px;
+    position: relative;
+    transform: translate(0);
   }
   .header-search[searchHidden=true] {
     opacity: 0;
@@ -2788,7 +2822,7 @@ div.Seguro {
   transform: translateX(0);
 }
 .menuMobile-title {
-  color: var(--c_general_main);
+  color: #000;
   width: 100%;
   font-size: 1rem;
   height: 70px;
@@ -2799,7 +2833,7 @@ div.Seguro {
   margin-right: 1.25rem;
 }
 .menuMobile-title .icon-menu::before {
-  color: var(--c_general_main);
+  color: #000;
   vertical-align: 15%;
 }
 @media (max-width: 991px) {
@@ -2848,7 +2882,7 @@ div.Seguro {
 .menuMobile-account .logged[data-logged-user=true] .account-access .account-link {
   background: unset;
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -2875,7 +2909,7 @@ div.Seguro {
 }
 .menuMobile-account .account-text {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   font-variant: normal;
@@ -2892,7 +2926,7 @@ div.Seguro {
 .menuMobile-account .account-access .account-link {
   margin: 6px 0 15px 9px;
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -2906,7 +2940,7 @@ div.Seguro {
 .menuMobile-account .account-link {
   margin: 8px auto;
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -2915,7 +2949,7 @@ div.Seguro {
 }
 .menuMobile-account .account-link span {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -2938,14 +2972,14 @@ div.Seguro {
   transition: all 333ms;
 }
 .menuMobile .menu-button svg {
-  fill: var(--c_general_main);
+  fill: #000;
 }
 .menuMobile .menu-button.open {
   transform: rotate3d(0, 0, 1, 90deg);
 }
 .menuMobile .menu-firstLevel {
-  color: var(--c_general_main);
-  font-family: var(--font_styles);
+  color: #000;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   font-variant: normal;
@@ -2954,7 +2988,7 @@ div.Seguro {
   padding: 1.5rem 0 1rem 0.5rem;
 }
 .menuMobile .menu-firstLevel > a {
-  color: var(--c_font_menu);
+  color: #000;
 }
 .menuMobile .menu-firstLevel.subList {
   display: flex;
@@ -2964,7 +2998,7 @@ div.Seguro {
 }
 .menuMobile .menu-secondLevel {
   color: #7a7a7a;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -2975,7 +3009,7 @@ div.Seguro {
   line-height: 1.6rem;
 }
 .menuMobile .menu-secondLevel > li > a {
-  color: var(--c_secondlevel_dropdown);
+  color: #000;
 }
 .menuMobile .menu-secondLevelContent {
   flex: 100%;
@@ -2986,7 +3020,7 @@ div.Seguro {
   padding-top: 0.5rem;
 }
 .menuMobile .menu-thirdLevel > li > a {
-  color: var(--c_secondlevel_dropdown);
+  color: #000;
 }
 .menuMobile .menu-firstLevel .menu-link, .menuMobile .menu-secondLevel .menu-link, .menuMobile .menu-thirdLevel .menu-link {
   transition: 0.2s ease-out;
@@ -3044,6 +3078,11 @@ div.Seguro {
   align-items: center;
   justify-content: space-between;
 }
+@media (max-width: 991px) {
+  .footer .partners__outter {
+    flex-direction: column;
+  }
+}
 .footer .partners__container {
   display: flex;
   align-items: center;
@@ -3070,7 +3109,7 @@ div.Seguro {
 .footer .credits-development-text span {
   color: #2c2c2c;
   font-size: 14px;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
 }
 .footer .credits-development-links {
   display: flex;
@@ -3103,7 +3142,7 @@ div.Seguro {
 }
 .footer .footer-newsletter {
   position: relative;
-  max-width: 1210px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 17px 0;
   background: var(--c_bg_newsletter);
@@ -3320,14 +3359,16 @@ div.Seguro {
   .footer .footer-info .info-pages .info-title {
     padding-block: 18px 18px;
     font-size: 23px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 120%;
+    font-family: "Kanit", serif;
   }
   .footer .footer-info .info-contact .info-title {
     padding-block: 18px 18px;
     font-size: 23px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 120%;
+    font-family: "Kanit", serif;
   }
   .footer .footer-info .info-payment {
     grid-area: payment;
@@ -3335,8 +3376,9 @@ div.Seguro {
   .footer .footer-info .info-payment .info-title {
     padding-block: 18px 18px;
     font-size: 23px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 120%;
+    font-family: "Kanit", serif;
   }
   .footer .footer-info .info-security {
     grid-area: security;
@@ -3344,8 +3386,9 @@ div.Seguro {
   .footer .footer-info .info-security .info-title {
     padding-block: 18px 18px;
     font-size: 23px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 120%;
+    font-family: "Kanit", serif;
   }
 }
 .footer .footer-info .info-logo {
@@ -3362,14 +3405,14 @@ div.Seguro {
 .footer .footer-info .info-time {
   padding-top: 17px;
   color: var(--c_footer_title);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-style: normal;
   line-height: 150%;
   /* 21px */
 }
 .footer .footer-info .info-address {
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   margin-top: 1em;
   color: var(--c_footer_link);
@@ -3395,7 +3438,7 @@ div.Seguro {
 }
 .footer .footer-info .info-title {
   color: var(--c_footer_title);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   width: 100%;
   font-size: 16px;
   font-style: normal;
@@ -3419,7 +3462,7 @@ div.Seguro {
   opacity: 1;
   font-size: 14px;
   font-style: normal;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 200%;
   /* 21px */
@@ -3441,7 +3484,7 @@ div.Seguro {
   transition: 0.2s ease-out;
   font-size: 14px;
   font-style: normal;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 180%;
 }
@@ -3805,7 +3848,7 @@ div.Seguro {
      object-fit: cover;
 }
 .banner-line--bottom, .banner-line--extra11 {
-  max-width: 1390px;
+  max-width: 1400px;
   margin-inline: auto;
   width: calc(100% - 30px);
 }
@@ -3826,7 +3869,7 @@ div.Seguro {
   padding-block: 15px;
 }
 .banners-double__container {
-  max-width: 1390px;
+  max-width: 1400px;
   width: calc(100% - 30px);
   margin-inline: auto;
   display: flex;
@@ -4043,7 +4086,7 @@ div.Seguro {
   height: 42px;
   background: var(--c_buy_button_bg);
   color: #fff;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: 140%;
@@ -4071,7 +4114,7 @@ div.Seguro {
   height: 42px;
   background: var(--c_buy_button_bg);
   color: #fff;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: 140%;
@@ -4153,7 +4196,7 @@ div.Seguro {
   font-weight: 900;
   font-size: 30px;
   color: #333333;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   outline: none;
   cursor: pointer;
 }
@@ -4247,7 +4290,7 @@ div.Seguro {
 }
 .box-alerts {
   color: var(--c_advice_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   font-variant: normal;
@@ -4358,7 +4401,7 @@ div.Seguro {
   transition: transform 0.7s ease-in-out;
 }
 .pop-up .pop-up-section .pop-up__close > path {
-  fill: var(--c_newsletter_title);
+  fill: #000;
 }
 .pop-up .pop-up-section .pop-up__close:hover {
   transform: rotate(269deg);
@@ -4379,7 +4422,7 @@ div.Seguro {
 }
 .pop-up .pop-up-section .pop-up__text .text__title {
   font-weight: 700;
-  color: var(--c_newsletter_title);
+  color: #000;
   width: 310px;
   height: 50px;
   display: flex;
@@ -4389,7 +4432,7 @@ div.Seguro {
   font-size: 30px;
 }
 .pop-up .pop-up-section .pop-up__text .text__subtitle {
-  color: var(--c_newsletter_subtitle);
+  color: #000;
 }
 .pop-up .pop-up-section .pop-up__text form {
   display: flex;
@@ -4512,7 +4555,7 @@ div.Seguro {
   transition: transform 0.7s ease-in-out;
 }
 .pop-up-img .pop-up-section .pop-up__close > path {
-  fill: var(--c_newsletter_title);
+  fill: #000;
 }
 .pop-up-img .pop-up-section .pop-up__close:hover {
   transform: rotate(269deg);
@@ -4603,7 +4646,7 @@ div.Seguro {
   flex-direction: row;
   background: #fff;
   width: 100%;
-  gap: 1em;
+  gap: 40px;
   align-items: center;
 }
 .pop-up-img .pop-up-section .pop-up__text-img img {
@@ -4612,16 +4655,16 @@ div.Seguro {
   left: 0px;
 }
 .pop-up-img .pop-up-section .pop-up__text-img .text__title {
-  color: var(--c_newsletter_title);
   color: #292929;
   font-size: 38px;
   font-style: normal;
   font-weight: 500;
   line-height: 120%;
   letter-spacing: 0.76px;
+  font-family: "Kanit", serif;
 }
 .pop-up-img .pop-up-section .pop-up__text-img .text__subtitle {
-  color: var(--c_newsletter_subtitle);
+  color: #000;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -4770,7 +4813,7 @@ div.Seguro {
 /* Home */
 .section {
   position: relative;
-  max-width: 1390px;
+  max-width: 1400px;
 }
 .section-title {
   color: var(--c_general_secondary);
@@ -4928,7 +4971,7 @@ div.Seguro {
 }
 .reviews-container .dep_dados {
   color: #7a7a7a;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
   font-variant: normal;
@@ -4964,7 +5007,7 @@ div.Seguro {
 }
 .reviews-container .dep_dados .dep_nome {
   color: #000;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   font-variant: normal;
@@ -5025,7 +5068,7 @@ div.Seguro {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   color: var(--c_general_secondary);
   gap: 5px;
@@ -5158,7 +5201,7 @@ div.Seguro {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   text-overflow: ellipsis;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
 }
 .advantage-container .advantage_item span:first-child {
   font-size: 18px;
@@ -5291,7 +5334,7 @@ div.Seguro {
 }
 .segmentation-title {
   color: var(--c_segmentation_title);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
@@ -5300,7 +5343,7 @@ div.Seguro {
 }
 .segmentation-subtitle {
   color: var(--c_segmentation_text_name);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
@@ -5355,7 +5398,7 @@ div.Seguro {
 }
 .segmentation-category-title {
   color: var(--c_segmentation_text_options);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -5630,7 +5673,7 @@ div.Seguro {
 }
 .news-item p {
   font-size: 15.087px;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   color: var(--c_general_tertiary);
   font-style: normal;
   font-weight: 400;
@@ -5752,7 +5795,7 @@ div.Seguro {
 }
 .tagCloud-word {
   color: #fff;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -5811,7 +5854,7 @@ div.Seguro {
 }
 .modal .modal-content #div_atualiza h3 {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   font-variant: normal;
@@ -5876,7 +5919,7 @@ div.Seguro {
 @media (max-width: 768px) {
   .modal .modal-title {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     font-variant: normal;
@@ -5886,7 +5929,7 @@ div.Seguro {
 @media (min-width: 768.1px) and (max-width: 1280px) {
   .modal .modal-title {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 0.97rem;
     font-weight: 600;
     font-variant: normal;
@@ -5896,7 +5939,7 @@ div.Seguro {
 @media (min-width: 1280.1px) {
   .modal .modal-title {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     font-weight: 600;
     font-variant: normal;
@@ -6014,12 +6057,13 @@ div.Seguro {
 .modal .detalhesBrinde .variacao img {
   max-width: 100%;
   max-height: 131px;
+  cursor: pointer;
 }
 .modal .detalhesBrinde .botao {
   cursor: pointer;
   background: var(--c_general_main);
   text-align: center;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
   font-variant: normal;
   text-transform: none;
@@ -6042,7 +6086,7 @@ div.Seguro {
 }
 .modal #texto-termo {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -6050,7 +6094,7 @@ div.Seguro {
 }
 .modal #concorda-termo {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   font-variant: normal;
@@ -6115,7 +6159,7 @@ div.Seguro {
 }
 .modal .cart-preview-item-image-quantity-box .cart-preview-quantity-tag-box {
   color: #FFF;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -6136,7 +6180,7 @@ div.Seguro {
 }
 .modal .cart-preview-item-name-box {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -6146,7 +6190,7 @@ div.Seguro {
 }
 .modal .cart-preview-item-name-box > small {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
   font-variant: normal;
@@ -6162,7 +6206,7 @@ div.Seguro {
 }
 .modal .cart-preview-item-error {
   color: #966503;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
   font-variant: normal;
@@ -6174,7 +6218,7 @@ div.Seguro {
 }
 .modal .cart-preview-item-price-box {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -6201,7 +6245,7 @@ div.Seguro {
 }
 .modal .cart-preview-subtotal {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -6273,7 +6317,7 @@ body.modal-open {
   visibility: hidden;
 }
 .brands-list__container {
-  max-width: 1390px;
+  max-width: 1400px;
   width: calc(100% - 30px);
   margin-inline: auto;
   height: 250px;
@@ -6284,8 +6328,8 @@ body.modal-open {
   place-items: center;
   aspect-ratio: 177/100;
   width: 100%;
-  max-width: 177px;
-  height: auto;
+  max-width: 240px;
+  height: 160px;
 }
 .brands-list__item img {
   width: 100%;
@@ -6319,7 +6363,7 @@ body.modal-open {
 }
 .pagination .page a {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   font-variant: normal;
@@ -6332,7 +6376,7 @@ body.modal-open {
 }
 .pagination .page.current {
   color: #FFF;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   font-variant: normal;
@@ -6357,7 +6401,7 @@ body.modal-open {
 }
 .pagination-text {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   font-variant: normal;
@@ -6393,7 +6437,7 @@ body.modal-open {
 }
 .breadcrumb-link, .breadcrumb-item {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -6538,12 +6582,14 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .content-popup-retencao .modal-info .content-exit-sales .head-exit-sales .text .first {
   color: var(--c_retencao_text);
+  font-family: "Kanit", serif;
   font-size: 38px;
   font-style: normal;
   font-weight: 500;
   line-height: 120%;
   /* 45.6px */
   letter-spacing: 0.76px;
+  font-family: "Kanit", serif;
 }
 .content-popup-retencao .modal-info .content-exit-sales .head-exit-sales .text .last-cupom {
   color: var(--c_retencao_text);
@@ -6560,6 +6606,9 @@ html._popup-ret .content-popup-retencao .modal-info {
   border: 2px dashed;
   font-weight: 700;
   border-radius: 4px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 .content-popup-retencao .modal-info .content-exit-sales .head-exit-sales .text .cupom-code .cupom {
   padding: 2px 6px;
@@ -6723,7 +6772,7 @@ html._popup-ret .content-popup-retencao .modal-info {
     justify-content: space-between;
     align-items: center;
     color: #eceff5;
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.7rem;
     font-weight: 700;
     font-variant: normal;
@@ -6755,7 +6804,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .catalog-title {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   font-variant: normal;
@@ -6770,7 +6819,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .catalog-description p {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 300;
   font-variant: normal;
@@ -6825,7 +6874,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .catalog-empty {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   font-variant: normal;
@@ -6961,7 +7010,7 @@ html._popup-ret .content-popup-retencao .modal-info {
     text-transform: uppercase;
     font-size: 14px;
     line-height: 21px;
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     color: var(--c_general_tertiary);
   }
   .filter .filter-content .filter-section .filter-title.rotate {
@@ -7012,7 +7061,7 @@ html._popup-ret .content-popup-retencao .modal-info {
   .filter .filter-content .filter-section .filter-list .filter-item .filter-checkbox .filter-label {
     line-height: 21px;
     font-size: 14px;
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     color: #595867;
     padding: 0;
   }
@@ -7099,7 +7148,7 @@ html._popup-ret .content-popup-retencao .modal-info {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 18px;
     margin-inline: auto auto;
   }
@@ -7159,7 +7208,7 @@ html._popup-ret .content-popup-retencao .modal-info {
   .filter .filter-content .filter-section .filter-list .filter-item .filter-checkbox .filter-label {
     line-height: 14px;
     font-size: 14px;
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     color: #595867;
     padding: 0;
   }
@@ -7210,7 +7259,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .catalog-listRefinement .listFilter .filtro-ordem {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0rem;
   font-weight: 600;
   font-variant: normal;
@@ -7218,7 +7267,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .catalog-listRefinement .listFilter .filtro-ordem .select {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
   font-variant: normal;
@@ -7376,7 +7425,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .filter-results--title {
   color: #ffffff;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -7406,7 +7455,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .filter-remove--value {
   color: #74797c;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -7437,7 +7486,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .filter-clear {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -7464,7 +7513,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .filter-title {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -7481,7 +7530,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .filter-list {
   color: #7a7a7a;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -7528,7 +7577,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .filter-button {
   color: var(--c_default_button_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -7544,7 +7593,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .filter-button:hover {
   color: var(--c_default_button_text_hover);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   font-variant: normal;
@@ -7569,7 +7618,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .page-newsletter .container2 .board h1 {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   font-weight: 700;
   font-variant: normal;
@@ -7582,7 +7631,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .page-newsletter .formulario-newsletter p {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -7635,7 +7684,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .page-newsletter .board {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -7643,7 +7692,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .page-newsletter .board p:first-child {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -7727,7 +7776,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 .page-login .caixa-login h3,
 .page-login .caixa-cadastro h3 {
   color: #595867;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   font-weight: 600;
   font-variant: normal;
@@ -7743,7 +7792,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 .page-login .caixa-login fieldset,
 .page-login .caixa-cadastro fieldset {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -7812,7 +7861,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 .page-login .caixa-login fieldset label,
 .page-login .caixa-cadastro fieldset label {
   color: #595867;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -7857,7 +7906,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .page-login .caixa-cadastro fieldset input {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -7996,7 +8045,7 @@ html._popup-ret .content-popup-retencao .modal-info {
   border-radius: 5px;
   margin-bottom: 10px;
   color: var(--c_default_button_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   font-variant: normal;
@@ -8202,7 +8251,7 @@ html._popup-ret .content-popup-retencao .modal-info {
 }
 .page-register #CadastroAbas li a {
   color: #4B4B4B;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -8262,7 +8311,7 @@ span.mensagensErro {
 @media (max-width: 768px) {
   .page-comparador h1.color {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     font-variant: normal;
@@ -8272,7 +8321,7 @@ span.mensagensErro {
 @media (min-width: 768.1px) and (max-width: 1280px) {
   .page-comparador h1.color {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -8282,7 +8331,7 @@ span.mensagensErro {
 @media (min-width: 1280.1px) {
   .page-comparador h1.color {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -8302,7 +8351,7 @@ span.mensagensErro {
 }
 .page-comparador .comparatorTabs ul li {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -8597,7 +8646,7 @@ span.mensagensErro {
 
 .container3 .board {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   font-variant: normal;
@@ -8623,7 +8672,7 @@ span.mensagensErro {
 }
 .container3 .board .btns-paginator.selectedPg {
   color: #fff;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   font-variant: normal;
@@ -8632,7 +8681,7 @@ span.mensagensErro {
 }
 .container3 .board .btns-paginator.selectedPg b {
   color: #fff;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   font-variant: normal;
@@ -8686,7 +8735,7 @@ span.mensagensErro {
 @media (max-width: 768px) {
   .is-custom-page .default-title {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     font-variant: normal;
@@ -8696,7 +8745,7 @@ span.mensagensErro {
 @media (min-width: 768.1px) and (max-width: 1280px) {
   .is-custom-page .default-title {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -8706,7 +8755,7 @@ span.mensagensErro {
 @media (min-width: 1280.1px) {
   .is-custom-page .default-title {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -8732,8 +8781,21 @@ span.mensagensErro {
   margin-bottom: 1.875rem;
 }
 
-.pageProduct #negociar a {
-  display: none;
+.pageProduct-compart {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 1em;
+  padding: 1em 0;
+}
+.pageProduct-compart > button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--c_showcase_product_name);
+}
+.pageProduct-compart > button:hover {
+  opacity: 0.5;
 }
 .pageProduct-product__doubts {
   width: 84%;
@@ -8770,7 +8832,7 @@ span.mensagensErro {
 }
 .pageProduct-product__doubts span {
   color: #FFF;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-style: normal;
   font-weight: 800;
@@ -8791,7 +8853,7 @@ span.mensagensErro {
   opacity: 0.8;
 }
 .pageProduct #bt_negociar button strong {
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.92rem;
   font-weight: 600;
   font-variant: normal;
@@ -8841,7 +8903,7 @@ span.mensagensErro {
 }
 .pageProduct-variants .varTit.onVar {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.98rem;
   font-weight: 400;
   margin-bottom: 0.3rem;
@@ -9102,7 +9164,7 @@ span.mensagensErro {
     align-items: center;
     justify-content: center;
     color: #eceff5;
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
     font-variant: normal;
@@ -9270,7 +9332,7 @@ span.mensagensErro {
 }
 .pageProduct-tags .tag-featured > div {
   color: var(--c_text_highlight);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   font-variant: normal;
@@ -9279,36 +9341,36 @@ span.mensagensErro {
 }
 .pageProduct-tags .tag-freeShipping > div {
   color: var(--c_text_portage);
-  font-family: var(--font_styles);
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
   font-variant: normal;
   text-transform: uppercase;
   background: var(--c_bg_portage);
 }
 .pageProduct-tags .tag-new > div {
   color: var(--c_text_release);
-  font-family: var(--font_styles);
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
   font-variant: normal;
   text-transform: uppercase;
   background: var(--c_bg_release);
 }
 .pageProduct-tags .tag-discount > div {
   color: var(--c_text_additional);
-  font-family: var(--font_styles);
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
   font-variant: normal;
   text-transform: uppercase;
   background: var(--c_bg_additional);
 }
 .pageProduct-tags .tag-extra > div {
   color: var(--c_text_additional);
-  font-family: var(--font_styles);
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
   font-variant: normal;
   text-transform: uppercase;
   background: var(--c_bg_new);
@@ -9323,11 +9385,11 @@ span.mensagensErro {
   gap: 10px;
   flex-shrink: 0;
   border-radius: 12px;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   width: 25%;
   min-width: 110px;
   max-width: 120px;
-  height: 32px;
+  height: 20px;
   line-height: 11px;
   text-align: center;
   white-space: nowrap;
@@ -9363,7 +9425,7 @@ span.mensagensErro {
   align-items: center;
   justify-content: center;
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   font-variant: normal;
@@ -9431,7 +9493,7 @@ span.mensagensErro {
   font-weight: 400;
   line-height: 120%;
   /* 36px */
-  font-family: var(--font_styles);
+  font-family: "Kanit", serif;
   color: var(--c_showcase_product_name);
   margin: 0 0 0.7rem 0;
   max-width: 90%;
@@ -9463,7 +9525,7 @@ span.mensagensErro {
   display: none;
 }
 .pageProduct-subtitle {
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   color: #878787;
   font-size: 14px;
@@ -9486,7 +9548,7 @@ span.mensagensErro {
 }
 .pageProduct-bonusScore {
   color: var(--c_product_fidelity_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -9515,7 +9577,7 @@ span.mensagensErro {
 .pageProduct-bonusScore .produto-bonus::before {
   content: "Compre e ganhe";
   color: var(--c_product_fidelity_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
   font-variant: normal;
@@ -9523,7 +9585,7 @@ span.mensagensErro {
 }
 .pageProduct-bonusScore #idBonusVariacao {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   font-variant: normal;
@@ -9547,7 +9609,7 @@ span.mensagensErro {
 }
 .pageProduct-progressiveDiscount .progressiveDiscount-text {
   color: var(--c_product_progressive_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   font-variant: normal;
@@ -9556,7 +9618,7 @@ span.mensagensErro {
 }
 .pageProduct-progressiveDiscount .progressiveDiscount-list {
   color: var(--c_product_progressive_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
   font-variant: normal;
@@ -9571,7 +9633,7 @@ span.mensagensErro {
 }
 .pageProduct-progressiveDiscount .progressiveDiscount-alert {
   color: #000;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
   font-variant: normal;
@@ -9597,7 +9659,7 @@ span.mensagensErro {
 }
 .pageProduct-price #produto_preco {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   font-variant: normal;
@@ -9657,7 +9719,7 @@ span.mensagensErro {
 }
 .pageProduct-additionalMessage {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -9665,7 +9727,7 @@ span.mensagensErro {
   margin-bottom: 1rem;
 }
 .pageProduct-buy {
-  margin: 1.5rem 0;
+  margin: 22px 0 8px;
   position: relative;
 }
 .pageProduct-buy #product-form-box {
@@ -9718,7 +9780,7 @@ span.mensagensErro {
 }
 .pageProduct-buy #quantidade input[type=text] {
   color: #333;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -9737,7 +9799,7 @@ span.mensagensErro {
   font-weight: 900;
   font-size: 30px;
   color: #333333;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   display: none;
   outline: none;
   cursor: pointer;
@@ -9766,7 +9828,7 @@ span.mensagensErro {
 }
 .pageProduct-shipping .shipping-text {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -9830,7 +9892,7 @@ span.mensagensErro {
 }
 .pageProduct-shipping .shipping-table tr {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
   font-variant: normal;
@@ -9847,7 +9909,7 @@ span.mensagensErro {
 }
 .pageProduct-shipping .shipping-table tr td {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   font-variant: normal;
@@ -9886,7 +9948,7 @@ span.mensagensErro {
 }
 .pageProduct-socialMedia {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -9912,7 +9974,7 @@ span.mensagensErro {
 }
 .pageProduct #produto_nao_disp .botao-nao_indisponivel::before {
   color: var(--c_product_progressive_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   font-variant: normal;
@@ -9922,7 +9984,7 @@ span.mensagensErro {
 }
 .pageProduct #produto_nao_disp .botao-nao_indisponivel::after {
   color: var(--c_product_progressive_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
   font-variant: normal;
@@ -9939,7 +10001,7 @@ span.mensagensErro {
 }
 .pageProduct #produto_nao_disp h3#img_nao_disp {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.98rem;
   font-weight: 600;
   font-variant: normal;
@@ -9948,7 +10010,7 @@ span.mensagensErro {
 }
 .pageProduct #produto_nao_disp #letmeknow_response h5 {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.98rem;
   font-weight: 400;
   font-variant: normal;
@@ -9974,7 +10036,7 @@ span.mensagensErro {
 }
 .pageProduct #produto_nao_disp #nao_disp label::before {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.98rem;
   font-weight: 400;
   font-variant: normal;
@@ -9988,7 +10050,7 @@ span.mensagensErro {
 }
 .pageProduct #produto_nao_disp #nao_disp input[name=email_avise] {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.98rem;
   font-weight: 400;
   font-variant: normal;
@@ -10014,7 +10076,7 @@ span.mensagensErro {
 }
 .pageProduct #produto_nao_disp #nao_disp #letMeKnow::before {
   color: #FFF;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.98rem;
   font-weight: 600;
   font-variant: normal;
@@ -10039,7 +10101,7 @@ span.mensagensErro {
   cursor: pointer;
   margin-top: 0.5rem;
   height: auto;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   padding: 0.75rem 2.25rem 0.75rem 1rem;
   font-size: 16px;
   line-height: 150%;
@@ -10111,7 +10173,7 @@ span.mensagensErro {
 }
 .pageProduct .varCont ul li .labelQuantVariacao .label-quant-var {
   color: #fff;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   font-variant: normal;
@@ -10232,7 +10294,7 @@ span.mensagensErro {
 .pageProduct [data-id=menuVars],
 .pageProduct #menuVars {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.98rem;
   font-weight: 400;
   font-variant: normal;
@@ -10350,7 +10412,7 @@ span.mensagensErro {
   cursor: pointer;
   margin-top: 0.5rem;
   height: auto;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   padding: 0.75rem 2.25rem 0.75rem 1rem;
   font-size: 16px;
   line-height: 150%;
@@ -10378,7 +10440,7 @@ span.mensagensErro {
 .pageProduct [data-id=menuVars] .varCont .dd > .ddTitle .ddTitleText,
 .pageProduct #menuVars .varCont .dd > .ddTitle .ddTitleText {
   color: #212529;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.97rem;
   font-weight: 400;
   font-variant: normal;
@@ -10395,7 +10457,7 @@ span.mensagensErro {
 .pageProduct [data-id=menuVars] .varCont .dd .ddChild,
 .pageProduct #menuVars .varCont .dd .ddChild {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.97rem;
   font-weight: 400;
   font-variant: normal;
@@ -10431,7 +10493,7 @@ span.mensagensErro {
 }
 .pageProduct .cor_variacao .texto_variacao {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.98rem;
   font-weight: 400;
   font-variant: normal;
@@ -10449,7 +10511,7 @@ span.mensagensErro {
 .pageProduct .cor_variacao [data-id=lista_cor_variacao],
 .pageProduct .cor_variacao [data-id^=second-dropdown-show] {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.98rem;
   font-weight: 600;
   font-variant: normal;
@@ -10529,7 +10591,7 @@ span.mensagensErro {
   transition: 0.2s ease-out;
   text-align: center;
   line-height: 37px;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   font-size: 14px;
 }
@@ -10583,7 +10645,7 @@ span.mensagensErro {
 }
 .pageProduct-outOfStock .produto-preco .color span::before {
   color: var(--c_product_progressive_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   font-variant: normal;
@@ -10595,7 +10657,7 @@ span.mensagensErro {
 }
 .pageProduct-outOfStock .produto-preco .color span::after {
   color: var(--c_product_progressive_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
   font-variant: normal;
@@ -10639,7 +10701,7 @@ span.mensagensErro {
 }
 .pageProduct-giftsText {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   font-variant: normal;
@@ -10661,7 +10723,7 @@ span.mensagensErro {
 }
 .pageProduct-gifts .brinde_produto > #nomeBrinde {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
   font-variant: normal;
@@ -10706,7 +10768,7 @@ span.mensagensErro {
 }
 .pageProduct-kit .tray-kit-title {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.87rem;
   font-weight: 600;
   font-variant: normal;
@@ -10747,7 +10809,7 @@ span.mensagensErro {
 }
 .pageProduct-kit .tray-kit-item > div .tray-kit-variation [data-id=menuVars] .varTit {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -10776,7 +10838,7 @@ span.mensagensErro {
 }
 .pageProduct-kit .tray-kit-item > div .tray-kit-unity {
   color: #7a7a7a;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -10804,7 +10866,7 @@ span.mensagensErro {
 }
 .pageProduct-kit .tray-kit-name > a {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -10812,7 +10874,7 @@ span.mensagensErro {
 }
 .pageProduct-kit .tray-kit-name + small {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -10858,7 +10920,7 @@ span.mensagensErro {
 }
 .pageProduct-buyTogether .buyTogether-nameProduct {
   color: var(--c_product_buy_together_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
   font-variant: normal;
@@ -10880,7 +10942,7 @@ span.mensagensErro {
 }
 .pageProduct-buyTogether .buyTogether-text {
   color: var(--c_product_buy_together_text2);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -11019,7 +11081,7 @@ span.mensagensErro {
 .pageProduct-buyTogether .buyTogether .compreJunto .fotosCompreJunto + .wrapper-plus .plus,
 .pageProduct-buyTogether .buyTogether .compreJunto .fotosCompreJunto .plus {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 900;
   font-variant: normal;
@@ -11066,7 +11128,7 @@ span.mensagensErro {
 .pageProduct-buyTogether .buyTogether .precoCompreJunto div:first-child,
 .pageProduct-buyTogether .buyTogether .precoCompreJunto div:first-child > a {
   color: var(--c_product_buy_together_text2);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -11076,7 +11138,7 @@ span.mensagensErro {
   .pageProduct-buyTogether .buyTogether .precoCompreJunto div:first-child,
 .pageProduct-buyTogether .buyTogether .precoCompreJunto div:first-child > a {
     color: var(--c_product_buy_together_text2);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 0.775rem;
     font-weight: 400;
     font-variant: normal;
@@ -11091,7 +11153,7 @@ span.mensagensErro {
 }
 .pageProduct-buyTogether .buyTogether .precoCompreJunto div:first-child > strong {
   color: var(--c_product_buy_together_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   font-variant: normal;
@@ -11118,7 +11180,7 @@ span.mensagensErro {
 }
 .pageProduct-buyTogether .buyTogether .precosCompreJunto .comprejuto_preco {
   color: var(--c_product_buy_together_text2);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
   font-variant: normal;
@@ -11126,7 +11188,7 @@ span.mensagensErro {
 }
 .pageProduct-buyTogether .buyTogether .precosCompreJunto .comprejunto_preco2 {
   color: var(--c_product_buy_together_text2);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   font-variant: normal;
@@ -11139,7 +11201,7 @@ span.mensagensErro {
 }
 .pageProduct-buyTogether .buyTogether .precosCompreJunto .comprejunto_economize {
   color: var(--c_product_buy_together_text2);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -11156,7 +11218,7 @@ span.mensagensErro {
 }
 .pageProduct-buyTogether .buyTogether .precosCompreJunto .comprejunto_economize span colospan {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -11265,7 +11327,7 @@ span.mensagensErro {
 }
 .pageProduct .tabs-nav .nav-link {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   font-variant: normal;
@@ -11278,7 +11340,7 @@ span.mensagensErro {
 }
 .pageProduct .tabs-navMobile {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   font-variant: normal;
@@ -11335,7 +11397,7 @@ span.mensagensErro {
 }
 .pageProduct .tabs-content.payment #atualizaFormas ul li a {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -11411,7 +11473,7 @@ span.mensagensErro {
 }
 .pageProduct .tabs-content.payment #atualizaFormas ul li table td .txt-forma-pagto {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -11424,7 +11486,7 @@ span.mensagensErro {
 }
 .pageProduct .tabs .custom-tab#caracteristicas ul li {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   font-variant: normal;
@@ -11497,7 +11559,7 @@ span.mensagensErro {
 }
 .pageProduct .tabs-reviews #comentario_cliente label {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -11546,7 +11608,7 @@ span.mensagensErro {
 }
 .pageProduct .tabs-reviews h2:first-child {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
   font-variant: normal;
@@ -11564,7 +11626,7 @@ span.mensagensErro {
 }
 .pageProduct .tabs-reviews .hreview-comentarios .reviewer {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -11581,7 +11643,7 @@ span.mensagensErro {
 }
 .pageProduct .tabs-reviews .hreview-comentarios .description {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -11612,7 +11674,7 @@ span.mensagensErro {
 }
 .pageProduct-related .related-title {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -11676,7 +11738,7 @@ span.mensagensErro {
 }
 .pageProduct-lastSeen .lastSeen-title {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -11775,7 +11837,7 @@ span.mensagensErro {
 }
 .pageProduct-lastSeen .lastSeen-list #produtos li h3 .NomeProdLista {
   color: var(--c_showcase_product_name);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -11814,7 +11876,7 @@ span.mensagensErro {
 }
 .pageProduct-lastSeen .lastSeen-list .clearVisiteds {
   color: var(--c_showcase_product_name);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -11853,7 +11915,7 @@ span.mensagensErro {
 }
 .pageProduct-lastSeen .lastSeen-list .visitados_produtos .paginacao_ajax .total_produtos {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -11865,7 +11927,7 @@ span.mensagensErro {
 }
 .pageProduct-lastSeen .lastSeen-list .visitados_produtos #linksPag a {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   font-variant: normal;
@@ -11884,7 +11946,7 @@ span.mensagensErro {
 }
 .pageProduct-lastSeen .lastSeen-list .visitados_produtos #linksPag a.pageON {
   color: #fff;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   font-variant: normal;
@@ -11899,7 +11961,7 @@ span.mensagensErro {
 }
 .pageProduct-comments .blocoSucesso {
   color: #00ad29;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   font-variant: normal;
@@ -11923,7 +11985,7 @@ span.mensagensErro {
 .pageProduct-comments > h2:last-of-type::before {
   content: "Avaliaçཞs";
   color: #fff;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -11942,7 +12004,7 @@ span.mensagensErro {
 }
 .pageProduct-comments .hreview-comentarios .reviewer h3 {
   color: #7a7a7a;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.375rem;
   font-weight: 600;
   font-variant: normal;
@@ -11957,7 +12019,7 @@ span.mensagensErro {
 }
 .pageProduct-comments .hreview-comentarios > p {
   color: #7a7a7a;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -12000,9 +12062,9 @@ span.mensagensErro {
   color: var(--c_default_button_text_hover);
 }
 .pageProduct-comments #comentario_cliente a[data-logged-user=false]:not(.tray-hide)::before {
-  content: "Deixe sua Avalia" "ç" "ã" "o";
+  content: "Deixe sua Avaliacao";
   color: var(--c_default_button_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -12031,7 +12093,7 @@ span.mensagensErro {
 }
 .pageProduct-comments #comentario_cliente #form-comments[data-logged-user=true]:not(.tray-hide) .rateBlock .nota.ajuste-nota {
   color: #0f0f0f;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -12057,7 +12119,7 @@ span.mensagensErro {
 }
 .pageProduct-comments #comentario_cliente #form-comments[data-logged-user=true]:not(.tray-hide) > h5 {
   color: #616161;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -12066,7 +12128,7 @@ span.mensagensErro {
 }
 .pageProduct-comments #comentario_cliente #form-comments[data-logged-user=true]:not(.tray-hide) > h3 {
   color: #616161;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -12078,7 +12140,7 @@ span.mensagensErro {
 }
 .pageProduct-comments #comentario_cliente #form-comments[data-logged-user=true]:not(.tray-hide) > label {
   color: #eceff5;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -12301,7 +12363,7 @@ span.mensagensErro {
 @media (max-width: 768px) {
   .page-depoimentos .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     font-variant: normal;
@@ -12311,7 +12373,7 @@ span.mensagensErro {
 @media (min-width: 768.1px) and (max-width: 1280px) {
   .page-depoimentos .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -12321,7 +12383,7 @@ span.mensagensErro {
 @media (min-width: 1280.1px) {
   .page-depoimentos .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -12602,7 +12664,7 @@ span.mensagensErro {
 @media (max-width: 768px) {
   .page-search #vitrine-catalogo .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     font-variant: normal;
@@ -12612,7 +12674,7 @@ span.mensagensErro {
 @media (min-width: 768.1px) and (max-width: 1280px) {
   .page-search #vitrine-catalogo .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -12622,7 +12684,7 @@ span.mensagensErro {
 @media (min-width: 1280.1px) {
   .page-search #vitrine-catalogo .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -12638,7 +12700,7 @@ span.mensagensErro {
 }
 .page-search #Vitrine form {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -12770,7 +12832,7 @@ span.mensagensErro {
 }
 .page-busca_noticias .noticias #noticia_dados h3 a {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   font-variant: normal;
@@ -12781,7 +12843,7 @@ span.mensagensErro {
 }
 .page-busca_noticias .noticias #noticia_dados p {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
   font-variant: normal;
@@ -12813,7 +12875,7 @@ span.mensagensErro {
 @media (max-width: 768px) {
   .page-busca_noticias .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     font-variant: normal;
@@ -12823,7 +12885,7 @@ span.mensagensErro {
 @media (min-width: 768.1px) and (max-width: 1280px) {
   .page-busca_noticias .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -12833,7 +12895,7 @@ span.mensagensErro {
 @media (min-width: 1280.1px) {
   .page-busca_noticias .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -12845,7 +12907,7 @@ span.mensagensErro {
 }
 .page-busca_noticias .board b {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
   font-variant: normal;
@@ -12878,7 +12940,7 @@ span.mensagensErro {
   display: block;
   font-weight: 400;
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 24px;
   line-height: 150%;
   text-align: left;
@@ -12898,7 +12960,7 @@ span.mensagensErro {
 }
 .page-noticia .container2 > .container #ProdAbas a {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
   font-variant: normal;
@@ -12928,7 +12990,7 @@ span.mensagensErro {
 .page-noticia .container2 > .container #produto_dados h3 a {
   font-size: 16px;
   font-weight: 400;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   color: var(--c_general_tertiary);
   line-height: 20px;
 }
@@ -12950,7 +13012,7 @@ span.mensagensErro {
 }
 .page-noticia .container2 > .container #produto_comprar .precoAvista {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   font-weight: 700;
   font-variant: normal;
@@ -12963,7 +13025,7 @@ span.mensagensErro {
 }
 .page-noticia .container2 > .container #produto_comprar a:after {
   color: var(--c_buy_button_text);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   font-variant: normal;
@@ -13032,28 +13094,28 @@ span.mensagensErro {
 }
 .page-noticia h1 {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   font-weight: 700;
   font-variant: normal;
   text-transform: none;
   line-height: 40px;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
 }
 .page-noticia h2 {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   font-weight: 700;
   font-variant: normal;
   text-transform: none;
   line-height: 40px;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   margin-top: 2rem;
 }
 .page-noticia h3, .page-noticia h4, .page-noticia h5, .page-noticia h6 {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -13062,7 +13124,7 @@ span.mensagensErro {
 }
 .page-noticia .board {
   color: var(--c_general_tertiary);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -13106,7 +13168,7 @@ span.mensagensErro {
 }
 .page-noticia .board .right .addthis_inline_share_toolbox.addthis_sharing_toolbox::before {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -13181,7 +13243,7 @@ span.mensagensErro {
 }
 .page-contact .contactUs-phone h3, .page-contact .contactUs-whats h3, .page-contact .contactUs-email h3 {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   font-variant: normal;
@@ -13287,7 +13349,7 @@ span.mensagensErro {
 }
 .page-contact .board h3 {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   font-variant: normal;
@@ -13416,7 +13478,7 @@ span.mensagensErro {
 @media (max-width: 768px) {
   .rte h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     font-variant: normal;
@@ -13426,7 +13488,7 @@ span.mensagensErro {
 @media (min-width: 768.1px) and (max-width: 1280px) {
   .rte h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -13436,7 +13498,7 @@ span.mensagensErro {
 @media (min-width: 1280.1px) {
   .rte h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -13593,7 +13655,7 @@ span.mensagensErro {
 .page-central_comissoes_extrato .container2 .board h1,
 .page-central_cliente .container2 .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     font-variant: normal;
@@ -13607,7 +13669,7 @@ span.mensagensErro {
 .page-central_comissoes_extrato .container2 .board h1,
 .page-central_cliente .container2 .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -13621,7 +13683,7 @@ span.mensagensErro {
 .page-central_comissoes_extrato .container2 .board h1,
 .page-central_cliente .container2 .board h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -13641,7 +13703,7 @@ span.mensagensErro {
 .page-central_comissoes_extrato .Pedidos th,
 .page-central_cliente .Pedidos th {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -13679,7 +13741,7 @@ span.mensagensErro {
 .page-central_comissoes_extrato .Pedidos td,
 .page-central_cliente .Pedidos td {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   font-variant: normal;
@@ -13710,7 +13772,7 @@ span.mensagensErro {
 .page-central_comissoes_extrato .Pedidos td a strong,
 .page-central_cliente .Pedidos td a strong {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   font-variant: normal;
@@ -13762,7 +13824,7 @@ span.mensagensErro {
 @media (max-width: 768px) {
   .page-central_listas .central-conteudo h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     font-variant: normal;
@@ -13772,7 +13834,7 @@ span.mensagensErro {
 @media (min-width: 768.1px) and (max-width: 1280px) {
   .page-central_listas .central-conteudo h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -13782,7 +13844,7 @@ span.mensagensErro {
 @media (min-width: 1280.1px) {
   .page-central_listas .central-conteudo h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -13839,7 +13901,7 @@ span.mensagensErro {
 }
 .page-central_listas .container3:not(.central-conteudo) + .board .icoFilho p {
   color: #FFF;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   font-variant: normal;
@@ -13920,7 +13982,7 @@ span.mensagensErro {
 }
 .page-central_listas .container3:not(.central-conteudo) .container2 p {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -13930,7 +13992,7 @@ span.mensagensErro {
 
 .page-listas_criar #txt-cabecalho {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -13938,7 +14000,7 @@ span.mensagensErro {
 }
 .page-listas_criar #aviso_obriga {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -14041,7 +14103,7 @@ span.mensagensErro {
 }
 .page-listas_criar #lista_criar .container3 .container2 table tbody tr td:first-child {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -14054,7 +14116,7 @@ span.mensagensErro {
 }
 .page-listas_criar #lista_criar .container3 .container2 table tbody tr td:last-child {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -14063,7 +14125,7 @@ span.mensagensErro {
 .page-listas_criar #lista_criar .container3 .container2 select,
 .page-listas_criar #lista_criar .container3 .container2 input[type=text] {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -14082,7 +14144,7 @@ span.mensagensErro {
 }
 .page-listas_criar #lista_criar .container3 .container2 textarea {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -14127,7 +14189,7 @@ span.mensagensErro {
 }
 .page-listas_criar #lista_criar .container3 .container2 strong {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
   font-variant: normal;
@@ -14171,7 +14233,7 @@ span.mensagensErro {
 }
 .page-listas_criar #lista_criar .container3 .container2 #opcoes_email tr:nth-child(2) .label2:not(:first-child) {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
   font-variant: normal;
@@ -14253,7 +14315,7 @@ span.mensagensErro {
 }
 .page-central_comissoes_extrato .saldo_pontos + div form {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -14303,7 +14365,7 @@ span.mensagensErro {
 }
 .page-central_comissoes_extrato .saldo_pontos + div form input[type=text] {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -14369,7 +14431,7 @@ span.mensagensErro {
 }
 .page-central_comissoes .form_resgatar_bonus {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-variant: normal;
@@ -14387,7 +14449,7 @@ span.mensagensErro {
 }
 .page-central_comissoes .form_resgatar_bonus #bonus_resgatar {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -14493,7 +14555,7 @@ span.mensagensErro {
 .page-print_lista .blocoAlerta + .container3 .container2 h2,
 .page-print_lista #atualizaLista + .container3 .container2 h2 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     font-variant: normal;
@@ -14508,7 +14570,7 @@ span.mensagensErro {
 .page-print_lista .blocoAlerta + .container3 .container2 h2,
 .page-print_lista #atualizaLista + .container3 .container2 h2 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -14523,7 +14585,7 @@ span.mensagensErro {
 .page-print_lista .blocoAlerta + .container3 .container2 h2,
 .page-print_lista #atualizaLista + .container3 .container2 h2 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -14909,7 +14971,7 @@ span.mensagensErro {
 .page-lista .lista-produtos .lista-produto-dados .nomeProd a,
 .page-print_lista .lista-produtos .lista-produto-dados .nomeProd a {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
   font-variant: normal;
@@ -14922,7 +14984,7 @@ span.mensagensErro {
 .page-lista .lista-produtos .lista-produto-solicitados,
 .page-print_lista .lista-produtos .lista-produto-solicitados {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -14954,7 +15016,7 @@ span.mensagensErro {
 .page-lista .lista-produtos .lista-produto-valores,
 .page-print_lista .lista-produtos .lista-produto-valores {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -14985,7 +15047,7 @@ span.mensagensErro {
 .page-lista .lista-produtos .lista-produto-valores .precoAvista,
 .page-print_lista .lista-produtos .lista-produto-valores .precoAvista {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   font-variant: normal;
@@ -14994,7 +15056,7 @@ span.mensagensErro {
 .page-lista .lista-produtos .lista-produto-valores .txt-por,
 .page-print_lista .lista-produtos .lista-produto-valores .txt-por {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -15003,7 +15065,7 @@ span.mensagensErro {
 .page-lista .lista-produtos .lista-produto-valores .precode,
 .page-print_lista .lista-produtos .lista-produto-valores .precode {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   font-variant: normal;
@@ -15016,7 +15078,7 @@ span.mensagensErro {
 .page-print_lista .lista-produtos .lista-produto-valores .preco-de,
 .page-print_lista .lista-produtos .lista-produto-valores .operadora {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -15035,7 +15097,7 @@ span.mensagensErro {
 .page-print_lista .lista-produtos .lista-produto-valores .operadora strong,
 .page-print_lista .lista-produtos .lista-produto-valores .operadora .preco-parc2 {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -15102,7 +15164,7 @@ span.mensagensErro {
 .page-lista .lista-produtos form .lista-produto-quantidade .lista-produto-qtde,
 .page-print_lista .lista-produtos form .lista-produto-quantidade .lista-produto-qtde {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -15152,7 +15214,7 @@ span.mensagensErro {
   .page-lista .lista-produtos form .lista-produto-quantidade a::after,
 .page-print_lista .lista-produtos form .lista-produto-quantidade a::after {
     color: #FFF;
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
     font-variant: normal;
@@ -15379,7 +15441,7 @@ span.mensagensErro {
 }
 .page-central_cliente .container3 .container2 .Mapa + .board a {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -15442,7 +15504,7 @@ span.mensagensErro {
 }
 .page-central_cliente #paginacao .right span a {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   font-variant: normal;
@@ -15454,7 +15516,7 @@ span.mensagensErro {
 }
 .page-central_cliente #paginacao .right span.current {
   color: #FFF;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   font-variant: normal;
@@ -15507,7 +15569,7 @@ span.mensagensErro {
 }
 .page-listas_evento .container3 .board {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -15614,7 +15676,7 @@ span.mensagensErro {
 }
 .page-listas_evento .busca .busca-label {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -15622,7 +15684,7 @@ span.mensagensErro {
 }
 .page-listas_evento .busca input[type=text] {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -15682,7 +15744,7 @@ span.mensagensErro {
 .page-listas_busca .busca td,
 .page-listas_evento .busca td {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -15691,7 +15753,7 @@ span.mensagensErro {
 .page-listas_busca .busca td select,
 .page-listas_evento .busca td select {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
   font-variant: normal;
@@ -15712,7 +15774,7 @@ span.mensagensErro {
 }
 .page-listas_busca .busca .busca-label {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -15720,7 +15782,7 @@ span.mensagensErro {
 }
 .page-listas_busca .busca input[type=text] {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -15827,7 +15889,7 @@ span.mensagensErro {
 }
 .page-listas_busca .container3 .container3 + .board li .label .titulo-box {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -15903,7 +15965,7 @@ span.mensagensErro {
 @media (max-width: 768px) {
   .page-extra .container h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     font-variant: normal;
@@ -15913,7 +15975,7 @@ span.mensagensErro {
 @media (min-width: 768.1px) and (max-width: 1280px) {
   .page-extra .container h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -15923,7 +15985,7 @@ span.mensagensErro {
 @media (min-width: 1280.1px) {
   .page-extra .container h1 {
     color: var(--c_general_main);
-    font-family: var(--font_styles);
+    font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     font-variant: normal;
@@ -15948,7 +16010,7 @@ span.mensagensErro {
 }
 .page-extra .container form table:not(form[name=form1] *):first-child::before {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   font-variant: normal;
@@ -16025,7 +16087,7 @@ span.mensagensErro {
 }
 .page-extra .container form table td {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -16039,7 +16101,7 @@ span.mensagensErro {
 }
 .page-extra .container form .subtitle {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
@@ -16049,7 +16111,7 @@ span.mensagensErro {
 .page-extra .container form #data_fim,
 .page-extra .container form input[name=cliente] {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -16151,7 +16213,7 @@ span.mensagensErro {
 }
 .page-extra .container > table:not(form *) tr:only-child td:only-child b {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: bolder;
   font-variant: normal;
@@ -16162,7 +16224,7 @@ span.mensagensErro {
 }
 .page-extra .container > table:not(form *) table:not(form *) td {
   color: #7A7A7A;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   font-variant: normal;
@@ -16180,7 +16242,7 @@ span.mensagensErro {
 }
 .page-extra .container > table:not(form *) table:not(form *) tr:first-child td {
   color: var(--c_general_main);
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   font-variant: normal;
@@ -16251,7 +16313,7 @@ span.mensagensErro {
 .minicart_notice span {
   font-size: 14px;
   font-weight: 400;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   color: #828282;
 }
 
@@ -16287,7 +16349,7 @@ span.mensagensErro {
   top: 0;
   width: 480px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-  background: var(--c_header_bg);
+  background: var(--c_general_background);
   z-index: 5;
   transition: all 333ms;
   border-radius: 1px;
@@ -16336,7 +16398,7 @@ span.mensagensErro {
 .minicart__close > span {
   font-weight: bold;
   font-size: 14px;
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   vertical-align: middle;
   color: var(--c_general_tertiary);
 }
@@ -16500,7 +16562,7 @@ button.minicart__close--footer > svg {
 }
 
 .minicart__finished {
-  font-family: var(--font_styles);
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   width: 35%;
   min-width: 112px;
@@ -16529,6 +16591,8 @@ button.minicart__close--footer > svg {
 }
 .menu {
   background: var(--c_bg_menu);
+  position: relative;
+  z-index: -1;
 }
 .menu__content {
   display: flex;
@@ -16614,13 +16678,13 @@ button.minicart__close--footer > svg {
 }
 @media (hover: hover) {
   .menu__item:hover.menu__item--depart {
-    color: var(--c_depart_text_hover);
+    color: var(--c_font_menu_hover);
   }
   .menu__item:hover.menu__item--depart > svg {
     transform: rotate3d(1, 0, 0, 180deg);
   }
   .menu__item:hover.menu__item--depart:before {
-    background: var(--c_depart_bg_hover);
+    background: var(--c_general_main);
   }
   .menu__item:hover.menu__item--highlight {
     opacity: 0.7;
@@ -16858,6 +16922,7 @@ button.minicart__close--footer > svg {
   color: var(--c_showcase_product_name);
   line-height: 1;
   text-align: center;
+  font-family: "Kanit", serif;
 }
 .menu-product__price > s {
   font-size: 14px;
@@ -17131,7 +17196,7 @@ button.minicart__close--footer > svg {
   min-width: 0;
   padding: 8px;
   height: 600px;
-  background: var(--c_general_background);
+  background: #fff;
 }
 @media (max-width: 991px) {
   .product {
@@ -17202,6 +17267,7 @@ button.minicart__close--footer > svg {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  font-family: "Kanit", serif;
 }
 .product__name[data-rows="3"] {
   min-height: 57px;
@@ -17217,12 +17283,16 @@ button.minicart__close--footer > svg {
   background: #f2f5f5;
   border: 1px solid #1d1d1d;
   border-radius: 1px;
-  height: 42px;
+  height: 46px;
   color: #222;
   font-size: 14px;
   max-width: calc(100% - 16px);
   margin-inline: auto;
   margin-top: 10px;
+  padding-inline: 9px;
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
 }
 @media (hover: hover) {
   .product:hover .product__img:not(.product:hover .product__img--hover):not(:last-of-type) {
@@ -17511,7 +17581,7 @@ button.minicart__close--footer > svg {
 
 .product-countdown {
   transition: 0.2s ease-out;
-  background: var(--c_general_background);
+  background: #292929;
   border: 1px solid var(--c_bg_progressiveCounter);
   height: 42px;
   outline: none !important;
@@ -17521,16 +17591,21 @@ button.minicart__close--footer > svg {
   width: 100%;
 }
 .product-countdown-text {
-  color: var(--c_bg_progressiveCounter);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 100%;
+  color: #fff;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  /* 16.5px */
 }
 .product-countdown-timer {
-  color: var(--c_bg_progressiveCounter);
-  font-weight: 700;
+  color: #fff;
+  font-family: "Kanit", serif;
   font-size: 18px;
-  line-height: 82.2%;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  /* 27px */
 }
 .product-countdown-icon {
   flex: 40%;
@@ -17549,7 +17624,6 @@ button.minicart__close--footer > svg {
   flex-direction: column;
   justify-content: center;
   flex: 60%;
-  gap: 3px;
 }
 .product-countdown-finished {
   color: var(--c_bg_progressiveCounter);
@@ -17721,11 +17795,13 @@ button.minicart__close--footer > svg {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    width: 97%;
   }
 }
 .countdownShowcase .home-showcase__title--countdown {
   display: flex;
   align-items: center;
+  font-family: "Kanit", serif;
   gap: 5px;
   font-size: 27px;
   font-style: normal;
@@ -17742,6 +17818,7 @@ button.minicart__close--footer > svg {
   align-items: center;
   flex-wrap: nowrap;
   gap: 4px;
+  font-family: "Kanit", serif;
 }
 @media (max-width: 991px) {
   .countdownShowcase__item {
@@ -17819,7 +17896,7 @@ button.minicart__close--footer > svg {
 }
 
 .home-showcase {
-  max-width: 1390px;
+  max-width: 1400px;
   width: calc(100% - 30px);
   margin: 15px auto;
   transition: 0.2s ease-out;
@@ -17858,12 +17935,17 @@ button.minicart__close--footer > svg {
 }
 .home-showcase__title {
   margin-block: 40px;
-  font-size: 30px;
+  font-size: 35px;
+  font-family: "Kanit", serif;
   text-align: center;
   margin-bottom: 20px;
   gap: 0 8px;
   color: var(--c_general_secondary);
-  font-weight: 700;
+  font-weight: 500;
+}
+.home-showcase__title.brand {
+  margin-block: 30px;
+  margin-bottom: 10px;
 }
 @media (max-width: 991px) {
   .home-showcase__title {
@@ -17878,6 +17960,13 @@ button.minicart__close--footer > svg {
   width: 50%;
   height: 103px;
   overflow: hidden;
+}
+@media (max-width: 991px) {
+  .home-showcase__header.yes > a {
+    width: 97%;
+    margin-top: 10px;
+    height: auto;
+  }
 }
 @media screen and (max-width: 786px) {
   .home-showcase__header {
@@ -18003,6 +18092,7 @@ button.minicart__close--footer > svg {
 }
 .advantage-rule__title {
   color: var(--c_advantage_text_1);
+  font-family: "Kanit", serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -18114,7 +18204,7 @@ button.minicart__close--footer > svg {
   padding-block: 15px;
 }
 .banner-first__container {
-  max-width: 1390px;
+  max-width: 1400px;
   width: calc(100% - 30px);
   margin-inline: auto;
 }
@@ -18211,6 +18301,7 @@ button.minicart__close--footer > svg {
 }
 .product-related .swiper_showcase-btn:not(.swiper-button-lock) {
   display: grid;
+  background: var(--c_general_secondary);
 }
 @media (hover: hover) {
   .product-related .swiper_showcase-btn:hover {
@@ -18234,6 +18325,11 @@ button.minicart__close--footer > svg {
   display: flex;
   flex-direction: row-reverse;
   gap: 16px;
+}
+@media (max-width: 991px) {
+  .image-gallery {
+    flex-direction: column;
+  }
 }
 .image-gallery--square .image-gallery__main, .image-gallery--square .image-gallery__iframe {
   aspect-ratio: 1/1;
@@ -18297,9 +18393,24 @@ button.minicart__close--footer > svg {
   flex-shrink: 0;
   border: 1px solid #D9D9D9;
 }
+@media (max-width: 991px) {
+  .image-gallery__thumbs .swiper-wrapper.jcc {
+    flex-direction: row;
+    width: auto;
+    height: auto;
+  }
+}
 .image-gallery__thumbs .swiper-slide {
   cursor: pointer;
-  width: 100% !important;
+  width: 124px !important;
+  height: 125.226px;
+  flex-shrink: 0;
+  border: 1px solid #c6c6c6;
+}
+@media (max-width: 991px) {
+  .image-gallery__thumbs .swiper-slide {
+    flex-direction: row;
+  }
 }
 .image-gallery__thumbs .swiper-slide.swiper-slide-thumb-active {
   opacity: 0.5;
@@ -18523,9 +18634,6 @@ button.minicart__close--footer > svg {
   letter-spacing: 0.26px;
   color: var(--c_header_text);
 }
-.header-track__title svg {
-  fill: var(--c_header_icon);
-}
 .header-track__title svg:last-of-type {
   transition: 0.2s ease-out;
 }
@@ -18550,7 +18658,7 @@ button.minicart__close--footer > svg {
   align-items: center;
   justify-content: flex-start;
   gap: 0 8px;
-  color: var(--c_general_tertiary);
+  color: #000;
   font-size: 13px;
   font-style: normal;
   font-weight: 600;

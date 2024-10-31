@@ -2,7 +2,7 @@
 @use 'swiper/swiper-bundle.min.css';
 
 /// Values Default
-$v_width_content_page: 1390px;
+$v_width_content_page: 1400px;
 $v_border_header: 1.5px solid #f6f6f6;
 $v_border_titles: 2px solid #f6f6f6;
 $v_border_sections: 1px solid #929292;
@@ -578,6 +578,19 @@ $transit_slow: 0.5s ease-out;
 .u-shadow {
     box-shadow: 0 4px 8px #0000002e;
 }
+.rating-short__container{
+    display: flex;
+    padding-left: 8px;
+    gap: 3px;
+}
+.rating-short__votes{
+    color: #4B4B4B;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+    letter-spacing: 0.28px;
+}
 
 body {
     @extend %style-scroll;
@@ -616,7 +629,7 @@ body {
             max-width: $v_width_content_page;
             margin: 0 auto;
             &.five-listProduct {
-                max-width: 1360px;
+                max-width: 1400px;
             }
 
             section:nth-of-type(2) > .showcase-listProduct .swiper-wrapper .listProduct-item {
@@ -837,7 +850,7 @@ div.Seguro {
 
 @include mobile {
     :root:has(.header-topbar) .default-main {
-        --pt: 163px;
+        --pt: 176px;
     }
 }
 

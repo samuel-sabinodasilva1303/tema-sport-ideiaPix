@@ -15,8 +15,10 @@
 
     {% endfor %}
 
-    {% if brands|length %} 
+    {% if brands|length %}
         <section class="brands-list" data-slides="brands" data-auto="{{ is_auto ? '1' : '0' }}">
+            <h2 class="home-showcase__title brand">{{ settings.brands_title_carousel }}</h2>
+
             <div class="brands-list__container">
                 <div class="swiper">
                     <div class="swiper-wrapper">

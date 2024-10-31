@@ -1,98 +1,260 @@
-{% set is_datasheet = settings.show_product_datasheet %}
-{% set datasheet_title = settings.product_datasheet_title|trim() != '' ? settings.product_datasheet_title|trim()|slice(0,25): 'Ficha Técnica' %}
-{% set tabs = [] %}
-
-{% set tray_properties = _view.element('product/properties')|replace({ '<div>': '','</div>': '','<ul>': '','</ul>': '' }) %}
-
-{% set icon_weight %}
-    <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="22" height="24" viewBox="0 0 22 24"><path fill="currentColor" d="M3 21.33h16L17.1 8H4.9L3 21.33Zm8-16c.38 0 .7-.12.95-.38.26-.26.38-.57.38-.95s-.12-.7-.38-.95a1.29 1.29 0 0 0-.95-.38c-.38 0-.7.12-.95.38-.26.26-.38.57-.38.95s.12.7.38.95c.26.26.57.38.95.38Zm3.77 0h2.33c.67 0 1.24.23 1.73.67.5.44.8.99.9 1.63l1.9 13.34c.11.8-.1 1.5-.61 2.11-.53.61-1.2.92-2.02.92H3c-.82 0-1.5-.3-2.02-.92a2.58 2.58 0 0 1-.61-2.11l1.9-13.34A2.8 2.8 0 0 1 3.17 6a2.5 2.5 0 0 1 1.73-.67h2.33a8 8 0 0 1-.16-.65 3.86 3.86 0 0 1 1.1-3.52A3.86 3.86 0 0 1 11 0c1.11 0 2.06.39 2.83 1.17a3.86 3.86 0 0 1 1.1 3.51c-.04.21-.1.43-.16.65Z"/></svg></i>
-{% endset %}
-
-{% set icon_height %}
-    <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="12" height="24" viewBox="0 0 12 24"><path fill="currentColor" d="M6 24 .67 18.67l1.86-1.87 2.14 2.1V5.1L2.53 7.2.67 5.33 6 0l5.33 5.33-1.86 1.9L7.33 5.1v13.8l2.14-2.1 1.86 1.87L6 24Z"/></svg></i>
-{% endset %}
-
-{% set icon_width %}
-    <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="24" height="11" viewBox="0 0 24 11"><path fill="currentColor" d="M5.33 10.67 0 5.33 5.33 0l1.9 1.87L5.1 4h13.8l-2.1-2.13L18.67 0 24 5.33l-5.33 5.34L16.8 8.8l2.1-2.13H5.1L7.2 8.8l-1.87 1.87Z"/></svg></i>
-{% endset %}
-
-{% set icon_length %}
-    <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18"><path fill="currentColor" d="M8.31 17.74H.77V10.2l2.66-.02v3.01l9.76-9.76-3-.02V.77h7.55v7.54H15.1l-.02-2.99-9.76 9.76 3 .02v2.64Z"/></svg></i>
-{% endset %}
+{% if not utils.is_mobile %}
+    {% set link_classes_desk = {
+        'description'     : 'tabs-linkDescription_desk',
+        'included_items'  : 'tabs-linkIncludedItems_desk',
+        'warranty'        : 'tabs-linkWarranty_desk',
+        'payment_methods' : 'tabs-linkPayment_desk',
+        'comments'        : 'tabs-linkComments_desk'
+    } %}
 
 
-{% set content_properties %}
-    {% if is_datasheet %}
-    <ul>
-        {{ product.brand ? '<li>Marca: '~ product.brand ~'</li>'}}
-        {{ product.model ? '<li>Modelo: '~ product.model ~'</li>'}}
-        {{ product.reference ? '<li>Referência: '~ product.reference ~'</li>'}}
-        {{ product.ean ? '<li>EAN/GTIN/UPC: '~ product.ean ~'</li>'}}
-        {{ product.included_items ? '<li>Itens Inclusos: '~ product.included_items ~'</li>'}}
-        {{ product.additional_message ? '<li>Mensagem Adicional: '~ product.additional_message ~'</li>'}}
-        {{ product.warranty ? '<li>Tempo de Garnatia: '~ product.warranty ~'</li>'}}
-        {{ product.availability ? '<li>Prazo para Disponibilidade: '~ product.availability ~'</li>'}}
-        {{- tray_properties ? tray_properties -}}
-        {{ product.weight ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_weight ~'<span>Peso: '~ product.weight ~' g </span></li>'}}
-        {{ product.height ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_height ~'<span>Altura: '~ product.height ~' cm </span></li>'}}
-        {{ product.width ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_width ~'<span>Largura: '~ product.width ~' cm </span></li>'}}
-        {{ product.length ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_length ~'<span>Comprimento: '~ product.length ~' cm </span></li>'}}
-    </ul>
-    {% else %}
-        {{ _view.element('product/properties') }}
-    {% endif %}
-{% endset %}
+    {% set tabs_classes_desk = {
+        'description'     : 'description_desk',
+        'included_items'  : 'includedItems_desk',
+        'warranty'        : 'warranty_desk',
+        'payment_methods' : 'payment_desk',
+        'comments'        : 'comments_desk'
+    } %}
 
-{% for key, item in productTabs %}
-    {% if key != 'custom' %}
-        {% set hidden = null %}
-        {% set title = item.description %}
+    {% set detailsTabs_desk = [] %}
 
-        {% if key == 'description' %}
-            {% set content =  ('<div id="'~ item.id ~'">' ~ (product.description ? product.description : product.description_small) ~ '</div>') %}
-        {% elseif key == 'properties' %}
-            {% if is_datasheet %}{% set title = datasheet_title %}{% endif %}
-            {% set content =  ('<div id="'~ item.id ~'">' ~ content_properties~ '</div>') %}
-        {% elseif 'AdditionalTab' in key %}
-            {% set content =  ('<div id="'~ item.id ~'"></div>') %}
-            {% set hidden = 'tabelamedida-' in item.description ? true : null %}
-        {% elseif key == 'included_items' %}
-            {% set content =  ('<div id="'~ item.id ~'">'~ product.included_items ~'</div>') %}
-        {% elseif key == 'comments' %}
-            {% set hidden = true %}
-        {% else %}
-            {% set content = null %}
-        {% endif %}
+    {% for key, tab in productTabs %}
+        {% if key == 'custom' or key == 'downloads' or 'AdditionalTab' in key %}
 
-        {% set tabs = tabs|merge([{ 'id': item.id, 'href': item.container_id, 'title': title, 'action_url': item.url ? item.url : null, 'content': content, 'is_hidden': hidden }]) %}
+            {% set detailsTabs_desk = detailsTabs_desk | merge({ (key) : tab }) %}
 
-        {% if 'properties' not in productTabs|keys and is_datasheet and key == 'description' %}
-                {% set content = ('<div id="AbaCaracteristicas">' ~ content_properties~ '</div>') %}
-                {% set tabs = tabs|merge([{ 'id': 'AbaCaracteristicas', 'href': '#caracteristicas', 'title': datasheet_title, 'action_url': null, 'content': content, 'is_hidden': null }]) %}
+        {% elseif key == 'payment_methods' %}
+            {% if product.available and (product.stock > 0 or settings.without_stock_sale) and not product.upon_request %}
+                {% set currentTab = {
+                    'id'           : tab.id,
+                    'container_id' : tab.container_id,
+                    'description'  : tab.description,
+                    'link_class'   : link_classes_desk[key] ? link_classes_desk[key] : 'custom-link-tab',
+                    'tab_class'    : tabs_classes_desk[key] ? tabs_classes_desk[key] : 'custom-tab',
+                    'active_class' : loop.first ? 'active' : ''
+                } %}
+                {% if tab.url %}
+                    {% set currentTab = currentTab | merge({ 'url' : tab.url }) %}
+                {% endif %}
+
+                {% set detailsTabs_desk = detailsTabs_desk | merge({ (key) : currentTab }) %}
+
             {% endif %}
-    {% endif %}
-{% endfor %}
+        {% else %}
+            {% set currentTab = {
+                'id'           : tab.id,
+                'container_id' : tab.container_id,
+                'description'  : tab.description,
+                'link_class'   : link_classes_desk[key] ? link_classes_desk[key] : 'custom-link-tab',
+                'tab_class'    : tabs_classes_desk[key] ? tabs_classes_desk[key] : 'custom-tab',
+                'active_class' : loop.first ? 'active' : ''
+            } %}
+            {% if tab.url %}
+                {% set currentTab = currentTab | merge({ 'url' : tab.url }) %}
+            {% endif %}
 
-<section class="product-tabs">
-    <div class="product-tabs__container">
-        {% for tab in tabs if not tab.is_hidden %}
-            <div class="product-tabs__tab">
-                <div class="product-tabs__header">
-                    <a class="product-tabs__link" href="{{ tab.href }}">
-                        <span>{{ tab.title }}</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" fill="none" viewBox="0 0 9 6">
-                            <path fill="currentColor" d="M4.24 3.17 7.07.34 8.5 1.76 4.24 6 0 1.76 1.42.34l2.82 2.83Z"/>
-                        </svg>
-                    </a>
+            {% set detailsTabs_desk = detailsTabs_desk | merge({ (key) : currentTab }) %}
+
+        {% endif %}
+    {% endfor %}
+
+    {% set is_datasheet = settings.show_product_datasheet %}
+    {% set datasheet_title = settings.product_datasheet_title|trim() != '' ? settings.product_datasheet_title|trim()|slice(0,25): 'Ficha Técnica' %}
+    {% set tabs = [] %}
+
+    {% set tray_properties = _view.element('product/properties')|replace({ '<div>': '','</div>': '','<ul>': '','</ul>': '' }) %}
+
+    {% set icon_weight %}
+        <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="22" height="24" viewBox="0 0 22 24"><path fill="currentColor" d="M3 21.33h16L17.1 8H4.9L3 21.33Zm8-16c.38 0 .7-.12.95-.38.26-.26.38-.57.38-.95s-.12-.7-.38-.95a1.29 1.29 0 0 0-.95-.38c-.38 0-.7.12-.95.38-.26.26-.38.57-.38.95s.12.7.38.95c.26.26.57.38.95.38Zm3.77 0h2.33c.67 0 1.24.23 1.73.67.5.44.8.99.9 1.63l1.9 13.34c.11.8-.1 1.5-.61 2.11-.53.61-1.2.92-2.02.92H3c-.82 0-1.5-.3-2.02-.92a2.58 2.58 0 0 1-.61-2.11l1.9-13.34A2.8 2.8 0 0 1 3.17 6a2.5 2.5 0 0 1 1.73-.67h2.33a8 8 0 0 1-.16-.65 3.86 3.86 0 0 1 1.1-3.52A3.86 3.86 0 0 1 11 0c1.11 0 2.06.39 2.83 1.17a3.86 3.86 0 0 1 1.1 3.51c-.04.21-.1.43-.16.65Z"/></svg></i>
+    {% endset %}
+
+    {% set icon_height %}
+        <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="12" height="24" viewBox="0 0 12 24"><path fill="currentColor" d="M6 24 .67 18.67l1.86-1.87 2.14 2.1V5.1L2.53 7.2.67 5.33 6 0l5.33 5.33-1.86 1.9L7.33 5.1v13.8l2.14-2.1 1.86 1.87L6 24Z"/></svg></i>
+    {% endset %}
+
+    {% set icon_width %}
+        <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="24" height="11" viewBox="0 0 24 11"><path fill="currentColor" d="M5.33 10.67 0 5.33 5.33 0l1.9 1.87L5.1 4h13.8l-2.1-2.13L18.67 0 24 5.33l-5.33 5.34L16.8 8.8l2.1-2.13H5.1L7.2 8.8l-1.87 1.87Z"/></svg></i>
+    {% endset %}
+
+    {% set icon_length %}
+        <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18"><path fill="currentColor" d="M8.31 17.74H.77V10.2l2.66-.02v3.01l9.76-9.76-3-.02V.77h7.55v7.54H15.1l-.02-2.99-9.76 9.76 3 .02v2.64Z"/></svg></i>
+    {% endset %}
+
+
+    {% set content_properties %}
+        {% if is_datasheet %}
+        <ul>
+            {{ product.brand ? '<li>Marca: '~ product.brand ~'</li>'}}
+            {{ product.model ? '<li>Modelo: '~ product.model ~'</li>'}}
+            {{ product.reference ? '<li>Referência: '~ product.reference ~'</li>'}}
+            {{ product.ean ? '<li>EAN/GTIN/UPC: '~ product.ean ~'</li>'}}
+            {{ product.included_items ? '<li>Itens Inclusos: '~ product.included_items ~'</li>'}}
+            {{ product.additional_message ? '<li>Mensagem Adicional: '~ product.additional_message ~'</li>'}}
+            {{ product.warranty ? '<li>Tempo de Garnatia: '~ product.warranty ~'</li>'}}
+            {{ product.availability ? '<li>Prazo para Disponibilidade: '~ product.availability ~'</li>'}}
+            {{- tray_properties ? tray_properties -}}
+            {{ product.weight ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_weight ~'<span>Peso: '~ product.weight ~' g </span></li>'}}
+            {{ product.height ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_height ~'<span>Altura: '~ product.height ~' cm </span></li>'}}
+            {{ product.width ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_width ~'<span>Largura: '~ product.width ~' cm </span></li>'}}
+            {{ product.length ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_length ~'<span>Comprimento: '~ product.length ~' cm </span></li>'}}
+        </ul>
+        {% else %}
+            {{ _view.element('product/properties') }}
+        {% endif %}
+    {% endset %}
+    <section class="product-tabs product-tabs--abas">
+        <nav class="tabs-nav">
+            <ul class="nav-list">
+                {% for key, tab in detailsTabs_desk %}
+                    {% if tab.container_id %}
+                        <li class="nav-item">
+                            {% if tab.description | lower == 'descri��o geral' %}
+                                <h2>
+                            {% endif %}
+                            <a class="nav-link {{ tab.active_class }} {{ tab.link_class }}" href="{{ tab.container_id }}">
+                                {{ tab.description }}
+                            </a>
+                            {% if tab.description | lower == 'descri��o geral' %}
+                                </h2>
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+        <div class="tabs">
+            {% for key, tab in detailsTabs_desk %}
+                {% set tab_id = tab.container_id | replace({ '#' : '' }) %}
+        
+                {% if key != 'custom' and 'AdditionalTab' not in key %}
+                    {% set rte_class = (key == 'description' or key == 'warranty' or key == 'included_items' or key == 'datasheet') ? 'rte' : '' %}
+        
+                    <div class="tabs-content {{ rte_class }} {{ tab.tab_class }} {{ tab.active_class }}" id="{{ tab_id }}" {% if key == 'payment_methods' %} data-loaded-price="" {% endif %} {% if tab.url %} data-url="{{ tab.url }}" {% endif %}>
+        
+                        {% if key == 'description' %}
+                            {{ product.description ? product.description : product.description_small }}
+                        {% elseif key == 'included_items' %}
+                            Itens inclusos: {{ product.included_items }}
+                        {% elseif key == 'comments' %}
+                            {%- set productComments -%}
+                                {%- element 'product/comments' -%}
+                            {%- endset -%}
+                            <div id="tray-comment-block"></div>
+                            <script> window.commentsBlock = `{{ productComments | raw }}`; </script>
+                        {% elseif key == 'downloads' %}
+                            {{ tab.content }}
+                        {% elseif key == 'properties' %}
+                            {% element 'product/properties' %}
+                        {% endif %}
+        
+                    </div>
+        
+                {% elseif key == 'custom' %}
+                    {{ tab.content | replace({ 'prodBox' : 'tabs-content rte custom-tab' }) }}
+                {% endif %}
+        
+            {% endfor %}
+        </div>
+    </section>
+
+{% else %}
+
+    {% set is_datasheet = settings.show_product_datasheet %}
+    {% set datasheet_title = settings.product_datasheet_title|trim() != '' ? settings.product_datasheet_title|trim()|slice(0,25): 'Ficha Técnica' %}
+    {% set tabs = [] %}
+
+    {% set tray_properties = _view.element('product/properties')|replace({ '<div>': '','</div>': '','<ul>': '','</ul>': '' }) %}
+
+    {% set icon_weight %}
+        <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="22" height="24" viewBox="0 0 22 24"><path fill="currentColor" d="M3 21.33h16L17.1 8H4.9L3 21.33Zm8-16c.38 0 .7-.12.95-.38.26-.26.38-.57.38-.95s-.12-.7-.38-.95a1.29 1.29 0 0 0-.95-.38c-.38 0-.7.12-.95.38-.26.26-.38.57-.38.95s.12.7.38.95c.26.26.57.38.95.38Zm3.77 0h2.33c.67 0 1.24.23 1.73.67.5.44.8.99.9 1.63l1.9 13.34c.11.8-.1 1.5-.61 2.11-.53.61-1.2.92-2.02.92H3c-.82 0-1.5-.3-2.02-.92a2.58 2.58 0 0 1-.61-2.11l1.9-13.34A2.8 2.8 0 0 1 3.17 6a2.5 2.5 0 0 1 1.73-.67h2.33a8 8 0 0 1-.16-.65 3.86 3.86 0 0 1 1.1-3.52A3.86 3.86 0 0 1 11 0c1.11 0 2.06.39 2.83 1.17a3.86 3.86 0 0 1 1.1 3.51c-.04.21-.1.43-.16.65Z"/></svg></i>
+    {% endset %}
+
+    {% set icon_height %}
+        <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="12" height="24" viewBox="0 0 12 24"><path fill="currentColor" d="M6 24 .67 18.67l1.86-1.87 2.14 2.1V5.1L2.53 7.2.67 5.33 6 0l5.33 5.33-1.86 1.9L7.33 5.1v13.8l2.14-2.1 1.86 1.87L6 24Z"/></svg></i>
+    {% endset %}
+
+    {% set icon_width %}
+        <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="24" height="11" viewBox="0 0 24 11"><path fill="currentColor" d="M5.33 10.67 0 5.33 5.33 0l1.9 1.87L5.1 4h13.8l-2.1-2.13L18.67 0 24 5.33l-5.33 5.34L16.8 8.8l2.1-2.13H5.1L7.2 8.8l-1.87 1.87Z"/></svg></i>
+    {% endset %}
+
+    {% set icon_length %}
+        <i><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" height="18" viewBox="0 0 18 18"><path fill="currentColor" d="M8.31 17.74H.77V10.2l2.66-.02v3.01l9.76-9.76-3-.02V.77h7.55v7.54H15.1l-.02-2.99-9.76 9.76 3 .02v2.64Z"/></svg></i>
+    {% endset %}
+
+
+    {% set content_properties %}
+        {% if is_datasheet %}
+        <ul>
+            {{ product.brand ? '<li>Marca: '~ product.brand ~'</li>'}}
+            {{ product.model ? '<li>Modelo: '~ product.model ~'</li>'}}
+            {{ product.reference ? '<li>Referência: '~ product.reference ~'</li>'}}
+            {{ product.ean ? '<li>EAN/GTIN/UPC: '~ product.ean ~'</li>'}}
+            {{ product.included_items ? '<li>Itens Inclusos: '~ product.included_items ~'</li>'}}
+            {{ product.additional_message ? '<li>Mensagem Adicional: '~ product.additional_message ~'</li>'}}
+            {{ product.warranty ? '<li>Tempo de Garnatia: '~ product.warranty ~'</li>'}}
+            {{ product.availability ? '<li>Prazo para Disponibilidade: '~ product.availability ~'</li>'}}
+            {{- tray_properties ? tray_properties -}}
+            {{ product.weight ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_weight ~'<span>Peso: '~ product.weight ~' g </span></li>'}}
+            {{ product.height ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_height ~'<span>Altura: '~ product.height ~' cm </span></li>'}}
+            {{ product.width ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_width ~'<span>Largura: '~ product.width ~' cm </span></li>'}}
+            {{ product.length ? '<li style="display: flex; align-items: center; padding:10px; gap: 0 5px;">'~ icon_length ~'<span>Comprimento: '~ product.length ~' cm </span></li>'}}
+        </ul>
+        {% else %}
+            {{ _view.element('product/properties') }}
+        {% endif %}
+    {% endset %}
+
+    {% for key, item in productTabs %}
+        {% if key != 'custom' %}
+            {% set hidden = null %}
+            {% set title = item.description %}
+
+            {% if key == 'description' %}
+                {% set content =  ('<div id="'~ item.id ~'">' ~ (product.description ? product.description : product.description_small) ~ '</div>') %}
+            {% elseif key == 'properties' %}
+                {% if is_datasheet %}{% set title = datasheet_title %}{% endif %}
+                {% set content =  ('<div id="'~ item.id ~'">' ~ content_properties~ '</div>') %}
+            {% elseif 'AdditionalTab' in key %}
+                {% set content =  ('<div id="'~ item.id ~'"></div>') %}
+                {% set hidden = 'tabelamedida-' in item.description ? true : null %}
+            {% elseif key == 'included_items' %}
+                {% set content =  ('<div id="'~ item.id ~'">'~ product.included_items ~'</div>') %}
+            {% elseif key == 'comments' %}
+                {% set hidden = true %}
+            {% else %}
+                {% set content = null %}
+            {% endif %}
+
+            {% set tabs = tabs|merge([{ 'id': item.id, 'href': item.container_id, 'title': title, 'action_url': item.url ? item.url : null, 'content': content, 'is_hidden': hidden }]) %}
+
+            {% if 'properties' not in productTabs|keys and is_datasheet and key == 'description' %}
+                    {% set content = ('<div id="AbaCaracteristicas">' ~ content_properties~ '</div>') %}
+                    {% set tabs = tabs|merge([{ 'id': 'AbaCaracteristicas', 'href': '#caracteristicas', 'title': datasheet_title, 'action_url': null, 'content': content, 'is_hidden': null }]) %}
+                {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    <section class="product-tabs">
+        <div class="product-tabs__container">
+            {% for tab in tabs if not tab.is_hidden %}
+                <div class="product-tabs__tab">
+                    <div class="product-tabs__header">
+                        <a class="product-tabs__link" href="{{ tab.href }}">
+                            <span>{{ tab.title }}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" fill="none" viewBox="0 0 9 6">
+                                <path fill="currentColor" d="M4.24 3.17 7.07.34 8.5 1.76 4.24 6 0 1.76 1.42.34l2.82 2.83Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div {{ tab.action_url ? 'data-action-url="'~ tab.action_url~'"' }} class="product-tabs__content">
+                        {{ tab.content }}
+                    </div>
                 </div>
-                <div {{ tab.action_url ? 'data-action-url="'~ tab.action_url~'"' }} class="product-tabs__content">
-                    {{ tab.content }}
-                </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
+    </section>
+    <div style="display: none;" id="hidden_tab">
+        {{ productTabs['custom'].content }}
     </div>
-</section>
-<div style="display: none;" id="hidden_tab">
-    {{ productTabs['custom'].content }}
-</div>
 
+{% endif %}

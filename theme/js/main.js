@@ -576,7 +576,8 @@
                             <p class="product-countdown-text">TERMINA EM</p>
 
                             <p class="product-countdown-timer">
-                                ${days}D ${hours} : ${minutes} : ${seconds}
+                                ${days}D: ${String(hours).padStart(2, '0')} : ${minutes} : ${seconds}
+                                
                             </p>
                         `
                         );
@@ -1167,7 +1168,7 @@
 
             new Swiper(targetElement.querySelector('.swiper'), {
                 slidesPerView: 1,
-                spaceBetween: 15,
+                spaceBetween: 55,
                 loop: true,
                 autoplay,
                 breakpoints: {
@@ -1935,120 +1936,197 @@
 
         tabNavigationOnProductPage: function () {
             'use strict';
-
-            const tabsContent = document.querySelectorAll('.product-tabs__content[data-action-url]'),
+            if(window.innerWidth >= 765){
+                const customTab = $('.tabs-navMobile[href*="AbaPersonalizada"]');
+                const urlTabs = $('.page-product .tabs-content[data-url]');
+                const linkNavTabs = $('.page-product .tabs-nav .nav-link');
+                const linkNavMobileTabs = $('.page-product .tabs .tabs-navMobile');
+                const content = $('.page-product .tabs .tabs-content');
+    
+                customTab.each(function () {
+                    let target = $(this).attr('href').split('#')[1];
+                    target = $(`#${target}`);
+    
+                    $(target).detach().insertAfter(this);
+                });
+    
+                urlTabs.each(function () {
+                    let tab = $(this);
+                    let url = tab.data('url');
+    
+                    $.ajax({
+                        url: url,
+                        method: 'get',
+                        success: function (response) {
+                            tab.html(response);
+                            $('#atualizaFormas li table').css('display', 'none');
+                            window.theme.openPaymentMethod();
+                        },
+                    });
+                });
+    
+                linkNavTabs.on('click', function (event) {
+    
+                    if (!$(this).hasClass('active')) {
+                        let target = $(this).attr('href').split('#')[1];
+                        target = $(`#${target}`);
+    
+                        linkNavTabs.removeClass('active');
+                        $(this).addClass('active');
+                        content.fadeOut();
+    
+                        setTimeout(function () {
+                            target.fadeIn();
+                        }, 300);
+                    }
+    
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                });
+    
+                linkNavMobileTabs.on('click', function (event) {
+                    let target = $(this).attr('href').split('#')[1];
+                    target = $(`#${target}`);
+    
+                    if ($(this).hasClass('active')) {
+                        $(this).removeClass('active');
+                        target.removeClass('active').slideUp();
+                    } else {
+                        linkNavMobileTabs.removeClass('active');
+                        content.removeClass('active').slideUp();
+    
+                        $(this).addClass('active');
+                        target.addClass('active').slideDown();
+                    }
+    
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                });
+    
+                this.adjustOpenTabs(content, linkNavTabs, linkNavMobileTabs);
+    
+                $(window).on('resize', () => {
+                    this.adjustOpenTabs(content, linkNavTabs, linkNavMobileTabs);
+                });
+            }else{
+                const tabsContent = document.querySelectorAll('.product-tabs__content[data-action-url]'),
                 tabsCustom = document.querySelectorAll('#hidden_tab > [id]');
 
-            tabsContent.forEach(async (content) => {
-                const url = content.dataset.actionUrl,
-                    html = await renderHTMLByContentUrl(url);
+                tabsContent.forEach(async (content) => {
+                    const url = content.dataset.actionUrl,
+                        html = await renderHTMLByContentUrl(url);
 
-                content.innerHTML = html;
+                    content.innerHTML = html;
 
-                if (url.indexOf('/payment_options') !== -1) paymentsMethodsRestructuring();
-            });
-
-            tabsCustom.forEach((custom) => {
-                const targetId = custom.id.replace('AbaPersonalizadaConteudo', 'AbaPersonalizadaLink');
-                custom.removeAttribute('class');
-                custom.removeAttribute('style');
-                document
-                    .getElementById(targetId)
-                    .insertAdjacentElement('afterbegin', custom.querySelector(':scope > div'));
-            });
-
-            async function renderHTMLByContentUrl(url) {
-                let html = null;
-                try {
-                    const response = await fetch(url, {
-                        method: 'GET',
-                        headers: { 'X-Requested-With': 'XMLHttpRequest' },
-                    });
-
-                    if (!response.ok) {
-                        throw response;
-                        return null;
-                    }
-                    const data = await response.arrayBuffer();
-
-                    const decoder = new TextDecoder('iso-8859-1');
-
-                    html = decoder.decode(data);
-                } catch ({ status, statusText }) {
-                    console.error('[Error]:', status, ' - ', statusText);
-                    html = 'Error';
-                }
-                return html;
-            }
-
-            function paymentsMethodsRestructuring() {
-                const elem = document.querySelector('.product-tabs__content #atualizaFormas'),
-                    parentElem = elem.closest('.product-tabs__content');
-                if (!elem) return null;
-                elem.querySelectorAll('table').forEach((table) => {
-                    const imgEl = table.querySelector('img'),
-                        parentTd = imgEl.parentElement,
-                        parentTable = table.parentElement,
-                        wrapperEl = document.createElement('DIV');
-
-                    parentTable.querySelector(':scope > a[id]').insertAdjacentElement('afterbegin', imgEl);
-                    table.querySelectorAll('[width]').forEach((td) => td.removeAttribute('width'));
-                    wrapperEl.insertAdjacentElement('afterbegin', table);
-                    parentTable.insertAdjacentElement('beforeend', wrapperEl);
-                    parentTd.remove();
-                    parentElem.innerHTML = '';
-                    parentElem.insertAdjacentElement('afterbegin', elem);
+                    if (url.indexOf('/payment_options') !== -1) paymentsMethodsRestructuring();
                 });
+
+                tabsCustom.forEach((custom) => {
+                    const targetId = custom.id.replace('AbaPersonalizadaConteudo', 'AbaPersonalizadaLink');
+                    custom.removeAttribute('class');
+                    custom.removeAttribute('style');
+                    document
+                        .getElementById(targetId)
+                        .insertAdjacentElement('afterbegin', custom.querySelector(':scope > div'));
+                });
+
+                async function renderHTMLByContentUrl(url) {
+                    let html = null;
+                    try {
+                        const response = await fetch(url, {
+                            method: 'GET',
+                            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                        });
+
+                        if (!response.ok) {
+                            throw response;
+                            return null;
+                        }
+                        const data = await response.arrayBuffer();
+
+                        const decoder = new TextDecoder('iso-8859-1');
+
+                        html = decoder.decode(data);
+                    } catch ({ status, statusText }) {
+                        console.error('[Error]:', status, ' - ', statusText);
+                        html = 'Error';
+                    }
+                    return html;
+                }
+
+                function paymentsMethodsRestructuring() {
+                    const elem = document.querySelector('.product-tabs__content #atualizaFormas'),
+                        parentElem = elem.closest('.product-tabs__content');
+                    if (!elem) return null;
+                    elem.querySelectorAll('table').forEach((table) => {
+                        const imgEl = table.querySelector('img'),
+                            parentTd = imgEl.parentElement,
+                            parentTable = table.parentElement,
+                            wrapperEl = document.createElement('DIV');
+
+                        parentTable.querySelector(':scope > a[id]').insertAdjacentElement('afterbegin', imgEl);
+                        table.querySelectorAll('[width]').forEach((td) => td.removeAttribute('width'));
+                        wrapperEl.insertAdjacentElement('afterbegin', table);
+                        parentTable.insertAdjacentElement('beforeend', wrapperEl);
+                        parentTd.remove();
+                        parentElem.innerHTML = '';
+                        parentElem.insertAdjacentElement('afterbegin', elem);
+                    });
+                }
+
+                async function changePaymentMethods() {
+                    const variantId = +document.getElementById('selectedVariant').value,
+                        elem = document.querySelector('[data-action-url*="payment_options"]');
+
+                    if (!elem || !variantId) return null;
+                    const indexVarId = elem.dataset.actionUrl.indexOf('IdVariacao=') + 'IdVariacao='.length,
+                        currentId = +elem.dataset.actionUrl.slice(indexVarId),
+                        url = elem.dataset.actionUrl.slice(0, indexVarId);
+
+                    if (currentId === variantId) return null;
+
+                    const newUrl = url + variantId,
+                        newHtml = await renderHTMLByContentUrl(newUrl);
+
+                    elem.innerHTML = newHtml;
+
+                    paymentsMethodsRestructuring();
+                }
+
+                document.getElementById('hidden_tab').remove();
+
+                jQuery('.product-tabs__link').on('click', function (e) {
+                    e.preventDefault();
+                    jQuery(this).toggleClass('hide');
+                    jQuery(this).parent().next().slideToggle();
+                });
+
+                jQuery(document).on('click', '#atualizaFormas a[id]', function () {
+                    jQuery(this).toggleClass('open');
+                    jQuery(this).next().slideToggle();
+                });
+
+                listenerAjaxRequest('/variant_price/', changePaymentMethods);
+
+                function corridorAnimation(target) {
+                    const a = $(target).offset();
+                    const b = $(target).innerWidth();
+                    const c = b / 2 + a.left;
+                    const d = $(target).closest('.u-desktop').width();
+                    const f = $('body').width();
+                    const g = Math.abs((d - f) / 2);
+                    const h = $(target).innerWidth() * 0.75;
+                    const i = Math.abs(g - c);
+                    const j = i - h / 2;
+                }
+
+                
             }
-
-            async function changePaymentMethods() {
-                const variantId = +document.getElementById('selectedVariant').value,
-                    elem = document.querySelector('[data-action-url*="payment_options"]');
-
-                if (!elem || !variantId) return null;
-                const indexVarId = elem.dataset.actionUrl.indexOf('IdVariacao=') + 'IdVariacao='.length,
-                    currentId = +elem.dataset.actionUrl.slice(indexVarId),
-                    url = elem.dataset.actionUrl.slice(0, indexVarId);
-
-                if (currentId === variantId) return null;
-
-                const newUrl = url + variantId,
-                    newHtml = await renderHTMLByContentUrl(newUrl);
-
-                elem.innerHTML = newHtml;
-
-                paymentsMethodsRestructuring();
-            }
-
-            document.getElementById('hidden_tab').remove();
-
-            jQuery('.product-tabs__link').on('click', function (e) {
-                e.preventDefault();
-                jQuery(this).toggleClass('hide');
-                jQuery(this).parent().next().slideToggle();
-            });
-
-            jQuery(document).on('click', '#atualizaFormas a[id]', function () {
-                jQuery(this).toggleClass('open');
-                jQuery(this).next().slideToggle();
-            });
-
-            listenerAjaxRequest('/variant_price/', changePaymentMethods);
-
-            function corridorAnimation(target) {
-                const a = $(target).offset();
-                const b = $(target).innerWidth();
-                const c = b / 2 + a.left;
-                const d = $(target).closest('.u-desktop').width();
-                const f = $('body').width();
-                const g = Math.abs((d - f) / 2);
-                const h = $(target).innerWidth() * 0.75;
-                const i = Math.abs(g - c);
-                const j = i - h / 2;
-            }
-
 
         },
+
 
         variantImagesUpdate: function () {
             // ! check this later
@@ -2716,7 +2794,7 @@
 
                     hoursDiv.setAttribute('data-count', hours);
                     theme.fillTimer(hoursDiv);
-                    hoursDiv.style.setProperty('--content-value', `'${hours}'`);
+                    hoursDiv.style.setProperty('--content-value', `'${String(hours).padStart(2, '0')}'`);
 
                     minutesDiv.setAttribute('data-count', minutes);
                     theme.fillTimer(minutesDiv);
@@ -2740,19 +2818,57 @@
         },
 
         opensearch: function () {
-            $('.search-input').on('click', function () {
-                $('.header-search').css({
-                    'max-width': '620px',
-                    transition: '1s all',
+            if (window.innerWidth >= 768) { // Altere o valor para o limite que desejar
+                $('.search-input').on('click', function () {
+                    $('.header-search').css({
+                        'max-width': '620px',
+                        transition: '1s all',
+                    });
+            
+                    $('.header-search .search-input').css({
+                        'border': '1px solid var(--c_header_text)',
+                        'background': 'var(--c_bg_searchbar)',
+                        'width': '300px',
+                        transition: '1s all',
+                    });
+            
+                    $(".search-button").css({
+                        'display': 'flex'
+                    });
+            
+                    $(".search-cancel").css({
+                        'display': 'none'
+                    });
                 });
-            });
-            $('.search-input').blur(function () {
-                $('.header-search').css({
-                    'max-width': '0px',
-                    transition: '1s all',
+            
+                $('.search-input').blur(function () {
+                    $('.header-search').css({
+                        'max-width': '0px',
+                        transition: '1s all',
+                    });
+            
+                    $(".search-button").css({
+                        'display': 'none'
+                    });
+            
+                    $(".search-cancel").css({
+                        'display': 'flex'
+                    });
+            
+                    $('.header-search .search-input').css({
+                        'border': 'none',
+                        'background': 'transparent',
+                        'width': '100%',
+                    });
                 });
-            });
-        },
+            
+                $(".search-cancel").on("click", function() {
+                    $(".search-input").focus();
+                    $(".search-input").trigger("click");
+                });
+            }
+            
+    },
 
         searchInput: function () {
             const searchInput = document.querySelector('.search-input');
@@ -2808,6 +2924,11 @@
         },
 
         autoPlay: function () {
+            $('.rating-short__star').on('click', function() {
+                $('html, body').animate({
+                    scrollTop: $('.pageProduct-comments').offset().top - 100 
+                }, 'slow'); 
+            });
             if ($('.gallery-video[data-auto-play=true]').length > 0) {
                 const url = $('.gallery-video').data('url');
 
@@ -3264,7 +3385,7 @@
 
             new Swiper(elem.querySelector('.swiper'), {
                 loop: false,
-                slidesPerView: 1.4,
+                slidesPerView: 2,
                 spaceBetween: 6,
                 lazy: {
                     loadPrevNext: true,
@@ -3599,8 +3720,34 @@
         jQuery('.header-advantage-container').css('display', 'flex');
     }, 2000);
 
+    setTimeout(function() {
+        const ratingVotesText = $('.rating-short__votes').text();
+                const ratingVotes = parseFloat(ratingVotesText.replace(/[^\d.-]/g, ''));
+    
+        if (ratingVotes !== 0) {
+            const totalReview = $('.hreview-comentarios').length;
+            const totalStars = $('.hreview-comentarios .icon-star').length;
+    
+            const averageRatings = totalStars / totalReview;
+    
+            $('.rating-short__votes').text('(' + averageRatings.toFixed(1) + ')');
+        }
+    }, 2000);
+
     jQuery(document).ready(function () {
         jQuery('._lazy').removeClass();
+    });
+
+    const urlComparti = window.location.href;
+
+    const mensagem = encodeURIComponent('Confira isso: ' + urlComparti);
+
+    document.getElementById('whatsappShare').addEventListener('click', () => {
+        window.open(`https://api.whatsapp.com/send?text=${mensagem}`, '_blank');
+    });
+
+    document.getElementById('telegramShare').addEventListener('click', () => {
+        window.open(`https://t.me/share/url?url=${urlComparti}&text=Confira%20isso:`, '_blank');
     });
 
     function listenerAjaxRequest(path, cb) {

@@ -1,6 +1,6 @@
 .home-showcase {
     $root: &;
-    max-width: 1390px;
+    max-width: 1400px;
     width: calc(100% - 30px);
     margin: 15px auto;
     transition: $transit_default;
@@ -49,12 +49,18 @@
 
     &__title {
         margin-block: 40px;
-        font-size: 30px;
+        font-size: 35px;
+        font-family: "Kanit", serif;
         text-align: center;
         margin-bottom: 20px;
         gap: 0 8px;
         color: var(--c_general_secondary);
-        font-weight: 700;
+        font-weight: 500;
+
+        &.brand{
+            margin-block: 30px;
+            margin-bottom: 10px;
+        }
 
         @include mobile {
             font-size: 20px;
@@ -70,6 +76,11 @@
                 width: 50%;
                 height: 103px;
                 overflow: hidden;
+                @include mobile{
+                    width: 97%;
+                    margin-top: 10px;
+                    height: auto;
+                }
             }
         }
         @media screen and (max-width: 786px) {

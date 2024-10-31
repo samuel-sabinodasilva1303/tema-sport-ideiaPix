@@ -66,7 +66,7 @@
         max-width: 0px;
         width: 100%;
         max-height: 48px;
-        transform: translate(-110%);
+        transform: translate(0%);
 
         @include mobile {
             order: 1 !important;
@@ -80,9 +80,10 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                right: 0;
+                right: -14px;
+                top: 1px;
                 height: 48px;
-                width: 0;
+                width: 48px;
                 &:hover {
                     opacity: 0.6;
                 }
@@ -91,16 +92,17 @@
                 }
             }
             &-input {
-                border: 1px solid var(--c_header_text);
-                @include fontInsert($fs_header, 600, var(--c_header_text));
+                border: none;
+                @include fontInsert($fs_header, 600, #000);
                 display: block;
                 padding: 0px 43px 0 10px;
                 border-radius: 1px; //45px
-                background: var(--c_bg_searchbar);
+                background: transparent;
                 width: 100%;
                 height: 48px;
 
                 @include mobile {
+                    background: #eceff5;
                     font-size: 0.8rem;
                 }
 
@@ -116,10 +118,13 @@
             &-button {
                 border-radius: 6px;
                 position: absolute;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                right: -5px;
+                top: 3px;
+                height: 48px;
                 width: 48px;
-                height: 100%;
-                top: 0;
-                right: 0;
                 font-size: 20px;
                 color: #eceff5;
                 background: transparent;
@@ -141,10 +146,10 @@
             position: absolute;
             top: 100%;
             left: 0;
-            max-width: unset;
+            max-width: 500px;
             max-height: 450px;
             min-width: unset;
-            width: 100%;
+            width: 500px;
             padding: 0 56px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
             background: var(--c_header_bg);
@@ -154,7 +159,11 @@
             z-index: 100;
 
             @include mobile {
-                padding: 0 25px;
+                padding: 0 25px;                
+                max-width: unset;
+                max-height: 450px;
+                min-width: unset;
+                width: 100%;
             }
 
             &::-webkit-scrollbar {
@@ -281,6 +290,8 @@
                 opacity: 1;
                 transition: opacity 0.3s linear;
                 top: -9px;
+                position: relative;
+                transform: translate(0);
             }
 
             &[searchHidden='true'] {
@@ -341,7 +352,7 @@
     &-title {
         @extend %flex-betw-center;
         @extend %title-menu-modal;
-        color: var(--c_general_main);
+        color: #000;
         width: 100%;
         font-size: 1rem;
         height: 70px;
@@ -352,7 +363,7 @@
             margin-right: 1.25rem;
 
             &::before {
-                color: var(--c_general_main);
+                color: #000;
                 vertical-align: 15%;
                 @include mobile {
                     display: none;
@@ -485,7 +496,7 @@
             transition: all 333ms;
 
             svg {
-                fill: var(--c_general_main);
+                fill: #000;
             }
 
             &.open {
@@ -493,12 +504,12 @@
             }
         }
         &-firstLevel {
-            @include fontInsert(1.1, 600, var(--c_general_main));
+            @include fontInsert(1.1, 600, #000);
             border-bottom: $v_border_header;
             padding: 1.5rem 0 1rem 0.5rem;
 
             > a {
-                color: var(--c_font_menu);
+                color: #000;
             }
 
             &.subList {
@@ -517,7 +528,7 @@
                 line-height: 1.6rem;
             }
             > li > a {
-                color: var(--c_secondlevel_dropdown);
+                color: #000;
             }
             &Content {
                 flex: 100%;
@@ -530,7 +541,7 @@
             padding-top: 0.5rem;
 
             > li > a {
-                color: var(--c_secondlevel_dropdown);
+                color: #000;
             }
         }
 

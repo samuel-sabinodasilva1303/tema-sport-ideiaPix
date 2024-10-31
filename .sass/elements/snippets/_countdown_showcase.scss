@@ -7,16 +7,19 @@
     height: 103px;
     padding: 50px 40px;
     width: 50%;
+
     @include mobile{
-    padding: 8px 40px;
-    height: auto;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+        padding: 8px 40px;
+        height: auto;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 97%;
     }
     .home-showcase__title--countdown{
         display: flex;
         align-items: center;
+        font-family: "Kanit", serif;
         gap: 5px;
         font-size: 27px;
         font-style: normal;
@@ -38,6 +41,8 @@
         align-items: center;
         flex-wrap: nowrap;
         gap: 4px;
+        font-family: "Kanit", serif;
+
         @include mobile {
             display: flex;
             align-items: center;

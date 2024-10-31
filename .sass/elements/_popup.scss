@@ -28,7 +28,7 @@
             cursor: pointer;
             transition: transform 0.7s ease-in-out;
             > path {
-                fill: var(--c_newsletter_title);
+                fill: #000;
             }
         }
         .pop-up__close:hover {
@@ -49,7 +49,7 @@
             }
             .text__title {
                 font-weight: 700;
-                color: var(--c_newsletter_title);
+                color: #000;
                 width: 310px;
                 height: 50px;
                 display: flex;
@@ -59,7 +59,7 @@
                 font-size: 30px;
             }
             .text__subtitle {
-                color: var(--c_newsletter_subtitle);
+                color: #000;
             }
             form {
                 display: flex;
@@ -177,7 +177,7 @@ html._popup-lig {
             cursor: pointer;
             transition: transform 0.7s ease-in-out;
             > path {
-                fill: var(--c_newsletter_title);
+                fill: #000;
             }
         }
         .pop-up__close:hover {
@@ -275,7 +275,7 @@ html._popup-lig {
             flex-direction: row;
             background: #fff;
             width: 100%;
-            gap: 1em;
+            gap: 40px;
             align-items: center;
             img {
                 width: 100%;
@@ -283,16 +283,17 @@ html._popup-lig {
                 left: 0px;
             }
             .text__title {
-                color: var(--c_newsletter_title);
                 color: #292929;
                 font-size: 38px;
                 font-style: normal;
                 font-weight: 500;
                 line-height: 120%;
                 letter-spacing: 0.76px;
+                font-family: "Kanit", serif;
+
             }
             .text__subtitle {
-                color: var(--c_newsletter_subtitle);
+                color: #000;
                 font-size: 18px;
                 font-style: normal;
                 font-weight: 600;

@@ -1,5 +1,7 @@
 .menu {
     background: var(--c_bg_menu);
+    position: relative;
+    z-index: -1;
 
     &__content {
         display: flex;
@@ -113,14 +115,14 @@
         @media (hover: hover) {
             &:hover {
                 &.menu__item--depart {
-                    color: var(--c_depart_text_hover);
+                    color: var(--c_font_menu_hover);
 
                     & > svg {
                         transform: rotate3d(1, 0, 0, 180deg);
                     }
 
                     &:before {
-                        background: var(--c_depart_bg_hover);
+                        background: var(--c_general_main);
                     }
                 }
 

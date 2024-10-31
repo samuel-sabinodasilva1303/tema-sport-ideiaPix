@@ -13,7 +13,6 @@
         color: var(--c_header_text);
 
         svg {
-            fill: var(--c_header_icon);
 
             &:last-of-type {
                 transition: $transit_default;
@@ -43,7 +42,7 @@
         align-items: center;
         justify-content: flex-start;
         gap: 0 8px;
-        color: var(--c_general_tertiary);
+        color: #000;
         font-size: 13px;
         font-style: normal;
         font-weight: 600;

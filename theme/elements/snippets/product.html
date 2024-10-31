@@ -27,6 +27,7 @@
     <a href="{{ link }}" class="product__link {{ product.price_offer > 0 ? 'is-offer': '' }}">
 
         <h3 data-rows="{{ product.price_offer > 0 ? 2 : 3 }}" class="product__name">{{ name }}</h3>
+        {% element 'snippets/product-rating' %} 
 
         {% element 'snippets/product-price' {'product': product} %}
 

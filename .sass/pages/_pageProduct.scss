@@ -1,7 +1,19 @@
 .pageProduct {
-    #negociar{
-        a{
-            display: none;
+    &-compart{
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        gap: 1em;
+        padding: 1em 0;
+
+        > button{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--c_showcase_product_name);
+            &:hover{
+                opacity: 0.5;
+            }
         }
     }
     &-product__doubts{
@@ -37,7 +49,7 @@
         }
         span {
             color: #FFF;
-            font-family: var(--font_styles);
+            font-family: "Open Sans", sans-serif;
             font-size: 1rem;
             font-style: normal;
             font-weight: 800;
@@ -60,7 +72,7 @@
         }
         button{
             strong{
-                font-family: var(--font_styles);
+                font-family: "Open Sans", sans-serif;
                 font-size: 0.92rem;
                 font-weight: 600;
                 font-variant: normal;
@@ -586,25 +598,25 @@
             }
             &-freeShipping{
                 >div{
-                    @include fontInsert(0.9, 400, var(--c_text_portage), uppercase);
+                    @include fontInsert(0.7, 600, var(--c_text_portage), uppercase);
                     background: var(--c_bg_portage);
                 }
             }
             &-new{
                 >div{
-                    @include fontInsert(0.9, 400, var(--c_text_release), uppercase);
+                    @include fontInsert(0.7, 600, var(--c_text_release), uppercase);
                     background: var(--c_bg_release);
                 }
             }
             &-discount{
                 >div{
-                    @include fontInsert(0.9, 400, var(--c_text_additional), uppercase);
+                    @include fontInsert(0.7, 600, var(--c_text_additional), uppercase);
                     background: var(--c_bg_additional);
                 }
             }
             &-extra{
                 >div{
-                    @include fontInsert(0.9, 400, var(--c_text_additional), uppercase);
+                    @include fontInsert(0.7, 600, var(--c_text_additional), uppercase);
                     background: var(--c_bg_new);
                 }
             }
@@ -623,7 +635,7 @@
                 width: 25%;
                 min-width: 110px;
                 max-width: 120px;
-                height: 32px;
+                height: 20px;
                 line-height: 11px;
                 text-align: center;
                 white-space: nowrap;
@@ -726,7 +738,7 @@
         font-style: normal;
         font-weight: 400;
         line-height: 120%; /* 36px */
-        font-family: $font_name;
+        font-family: "Kanit", serif;
         color: var(--c_showcase_product_name);
         margin: 0 0 0.7rem 0;
         max-width: 90%;
@@ -957,7 +969,7 @@
     }
 
     &-buy {
-        margin: 1.5rem 0 ;
+        margin: 22px 0 8px;
         position: relative;
 
         #product-form-box {
@@ -3273,7 +3285,7 @@
                 }
 
                 &::before {
-                    content: 'Deixe sua Avalia' '\00e7' '\00e3' 'o';
+                    content: 'Deixe sua Avaliacao';
                     @include fontInsert(1,600,var(--c_default_button_text),uppercase);
                     letter-spacing: -0.002em;
                 }

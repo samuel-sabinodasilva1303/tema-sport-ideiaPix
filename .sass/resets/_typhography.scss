@@ -134,10 +134,16 @@ $fontIcons-name: 'partners';
     color: #ECEFF5;
     font-size: 1.6rem;
 }
-.icon-search::before {
+.search-button .icon-search::before {
     content: "\e90e";
     color: #000;
-    font-size: 1.7rem;
+    font-size: 1.8rem;
+    font-weight: 100;
+}
+.search-cancel .icon-search::before {
+    content: "\e90e";
+    color: #FFF;
+    font-size: 1.8rem;
     font-weight: 100;
 }
 .icon-package::before {
@@ -167,7 +173,7 @@ $fontIcons-name: 'partners';
 
 .icon-exit::before {
     content: '\e918';
-    color: var(--c_general_main);
+    color: #000;
     font-size: 1rem;
 }
 .icon-dollar::before {
@@ -193,7 +199,7 @@ $fontIcons-name: 'partners';
     font-size: 1.5rem;
 }
 // Font
-$font_name: var(--font_styles);
+$font_name: "Open Sans", sans-serif;
 $border_radius: 5px; //32px
 
 html {
