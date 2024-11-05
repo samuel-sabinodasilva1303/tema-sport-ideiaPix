@@ -1,8 +1,23 @@
 .product-tabs {
     margin-block: 30px;
-
+    border-bottom: 2px solid;
+    color: #c6c6c6;
+    &__container{
+        @include desktop{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
     &__header {
-        border-bottom: 1px solid #f0f0f0;
+        &.active{
+            border-bottom: 3px solid var(--c_general_tertiary);
+        }
+        &:hover{
+            border-bottom: 3px solid var(--c_general_tertiary); 
+        }
+        @include mobile{
+            border-bottom: 1px solid #f0f0f0;
+        }
     }
 
     &__link {
@@ -26,9 +41,11 @@
 
     &__content {
         color: var(--c_general_secondary);
-        border-bottom: 1px solid #f0f0f0;
         overflow: hidden;
-
+        display: none;
+        @include mobile{
+            border-bottom: 1px solid #f0f0f0;
+        }
         & > div {
             padding: 15px 10px;
         }
@@ -102,7 +119,9 @@
 
                     &,
                     & + div {
-                        border-bottom: 1px solid #f0f0f0;
+                        @include mobile{
+                            border-bottom: 1px solid #f0f0f0;
+                        }
                     }
                 }
 

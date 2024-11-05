@@ -7,7 +7,7 @@
             color: #2C2C2C;
         }
     .default-title > span{
-        color: var(--c_general_main);
+        color: var(--c_general_secondary);
     }
     }
 
@@ -15,11 +15,12 @@
 .is-custom-page .default-title {
     @include title-h1;
     margin: 2.5rem 0;
-    border-color: var(--c_general_main);
+    color: var(--c_general_secondary) !important;
+    border-color: var(--c_general_secondary);
 }
-
+ 
 .board_htm.description {
-    color: var(--c_general_tertiary);
+    color: var(--c_general_secondary);
     padding-bottom: 4rem;
 
     h1{

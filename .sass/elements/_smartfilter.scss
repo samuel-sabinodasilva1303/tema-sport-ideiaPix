@@ -18,7 +18,7 @@
             .filter__price-block {
                 .filter__price-input {
                     text-align: center;
-                    color: var(--c_general_tertiary);
+                    color: var(--c_general_secondary);
                     width: 120px;
                 }
             }
@@ -34,7 +34,6 @@
             &:before {
                 content: '';
                 height: 2px;
-                border-radius: 1px;
                 width: 100%;
                 background: #f2f2f2;
                 position: absolute;
@@ -49,7 +48,7 @@
                 width: 100%;
                 left: 0;
                 width: calc(#{$max} * 1% - (#{$max} / 100) * #{$tmb}); // width calc(61% - (61/100)*(25px) )
-                background: var(--c_general_tertiary);
+                background: var(--c_general_secondary);
                 left: calc((#{$min} * 1%) + ((#{$tmb}/2) - (#{$min}/100)*(#{$tmb}))); // left calc(26% + (25px/2 (26/100)*(25px)))
                 margin: auto;
                 top: 0;
@@ -74,16 +73,14 @@
                 &::-webkit-slider-runnable-track {
                     height: 2px;
                     background: #C5C5C5;
-                    border-radius: 1px;
                 }
 
                 &::-webkit-slider-thumb {
                     -webkit-appearance: none;
                     appearance: none;
-                    background: var(--c_general_tertiary);
+                    background: var(--c_general_secondary);
                     height: 10px;
                     width: 10px;
-                    border-radius: 7px;
                     cursor: pointer;
                     margin-top: -4px;
                     pointer-events: auto;
@@ -102,8 +99,7 @@
                     height: 14px;
                     width: #{$tmb};
                     pointer-events: auto;
-                    border-radius: 7px;
-                    background: var(--c_general_tertiary);
+                    background: var(--c_general_secondary);
                     cursor: pointer;
                     position: relative;
                     z-index: 2;
@@ -136,7 +132,7 @@
                     font-size: 14px;
                     line-height: 21px;
                     font-family: $font_name;
-                    color: var(--c_general_tertiary);
+                    color: var(--c_general_secondary);
 
                     &.rotate {
                         color: var(--c_genetal_main);
@@ -152,7 +148,6 @@
                     height: fit-content;
                     grid-template-columns: auto auto auto auto;
                     gap: 8px;
-                    border-radius: 4px;
                     box-shadow: 2px 2px 4px -1px var(--c_general_main),
                         0px 0px 4px 0px #595867;
 
@@ -229,7 +224,7 @@
                 padding: 0;
                 padding-left: 4px;
                 border-radius: 0;
-                border-bottom: 1px solid var(--c_general_tertiary);
+                border-bottom: 1px solid var(--c_general_secondary);
 
                 &::after {
                     padding-left: 4px;
@@ -244,13 +239,12 @@
             background: var(--c_general_background);
 
             .filter-header {
-                color: var(--c_general_main);
+                color: var(--c_general_secondary);
                 font-size: 1rem;
                 .filter-close{
                     border: 1px solid var(--c_font_menu);
                     height: 2.4rem;
                     transition: 0.2s ease-out;
-                    border-radius: $border_radius;
                     padding: 0 15px;
                     display: flex;
                     font-size: 1rem;
@@ -303,7 +297,6 @@
                     height: fit-content;
                     grid-template-columns: auto auto;
                     gap: 8px;
-                    border-radius: 4px;
 
                     &.visible {
                         display: block !important;
@@ -387,7 +380,6 @@
                     @include fontInsert(0.95, 400, #7A7A7A);
                     background: transparent;
                     border: 1px solid #7a7a7a;
-                    border-radius: $border_radius;
                     padding: 6px 10px;
                     width: 145px;
                 }
@@ -410,7 +402,6 @@
                     position: relative;
                     display: block;
                     bottom: 0;
-                    width: 170px;
                     font-size: 12px;
                 }
 
@@ -433,7 +424,6 @@
                 border: 1px solid var(--c_default_button_bg);
                 text-transform: capitalize;
                 transition: all 350ms;
-                border-radius: $border_radius;
                 padding: .5rem;
 
                 &:hover {
@@ -560,7 +550,6 @@
             align-items: center;
             line-height: 21px;
             border: 1px solid #e7ecef;
-            border-radius: 1px;
             padding: 6.5px 10px;
             gap: 15px;
             cursor: pointer;
@@ -583,13 +572,12 @@
     }
 
     &-clear {
-        @include fontInsert(1, 600, var(--c_general_tertiary));
+        @include fontInsert(1, 600, var(--c_general_secondary));
         @extend %flex-center-center;
-        border: 1px solid var(--c_general_tertiary);
+        border: 1px solid var(--c_general_secondary);
         line-height: 24px;
         padding: 5px 37px;
         background: transparent;
-        border-radius: $border_radius;
         transition: 0.3s all;
 
         &:hover {
@@ -608,7 +596,7 @@
     }
 
     &-title {
-        @include fontInsert(1, 600, var(--c_general_tertiary));
+        @include fontInsert(1, 600, var(--c_general_secondary));
         @extend %flex-betw-center;
         padding-bottom: 1rem;
         line-height: 24px;
@@ -660,7 +648,6 @@
         @include fontInsert(1, 600, var(--c_default_button_text));
         @extend %flex-center-center;
         flex-wrap: wrap;
-        border-radius: $border_radius;
         background: var(--c_default_button_bg);
         border: 1px solid var(--c_default_button_bg);
         padding: 5px 32px;

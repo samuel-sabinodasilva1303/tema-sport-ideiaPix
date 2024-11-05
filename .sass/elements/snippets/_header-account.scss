@@ -90,10 +90,14 @@
     }
 
     &__link {
+        color: #000;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+        letter-spacing: .26px;
         white-space: nowrap;
-        color: var(--c_general_secondary);
-        font-size: 14px;
-        line-height: 15px;
+        transition: .2s ease-out;
 
         &--flex {
             display: flex;

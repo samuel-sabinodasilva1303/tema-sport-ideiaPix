@@ -162,7 +162,6 @@
 
                 &.left:after,
                 &.right:after {
-                    width: calc((100vw - 1260px) / 2 + 100%);
 
                     @media screen and (max-width: 1259.99px){
                         width: 100%;

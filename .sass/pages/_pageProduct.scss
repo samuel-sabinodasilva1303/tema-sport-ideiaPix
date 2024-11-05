@@ -1,10 +1,15 @@
 .pageProduct {
     &-compart{
         display: flex;
-        flex-direction: column;
-        align-items: baseline;
+        align-items: center;
         gap: 1em;
         padding: 1em 0;
+        color: #292929;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 22.5px */
+        letter-spacing: 0.3px;
 
         > button{
             display: flex;
@@ -181,7 +186,8 @@
         }
     .tabs-content{
         p, ul, li, &{
-            color: var(--c_general_tertiary);
+            color: var(--c_general_secondary);
+            padding: 15px 10px;
 
         }
     }
@@ -584,9 +590,6 @@
         flex-wrap: wrap;
         gap: 13px;
 
-        @include small {
-            justify-content: center;
-        }
 
 
         .tag{
@@ -990,6 +993,10 @@
             border: none;
             width: 411px;
 
+            @include mobile{
+                width: 386px;
+            }
+
             &:hover{
                 background: var(--c_buy_button_bg_hover);
                 color: var(--c_buy_button_text_hover);
@@ -1028,7 +1035,7 @@
             }
 
             &-text {
-                @include fontInsert(0.875, 400, var(--c_general_tertiary));
+                @include fontInsert(0.875, 400, var(--c_general_secondary));
                 margin-bottom: 12px;
                 display: flex;
                 align-items: center;
@@ -1070,7 +1077,7 @@
             &-help {
                 font-size: 14px;
                 line-height: 21px;
-                color: var(--c_general_tertiary);
+                color: var(--c_general_secondary);
                 flex: 100%;
                 text-decoration: underline;
             }
@@ -1666,7 +1673,7 @@
 
         .texto_variacao {
             @extend %flex;
-            @include fontInsert(0.98, 400, var(--c_general_tertiary));
+            @include fontInsert(0.98, 400, var(--c_general_secondary));
             margin-bottom: 0.3rem;
 
             h2 {
@@ -1687,8 +1694,11 @@
             @include fontInsert(0.98, 600, var(--c_general_main));
             @extend %flex-start-center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 3px;
             width: 411px;
+            @include mobile{
+                width: 100%;
+            }
 
             li {
                 width: 40px;
@@ -1733,7 +1743,6 @@
                     height: 40px;
                     display: block;
                     padding: .13rem;
-                    border-radius: 50%;
                     transition: $transit_default;
                     border: .13rem solid #333333;
 
@@ -1870,7 +1879,7 @@
         margin: 1rem 0;
 
         &Text {
-            @include fontInsert(1.25, 700, var(--c_general_tertiary) , uppercase);
+            @include fontInsert(1.25, 700, var(--c_general_secondary) , uppercase);
             margin-bottom: 1rem;
         }
 
@@ -1891,7 +1900,7 @@
             border: 1px solid #bdbdbd;
             border-radius: 1px;
             > #nomeBrinde {
-                @include fontInsert(1.125, 400, var(--c_general_tertiary));
+                @include fontInsert(1.125, 400, var(--c_general_secondary));
                 line-height: 150%;
             }
         }
@@ -2103,6 +2112,7 @@
                 @include fontInsert(0.875, 400, var(--c_product_buy_together_text2));
                 padding: 1rem 0 0.5rem 0;
                 text-align: center;
+                display: none;
             }
 
             .select {
@@ -2339,7 +2349,7 @@
                     letter-spacing: 0.005em;
 
                     .PrecoPrincipal {
-                        color:var(--c_general_main);
+                        color:var(--c_general_secondary);
                         margin-left: 5px;
                     }
                 }

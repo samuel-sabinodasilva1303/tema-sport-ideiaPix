@@ -9,7 +9,7 @@
 {% set sale_without_stock = product.without_stock_sale %}
 {% set upon_request = product.upon_request %}
 
-<div class="product" data-product="{{ id }}">
+<div class="product" data-product="{{ id }}" {{ product.data_tray_ga4 }}>
     <div class="product__frame product__frame--{{ shape }}">
         <a href="{{ link }}" class="product__link">
             {% if images %}

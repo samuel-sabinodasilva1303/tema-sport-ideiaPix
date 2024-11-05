@@ -199,6 +199,21 @@
 
     &-showcase {
         margin-bottom: 20px;
+
+        .showcase-listProduct{
+            .catalog-list.listProduct-item{
+                .product{
+                    @include mobile{
+                        height: 470px;
+                    }
+                    .product-actions{
+                        @include mobile{
+                            bottom: 101px;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     &-list.listProduct-item {

@@ -4,7 +4,6 @@
     min-width: 0;
     display: flex;
     flex-direction: row-reverse;
-    gap: 16px;
     @include mobile{
         flex-direction: column;
     }
@@ -69,7 +68,7 @@
                 & img {
                     transition: $transit_default;
                     width: 581px;
-                    height: 640px;
+                    height: 541px;
                     flex-shrink: 0;
                     border: 1px solid #292929;
                 }
@@ -92,32 +91,36 @@
         .swiper {
             &-wrapper.jcc {
                 display: flex;
+                border: 1px solid #d9d9d9;
                 flex-direction: column;
-                gap: 4px;
-                width: 124px;
-                height: 125.226px;
-                flex-shrink: 0;
-                border: 1px solid #D9D9D9;
+                gap: 14px;
+                height: 541px;
                 @include mobile{
                     flex-direction: row;
                     width: auto;
                     height: auto;
+                    gap: 0;
+                    margin-top: 10px;
                 }
 
             }
 
             &-slide {
                 cursor: pointer;
-                width: 124px !important;
-                height: 125.226px;
                 flex-shrink: 0;
                 border: 1px solid #c6c6c6;
+                @include desktop{
+                    width: 124px !important;
+                    height: 124px;
+                }
                 @include mobile{
                     flex-direction: row;
                 }
 
                 &.swiper-slide-thumb-active{
                     opacity: 0.5;
+                    border: 1px solid #292929;
+                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
                 }
             }
         }

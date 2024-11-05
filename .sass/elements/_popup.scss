@@ -98,10 +98,11 @@
                         border: 1px solid #7a7a7a;
                         transition: all 233ms;
                         opacity: 1;
-                        width: 200px;
+                        width: 100px;
                         height: 44px;
                         border-radius: 1px;
-                        padding: 2px 30px;
+                        position: relative;
+                        left: -9px;
                     }
                 }
             }
@@ -341,10 +342,11 @@ html._popup-lig {
                         letter-spacing: 0.028px;
                         transition: all 233ms;
                         opacity: 1;
-                        width: 200px;
+                        width: 100px;
                         height: 44px;
                         border-radius: 1px;
-                        padding: 2px 30px;
+                        position: relative;
+                        left: -9px;
             
                         &:hover {
                             opacity: 0.8;

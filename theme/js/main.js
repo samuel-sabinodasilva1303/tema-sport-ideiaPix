@@ -1412,6 +1412,7 @@
                     watchSlidesProgress: true,
                     slidesPerView: 4,
                     spaceBetween: 10,
+                    allowTouchMove: true,
                     on: {
                         init: function (swiper) {
                             const totalSlides = swiper.slides.length,
@@ -1900,79 +1901,115 @@
         tabNavigationOnProductPage: function () {
             'use strict';
             if(window.innerWidth >= 765){
-                const customTab = $('.tabs-navMobile[href*="AbaPersonalizada"]');
-                const urlTabs = $('.page-product .tabs-content[data-url]');
-                const linkNavTabs = $('.page-product .tabs-nav .nav-link');
-                const linkNavMobileTabs = $('.page-product .tabs .tabs-navMobile');
-                const content = $('.page-product .tabs .tabs-content');
-      
-                customTab.each(function () {
-                    let target = $(this).attr('href').split('#')[1];
-                    target = $(`#${target}`);
-    
-                    $(target).detach().insertAfter(this);
+                function openTab($link) {
+                    const targetTitle = $link.find('span').data('title'); 
+
+                    jQuery('.product-tabs__content').slideUp();
+
+                    jQuery('.product-tabs__header').removeClass('active');
+
+                    jQuery(`.product-tabs__content[data-title="${targetTitle}"]`).slideDown();
+                    $link.parent().addClass('active');
+                }
+
+                function handleTabClick(event) {
+                    event.preventDefault(); 
+                    openTab(jQuery(this));
+                }
+
+                jQuery('.product-tabs__link').on('click', handleTabClick);
+
+                jQuery(document).ready(function () {
+                    const $firstTabLink = jQuery('.product-tabs__link').first();
+                    openTab($firstTabLink); 
                 });
-    
-                urlTabs.each(function () {
-                    let tab = $(this);
-                    let url = tab.data('url');
-    
-                    $.ajax({
-                        url: url,
-                        method: 'get',
-                        success: function (response) {
-                            tab.html(response);
-                            $('#atualizaFormas li table').css('display', 'none');
-                            window.theme.openPaymentMethod();
-                        },
+
+                const tabsContent = document.querySelectorAll('.product-tabs__content[data-action-url]'),
+                    tabsCustom = document.querySelectorAll('#hidden_tab > [id]');
+
+                tabsContent.forEach(async (content) => {
+                    const url = content.dataset.actionUrl,
+                        html = await renderHTMLByContentUrl(url);
+
+                    content.innerHTML = html;
+
+                    if (url.indexOf('/payment_options') !== -1) paymentsMethodsRestructuring();
+                });
+
+                tabsCustom.forEach((custom) => {
+                    const targetId = custom.id.replace('AbaPersonalizadaConteudo', 'AbaPersonalizadaLink');
+                    custom.removeAttribute('class');
+                    custom.removeAttribute('style');
+                    document
+                        .getElementById(targetId)
+                        .insertAdjacentElement('afterbegin', custom.querySelector(':scope > div'));
+                });
+
+                async function renderHTMLByContentUrl(url) {
+                    let html = null;
+                    try {
+                        const response = await fetch(url, {
+                            method: 'GET',
+                            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                        });
+
+                        if (!response.ok) {
+                            throw response;
+                            return null;
+                        }
+                        const data = await response.arrayBuffer();
+
+                        const decoder = new TextDecoder('iso-8859-1');
+
+                        html = decoder.decode(data);
+                    } catch ({ status, statusText }) {
+                        console.error('[Error]:', status, ' - ', statusText);
+                        html = 'Error';
+                    }
+                    return html;
+                }
+
+                function paymentsMethodsRestructuring() {
+                    const elem = document.querySelector('.product-tabs__content #atualizaFormas'),
+                        parentElem = elem.closest('.product-tabs__content');
+                    if (!elem) return null;
+                    elem.querySelectorAll('table').forEach((table) => {
+                        const imgEl = table.querySelector('img'),
+                            parentTd = imgEl.parentElement,
+                            parentTable = table.parentElement,
+                            wrapperEl = document.createElement('DIV');
+
+                        parentTable.querySelector(':scope > a[id]').insertAdjacentElement('afterbegin', imgEl);
+                        table.querySelectorAll('[width]').forEach((td) => td.removeAttribute('width'));
+                        wrapperEl.insertAdjacentElement('afterbegin', table);
+                        parentTable.insertAdjacentElement('beforeend', wrapperEl);
+                        parentTd.remove();
+                        parentElem.innerHTML = '';
+                        parentElem.insertAdjacentElement('afterbegin', elem);
                     });
-                });
-    
-                linkNavTabs.on('click', function (event) {
-    
-                    if (!$(this).hasClass('active')) {
-                        let target = $(this).attr('href').split('#')[1];
-                        target = $(`#${target}`);
-    
-                        linkNavTabs.removeClass('active');
-                        $(this).addClass('active');
-                        content.fadeOut();
-    
-                        setTimeout(function () {
-                            target.fadeIn();
-                        }, 300);
-                    }
-    
-                    event.preventDefault();
-                    event.stopPropagation();
-                    return false;
-                });
-    
-                linkNavMobileTabs.on('click', function (event) {
-                    let target = $(this).attr('href').split('#')[1];
-                    target = $(`#${target}`);
-    
-                    if ($(this).hasClass('active')) {
-                        $(this).removeClass('active');
-                        target.removeClass('active').slideUp();
-                    } else {
-                        linkNavMobileTabs.removeClass('active');
-                        content.removeClass('active').slideUp();
-    
-                        $(this).addClass('active');
-                        target.addClass('active').slideDown();
-                    }
-    
-                    event.preventDefault();
-                    event.stopPropagation();
-                    return false;
-                });
-    
-                this.adjustOpenTabs(content, linkNavTabs, linkNavMobileTabs);
-    
-                $(window).on('resize', () => {
-                    this.adjustOpenTabs(content, linkNavTabs, linkNavMobileTabs);
-                });
+                }
+
+                async function changePaymentMethods() {
+                    const variantId = +document.getElementById('selectedVariant').value,
+                        elem = document.querySelector('[data-action-url*="payment_options"]');
+
+                    if (!elem || !variantId) return null;
+                    const indexVarId = elem.dataset.actionUrl.indexOf('IdVariacao=') + 'IdVariacao='.length,
+                        currentId = +elem.dataset.actionUrl.slice(indexVarId),
+                        url = elem.dataset.actionUrl.slice(0, indexVarId);
+
+                    if (currentId === variantId) return null;
+
+                    const newUrl = url + variantId,
+                        newHtml = await renderHTMLByContentUrl(newUrl);
+
+                    elem.innerHTML = newHtml;
+
+                    paymentsMethodsRestructuring();
+                }
+
+                document.getElementById('hidden_tab').remove();
+
             }else{
                 const tabsContent = document.querySelectorAll('.product-tabs__content[data-action-url]'),
                 tabsCustom = document.querySelectorAll('#hidden_tab > [id]');
@@ -2980,7 +3017,7 @@
                 return null;
             }
 
-            const side = wp.getBoundingClientRect().x > window.innerWidth / 2 ? 'side-r' : 'side-l',
+            const side = wp.getBoundingClientRect().x > window.innerWidth / 2 ? 'side-r' : 'side-r',
                 wpHref = wp.closest('a').href,
                 onlyNum = wpHref.replace(/\D/g, ''),
                 noDDI = onlyNum.slice(2),
@@ -3316,6 +3353,15 @@
         }
     });
 
+    if (window.innerWidth < 730) {
+        $(".product").each(function() {
+            var teste = $(this).find(".product-actions .product-countdown");
+            if (teste.length > 0) {
+                $(this).find(".product-actions__btn.product-actions__btn--buy").remove();
+            }
+        });
+    }
+
     (function () {
         const isMobile = Boolean(
             /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -3445,8 +3491,6 @@
     document.getElementById('telegramShare').addEventListener('click', () => {
         window.open(`https://t.me/share/url?url=${urlComparti}&text=Confira%20isso:`, '_blank');
     });
-
-    
 
     function listenerAjaxRequest(path, cb) {
         jQuery(document).on('ajaxComplete', function (event, req, settings) {

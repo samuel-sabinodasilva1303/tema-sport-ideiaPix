@@ -444,6 +444,7 @@
         text-align: right;
         min-width: 3.13rem;
         width: 47%;
+        font-family: "Open Sans",sans-serif;
 
         > small {
             display: none;
@@ -475,6 +476,7 @@
 
     .cart-preview-subtotal {
         @include fontInsert(1, 600, var(--c_general_secondary));
+        font: "Open Sans",sans-serif;
         padding-bottom: 1.5rem;
         text-align: right;
         width: 100%;
