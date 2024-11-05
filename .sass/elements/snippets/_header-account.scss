@@ -63,7 +63,7 @@
             z-index: 1;
 
             & span {
-                color: var(--c_general_tertiary);
+                color: var(--c_general_secondary);
                 display: inline-block;
                 padding: 1px 15px;
                 background: var(--c_general_background);
@@ -91,7 +91,7 @@
 
     &__link {
         white-space: nowrap;
-        color: var(--c_general_tertiary);
+        color: var(--c_general_secondary);
         font-size: 14px;
         line-height: 15px;
 
@@ -104,8 +104,8 @@
 
             svg {
                 transition: all 333ms ease-in-out;
-                fill: var(--c_general_tertiary);
-                stroke: var(--c_general_tertiary);
+                fill: var(--c_general_secondary);
+                stroke: var(--c_general_secondary);
             }
         }
     }

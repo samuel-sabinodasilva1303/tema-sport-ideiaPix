@@ -1,0 +1,49 @@
+<style>
+    #quantidade{
+        display: inline-flex !important;
+        padding: 8px;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20.936px;
+        border: 1px solid #8D8D8D;
+        background: #FFF;
+    }
+    #minus, #plus{
+        font-size: 32px;
+        color: #292929;
+    }
+    #quant{
+        color: #292929;
+        text-align: center;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%; /* 27px */
+        letter-spacing: 0.36px;
+    }
+</style>
+<div data-app="product.quantity" id="quantidade">
+    <span id="span_erro_carrinho" class="blocoAlerta" style="display:none;">Selecione uma opção para variação do produto</span>
+    <input type="button" id="minus" value='-' />
+    <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
+    <input type="button" id="plus" value='+' />
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var $ = jQuery;
+
+        $('#plus').on("click", function() {
+            let quant = parseInt($('#quant').val());
+            $('#quant').val(quant + 1);
+        });
+
+        $('#minus').on("click",function() {
+            let quant = parseInt($('#quant').val());
+            if (quant > 1) {
+                $('#quant').val(quant - 1);
+            }
+        }); 
+    });  
+</script>

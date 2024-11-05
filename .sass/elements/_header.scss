@@ -152,7 +152,7 @@
             width: 500px;
             padding: 0 56px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
-            background: var(--c_header_bg);
+            background: #eceff5;
             border-radius: 1px;
             overflow: auto;
             scrollbar-color: #eceff5 #fff;
@@ -263,7 +263,7 @@
 
                     .suggestion-desc .titlep {
                         margin-top: 10px;
-                        @include fontInsert(0.875, 500, var(--c_general_tertiary));
+                        @include fontInsert(0.875, 500, var(--c_general_secondary));
                         transition: ease-out 0.2s;
 
                         @include mobile {
@@ -279,7 +279,7 @@
 
             &-title {
                 display: block;
-                @include fontInsert(1, 600, var(--c_general_tertiary), capitalize);
+                @include fontInsert(1, 600, var(--c_general_secondary), capitalize);
                 text-indent: 0;
                 margin-bottom: 0.95rem;
                 line-height: 24px;
@@ -408,17 +408,17 @@
             font-size: 0;
             transform: rotate(-90deg);
         }
-
+ 
         .logged[data-logged-user='true'] {
             .account-access {
                 margin-top: 4px;
                 .account-link {
                     background: unset;
-                    @include fontInsert(1, 400, var(--c_general_tertiary));
+                    @include fontInsert(1, 600, #000);
                     padding: 0;
                     margin: 4px auto;
                     &:last-of-type {
-                        color: var(--c_general_tertiary);
+                        color: var(--c_general_secondary);
                     }
                 }
             }
@@ -440,7 +440,7 @@
             }
 
             &-text {
-                @include fontInsert(1.25, 700, var(--c_general_tertiary));
+                @include fontInsert(1.25, 700, var(--c_general_secondary));
                 overflow: hidden;
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
@@ -450,13 +450,19 @@
             }
 
             &-access {
+                .itens-mobile{
+                    display: flex;
+                    align-items: center;
+                    justify-content: unset;
+
+                }
                 .icon-account {
                     padding-right: 0.5rem;
                 }
 
                 .account-link {
                     margin: 6px 0 15px 9px;
-                    @include fontInsert(0.875, 400, var(--c_general_tertiary));
+                    @include fontInsert(1, 600, #000);
                     font-weight: 600;
                     display: flex;
                     align-items: center;
@@ -466,10 +472,11 @@
             }
             &-link {
                 margin: 8px auto;
-                @include fontInsert(1, 400, var(--c_general_tertiary));
+                @include fontInsert(1, 400, var(--c_general_secondary));
                 display: flex;
+                width: 100%;
                 span {
-                    @include fontInsert(0.875, 400, var(--c_general_tertiary));
+                    @include fontInsert(0.875, 400, var(--c_general_secondary));
                     text-align: center;
                 }
                 &:first-of-type {

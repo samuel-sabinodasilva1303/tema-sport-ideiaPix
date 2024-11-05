@@ -12,7 +12,7 @@
 
     &[data-slides]:not(:has(&_banner)) {
         @media screen and (max-width: 1320px) {
-            width: calc(100% - 60px);
+            width: calc(100% - 29px);
         }
     }
 
@@ -77,7 +77,7 @@
                 height: 103px;
                 overflow: hidden;
                 @include mobile{
-                    width: 97%;
+                    width: 90%;
                     margin-top: 10px;
                     height: auto;
                 }
@@ -98,7 +98,7 @@
                         border: 2px solid #FF5520;
 
                         @include mobile{
-                            height: 530px;
+                            height: 480px;
                         }
 
                     }
@@ -147,11 +147,11 @@
                     }
 
                     &--prev {
-                        left: -20px;
+                        left: -8px;
                         z-index: 1;
                     }
                     &--next {
-                        right: -20px;
+                        right: -8px;
                         z-index: 1;
                     }
 

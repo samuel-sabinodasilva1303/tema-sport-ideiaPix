@@ -755,7 +755,6 @@ body.overflowed {
 .button2 {
     @include fontInsert(1, 700, var(--c_default_button_text), uppercase);
     background: var(--c_default_button_bg);
-    border-radius: $border_radius;
     display: block;
     padding: 0.68rem 2rem;
     opacity: 1;

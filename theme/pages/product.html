@@ -220,11 +220,9 @@
                             </div>
                         </div>
                         {% endif %}
+                        {% element('snippets/botoes_qty') %}
 
-
-                        <div class="pageProduct-buy serverTray-content" data-price-hidden="{{settings.hide_price ? 'true' : 'false'}}" data-buy-product="box">
-                                <input class="buy-quantityTop u-show more" type="button" value="+" data-quantity />
-                                <input class="buy-quantityDown u-show less" type="button" value="-" data-quantity />
+                        <div class="pageProduct-buy serverTray-content"  data-buy-product="box">
                             {{ productHelper.form() }}
                         </div>
 

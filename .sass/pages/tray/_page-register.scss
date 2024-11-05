@@ -134,7 +134,6 @@
     }
 
     .botao-commerce {
-        border-radius: $border_radius;
         margin-bottom: 10px;
         @include fontInsert(1, 700, var(--c_default_button_text), uppercase);
         background: var(--c_default_button_bg);

@@ -8,5 +8,11 @@
 
     img {
         width: 100%;
+        @include mobile{
+            width: 81%;
+            margin: 0 auto;
+            display: flex;
+        
+        }
     }
 }

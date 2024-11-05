@@ -90,6 +90,15 @@
                 justify-content: center;
                 align-items: center;
                 gap: 7px;
+                .media-link{
+                    > span{
+                        > svg{
+                            > path{
+                                fill: #fff;
+                            }
+                        }
+                    }
+                }
             }
         }
         &-newsletter {
@@ -168,10 +177,11 @@
                 &-email {
                     @extend %flex-center-center;
                     position: relative;
-                    gap: 4em;
+                    gap: 10em;
                     border: 1px solid var(--c_newsletter_subtitle);
 
                     @include medium {
+                        gap: 1em;
                         width: 60%;
                     }
 
@@ -198,12 +208,10 @@
                         @include small {
                             max-width: unset;
                             margin-right: 0;
-                            margin-bottom: 1rem;
                             width: 80%;
                         }
 
                         @include medium {
-                            margin-right: 1em;
                             width: 50%;
                         }
                     }
@@ -221,7 +229,7 @@
                         border-radius: $border_radius;
 
                         @include small {
-                            width: 50%;
+                            width: 38%;
                             margin-bottom: 5px;
                         }
 

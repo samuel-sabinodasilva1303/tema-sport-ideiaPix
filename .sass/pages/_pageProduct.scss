@@ -27,7 +27,7 @@
         gap: 10px;
         background: #25D366;
         @include mobile{
-            display: none;
+            width: 100%;
         }
         &:hover{
             opacity: 0.5;
@@ -912,7 +912,7 @@
             font-weight: 400;
             line-height: 150%; /* 22.5px */
             letter-spacing: 0.3px;
-            color: var(--c_general_tertiary);
+            color: #8d8d8d;
             text-decoration: line-through;
 
             & + br {
@@ -1006,55 +1006,6 @@
                 }
             }
         }
-
-        #quantidade {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: nowrap;
-            font-size: 0;
-            border: 1px solid #333;
-            border-radius: $border_radius;
-            background: #f6f6f6;
-
-            .buy-quantityDown{
-                order: 1;
-            }
-            .color{
-                order: 2;
-            }
-            .buy-quantityTop{
-                order: 3
-            }
-            input[type='text'] {
-                @include fontInsert(1, 600, #333);
-                border-radius: 2px;
-                text-align: center;
-                height: 46px;
-                width:43px;
-            }
-
-            .buy-quantityDown, .buy-quantityTop {
-                text-transform: uppercase;
-                width: 55px;
-                height: 46px;
-                text-align: center;
-                line-height: 36px;
-                font-weight: 900;
-                font-size: 30px;
-                color: #333333;
-                font-family: $font_name;
-                display: none;
-                outline:none;
-                cursor: pointer;
-                &:hover {
-                    opacity: 0.5;
-                }
-                &.u-show {
-                    display: block;
-                }
-            }
-        }
     }
 
     &-shipping {
@@ -1099,7 +1050,6 @@
             &-submit {
                 background: transparent;
                 color: #4B4B4B;
-                text-align: right;
                 font-size: 15px;
                 font-style: normal;
                 font-weight: 400;
@@ -1145,22 +1095,22 @@
                 width: 100%;
 
                 tr {
-                    @include fontInsert(0.9, 700, var(--c_general_tertiary), uppercase);
-                    border-right: 2px solid var(--c_general_tertiary);
+                    @include fontInsert(0.9, 700, var(--c_general_secondary), uppercase);
+                    border-right: 2px solid var(--c_general_secondary);
                     text-align: center;
 
                     th {
-                        border-top: 2px solid var(--c_general_tertiary);
-                        border-left: 2px solid var(--c_general_tertiary);
+                        border-top: 2px solid var(--c_general_secondary);
+                        border-left: 2px solid var(--c_general_secondary);
                         padding: 0.2rem 0;
                         color: #fff;
                         background: var(--c_general_main);
                     }
 
                     td {
-                        @include fontInsert(0.9, 400, var(--c_general_tertiary));
-                        border-top: 2px solid var(--c_general_tertiary);
-                        border-left: 2px solid var(--c_general_tertiary);
+                        @include fontInsert(0.9, 400, var(--c_general_secondary));
+                        border-top: 2px solid var(--c_general_secondary);
+                        border-left: 2px solid var(--c_general_secondary);
 
                         strong {
                             font-weight: 400;
@@ -1168,7 +1118,7 @@
                     }
 
                     &:last-child {
-                        border-bottom: 2px solid var(--c_general_tertiary);
+                        border-bottom: 2px solid var(--c_general_secondary);
                     }
                 }
             }
@@ -1200,7 +1150,7 @@
     }
 
     &-socialMedia {
-        @include fontInsert(0.875, 600, var(--c_general_tertiary));
+        @include fontInsert(0.875, 600, var(--c_general_secondary));
         margin-bottom: 1.5rem;
         width: 100%;
 
@@ -1793,14 +1743,15 @@
                 }
 
                 div {
-                    border: 2px solid var(--c_general_tertiary);
+                    border: 2px solid var(--c_general_secondary);
                     border-radius: 1%;
                     width: 40px;
                     height: 40px;
-                    color: var(--c_general_tertiary);
+                    color: var(--c_general_secondary);
                     position: relative;
                     transition: $transit_default;
                     text-align: center;
+                    background: #fff;
                     line-height: 37px;
                     font-family: $font_name;
                     font-weight: 400;
@@ -1998,10 +1949,9 @@
             z-index: 1;
 
             > div {
-                display: grid;
-                grid-template-columns: auto 1fr;
-                grid-template-rows: auto 1fr;
-                column-gap: 1.5rem;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
 
                 .tray-kit-image {
                     grid-column: 1/2;
@@ -2535,7 +2485,7 @@
                 }
 
                 &-link {
-                    @include fontInsert(1.5, 600, var(--c_general_tertiary));
+                    @include fontInsert(1.5, 600, var(--c_general_secondary));
                     display: block;
                     padding: 1rem 0;
                     word-wrap: break-word;
@@ -2547,7 +2497,7 @@
         }
 
         &-navMobile {
-            @include fontInsert(1.5, 700, var(--c_general_main));
+            @include fontInsert(1.5, 700, var(--c_general_secondary));
             border-bottom: $v_border_titles;
             padding: 1rem 0;
             position: relative;
@@ -3207,7 +3157,7 @@
             margin-bottom: 5px;
 
             &::before {
-                content: 'Avalia\e7\f5es';
+                content: 'Avaliações';
                 @include fontInsert(1.875,600,#fff);
             }
         }
@@ -3285,7 +3235,7 @@
                 }
 
                 &::before {
-                    content: 'Deixe sua Avaliacao';
+                    content: 'Deixe sua Avaliação';
                     @include fontInsert(1,600,var(--c_default_button_text),uppercase);
                     letter-spacing: -0.002em;
                 }

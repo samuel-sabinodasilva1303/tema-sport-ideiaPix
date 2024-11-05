@@ -135,6 +135,7 @@
         &-title {
             @include title-h4(600);
             line-height: 1.43;
+            color: var(--c_general_secondary) !important;
             margin: 0;
             text-align: left;
 
@@ -410,12 +411,12 @@
     }
 
     .cart-preview-item-name-box {
-        @include fontInsert(0.875, 400, var(--c_general_main));
+        @include fontInsert(0.875, 400, var(--c_general_secondary));
         padding-right: 2rem;
         width: 100%;
 
         > small {
-            @include fontInsert(0.75, 400, var(--c_general_tertiary));
+            @include fontInsert(0.75, 400, var(--c_general_secondary));
             display: block;
             margin-top: 0.25rem;
 
@@ -438,7 +439,7 @@
     }
 
     .cart-preview-item-price-box {
-        @include fontInsert(1, 600, var(--c_general_main));
+        @include fontInsert(1, 600, var(--c_general_secondary));
         padding-right: 1rem;
         text-align: right;
         min-width: 3.13rem;
@@ -473,7 +474,7 @@
     }
 
     .cart-preview-subtotal {
-        @include fontInsert(1, 600, var(--c_general_main));
+        @include fontInsert(1, 600, var(--c_general_secondary));
         padding-bottom: 1.5rem;
         text-align: right;
         width: 100%;
@@ -529,13 +530,6 @@
         }
     }
 
-    .botao-continuar-comprando,
-    .botao-prosseguir-compra {
-        .botao-commerce-img {
-            border-radius: $border_radius;
-            padding: 0.5rem 2rem;
-        }
-    }
 
     abbr {
         text-decoration: none;

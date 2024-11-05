@@ -145,6 +145,14 @@ $fontIcons-name: 'partners';
     color: #FFF;
     font-size: 1.8rem;
     font-weight: 100;
+  
+}
+@media (max-width: 730px){
+    .search-cancel .icon-search::before{
+        color: #000;
+        position: relative;
+        left: -11px;
+    }
 }
 .icon-package::before {
     content: '\e911';

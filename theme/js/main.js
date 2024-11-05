@@ -30,8 +30,8 @@
                     },
                     storeID: $('html').data('store'),
                     hash: null,
-                    Products: null, 
-                    info: {}, 
+                    Products: null, // products array > name, imagem, url, id, quantity and more
+                    info: {}, // total quantity and price @object info.price and info.amount
                     currencyFormat: function (value) {
                         return new Intl.NumberFormat('pt-BR', {
                             style: 'currency',
@@ -83,10 +83,7 @@
                                     template += '<a class="minicart__link" href="' + product_url.https + '">';
                                     template +=
                                         '<figure class="minicart__frame"><img src="' +
-                                        product_image.https +
-                                        '" alt="' +
-                                        product_name +
-                                        '" height="100" width="100" loading="lazy"/></figure>';
+                                        product_image.https + '" height="100" width="100" loading="lazy"/></figure>';
                                     template +=
                                         '<h3 class="minicart__info"><strong class="minicart__name">' +
                                         product_name +
@@ -109,8 +106,11 @@
                             );
 
                             template += '</ul>';
+                            $('.minicart_subprice, .minicart__actions').css('display', 'flex');
+
                         } else {
-                            template = '<span class="minicart__empty" >Carrinho Vazio!</span>';
+                            template = '<span class="minicart__empty" >Carrinho Vazio !</span>';
+                            $('.minicart_subprice, .minicart__actions').css('display', 'none');
                         }
 
                         $('.minicart__main').append(template);
@@ -195,19 +195,14 @@
                     },
                 };
 
-                // cart.init();
-                cart.mountCart();
+                cart.init();
 
                 $('#cart').on('click', function (e) {
                     e.preventDefault();
                     cart.minicartShow();
                 });
 
-                $(document).on('click', '.minicart__close.minicart__close--header', function (e) {
-                    e.preventDefault();
-                    cart.minicartHide();
-                });
-                $(document).on('click', '.minicart__close.minicart__close--footer', function (e) {
+                $(document).on('click', '.minicart__close', function (e) {
                     e.preventDefault();
                     cart.minicartHide();
                 });
@@ -241,15 +236,12 @@
                         );
                         return setTimeout(() => {
                             msgError.empty();
+                            // msgError.remove();
                         }, 2000);
                     }
 
                     return cart.addProduct(productId, productQuant, productVar);
                 });
-
-                return {
-                    cart,
-                };
             }
             $('.swiper-button-disabled').remove();
         },
@@ -1547,35 +1539,6 @@
                 modal.toggleClass('u-show');
             });
         },
-
-        getQuantityChangeOnProductPage: function () {
-            const buttonQtd = $('[data-quantity]');
-
-            if (
-                !$('[data-has-variations]')[0] ||
-                ($('[data-buy-product="box"] div#quantidade label')[0] && !$('[data-has-variations]')[0])
-            ) {
-                $('[data-quantity]').addClass('u-show');
-            }
-
-            $(document).on('click', 'input[data-quantity]', function (event) {
-                event.preventDefault();
-
-                let inputQtd = $('[data-buy-product="box"] #quantidade input#quant');
-
-                let valueQtd = parseInt(inputQtd.val());
-                const operator = $(event.target).val();
-                const number = parseInt(`${operator}1`);
-                valueQtd += number;
-
-                if (valueQtd < 1 || Number.isNaN(valueQtd)) {
-                    inputQtd.val(1);
-                } else {
-                    inputQtd.val(valueQtd);
-                }
-            });
-        },
-
         generateShippingToProduct: function () {
             const shippingForm = $('[data-shipping="form"]');
             const resultBox = $('[data-shipping="result"]');
@@ -1925,12 +1888,12 @@
                     const observer = new ResizeObserver((entries) => {
                         const { contentRect } = entries[0];
                         $(this).parent().find('.wrapper-plus').css({ height: contentRect.height });
-                    });
+                    });  
 
                     observer.observe(jQuery(this).get(0));
                 }
             });
-
+ 
             $('.pageProduct-buyTogether').removeClass('tray-hide');
         },
 
@@ -1942,7 +1905,7 @@
                 const linkNavTabs = $('.page-product .tabs-nav .nav-link');
                 const linkNavMobileTabs = $('.page-product .tabs .tabs-navMobile');
                 const content = $('.page-product .tabs .tabs-content');
-    
+      
                 customTab.each(function () {
                     let target = $(this).attr('href').split('#')[1];
                     target = $(`#${target}`);
@@ -2641,32 +2604,8 @@
                 });
             }, 1000);
 
-            const more = $('.pageProduct-buy').find('.more').clone(true, true);
-            const less = $('.pageProduct-buy').find('.less').clone(true, true);
-
-            function appendMoreAndLess() {
-                if ($.contains($('#quantidade').get(0), $('#more').get(0))) {
-                    return false;
-                }
-
-                $('.pageProduct-buy').find('#less,#more').remove();
-
-                $('#quantidade').append(more, less);
-            }
-
-            $(document).ajaxComplete(function (event, request, settings) {
-                settings.url.indexOf('/variant_form') !== -1 && appendMoreAndLess();
-            });
-
-            $('#quantidade').append($('.pageProduct-buy').find('.less,.more'));
-
             $('input#email_avise').attr('placeholder', 'Seu e-mail');
 
-            var qtdValidate = $('#quantidade');
-            if (qtdValidate.length == 0) {
-                $('.buy-quantityTop').remove();
-                $('.buy-quantityDown').remove();
-            }
         },
 
         pricefilter: function () {
@@ -2985,247 +2924,6 @@
             }
         },
 
-        productSpotQuickBuy: function () {
-            'use strict';
-
-            const hasQuickBuy = document.querySelector('.product-actions--quick-buy');
-
-            if (!hasQuickBuy) return null;
-
-            console.info('%c[Quick Buy Activated]', 'color: #e8de35; font-weight: bold; background: #1d1d1d;');
-
-            const buyButtons = document.querySelectorAll('button.product-actions__btn--buy:not([onclick])'), // product kit that has the attribute onclik
-                selectcsVariations = document.querySelectorAll('select.product-variations__select'),
-                colorsVariations = document.querySelectorAll('span.product-variations__color-item:not(.no-stock)'),
-                colorsSwiper = document.querySelectorAll('.product-variations__color[data-swiper="true"]');
-
-            window.handleQuantity = (elem, value) => {
-                const parent = elem.parentElement,
-                    input = parent.querySelector('input[type="number"]'),
-                    maxValue = +input.getAttribute('max'),
-                    currentValue = +input.value,
-                    sum = currentValue + +value,
-                    newValue = !maxValue ? sum : sum <= 0 ? 1 : sum > maxValue ? maxValue : sum;
-
-                sum > maxValue && popupMessage(parent, 'Limite m\u00e1ximo atingido!');
-
-                input.value = newValue;
-            };
-
-            colorsVariations.forEach((item) => item.addEventListener('click', handleEvent, false));
-
-            selectcsVariations.forEach((select) => select.addEventListener('change', handleEvent, false));
-
-            buyButtons.forEach((button) => button.addEventListener('click', handleBuy, false));
-
-            colorsSwiper.forEach((swiper) => initColorSlider(swiper));
-
-            function handleEvent(e) {
-                const { currentTarget: target } = e;
-                const tag = target.tagName;
-                const data = JSON.parse(
-                    target.closest('.product-variations').querySelector('script[data-options]').textContent
-                );
-
-                const varName = tag === 'SELECT' ? target.value : tag === 'SPAN' ? target.dataset.value : null;
-
-                actionVariations({ name: varName, tag, target, data });
-            }
-
-            function actionVariations(options = {}) {
-                const { name, tag, target, data } = options;
-
-                const filter = dataFilter(data, name);
-
-                const nextElem = target.nextElementSibling ?? false;
-
-                const nextTag = nextElem && nextElem.tagName;
-
-                tag === 'SPAN' && variationColors(target);
-
-                filter.constructor.name === 'Object' && variationSetup(filter, target);
-
-                nextElem && filter.constructor.name === 'Array' && renderSecondaryVariation(nextElem, nextTag, filter);
-            }
-
-            function variationSetup(options, target) {
-                const parent = target.closest('.product');
-
-                const {
-                    id,
-                    stock,
-                    prices: { old, current, payments },
-                } = options;
-                const inputQty = parent.querySelector('.product-actions__qty--input');
-
-                const templatePrice = `${
-                    old ? '<s>de: ' + old + '<s/>' : ''
-                }<span class="product-price__current">Por: <em>${current}</em></span>`;
-
-                inputQty.getAttribute('max') && +inputQty.value > stock && (inputQty.value = stock);
-
-                inputQty.getAttribute('max') && inputQty.setAttribute('max', stock);
-
-                parent.querySelector('.product-price').innerHTML = templatePrice;
-                parent.querySelector('.product-price__installments').innerHTML = payments;
-                parent.querySelector('.product-actions__btn--buy').dataset.varId = id;
-            }
-
-            function dataFilter(data, name) {
-                const names = name.split(',');
-
-                return data.reduce((acc, obj) => {
-                    if (obj.name.every((item) => names.includes(item))) {
-                        acc = { id: obj.id, prices: obj.prices, stock: obj.stock };
-                    } else if (obj.name.includes(name)) {
-                        acc.push({ ...obj });
-                    }
-
-                    return acc;
-                }, []);
-            }
-
-            function variationColors(elem) {
-                elem.closest('div.product-variations__color')
-                    .querySelectorAll('.selected')
-                    .forEach((selected) => selected.classList.remove('selected'));
-                elem.classList.add('selected');
-            }
-
-            function renderSecondaryVariation(target, type, data) {
-                const size = +data.length;
-
-                type === 'SELECT' && clearOptionsNotFirst(target.querySelectorAll('option'));
-
-                type === 'DIV' && clearSpanElements(target, size);
-
-                data.forEach(({ name, url, stock, sell_without_stock }) => {
-                    type === 'SELECT' && renderOptions(target, name, stock, !sell_without_stock);
-
-                    type === 'DIV' && renderSpans(target, name, stock, url, size, !sell_without_stock);
-                });
-
-                // Add listener to new elements
-                type === 'DIV' &&
-                    target
-                        .querySelectorAll('span:not(.no-stock)')
-                        .forEach((item) => item.addEventListener('click', handleEvent, false));
-
-                type === 'DIV' && size > 4 && initColorSlider(target);
-
-                type === 'DIV' && target.classList.remove('disabled');
-
-                type === 'SELECT' && target.removeAttribute('disabled');
-
-                target.removeAttribute('title');
-            }
-
-            function renderOptions(parent, name, stock, check) {
-                const templateOption = `<option ${check && +stock <= 0 ? 'disabled' : ''} value="${name.toString()}">${
-                    name[1]
-                }</option>`;
-
-                parent.insertAdjacentHTML('beforeend', templateOption);
-            }
-
-            function renderSpans(parent, name, stock, url, size, check) {
-                const isSlider = size > 4;
-
-                const templateSpan = `${
-                    isSlider ? '<div class="swiper-slide">' : ''
-                }<span data-value="${name.toString()}" class="product-variations__color-item${
-                    check && +stock <= 0 ? ' no-stock' : ''
-                }"><img src="${url}" alt="Cor ${name[1]}" height="30" width="30" /></span>${isSlider ? '</div>' : ''}`;
-
-                isSlider
-                    ? parent.querySelector('.swiper-wrapper').insertAdjacentHTML('beforeend', templateSpan)
-                    : parent.insertAdjacentHTML('beforeend', templateSpan);
-            }
-
-            function clearOptionsNotFirst(elements) {
-                elements.forEach((elem, i) => i !== 0 && elem.remove());
-            }
-
-            function clearSpanElements(parent, size) {
-                const swiperTemplate = `<div class=swiper_color-prev><svg fill=none height=12 viewBox="0 0 12 12"width=12 xmlns=http://www.w3.org/2000/svg><path d="M6.2.2c.14.14.22.32.22.53 0 .21-.06.39-.2.53L2.55 4.93h8.38c.21 0 .4.07.54.22.14.14.21.32.21.53a.73.73 0 0 1-.75.75H2.55l3.67 3.68c.14.13.2.3.2.52 0 .21-.08.39-.21.53a.71.71 0 0 1-.53.2.71.71 0 0 1-.52-.2L.2 6.2a.51.51 0 0 1-.16-.24.92.92 0 0 1 0-.57.66.66 0 0 1 .16-.24L5.16.2c.13-.14.3-.2.52-.2.21 0 .39.06.53.2Z"fill=#1d1d1d /></svg></div>
-                <div class="swiper"><div class="swiper-wrapper"></div></div>
-                <div class=swiper_color-next><svg fill=none height=12 viewBox="0 0 12 12"width=12 xmlns=http://www.w3.org/2000/svg><path d="M5.47 11.16a.75.75 0 0 1-.21-.53c0-.21.06-.39.2-.52l3.67-3.68H.75a.73.73 0 0 1-.53-.21.73.73 0 0 1-.22-.54c0-.21.07-.39.22-.53a.73.73 0 0 1 .53-.22h8.38L5.46 1.26a.68.68 0 0 1-.2-.53A.71.71 0 0 1 6 0c.21 0 .39.07.53.2l4.94 4.96c.08.06.13.14.16.23a.92.92 0 0 1 0 .57.66.66 0 0 1-.16.25l-4.95 4.95a.71.71 0 0 1-.52.2.71.71 0 0 1-.53-.2Z"fill=#1d1d1d /></svg></div>`;
-
-                size > 4 ? (parent.innerHTML = swiperTemplate) : (parent.innerHTML = '');
-            }
-
-            function handleBuy(e) {
-                e.preventDefault();
-                const { currentTarget: btn } = e,
-                    variantId = btn.dataset.varId ?? false,
-                    parent = btn.closest('.product-actions'),
-                    productId = btn.dataset.id ?? false,
-                    quantity = +parent.querySelector('input[type="number"]').value;
-
-                if (!variantId) {
-                    popupMessage(parent, 'Selecione uma varia\u00e7\u00e3o!');
-                    return null;
-                }
-
-                quickBuyAddToCart(productId, quantity, variantId, parent);
-            }
-
-            function popupMessage(target, message, time = 2000) {
-                const alreadyElem = target.querySelector('.product-actions__message') ?? false;
-
-                if (alreadyElem) return null;
-
-                const nodeEl = document.createElement('P');
-
-                nodeEl.classList.add('product-actions__message');
-
-                nodeEl.innerHTML = message.toString();
-
-                target.appendChild(nodeEl);
-
-                setTimeout(() => {
-                    target.removeChild(nodeEl);
-                }, time);
-            }
-
-            async function quickBuyAddToCart(product_id, quant = 1, variant_id = 0, target) {
-                const session_id = document.querySelector('html').dataset.session,
-                    quantity = quant.toString(),
-                    payload = { Cart: { session_id, product_id, quantity, variant_id } };
-
-                try {
-                    const response = await fetch('/web_api/cart/', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json; charset=utf-8',
-                            'X-Requested-With': 'XMLHttpRequest',
-                        },
-                        body: JSON.stringify(payload),
-                    });
-
-                    const data = await response.json();
-
-                    if (!response.ok) throw data;
-
-                    theme.minicart().cart.updateCart();
-                    theme.minicart().cart.minicartShow();
-                } catch ({ code, causes }) {
-                    code === 400 && popupMessage(target, causes[0]);
-                    code >= 500 && popupMessage(target, 'Error no Servidor');
-                    console.error('[code]', code, '[causes]', causes ? causes[0] : causes);
-                }
-            }
-
-            function initColorSlider(target) {
-                new Swiper(target.querySelector('.swiper'), {
-                    slidesPerView: 4,
-                    navigation: {
-                        prevEl: target.querySelector('.swiper_color-prev'),
-                        nextEl: target.querySelector('.swiper_color-next'),
-                    },
-                });
-            }
-        },
 
         variationShowcase: function () {
 
@@ -3518,7 +3216,6 @@
         theme.backToTop();
         theme.advantageSlidesHeader();
         theme.productMenuImage();
-        theme.productSpotQuickBuy();
         theme.popupsBySession();
         theme.advantageSlides();
 
@@ -3556,7 +3253,6 @@
             theme.customerReviewsSlidesOnHome();
             theme.brandsSlides();
         } else if ($('html').hasClass('page-product')) {
-            theme.getQuantityChangeOnProductPage();
             theme.autoPlay();
             theme.gallerySlidesOnProductPage();
             theme.toggleProductVideoModal();
@@ -3749,6 +3445,8 @@
     document.getElementById('telegramShare').addEventListener('click', () => {
         window.open(`https://t.me/share/url?url=${urlComparti}&text=Confira%20isso:`, '_blank');
     });
+
+    
 
     function listenerAjaxRequest(path, cb) {
         jQuery(document).on('ajaxComplete', function (event, req, settings) {

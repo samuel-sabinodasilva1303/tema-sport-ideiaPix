@@ -53,7 +53,7 @@
 .minicart_subprice{
     display: flex;
     justify-content: flex-end;
-    color: var(--c_general_main);
+    color: #000;
     font-weight: 700;
     font-size: 16px;
     > span {
@@ -102,7 +102,7 @@
     margin-left: 20px;
     font-size: 20px;
     font-weight: 700;
-    color: var(--c_general_main);
+    color: #000;
 
 }
 .minicart__close {
@@ -129,7 +129,7 @@
         font-size: 14px;
         font-family: $font_name;
         vertical-align: middle;
-        color: var(--c_general_tertiary);
+        color: #000;
 
     }
 }
@@ -149,7 +149,7 @@ button.minicart__close--footer {
     display: block;
     padding: 25px;
     text-align: center;
-    color: var(--c_general_tertiary);
+    color: #0000;
 }
 .minicart__list {
     @extend %style-scroll-small;
@@ -161,7 +161,6 @@ button.minicart__close--footer {
     display: flex;
     padding: 4px;
     border-radius: 4px;
-    background: #F2F2F2;
     margin: 8px 0;
 }
 .minicart__link {
@@ -201,7 +200,7 @@ button.minicart__close--footer {
         line-height: 22px;
     }
     & span {
-        color: var(--c_general_main);
+        color: #000;
         font-weight: 700;
         font-size: 14px;
     }
@@ -216,7 +215,7 @@ button.minicart__close--footer {
 .minicart__name{
     grid-area: titulo;
     padding-right: 4px;
-    color: var(--c_general_tertiary);
+    color: #000;
 }
 .minicart__qty{
     grid-area: info;
@@ -249,7 +248,7 @@ button.minicart__close--footer {
     & > svg {
         transition: all 0.3s;
         path{
-            fill: var(--c_general_tertiary);
+            fill: #000;
         }
     }
     &:hover {
@@ -277,7 +276,6 @@ button.minicart__close--footer {
     min-width: 112px;
     max-width: 160px;
     height: 36px;
-    border-radius: $border_radius;
     background: var(--c_buy_button_bg);
     color: var(--c_buy_button_text);
     transition: all 0.3s;
