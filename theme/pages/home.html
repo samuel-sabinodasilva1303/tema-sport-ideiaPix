@@ -85,10 +85,10 @@
                     {% set width = banner.width %}
                     {% set target = banner.target %}
                     {% set rel = target == '_blank' ? 'rel="noopner noreferrer"'%}
-                    {% set link = banner.link %}
+                    {% set link = banner.tracked_link %}
 
                     {{ link ? '<a class="banners-double__link" href="'~ link ~'" title="'~ alt ~'" target="'~ target ~'" '~ rel ~'>' }}
-                        <img src="{{ src }}" width="600" height="{{ height }}" loading="lazy" alt="{{ alt }}">
+                        <img href="{{ link }}" src="{{ src }}" width="600" height="{{ height }}" loading="lazy" alt="{{ alt }}">
                     {{ link ? '</a>' }}
 
                 {% endfor %}

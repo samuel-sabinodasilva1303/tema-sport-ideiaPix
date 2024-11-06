@@ -1,15 +1,5 @@
 {% element 'schema' { 'product' : product } %}
 
-{% if ProgressiveDiscounts %}
-    <div class="pageProduct-bannerDiscount">
-        {% for discount in ProgressiveDiscounts %}
-            {% if discount.banner %}
-                <img class="bannerDiscount-image" src="{{ discount.banner }}" alt="{{ discount.name }}"/>
-            {% endif %}
-        {% endfor %}
-    </div>
-{% endif %}
-
 <div class="pageProduct" id="page-product">
     <div class="pageProduct-main">
         {% set discount = product.price_offer > 0 ? (100 - (product.price_offer / product.price) * 100) : false %}
@@ -34,6 +24,15 @@
                 </div>
             {% endif %}
 
+            {% if ProgressiveDiscounts %}
+                <div class="pageProduct-bannerDiscount">
+                    {% for discount in ProgressiveDiscounts %}
+                        {% if discount.banner %}
+                            <img class="bannerDiscount-image" src="{{ discount.banner }}" alt="{{ discount.name }}"/>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
             <div class="pageProduct-nameAndInformation {{ batch_promotion ? 'u-width' : '' }}">
 
                 {% if product.featured or product.free_shipping or product.new or extra_tag or discount %}

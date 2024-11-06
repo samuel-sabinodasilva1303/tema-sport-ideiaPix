@@ -1413,19 +1413,32 @@
                     slidesPerView: 4,
                     spaceBetween: 10,
                     allowTouchMove: true,
-                    on: {
-                        init: function (swiper) {
-                            const totalSlides = swiper.slides.length,
-                                slidesPerView = swiper.passedParams.slidesPerView;
-
-                            totalSlides > slidesPerView
-                                ? swiper.$wrapperEl.hasClass('jcc') && swiper.$wrapperEl.removeClass('jcc')
-                                : !swiper.$wrapperEl.hasClass('jcc') && swiper.$wrapperEl.addClass('jcc');
-
-                            galleryThumbs.classList.add('show');
-                        },
+                    navigation: { 
+                      nextEl: '.swiper_button-next.swiper_showcase-btn--next',
+                      prevEl: '.swiper_button-prev.swiper_showcase-btn--prev',
                     },
-                });
+                    breakpoints: {
+                      0: {
+                        direction: 'horizontal',
+                      },
+                      1024: {
+                        direction: 'vertical',
+                      },
+                    },
+                    on: {
+                      init: function (swiper) {
+                        const totalSlides = swiper.slides.length,
+                          slidesPerView = swiper.passedParams.slidesPerView;
+                  
+                        totalSlides > slidesPerView
+                          ? swiper.$wrapperEl.hasClass('jcc') && swiper.$wrapperEl.removeClass('jcc')
+                          : !swiper.$wrapperEl.hasClass('jcc') && swiper.$wrapperEl.addClass('jcc');
+                  
+                        galleryThumbs.classList.add('show');
+                      },
+                    },
+                  });
+                  
 
                 const mainSwiper = new Swiper(galleryMain.querySelector('.swiper'), {
                     thumbs: {

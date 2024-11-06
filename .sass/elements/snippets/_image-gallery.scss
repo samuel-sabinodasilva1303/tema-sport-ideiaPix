@@ -82,6 +82,74 @@
 
     &__thumbs {
         transition: $transit_default;
+        @include desktop{
+            height: 541px;
+            position: relative;
+            left: -1em;
+        }
+        @include mobile{
+            margin-top: 1em;
+        }
+        .swiper{
+            .swiper_button-next.swiper_showcase-btn--next, .swiper_button-prev.swiper_showcase-btn--prev{
+                &.swiper-button-disabled{
+                    display: none;
+                }
+                @include desktop{
+                    position: absolute;
+                    margin-block: auto;
+                    z-index: 100;
+                    width: 26.667px;
+                    height: 26.667px;
+                    flex-shrink: 0;
+                    place-items: center;
+                    cursor: pointer;
+                    transition: .2s ease-out;
+                    background: var(--c_general_secondary);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                @include mobile{
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    margin-block: auto;
+                    z-index: 100;
+                    width: 26.667px;
+                    height: 26.667px;
+                    place-items: center;
+                    cursor: pointer;
+                    transition: .2s ease-out;
+                    background: var(--c_general_secondary);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .swiper_button-prev.swiper_showcase-btn--prev{
+                @include desktop{
+                    bottom: 0;
+                    transform: translate(200%);
+                    > svg{
+                        transform: rotate(-90deg);
+                    }
+                }
+            }
+
+            .swiper_button-next.swiper_showcase-btn--next{
+                @include desktop{
+                    top: 0;
+                    transform: translate(200%);
+                    > svg{
+                        transform: rotate(-90deg);
+                    }
+                }
+                @include mobile{
+                    left: 21.5em;
+                }
+            }
+        }
 
         &:not(.show) {
             visibility: hidden;
@@ -93,7 +161,6 @@
                 display: flex;
                 border: 1px solid #d9d9d9;
                 flex-direction: column;
-                gap: 14px;
                 height: 541px;
                 @include mobile{
                     flex-direction: row;

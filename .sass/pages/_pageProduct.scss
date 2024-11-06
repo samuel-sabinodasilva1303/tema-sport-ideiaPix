@@ -1,4 +1,5 @@
 .pageProduct {
+    width: 96%;
     &-compart{
         display: flex;
         align-items: center;
@@ -88,7 +89,6 @@
     .pageProduct-price{
         #produto_nao_disp{
             #nao_disp:first-child{
-                border: 1px solid var(--c_general_main);
                 background: var(--c_product_progressive_bg);
                 #img_nao_disp {
                     width: 100%;
@@ -213,15 +213,15 @@
     }
     &-bannerDiscount {
         .bannerDiscount-image {
-            max-width: 100%;
-            margin: 0px auto 1.688rem auto;
+            max-width: 20%;
+            margin-bottom: 20px;
             display: block;
         }
     }
 
     &-main {
         @extend %flex;
-        gap: 20px;
+        gap: 40px;
         margin-top: 10px;
 
         @include small {
@@ -845,7 +845,6 @@
 
     &-progressiveDiscount {
         background: var(--c_product_progressive_bg);
-        border: 1px solid var(--c_general_main);
         margin-bottom: 15px;
         padding: 15px;
         text-align: center;
@@ -1174,7 +1173,6 @@
 
         .botao-nao_indisponivel {
             font-size: 0;
-            border: 1px solid var(--c_general_main);
             border-radius: 1px;
             background: var(--c_product_progressive_bg);
             text-align: center;
@@ -1226,6 +1224,8 @@
             align-items: center;
             gap: 10px;
             flex-wrap: wrap;
+            border: 2px solid #ffffff;
+
 
             label {
                 font-size: 0;
@@ -1245,12 +1245,10 @@
 
             input[name='email_avise'] {
                 @include fontInsert(0.98, 400, #7A7A7A);
-                border: 1px solid #E0E0E0;
                 text-indent: 15px;
                 height: 42px;
                 text-align: left;
                 width: 100%;
-                border-radius: $border_radius;
             }
 
             div.color {
@@ -1269,14 +1267,14 @@
                     }
                 }
                 &::before {
-                    @include fontInsert(0.98, 600, #FFF, uppercase);
+                    @include fontInsert(0.98, 600, #000, uppercase);
                     @extend .button2;
                     content: 'Enviar';
                     text-align: center;
                     padding: 0;
                     height: 42px;
                     line-height: 42px;
-                    background: var(--c_general_main);
+                    background: #51455a00;
                     transition: 0.3s all;
 
 
@@ -1812,7 +1810,7 @@
                 display: none;
             }
             #preco{
-                padding: 20px 20px;
+                padding: 20px 0;
                 border-radius: 1px;
             }
 
@@ -1947,12 +1945,10 @@
 
         .tray-kit-title {
             @include fontInsert(0.87, 600, var(--c_general_main), uppercase);
-            margin-bottom: 1rem;
             display: none;
         }
 
         .tray-kit-item {
-            margin-bottom: 1rem;
             padding: 10px;
             position: relative;
             z-index: 1;
@@ -1984,7 +1980,7 @@
                         color: #333;
 
                         .varTit {
-                            @include fontInsert(0.875, 400, var(--c_general_main));
+                            @include fontInsert(0.875, 400, var(--c_general_secondary));
                             display: none;
                         }
 
@@ -2040,11 +2036,11 @@
             height: fit-content;
 
             > a {
-                @include fontInsert(1, 600, var(--c_general_tertiary));
+                @include fontInsert(1, 600, var(--c_general_secondary));
             }
 
             + small {
-                @include fontInsert(0.875, 400, var(--c_general_tertiary));
+                @include fontInsert(0.875, 400, var(--c_general_secondary));
 
             }
         }

@@ -2,6 +2,11 @@
     margin-block: 30px;
     border-bottom: 2px solid;
     color: #c6c6c6;
+    @include desktop{
+        width: 95%;
+        margin: 0 auto;
+        padding-block: 30px;
+    }
     &__container{
         @include desktop{
             display: flex;
@@ -26,10 +31,12 @@
         justify-content: flex-start;
         gap: 0 10px;
         padding-block: 20px;
-        font-weight: 600;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 21.6px */
+        font-family: "Kanit", serif;
         color: var(--c_general_secondary);
-        font-size: 1.5rem;
-        line-height: 21px;
         width: fit-content;
 
         &.hide {
@@ -43,11 +50,26 @@
         color: var(--c_general_secondary);
         overflow: hidden;
         display: none;
+        @include desktop{
+            width: 95%;
+            margin: 0 auto;
+        }
         @include mobile{
             border-bottom: 1px solid #f0f0f0;
         }
         & > div {
             padding: 15px 10px;
+            > p, ul {
+                color: #4B4B4B;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%; /* 27px */
+                letter-spacing: 0.36px;
+                @include mobile{
+                    font-size: 14px;
+                }
+            }
         }
 
         .board.aba_personalizada,
